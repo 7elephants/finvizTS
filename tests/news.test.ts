@@ -2,20 +2,32 @@ import { FinvizClient } from '../src/client';
 import { getNews } from '../src/news';
 
 describe('getNews', () => {
-  const mockGet = jest.fn();
-  const client = { get: mockGet } as unknown as FinvizClient;
+  const mockGetRecords = jest.fn();
+  const client = { getRecords: mockGetRecords } as unknown as FinvizClient;
 
   beforeEach(() => jest.clearAllMocks());
 
-  it('calls the news endpoint without a ticker', async () => {
-    mockGet.mockResolvedValueOnce([]);
+  it('calls getRecords with the news endpoint and no ticker', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client);
-    expect(mockGet).toHaveBeenCalledWith('/api/news.ashx', { t: undefined });
+    expect(mockGetRecords).toHaveBeenCalledWith('/api/news.ashx', { t: undefined });
   });
 
   it('passes ticker when provided', async () => {
-    mockGet.mockResolvedValueOnce([]);
+    mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client, { ticker: 'TSLA' });
-    expect(mockGet).toHaveBeenCalledWith('/api/news.ashx', { t: 'TSLA' });
+    expect(mockGetRecords).toHaveBeenCalledWith('/api/news.ashx', { t: 'TSLA' });
+  });
+
+  it('maps CSV rows to NewsItem shape', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      { Date: '2024-01-01', Title: 'Apple hits ATH', Source: 'Reuters', URL: 'https://example.com' },
+    ]);
+
+    const result = await getNews(client, { ticker: 'AAPL' });
+
+    expect(result).toEqual([
+      { date: '2024-01-01', title: 'Apple hits ATH', source: 'Reuters', url: 'https://example.com' },
+    ]);
   });
 });

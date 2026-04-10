@@ -40,7 +40,8 @@ npm run test:coverage
 ```
 src/
   index.ts      # Public API surface — re-exports everything
-  client.ts     # FinvizClient class — wraps axios, injects auth_token on every request
+  client.ts     # FinvizClient — axios transport, CSV parsing, auth injection
+  csv.ts        # parseRecord() and parseRecords() — csv-parse wrappers
   types.ts      # All shared TypeScript interfaces and types
   quote.ts      # getQuote(client, ticker) → QuoteData
   screener.ts   # getScreener(client, options) → ScreenerRow[]
@@ -48,6 +49,7 @@ src/
 
 tests/
   client.test.ts
+  csv.test.ts
   quote.test.ts
   screener.test.ts
   news.test.ts
@@ -55,10 +57,12 @@ tests/
 
 ### Key design decisions
 
-- **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance and delegates to `client.get()`. Consumers construct one client and pass it around.
-- **Auth is injected by the client.** `auth_token` is appended to every request automatically in `client.get()` — individual modules never handle auth.
-- **Endpoint paths are placeholders.** The exact paths (`/api/quote.ashx`, etc.) need to be verified against the official Finviz Elite API docs once accessible. Update `src/quote.ts`, `src/screener.ts`, and `src/news.ts` accordingly.
-- **Build via tsup.** Produces both CJS and ESM outputs plus `.d.ts` declarations in `dist/`. The `exports` map in `package.json` handles format resolution.
+- **All responses are CSV.** The Finviz API returns `text/csv`. Requests use `responseType: 'text'` and axios sends `Accept: text/csv`.
+- **Two response shapes.** `client.getRecord()` handles two-row CSV (header + single value row) for quote; `client.getRecords()` handles N-row CSV for screener and news. The `csv-parse` library does the actual parsing.
+- **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around.
+- **Auth is injected by the client.** `auth_token` is appended to every request params automatically — individual modules never handle auth.
+- **Endpoint paths are placeholders.** The exact paths (`/api/quote.ashx`, etc.) need to be verified against the official Finviz Elite API docs. Update `src/quote.ts`, `src/screener.ts`, and `src/news.ts` accordingly.
+- **Jest `.js` import mapping.** `moduleNameMapper` in `jest.config.js` strips `.js` extensions at test time since ts-jest runs CommonJS but source imports use ESM-style `.js` suffixes for tsup compatibility.
 
 ## Environment
 
