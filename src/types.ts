@@ -253,7 +253,7 @@ export interface QuoteOptions {
   /** Period/interval of quote data (required). */
   period: QuotePeriod;
   /** Range of time to return data for (optional). */
-  range?: QuoteRange | string;
+  range?: string;
 }
 
 /** A single OHLCV row returned by the quote endpoint. */
@@ -360,7 +360,7 @@ export type GroupView = (typeof GroupView)[keyof typeof GroupView];
 /** Options for a groups request. */
 export interface GroupOptions {
   /** Subgroup name (only applicable for certain groups). */
-  subgroup?: IndustrySubgroup | string;
+  subgroup?: string;
   /** Column indices to include in the response. */
   fields?: number[];
 }

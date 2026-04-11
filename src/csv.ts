@@ -22,6 +22,7 @@ import { parse } from 'csv-parse/sync';
  * Output: { Ticker: "AAPL", Price: "180.00", Volume: "1234567" }
  */
 export function parseRecord(csv: string): Record<string, string> {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   const rows = parse(csv, { columns: true, skip_empty_lines: true }) as Record<string, string>[];
   if (rows.length === 0) {
     throw new Error('CSV response contained no data rows');
@@ -39,5 +40,6 @@ export function parseRecord(csv: string): Record<string, string> {
  * Output: [{ Ticker: "AAPL", Price: "180.00" }, { Ticker: "MSFT", Price: "420.00" }]
  */
 export function parseRecords(csv: string): Record<string, string>[] {
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   return parse(csv, { columns: true, skip_empty_lines: true }) as Record<string, string>[];
 }

@@ -11,7 +11,7 @@
  */
 
 import type { FinvizClient } from './client';
-import type { GroupName, GroupOptions, Group, GroupView } from './types';
+import type { GroupName, GroupOptions, Group } from './types';
 
 /**
  * Fetch aggregated market data for a group (sector, industry, country, or capitalization).
@@ -25,7 +25,7 @@ import type { GroupName, GroupOptions, Group, GroupView } from './types';
 export async function getGroups(
   client: FinvizClient,
   group: GroupName,
-  viewId: GroupView | number,
+  viewId: number,
   options: GroupOptions = {},
 ): Promise<Group[]> {
   return client.getRecords('/grp_export.ashx', {
