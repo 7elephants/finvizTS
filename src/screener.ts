@@ -2,7 +2,7 @@
  * ---
  * Workflow Summary
  * Invocation: Called via `getScreener(client, options)`. Fetches a multi-row CSV from the
- * Finviz screener endpoint and returns each row as a key/value record.
+ * Finviz screener export endpoint and returns each row as a key/value record.
  *
  * | Step | Method        | Input                         | Output                 |
  * |------|---------------|-------------------------------|------------------------|
@@ -14,19 +14,20 @@ import type { FinvizClient } from './client.js';
 import type { ScreenerOptions, ScreenerRow } from './types.js';
 
 /**
- * Query the Finviz screener with optional filters, ordering, and pagination.
+ * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
  * The API returns a multi-row CSV; each data row becomes a key/value record.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Screener filter and display options
+ * @param options - Screener options (view, fields, filters, order, rows, signal)
  */
 export async function getScreener(
   client: FinvizClient,
   options: ScreenerOptions = {},
 ): Promise<ScreenerRow[]> {
-  return client.getRecords('/api/screener.ashx', {
-    f: options.filters,
+  return client.getRecords('/export.ashx', {
     v: options.view,
+    c: options.fields?.join(','),
+    f: options.filters,
     o: options.order,
     r: options.rows,
     s: options.signal,

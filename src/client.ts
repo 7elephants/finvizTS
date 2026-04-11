@@ -41,7 +41,7 @@ export class FinvizClient {
   ): Promise<string> {
     const response = await this.http.get<string>(path, {
       responseType: 'text',
-      params: { ...params, auth_token: this.apiToken },
+      params: { ...params, auth: this.apiToken },
     });
     return response.data;
   }

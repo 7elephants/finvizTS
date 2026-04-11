@@ -18,6 +18,7 @@ export { getQuote } from './quote.js';
 export { getScreener } from './screener.js';
 export { getNews } from './news.js';
 export { parseRecord, parseRecords } from './csv.js';
+export { ScreenerView, ScreenerField } from './types.js';
 export type {
   FinvizClientOptions,
   QuoteData,

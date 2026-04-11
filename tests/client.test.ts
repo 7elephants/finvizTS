@@ -44,7 +44,7 @@ describe('FinvizClient', () => {
         '/api/quote.ashx',
         expect.objectContaining({
           responseType: 'text',
-          params: expect.objectContaining({ auth_token: 'abc123', t: 'AAPL' }),
+          params: expect.objectContaining({ auth: 'abc123', t: 'AAPL' }),
         }),
       );
       expect(result).toEqual({ Ticker: 'AAPL', Price: '180.00' });
