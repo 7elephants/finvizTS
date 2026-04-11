@@ -195,9 +195,15 @@ export type ScreenerField = (typeof ScreenerField)[keyof typeof ScreenerField];
 
 /** Options for a screener request. */
 export interface ScreenerOptions {
-  /** Screener view ID. Use ScreenerView constants or a custom numeric ID. */
+  /**
+   * Screener view ID controlling which columns are returned.
+   * Use the `ScreenerView` constants (e.g. `ScreenerView.Overview`) or a custom numeric ID.
+   */
   view?: number;
-  /** Fields to include in the response. Maps to the `c` query param as a comma-separated list. */
+  /**
+   * Columns to include in the response. Maps to the `c` query param as a comma-separated list.
+   * Use the `ScreenerField` constants (e.g. `ScreenerField.Ticker`, `ScreenerField.Price`).
+   */
   fields?: number[];
   /** Filter string as it appears in the Finviz screener URL (e.g. "exch_nasd,geo_usa") */
   filters?: string;

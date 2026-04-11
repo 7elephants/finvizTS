@@ -21,7 +21,7 @@ export { getPortfolio } from './portfolio.js';
 export { getLatestFilings } from './filings.js';
 export { getOptionsChain } from './options.js';
 export { getGroups } from './groups.js';
-export { parseRecord, parseRecords } from './csv.js';
+export { FinvizApiError } from './errors.js';
 export {
   ScreenerView,
   ScreenerField,

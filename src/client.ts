@@ -13,14 +13,13 @@
  * ---
  */
 
-import axios, { type AxiosInstance } from 'axios';
+import axios, { isAxiosError, type AxiosInstance } from 'axios';
 import { config as loadEnv } from 'dotenv';
 import { parseRecord, parseRecords } from './csv.js';
+import { FinvizApiError } from './errors.js';
 import type { FinvizClientOptions } from './types.js';
 
-loadEnv({ path: '.env.local' });
-
-const DEFAULT_BASE_URL = process.env['FINVIZ_BASE_URL'] ?? 'https://elite.finviz.com';
+const DEFAULT_BASE_URL = 'https://elite.finviz.com';
 const DEFAULT_TIMEOUT = 10_000;
 
 export class FinvizClient {
@@ -28,9 +27,15 @@ export class FinvizClient {
   private readonly apiToken: string;
 
   constructor(options: FinvizClientOptions) {
+    // Load .env.local only when no baseUrl is explicitly provided, so library consumers
+    // who manage their own env loading are not affected by this side-effect.
+    if (!options.baseUrl) {
+      loadEnv({ path: '.env.local' });
+    }
+
     this.apiToken = options.apiToken;
     this.http = axios.create({
-      baseURL: options.baseUrl ?? DEFAULT_BASE_URL,
+      baseURL: options.baseUrl ?? process.env['FINVIZ_BASE_URL'] ?? DEFAULT_BASE_URL,
       timeout: options.timeout ?? DEFAULT_TIMEOUT,
       headers: {
         Accept: 'text/csv',
@@ -42,11 +47,25 @@ export class FinvizClient {
     path: string,
     params: Record<string, string | number | undefined>,
   ): Promise<string> {
-    const response = await this.http.get<string>(path, {
-      responseType: 'text',
-      params: { ...params, auth: this.apiToken },
-    });
-    return response.data;
+    try {
+      const response = await this.http.get<string>(path, {
+        responseType: 'text',
+        params: { ...params, auth: this.apiToken },
+      });
+      return response.data;
+    } catch (err) {
+      if (isAxiosError(err)) {
+        const status = err.response?.status;
+        const message =
+          status === 429
+            ? 'Finviz rate limit exceeded (1 request per 5 seconds)'
+            : status === 401
+              ? 'Finviz API authentication failed — check your API token'
+              : `Finviz API request failed: ${err.message}`;
+        throw new FinvizApiError(message, status);
+      }
+      throw err;
+    }
   }
 
   /** Fetch a single-row CSV response and return it as a flat key/value record. */
