@@ -10,8 +10,8 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { GroupName, GroupOptions, Group, GroupView } from './types.js';
+import type { FinvizClient } from './client';
+import type { GroupName, GroupOptions, Group, GroupView } from './types';
 
 /**
  * Fetch aggregated market data for a group (sector, industry, country, or capitalization).

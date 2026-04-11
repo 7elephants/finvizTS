@@ -10,9 +10,9 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { Option, OptionsChainOptions } from './types.js';
-import { OptionsViewType } from './types.js';
+import type { FinvizClient } from './client';
+import type { Option, OptionsChainOptions } from './types';
+import { OptionsViewType } from './types';
 
 /**
  * Fetch the options chain for a single ticker symbol at a given expiration date.

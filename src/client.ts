@@ -15,9 +15,9 @@
 
 import axios, { isAxiosError, type AxiosInstance } from 'axios';
 import { config as loadEnv } from 'dotenv';
-import { parseRecord, parseRecords } from './csv.js';
-import { FinvizApiError } from './errors.js';
-import type { FinvizClientOptions } from './types.js';
+import { parseRecord, parseRecords } from './csv';
+import { FinvizApiError } from './errors';
+import type { FinvizClientOptions } from './types';
 
 const DEFAULT_BASE_URL = 'https://elite.finviz.com';
 const DEFAULT_TIMEOUT = 10_000;

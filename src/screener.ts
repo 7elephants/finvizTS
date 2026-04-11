@@ -10,8 +10,8 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { ScreenerOptions, Screener } from './types.js';
+import type { FinvizClient } from './client';
+import type { ScreenerOptions, Screener } from './types';
 
 /**
  * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.

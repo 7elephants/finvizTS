@@ -10,9 +10,9 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { NewsItem, NewsOptions } from './types.js';
-import { NewsType } from './types.js';
+import type { FinvizClient } from './client';
+import type { NewsItem, NewsOptions } from './types';
+import { NewsType } from './types';
 
 /**
  * Fetch financial news filtered by type and optionally by ticker or portfolio.

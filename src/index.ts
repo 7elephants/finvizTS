@@ -13,15 +13,15 @@
  * ---
  */
 
-export { FinvizClient } from './client.js';
-export { getQuote } from './quote.js';
-export { getScreener } from './screener.js';
-export { getNews } from './news.js';
-export { getPortfolio } from './portfolio.js';
-export { getLatestFilings } from './filings.js';
-export { getOptionsChain } from './options.js';
-export { getGroups } from './groups.js';
-export { FinvizApiError } from './errors.js';
+export { FinvizClient } from './client';
+export { getQuote } from './quote';
+export { getScreener } from './screener';
+export { getNews } from './news';
+export { getPortfolio } from './portfolio';
+export { getLatestFilings } from './filings';
+export { getOptionsChain } from './options';
+export { getGroups } from './groups';
+export { FinvizApiError } from './errors';
 export {
   ScreenerView,
   ScreenerField,
@@ -33,7 +33,7 @@ export {
   GroupView,
   FilingFilter,
   OptionsViewType,
-} from './types.js';
+} from './types';
 export type {
   FinvizClientOptions,
   QuoteOptions,
@@ -50,4 +50,4 @@ export type {
   Filing,
   OptionsChainOptions,
   Option,
-} from './types.js';
+} from './types';

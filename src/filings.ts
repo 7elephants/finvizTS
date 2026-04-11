@@ -10,8 +10,8 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { FilingOptions, Filing } from './types.js';
+import type { FinvizClient } from './client';
+import type { FilingOptions, Filing } from './types';
 
 /**
  * Fetch recent SEC filings for a single ticker symbol.

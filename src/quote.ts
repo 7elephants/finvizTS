@@ -10,8 +10,8 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { QuoteOptions, Quote } from './types.js';
+import type { FinvizClient } from './client';
+import type { QuoteOptions, Quote } from './types';
 
 /**
  * Fetch OHLCV time-series data for a single ticker symbol.

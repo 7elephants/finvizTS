@@ -10,8 +10,8 @@
  * ---
  */
 
-import type { FinvizClient } from './client.js';
-import type { PortfolioOptions, Portfolio } from './types.js';
+import type { FinvizClient } from './client';
+import type { PortfolioOptions, Portfolio } from './types';
 
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
