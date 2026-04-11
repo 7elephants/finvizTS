@@ -21,9 +21,6 @@ export interface FinvizClientOptions {
   timeout?: number;
 }
 
-/** Raw key-value map returned by the Finviz quote endpoint. */
-export type QuoteData = Record<string, string>;
-
 /** A single row returned by the screener endpoint. */
 export type ScreenerRow = Record<string, string>;
 
@@ -213,19 +210,212 @@ export interface ScreenerOptions {
 }
 
 // ---------------------------------------------------------------------------
+// Quote types
+// ---------------------------------------------------------------------------
+
+/** Valid period/interval values for the quote endpoint. */
+export const QuotePeriod = {
+  Minute1: 'i1',
+  Minute3: 'i3',
+  Minute5: 'i5',
+  Minute15: 'i15',
+  Minute30: 'i30',
+  Hour1: 'h',
+  Daily: 'd',
+  Weekly: 'w',
+  Monthly: 'm',
+} as const;
+export type QuotePeriod = (typeof QuotePeriod)[keyof typeof QuotePeriod];
+
+/** Valid range values for the quote endpoint. */
+export const QuoteRange = {
+  Day1: 'd1',
+  Day5: 'd5',
+  Month1: 'm1',
+  Month3: 'm3',
+  Month6: 'm6',
+  Year1: 'y1',
+  Year2: 'y2',
+  Year5: 'y5',
+  YTD: 'ytd',
+  Max: 'max',
+} as const;
+export type QuoteRange = (typeof QuoteRange)[keyof typeof QuoteRange] | `range_${string}` | `prev_${string}`;
+
+/** Options for a quote request. */
+export interface QuoteOptions {
+  /** Period/interval of quote data (required). */
+  period: QuotePeriod;
+  /** Range of time to return data for (optional). */
+  range?: QuoteRange | string;
+}
+
+/** A single OHLCV row returned by the quote endpoint. */
+export interface QuoteRow {
+  Date: string;
+  Open: string;
+  High: string;
+  Low: string;
+  Close: string;
+  Volume: string;
+}
+
+// ---------------------------------------------------------------------------
 // News types
 // ---------------------------------------------------------------------------
 
+/** Valid news type values for the news endpoint. */
+export const NewsType = {
+  MarketByTime: 1,
+  MarketBySource: 2,
+  Stock: 3,
+  ETF: 4,
+  Crypto: 5,
+} as const;
+export type NewsType = (typeof NewsType)[keyof typeof NewsType];
+
 /** Options for a news request. */
 export interface NewsOptions {
-  /** Ticker symbol to filter news by */
-  ticker?: string;
+  /** Type of news to retrieve (defaults to MarketByTime). */
+  type?: NewsType;
+  /** Portfolio ID to filter news by (only for Stock or ETF type). */
+  portfolioId?: string;
+  /** Comma-separated ticker symbols to filter news by (only for Stock, ETF, or Crypto type). */
+  tickers?: string;
 }
 
 /** A single news item returned by the news endpoint. */
 export interface NewsItem {
-  date: string;
   title: string;
   source: string;
+  date: string;
   url: string;
+  category: string;
+  ticker: string;
 }
+
+// ---------------------------------------------------------------------------
+// Portfolio types
+// ---------------------------------------------------------------------------
+
+/** Options for a portfolio request. */
+export interface PortfolioOptions {
+  /** Column to sort by (prefix with "-" for descending, e.g. "-price"). */
+  order?: string;
+  /** Column indices to include (comma-separated list maps to the `c` query param). */
+  fields?: number[];
+}
+
+/** A single row returned by the portfolio endpoint. */
+export type PortfolioRow = Record<string, string>;
+
+// ---------------------------------------------------------------------------
+// Groups types
+// ---------------------------------------------------------------------------
+
+/** Valid group names for the groups endpoint. */
+export const GroupName = {
+  Sector: 'sector',
+  Industry: 'industry',
+  Country: 'country',
+  Capitalization: 'capitalization',
+} as const;
+export type GroupName = (typeof GroupName)[keyof typeof GroupName];
+
+/** Valid industry subgroup names for the groups endpoint. */
+export const IndustrySubgroup = {
+  BasicMaterials: 'basicmaterials',
+  CommunicationServices: 'communicationservices',
+  ConsumerCyclical: 'consumercyclical',
+  ConsumerDefensive: 'consumerdefensive',
+  Energy: 'energy',
+  Financial: 'financial',
+  Healthcare: 'healthcare',
+  Industrials: 'industrials',
+  RealEstate: 'realestate',
+  Technology: 'technology',
+  Utilities: 'utilities',
+} as const;
+export type IndustrySubgroup = (typeof IndustrySubgroup)[keyof typeof IndustrySubgroup];
+
+/** Valid view IDs for the groups endpoint. */
+export const GroupView = {
+  Overview: 110,
+  Valuation: 120,
+  Performance: 140,
+  Custom: 150,
+  PerformanceChart: 210,
+  Spectrum: 310,
+  Charts: 410,
+  Maps: 510,
+} as const;
+export type GroupView = (typeof GroupView)[keyof typeof GroupView];
+
+/** Options for a groups request. */
+export interface GroupOptions {
+  /** Subgroup name (only applicable for certain groups). */
+  subgroup?: IndustrySubgroup | string;
+  /** Column indices to include in the response. */
+  fields?: number[];
+}
+
+/** A single row returned by the groups endpoint. */
+export type GroupRow = Record<string, string>;
+
+// ---------------------------------------------------------------------------
+// Latest Filings types
+// ---------------------------------------------------------------------------
+
+/** Valid filing filter values for the latest-filings endpoint. */
+export const FilingFilter = {
+  AnnualQuarterlyCurrent: 'annual-quarterly-current',
+  InsiderEquity: 'insider-equity',
+  BeneficialOwnership: 'beneficial-ownership',
+  ExemptOfferings: 'exempt-offerings',
+  RegistrationStatements: 'registration-statements',
+  FilingReviewCorrespondence: 'filing-review-correspondence',
+  SECOrdersNotices: 'sec-orders-notices',
+  ProxyMaterials: 'proxy-materials',
+  TrustIndentures: 'trust-indentures',
+} as const;
+export type FilingFilter = (typeof FilingFilter)[keyof typeof FilingFilter];
+
+/** Options for a latest-filings request. */
+export interface FilingOptions {
+  /** Column to sort by (prefix with "-" for descending, e.g. "-filingDate"). */
+  order?: string;
+  /** Filter by filing type. */
+  filter?: FilingFilter;
+}
+
+/** A single row returned by the latest-filings endpoint. */
+export interface FilingRow {
+  filingDate: string;
+  reportDate: string;
+  form: string;
+  description: string;
+  filing: string;
+  document: string;
+}
+
+// ---------------------------------------------------------------------------
+// Options types
+// ---------------------------------------------------------------------------
+
+/** Valid view types for the options endpoint. */
+export const OptionsViewType = {
+  Prices: 'oc',
+  VolatilityGreeks: 'ocv',
+} as const;
+export type OptionsViewType = (typeof OptionsViewType)[keyof typeof OptionsViewType];
+
+/** Options for an options chain request. */
+export interface OptionsChainOptions {
+  /** Option expiration date in yyyy-mm-dd format. */
+  expiration: string;
+  /** View type (Prices or Volatility & Greeks). */
+  viewType?: OptionsViewType;
+}
+
+/** A single row returned by the options endpoint. */
+export type OptionRow = Record<string, string>;

@@ -42,10 +42,14 @@ src/
   index.ts      # Public API surface — re-exports everything
   client.ts     # FinvizClient — axios transport, CSV parsing, auth injection
   csv.ts        # parseRecord() and parseRecords() — csv-parse wrappers
-  types.ts      # All shared TypeScript interfaces and types
-  quote.ts      # getQuote(client, ticker) → QuoteData
+  types.ts      # All shared TypeScript interfaces, types, and const objects
+  quote.ts      # getQuote(client, ticker, options) → QuoteRow[]
   screener.ts   # getScreener(client, options) → ScreenerRow[]
   news.ts       # getNews(client, options) → NewsItem[]
+  portfolio.ts  # getPortfolio(client, portfolioId, options) → PortfolioRow[]
+  filings.ts    # getLatestFilings(client, ticker, options) → FilingRow[]
+  options.ts    # getOptionsChain(client, ticker, options) → OptionRow[]
+  groups.ts     # getGroups(client, group, viewId, options) → GroupRow[]
 
 tests/
   client.test.ts
@@ -60,7 +64,7 @@ tests/
 - **All responses are CSV.** The Finviz API returns `text/csv`. Requests use `responseType: 'text'` and axios sends `Accept: text/csv`.
 - **Two response shapes.** `client.getRecord()` handles two-row CSV (header + single value row) for quote; `client.getRecords()` handles N-row CSV for screener and news. The `csv-parse` library does the actual parsing.
 - **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around.
-- **Auth is injected by the client.** `auth_token` is appended to every request params automatically — individual modules never handle auth.
+- **Auth is injected by the client.** `auth` is appended to every request params automatically — individual modules never handle auth.
 - **Endpoint paths are placeholders.** The exact paths (`/api/quote.ashx`, etc.) need to be verified against the official Finviz Elite API docs. Update `src/quote.ts`, `src/screener.ts`, and `src/news.ts` accordingly.
 - **Jest `.js` import mapping.** `moduleNameMapper` in `jest.config.js` strips `.js` extensions at test time since ts-jest runs CommonJS but source imports use ESM-style `.js` suffixes for tsup compatibility.
 
@@ -69,8 +73,9 @@ tests/
 | Variable           | Purpose                                                                           |
 | ------------------ | --------------------------------------------------------------------------------- |
 | `FINVIZ_API_TOKEN` | Finviz Elite API token — load at runtime and pass to `FinvizClient({ apiToken })` |
+| `FINVIZ_BASE_URL`  | Override the default base URL (`https://elite.finviz.com`). Loaded via dotenv from `.env.local` at module init time. |
 
-Secrets go in `.env.local` (never committed).
+Secrets go in `.env.local` (never committed). `dotenv` loads `.env.local` automatically when `client.ts` is first imported.
 
 ## Branch & Workflow Rules
 

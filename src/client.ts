@@ -14,10 +14,13 @@
  */
 
 import axios, { type AxiosInstance } from 'axios';
+import { config as loadEnv } from 'dotenv';
 import { parseRecord, parseRecords } from './csv.js';
 import type { FinvizClientOptions } from './types.js';
 
-const DEFAULT_BASE_URL = 'https://elite.finviz.com';
+loadEnv({ path: '.env.local' });
+
+const DEFAULT_BASE_URL = process.env['FINVIZ_BASE_URL'] ?? 'https://elite.finviz.com';
 const DEFAULT_TIMEOUT = 10_000;
 
 export class FinvizClient {

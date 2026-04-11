@@ -1,5 +1,6 @@
 import { FinvizClient } from '../src/client';
 import { getNews } from '../src/news';
+import { NewsType } from '../src/types';
 
 describe('getNews', () => {
   const mockGetRecords = jest.fn();
@@ -7,27 +8,69 @@ describe('getNews', () => {
 
   beforeEach(() => jest.clearAllMocks());
 
-  it('calls getRecords with the news endpoint and no ticker', async () => {
+  it('defaults to MarketByTime (v=1) when no type is provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client);
-    expect(mockGetRecords).toHaveBeenCalledWith('/api/news.ashx', { t: undefined });
+    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+      v: 1,
+      pid: undefined,
+      t: undefined,
+    });
   });
 
-  it('passes ticker when provided', async () => {
+  it('passes news type when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getNews(client, { ticker: 'TSLA' });
-    expect(mockGetRecords).toHaveBeenCalledWith('/api/news.ashx', { t: 'TSLA' });
+    await getNews(client, { type: NewsType.Stock });
+    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+      v: 3,
+      pid: undefined,
+      t: undefined,
+    });
+  });
+
+  it('passes tickers when provided', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getNews(client, { type: NewsType.Stock, tickers: 'AAPL,MSFT' });
+    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+      v: 3,
+      pid: undefined,
+      t: 'AAPL,MSFT',
+    });
+  });
+
+  it('passes portfolioId when provided', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getNews(client, { type: NewsType.ETF, portfolioId: '12345' });
+    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+      v: 4,
+      pid: '12345',
+      t: undefined,
+    });
   });
 
   it('maps CSV rows to NewsItem shape', async () => {
     mockGetRecords.mockResolvedValueOnce([
-      { Date: '2024-01-01', Title: 'Apple hits ATH', Source: 'Reuters', URL: 'https://example.com' },
+      {
+        Title: 'Apple hits ATH',
+        Source: 'Reuters',
+        Date: '4/11/2026 8:20',
+        Url: 'https://example.com',
+        Category: 'Stock',
+        Ticker: 'AAPL',
+      },
     ]);
 
-    const result = await getNews(client, { ticker: 'AAPL' });
+    const result = await getNews(client, { type: NewsType.Stock, tickers: 'AAPL' });
 
     expect(result).toEqual([
-      { date: '2024-01-01', title: 'Apple hits ATH', source: 'Reuters', url: 'https://example.com' },
+      {
+        title: 'Apple hits ATH',
+        source: 'Reuters',
+        date: '4/11/2026 8:20',
+        url: 'https://example.com',
+        category: 'Stock',
+        ticker: 'AAPL',
+      },
     ]);
   });
 });
