@@ -2,20 +2,20 @@
  * ---
  * Workflow Summary
  * Invocation: Called via `getLatestFilings(client, ticker, options)`. Fetches a multi-row CSV
- * of recent SEC filings for a single ticker and returns each row as a typed FilingRow.
+ * of recent SEC filings for a single ticker and returns each row as a typed Filing.
  *
  * | Step | Method              | Input                                     | Output                |
  * |------|---------------------|-------------------------------------------|-----------------------|
- * | 1    | getLatestFilings()  | FinvizClient, ticker: string, FilingOptions | Promise<FilingRow[]> |
+ * | 1    | getLatestFilings()  | FinvizClient, ticker: string, FilingOptions | Promise<Filing[]> |
  * ---
  */
 
 import type { FinvizClient } from './client.js';
-import type { FilingOptions, FilingRow } from './types.js';
+import type { FilingOptions, Filing } from './types.js';
 
 /**
  * Fetch recent SEC filings for a single ticker symbol.
- * The API returns a multi-row CSV; each row is mapped to a FilingRow.
+ * The API returns a multi-row CSV; each row is mapped to a Filing.
  *
  * @param client  - Authenticated FinvizClient instance
  * @param ticker  - Stock ticker symbol (e.g. "MSFT")
@@ -25,7 +25,7 @@ export async function getLatestFilings(
   client: FinvizClient,
   ticker: string,
   options: FilingOptions = {},
-): Promise<FilingRow[]> {
+): Promise<Filing[]> {
   const rows = await client.getRecords('/export/latest-filings', {
     t: ticker,
     o: options.order,

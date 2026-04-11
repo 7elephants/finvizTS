@@ -6,12 +6,12 @@
  *
  * | Step | Method          | Input                                    | Output                  |
  * |------|-----------------|------------------------------------------|-------------------------|
- * | 1    | getPortfolio()  | FinvizClient, portfolioId, PortfolioOptions | Promise<PortfolioRow[]> |
+ * | 1    | getPortfolio()  | FinvizClient, portfolioId, PortfolioOptions | Promise<Portfolio[]> |
  * ---
  */
 
 import type { FinvizClient } from './client.js';
-import type { PortfolioOptions, PortfolioRow } from './types.js';
+import type { PortfolioOptions, Portfolio } from './types.js';
 
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
@@ -25,7 +25,7 @@ export async function getPortfolio(
   client: FinvizClient,
   portfolioId: string | number,
   options: PortfolioOptions = {},
-): Promise<PortfolioRow[]> {
+): Promise<Portfolio[]> {
   return client.getRecords('/portfolio_export.ashx', {
     pid: String(portfolioId),
     o: options.order,

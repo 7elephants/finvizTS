@@ -35,7 +35,7 @@ describe('getQuote', () => {
     });
   });
 
-  it('maps CSV rows to QuoteRow shape', async () => {
+  it('maps CSV rows to Quote shape', async () => {
     mockGetRecords.mockResolvedValueOnce([
       { Date: '3/31/2016', Open: '54.95', High: '55.59', Low: '54.86', Close: '55.23', Volume: '26360496' },
       { Date: '4/1/2016', Open: '55.05', High: '55.61', Low: '54.57', Close: '55.57', Volume: '24399192' },

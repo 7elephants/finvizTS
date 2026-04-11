@@ -2,20 +2,20 @@
  * ---
  * Workflow Summary
  * Invocation: Called via `getQuote(client, ticker, options)`. Fetches an OHLCV time-series CSV
- * for a single ticker and returns each row as a typed QuoteRow object.
+ * for a single ticker and returns each row as a typed Quote object.
  *
  * | Step | Method     | Input                                     | Output               |
  * |------|------------|-------------------------------------------|----------------------|
- * | 1    | getQuote() | FinvizClient, ticker: string, QuoteOptions| Promise<QuoteRow[]>  |
+ * | 1    | getQuote() | FinvizClient, ticker: string, QuoteOptions| Promise<Quote[]>  |
  * ---
  */
 
 import type { FinvizClient } from './client.js';
-import type { QuoteOptions, QuoteRow } from './types.js';
+import type { QuoteOptions, Quote } from './types.js';
 
 /**
  * Fetch OHLCV time-series data for a single ticker symbol.
- * The API returns a multi-row CSV (header + data rows); each row becomes a QuoteRow.
+ * The API returns a multi-row CSV (header + data rows); each row becomes a Quote.
  *
  * @param client  - Authenticated FinvizClient instance
  * @param ticker  - Stock ticker symbol (e.g. "AAPL")
@@ -25,7 +25,7 @@ export async function getQuote(
   client: FinvizClient,
   ticker: string,
   options: QuoteOptions,
-): Promise<QuoteRow[]> {
+): Promise<Quote[]> {
   const rows = await client.getRecords('/quote_export.ashx', {
     t: ticker,
     p: options.period,

@@ -6,12 +6,12 @@
  *
  * | Step | Method        | Input                         | Output                 |
  * |------|---------------|-------------------------------|------------------------|
- * | 1    | getScreener() | FinvizClient, ScreenerOptions | Promise<ScreenerRow[]> |
+ * | 1    | getScreener() | FinvizClient, ScreenerOptions | Promise<Screener[]> |
  * ---
  */
 
 import type { FinvizClient } from './client.js';
-import type { ScreenerOptions, ScreenerRow } from './types.js';
+import type { ScreenerOptions, Screener } from './types.js';
 
 /**
  * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
@@ -23,7 +23,7 @@ import type { ScreenerOptions, ScreenerRow } from './types.js';
 export async function getScreener(
   client: FinvizClient,
   options: ScreenerOptions = {},
-): Promise<ScreenerRow[]> {
+): Promise<Screener[]> {
   return client.getRecords('/export.ashx', {
     v: options.view,
     c: options.fields?.join(','),

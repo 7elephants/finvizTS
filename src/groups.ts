@@ -6,12 +6,12 @@
  *
  * | Step | Method       | Input                                              | Output              |
  * |------|--------------|----------------------------------------------------|---------------------|
- * | 1    | getGroups()  | FinvizClient, GroupName, GroupView | number, GroupOptions | Promise<GroupRow[]> |
+ * | 1    | getGroups()  | FinvizClient, GroupName, GroupView | number, GroupOptions | Promise<Group[]> |
  * ---
  */
 
 import type { FinvizClient } from './client.js';
-import type { GroupName, GroupOptions, GroupRow, GroupView } from './types.js';
+import type { GroupName, GroupOptions, Group, GroupView } from './types.js';
 
 /**
  * Fetch aggregated market data for a group (sector, industry, country, or capitalization).
@@ -27,7 +27,7 @@ export async function getGroups(
   group: GroupName,
   viewId: GroupView | number,
   options: GroupOptions = {},
-): Promise<GroupRow[]> {
+): Promise<Group[]> {
   return client.getRecords('/grp_export.ashx', {
     g: group,
     v: viewId,

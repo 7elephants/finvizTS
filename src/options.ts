@@ -6,12 +6,12 @@
  *
  * | Step | Method              | Input                                          | Output               |
  * |------|---------------------|------------------------------------------------|----------------------|
- * | 1    | getOptionsChain()   | FinvizClient, ticker: string, OptionsChainOptions | Promise<OptionRow[]> |
+ * | 1    | getOptionsChain()   | FinvizClient, ticker: string, OptionsChainOptions | Promise<Option[]> |
  * ---
  */
 
 import type { FinvizClient } from './client.js';
-import type { OptionRow, OptionsChainOptions } from './types.js';
+import type { Option, OptionsChainOptions } from './types.js';
 import { OptionsViewType } from './types.js';
 
 /**
@@ -26,7 +26,7 @@ export async function getOptionsChain(
   client: FinvizClient,
   ticker: string,
   options: OptionsChainOptions,
-): Promise<OptionRow[]> {
+): Promise<Option[]> {
   return client.getRecords('/export/options', {
     t: ticker,
     e: options.expiration,

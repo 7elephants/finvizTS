@@ -22,7 +22,7 @@ export interface FinvizClientOptions {
 }
 
 /** A single row returned by the screener endpoint. */
-export type ScreenerRow = Record<string, string>;
+export type Screener = Record<string, string>;
 
 // ---------------------------------------------------------------------------
 // Screener view IDs
@@ -257,7 +257,7 @@ export interface QuoteOptions {
 }
 
 /** A single OHLCV row returned by the quote endpoint. */
-export interface QuoteRow {
+export interface Quote {
   Date: string;
   Open: string;
   High: string;
@@ -313,7 +313,7 @@ export interface PortfolioOptions {
 }
 
 /** A single row returned by the portfolio endpoint. */
-export type PortfolioRow = Record<string, string>;
+export type Portfolio = Record<string, string>;
 
 // ---------------------------------------------------------------------------
 // Groups types
@@ -366,7 +366,7 @@ export interface GroupOptions {
 }
 
 /** A single row returned by the groups endpoint. */
-export type GroupRow = Record<string, string>;
+export type Group = Record<string, string>;
 
 // ---------------------------------------------------------------------------
 // Latest Filings types
@@ -395,7 +395,7 @@ export interface FilingOptions {
 }
 
 /** A single row returned by the latest-filings endpoint. */
-export interface FilingRow {
+export interface Filing {
   filingDate: string;
   reportDate: string;
   form: string;
@@ -424,4 +424,4 @@ export interface OptionsChainOptions {
 }
 
 /** A single row returned by the options endpoint. */
-export type OptionRow = Record<string, string>;
+export type Option = Record<string, string>;
