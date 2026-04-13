@@ -14,6 +14,7 @@
  */
 
 export { FinvizClient } from './client';
+export { buildFilters } from './filters';
 export { getQuote } from './quote';
 export { getScreener } from './screener';
 export { getNews } from './news';

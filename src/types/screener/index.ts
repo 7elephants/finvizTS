@@ -196,7 +196,10 @@ export interface ScreenerOptions {
    * Use the `ScreenerField` constants (e.g. `ScreenerField.Ticker`, `ScreenerField.Price`).
    */
   fields?: number[];
-  /** Filter string as it appears in the Finviz screener URL (e.g. "exch_nasd,geo_usa") */
+  /**
+   * Filter string for the `f` query parameter (e.g. `"exch_nasd,geo_usa"`).
+   * Use `buildFilters()` to compose this from typed filter constants.
+   */
   filters?: string;
   /** Sort order column (prefix with "-" for descending) */
   order?: string;
