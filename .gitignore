@@ -21,7 +21,7 @@ npm-debug.log*
 .DS_Store
 
 # Claude
-.claude/
+.claude/*
 
 # Docs
 docs/*-filters.html
