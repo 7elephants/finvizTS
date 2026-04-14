@@ -38,5 +38,18 @@ export const PortfolioField = {
 /** Union of all known screener field ID values. */
 export type PortfolioField = (typeof PortfolioField)[keyof typeof PortfolioField];
 
+
+/** All documented portfolio field IDs for the `c` query parameter. */
+export const PortfolioOrder = {
+  Ticker: 'ticker',
+  Company: 'company',
+  Price: 'price',
+  ChangePercent: 'changepct',
+  Volume: 'volume',
+} as const;
+
+/** Union of all known screener field ID values. */
+export type PortfolioOrder = (typeof PortfolioOrder)[keyof typeof PortfolioOrder];
+
 /** A single row returned by the portfolio endpoint. */
 export type Portfolio = Record<string, string>;
