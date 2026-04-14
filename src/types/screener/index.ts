@@ -217,7 +217,7 @@ export interface ScreenerOptions {
   orderDirection?: string;
   /** Starting row index for pagination (1-based) */
   rows?: number;
-  /** Signal filter (e.g. "ta_topgainers") */
+  /** Signal filter shortcut (e.g. `ScreenerSignal.TOP_GAINERS`) */
   signal?: string;
   /** Ticker symbols (e.g. "AAPL") */
   tickers?: string | string[];
@@ -234,3 +234,4 @@ export * from './news-filters';
 export * from './etf-filters';
 
 export * from './order';
+export * from './signal';

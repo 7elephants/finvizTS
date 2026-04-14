@@ -24,4 +24,4 @@ npm-debug.log*
 .claude/*
 
 # Docs
-docs/*-filters.html
+docs/*.html
