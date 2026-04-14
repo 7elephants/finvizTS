@@ -1,6 +1,6 @@
 {
   "name": "finvizts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unofficial TypeScript client for the Finviz Elite API",
   "author": "Andrew Steiger",
   "repository": {
