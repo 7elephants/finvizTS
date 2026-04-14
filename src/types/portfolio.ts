@@ -41,11 +41,11 @@ export type PortfolioField = (typeof PortfolioField)[keyof typeof PortfolioField
 
 /** All documented portfolio field IDs for the `c` query parameter. */
 export const PortfolioOrder = {
-  Ticker: 'ticker',
-  Company: 'company',
-  Price: 'price',
-  ChangePercent: 'changepct',
-  Volume: 'volume',
+  TICKER: 'ticker',
+  COMPANY: 'company',
+  PRICE: 'price',
+  CHANGE_PERCENT: 'changepct',
+  VOLUME: 'volume',
 } as const;
 
 /** Union of all known screener field ID values. */
