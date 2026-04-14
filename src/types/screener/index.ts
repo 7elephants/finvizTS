@@ -217,6 +217,8 @@ export interface ScreenerOptions {
   rows?: number;
   /** Signal filter (e.g. "ta_topgainers") */
   signal?: string;
+  /** Ticker symbols (e.g. "AAPL") */
+  tickers?: string | string[];
 }
 
 // ---------------------------------------------------------------------------

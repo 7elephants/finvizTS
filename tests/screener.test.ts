@@ -54,6 +54,24 @@ describe('getScreener', () => {
 
 
 
+  it('passes a single ticker string as the t param', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getScreener(client, { tickers: 'AAPL' });
+    expect(mockGetRecords).toHaveBeenCalledWith(
+      '/export.ashx',
+      expect.objectContaining({ t: 'AAPL' }),
+    );
+  });
+
+  it('joins a tickers array into a comma-separated string for the t param', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getScreener(client, { tickers: ['AAPL', 'MSFT', 'NVDA'] });
+    expect(mockGetRecords).toHaveBeenCalledWith(
+      '/export.ashx',
+      expect.objectContaining({ t: 'AAPL,MSFT,NVDA' }),
+    );
+  });
+
   it('accepts a custom numeric view ID', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { view: 152 });

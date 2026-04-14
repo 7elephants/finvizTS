@@ -33,5 +33,6 @@ export async function getScreener(
     o: options.order,
     r: options.rows,
     s: options.signal,
+    t: Array.isArray(options.tickers) ? options.tickers.join(',') : options.tickers,
   });
 }
