@@ -13,6 +13,8 @@
 import type { FinvizClient } from './client';
 import type { ScreenerOptions, Screener } from './types';
 
+import { buildFilters } from './filters';
+
 /**
  * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
  * The API returns a multi-row CSV; each data row becomes a key/value record.
@@ -27,7 +29,7 @@ export async function getScreener(
   return client.getRecords('/export.ashx', {
     v: options.view,
     c: options.fields?.join(','),
-    f: options.filters,
+    f: Array.isArray(options.filters) ? buildFilters(options.filters) : options.filters,
     o: options.order,
     r: options.rows,
     s: options.signal,

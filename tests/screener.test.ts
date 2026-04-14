@@ -1,6 +1,6 @@
 import { FinvizClient } from '../src/client';
 import { getScreener } from '../src/screener';
-import { ScreenerView, ScreenerField } from '../src/types';
+import { ScreenerView, ScreenerField, ScreenerExchangeFilter, ScreenerMarketCapFilter, ScreenerCountryFilter} from '../src/types';
 
 describe('getScreener', () => {
   const mockGetRecords = jest.fn();
@@ -39,9 +39,20 @@ describe('getScreener', () => {
     await getScreener(client, { filters: 'exch_nasd', order: 'price', signal: 'ta_topgainers' });
     expect(mockGetRecords).toHaveBeenCalledWith(
       '/export.ashx',
-      expect.objectContaining({ f: 'exch_nasd', o: 'price', s: 'ta_topgainers' }),
+      expect.objectContaining({ f: ScreenerExchangeFilter.NASDAQ, o: 'price', s: 'ta_topgainers' }),
     );
   });
+
+  it('passes multiple filters using buildFilters when filters is an array', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getScreener(client, {filters:[ScreenerMarketCapFilter.MEGA, [ScreenerExchangeFilter.AMEX, ScreenerExchangeFilter.NASDAQ], ScreenerCountryFilter.USA]});
+    expect(mockGetRecords).toHaveBeenCalledWith(
+      '/export.ashx',
+      expect.objectContaining({ f: 'cap_mega,exch_amex|nasd,geo_usa' }),
+    );
+  });
+
+
 
   it('accepts a custom numeric view ID', async () => {
     mockGetRecords.mockResolvedValueOnce([]);

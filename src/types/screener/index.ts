@@ -197,10 +197,20 @@ export interface ScreenerOptions {
    */
   fields?: number[];
   /**
-   * Filter string for the `f` query parameter (e.g. `"exch_nasd,geo_usa"`).
-   * Use `buildFilters()` to compose this from typed filter constants.
+   * Filters for the `f` query parameter. Accepts either:
+   * - A pre-built filter string (e.g. `"exch_nasd,geo_usa"`)
+   * - An array of filter groups passed directly to `buildFilters()`:
+   *   each element is a single filter value (string) or multiple OR'd values (string[])
+   *
+   * @example
+   * filters: [ScreenerExchangeFilter.NASDAQ, ScreenerCountryFilter.USA]
+   * // → 'exch_nasd,geo_usa'
+   *
+   * @example
+   * filters: [[ScreenerExchangeFilter.AMEX, ScreenerExchangeFilter.NASDAQ], ScreenerCountryFilter.USA]
+   * // → 'exch_amex|nasd,geo_usa'
    */
-  filters?: string;
+  filters?: string | (string | string[])[];
   /** Sort order column (prefix with "-" for descending) */
   order?: string;
   /** Starting row index for pagination (1-based) */
