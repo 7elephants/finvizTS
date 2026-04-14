@@ -13,7 +13,7 @@
 
 import { FinvizClient } from '../src/client';
 import { getPortfolio } from '../src/portfolio';
-import { PortfolioField } from '../src/types';
+import { PortfolioField, PortfolioOrder, SortDirection } from '../src/types';
 
 describe('getPortfolio', () => {
   const mockGetRecords = jest.fn();
@@ -48,12 +48,21 @@ describe('getPortfolio', () => {
     );
   });
 
-  it('passes descending order with leading minus sign', async () => {
+  it('passes descending order using orderDirection and order', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getPortfolio(client, 12345, { order: '-price' });
+    await getPortfolio(client, 12345, { orderDirection: SortDirection.DESC, order: PortfolioOrder.PRICE });
     expect(mockGetRecords).toHaveBeenCalledWith(
       '/portfolio_export.ashx',
-      expect.objectContaining({ o: '-price' }),
+      expect.objectContaining({ o: SortDirection.DESC + PortfolioOrder.PRICE }),
+    );
+  });
+
+  it('passes ascending order when only order is provided', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getPortfolio(client, 12345, { order: PortfolioOrder.COMPANY });
+    expect(mockGetRecords).toHaveBeenCalledWith(
+      '/portfolio_export.ashx',
+      expect.objectContaining({ o: PortfolioOrder.COMPANY }),
     );
   });
 
