@@ -28,7 +28,7 @@ export async function getPortfolio(
 ): Promise<Portfolio[]> {
   return client.getRecords('/portfolio_export.ashx', {
     pid: String(portfolioId),
-    o: options.order,
+    o: (options.orderDirection || '') + (options.order || ''),
     c: Array.isArray(options.fields) ? options.fields.join(',') : options.fields,
   });
 }

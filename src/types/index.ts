@@ -25,3 +25,10 @@ export * from './portfolio';
 export * from './groups';
 export * from './filings';
 export * from './options';
+
+export const SortDirection = {
+    ASC: '',
+    DESC: '-',
+} as const;
+
+export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];

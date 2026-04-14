@@ -30,7 +30,7 @@ export async function getScreener(
     v: options.view,
     c: options.fields?.join(','),
     f: Array.isArray(options.filters) ? buildFilters(options.filters) : options.filters,
-    o: options.order,
+    o: (options.orderDirection || '') + (options.order || ''),
     r: options.rows,
     s: options.signal,
     t: Array.isArray(options.tickers) ? options.tickers.join(',') : options.tickers,

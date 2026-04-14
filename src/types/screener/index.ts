@@ -211,8 +211,10 @@ export interface ScreenerOptions {
    * // → 'exch_amex|nasd,geo_usa'
    */
   filters?: string | (string | string[])[];
-  /** Sort order column (prefix with "-" for descending) */
+  /** Sort order column */
   order?: string;
+  /** Sort order column direction (either '' or '-') */
+  orderDirection?: string;
   /** Starting row index for pagination (1-based) */
   rows?: number;
   /** Signal filter (e.g. "ta_topgainers") */

@@ -12,8 +12,10 @@
 
 /** Options for a portfolio request. */
 export interface PortfolioOptions {
-  /** Column to sort by (prefix with "-" for descending, e.g. "-price"). */
+  /** Column to sort by . */
   order?: string;
+  /** Column to sort by (either '' or '-'). */
+  orderDirection?: string;
   /** Column indices to include (comma-separated list maps to the `c` query param). */
   fields?: number[];
 }
