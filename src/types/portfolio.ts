@@ -18,5 +18,25 @@ export interface PortfolioOptions {
   fields?: number[];
 }
 
+/** All documented portfolio field IDs for the `c` query parameter. */
+export const PortfolioField = {
+  Ticker: 0,
+  Company: 1,
+  Price: 2,
+  ChangePercent: 3,
+  Volume: 4,
+  Transaction: 5,
+  Date: 6,
+  Shares: 7,
+  Cost: 8,
+  MarketValue: 9,
+  Gain: 10,
+  GainPercent: 11,
+  Change: 12,
+} as const;
+
+/** Union of all known screener field ID values. */
+export type PortfolioField = (typeof PortfolioField)[keyof typeof PortfolioField];
+
 /** A single row returned by the portfolio endpoint. */
 export type Portfolio = Record<string, string>;

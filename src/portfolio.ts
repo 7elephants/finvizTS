@@ -11,7 +11,7 @@
  */
 
 import type { FinvizClient } from './client';
-import type { PortfolioOptions, Portfolio } from './types';
+import type { PortfolioOptions, PortfolioField, Portfolio } from './types';
 
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
@@ -29,6 +29,6 @@ export async function getPortfolio(
   return client.getRecords('/portfolio_export.ashx', {
     pid: String(portfolioId),
     o: options.order,
-    c: options.fields?.join(','),
+    c: Array.isArray(options.fields) ? options.fields.join(',') : options.fields,
   });
 }
