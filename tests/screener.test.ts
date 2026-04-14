@@ -1,6 +1,6 @@
 import { FinvizClient } from '../src/client';
 import { getScreener } from '../src/screener';
-import { ScreenerView, ScreenerField, ScreenerExchangeFilter, ScreenerMarketCapFilter, ScreenerCountryFilter} from '../src/types';
+import { ScreenerView, ScreenerField, ScreenerOrder, ScreenerExchangeFilter, ScreenerMarketCapFilter, ScreenerCountryFilter, ScreenerSignal} from '../src/types';
 
 describe('getScreener', () => {
   const mockGetRecords = jest.fn();
@@ -36,10 +36,19 @@ describe('getScreener', () => {
 
   it('passes filters, order, and signal when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getScreener(client, { filters: 'exch_nasd', order: 'price', signal: 'ta_topgainers' });
+    await getScreener(client, { filters: ScreenerExchangeFilter.NASDAQ, order: ScreenerOrder.PRICE, signal: ScreenerSignal.TOP_GAINERS });
     expect(mockGetRecords).toHaveBeenCalledWith(
       '/export.ashx',
-      expect.objectContaining({ f: ScreenerExchangeFilter.NASDAQ, o: 'price', s: 'ta_topgainers' }),
+      expect.objectContaining({ f: ScreenerExchangeFilter.NASDAQ, o: ScreenerOrder.PRICE, s: ScreenerSignal.TOP_GAINERS }),
+    );
+  });
+
+  it('prepends orderDirection to order for descending sort', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+    await getScreener(client, { order: 'price', orderDirection: '-' });
+    expect(mockGetRecords).toHaveBeenCalledWith(
+      '/export.ashx',
+      expect.objectContaining({ o: '-price' }),
     );
   });
 
