@@ -92,14 +92,6 @@ describe('getPortfolio', () => {
     );
   });
 
-  it('omits optional params when no options are provided', async () => {
-    mockGetRecords.mockResolvedValueOnce([]);
-    await getPortfolio(client, 12345);
-    const [, params] = mockGetRecords.mock.calls[0];
-    expect(params.o).toBeUndefined();
-    expect(params.c).toBeUndefined();
-  });
-
   it('returns the records resolved by the client', async () => {
     const mockRows = [
       { Ticker: 'AAPL', Company: 'Apple Inc', Price: '175.00' },

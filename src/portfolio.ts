@@ -11,7 +11,7 @@
  */
 
 import type { FinvizClient } from './client';
-import type { PortfolioOptions, PortfolioField, Portfolio } from './types';
+import type { PortfolioOptions, Portfolio } from './types';
 
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
