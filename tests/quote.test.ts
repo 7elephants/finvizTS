@@ -13,7 +13,7 @@ describe('getQuote', () => {
       { Date: '4/1/2026', Open: '180.00', High: '182.00', Low: '179.50', Close: '181.00', Volume: '50000000' },
     ]);
 
-    const result = await getQuote(client, 'AAPL', { period: QuotePeriod.Daily });
+    const result = await getQuote(client, 'AAPL', { period: QuotePeriod.DAILY });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/quote_export.ashx', {
       t: 'AAPL',
@@ -26,7 +26,7 @@ describe('getQuote', () => {
 
   it('passes range when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getQuote(client, 'MSFT', { period: QuotePeriod.Weekly, range: QuoteRange.Year1 });
+    await getQuote(client, 'MSFT', { period: QuotePeriod.WEEKLY, range: QuoteRange.YEAR });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/quote_export.ashx', {
       t: 'MSFT',
@@ -41,7 +41,7 @@ describe('getQuote', () => {
       { Date: '4/1/2016', Open: '55.05', High: '55.61', Low: '54.57', Close: '55.57', Volume: '24399192' },
     ]);
 
-    const result = await getQuote(client, 'MSFT', { period: QuotePeriod.Daily });
+    const result = await getQuote(client, 'MSFT', { period: QuotePeriod.DAILY });
 
     expect(result).toHaveLength(2);
     expect(result[0]).toEqual({

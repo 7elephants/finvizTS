@@ -13,15 +13,15 @@
 
 /** Valid filing filter values for the latest-filings endpoint. */
 export const FilingFilter = {
-  AnnualQuarterlyCurrent: 'annual-quarterly-current',
-  InsiderEquity: 'insider-equity',
-  BeneficialOwnership: 'beneficial-ownership',
-  ExemptOfferings: 'exempt-offerings',
-  RegistrationStatements: 'registration-statements',
-  FilingReviewCorrespondence: 'filing-review-correspondence',
-  SECOrdersNotices: 'sec-orders-notices',
-  ProxyMaterials: 'proxy-materials',
-  TrustIndentures: 'trust-indentures',
+  ANNUAL_QUARTERLY_CURRENT: 'annual-quarterly-current',
+  INSIDER_EQUITY: 'insider-equity',
+  BENEFICIAL_OWNERSHIP: 'beneficial-ownership',
+  EXEMPT_OFFERINGS: 'exempt-offerings',
+  REGISTRATION_STATEMENTS: 'registration-statements',
+  FILING_REVIEW_CORRESPONDENCE: 'filing-review-correspondence',
+  SEC_ORDERS_NOTICES: 'sec-orders-notices',
+  PROXY_MATERIALS: 'proxy-materials',
+  TRUST_INDENTURES: 'trust-indentures',
 } as const;
 export type FilingFilter = (typeof FilingFilter)[keyof typeof FilingFilter];
 

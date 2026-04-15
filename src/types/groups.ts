@@ -15,39 +15,39 @@
 
 /** Valid group names for the groups endpoint. */
 export const GroupName = {
-  Sector: 'sector',
-  Industry: 'industry',
-  Country: 'country',
-  Capitalization: 'capitalization',
+  SECTOR: 'sector',
+  INDUSTRY: 'industry',
+  COUNTRY: 'country',
+  CAPITALIZATION: 'capitalization',
 } as const;
 export type GroupName = (typeof GroupName)[keyof typeof GroupName];
 
 /** Valid industry subgroup names for the groups endpoint. */
 export const IndustrySubgroup = {
-  BasicMaterials: 'basicmaterials',
-  CommunicationServices: 'communicationservices',
-  ConsumerCyclical: 'consumercyclical',
-  ConsumerDefensive: 'consumerdefensive',
-  Energy: 'energy',
-  Financial: 'financial',
-  Healthcare: 'healthcare',
-  Industrials: 'industrials',
-  RealEstate: 'realestate',
-  Technology: 'technology',
-  Utilities: 'utilities',
+  BASIC_MATERIALS: 'basicmaterials',
+  COMMUNICATION_SERVICES: 'communicationservices',
+  CONSUMER_CYCLICAL: 'consumercyclical',
+  CONSUMER_DEFENSIVE: 'consumerdefensive',
+  ENERGY: 'energy',
+  FINANCIAL: 'financial',
+  HEALTHCARE: 'healthcare',
+  INDUSTRIALS: 'industrials',
+  REAL_ESTATE: 'realestate',
+  TECHNOLOGY: 'technology',
+  UTILITIES: 'utilities',
 } as const;
 export type IndustrySubgroup = (typeof IndustrySubgroup)[keyof typeof IndustrySubgroup];
 
 /** Valid view IDs for the groups endpoint. */
 export const GroupView = {
-  Overview: 110,
-  Valuation: 120,
-  Performance: 140,
-  Custom: 150,
-  PerformanceChart: 210,
-  Spectrum: 310,
-  Charts: 410,
-  Maps: 510,
+  OVERVIEW: 110,
+  VALUATION: 120,
+  PERFORMANCE: 140,
+  CUSTOM: 150,
+  PERFORMANCE_CHART: 210,
+  SPECTRUM: 310,
+  CHARTS: 410,
+  MAPS: 510,
 } as const;
 export type GroupView = (typeof GroupView)[keyof typeof GroupView];
 

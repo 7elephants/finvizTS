@@ -13,8 +13,8 @@
 
 /** Valid view types for the options endpoint. */
 export const OptionsViewType = {
-  Prices: 'oc',
-  VolatilityGreeks: 'ocv',
+  PRICES: 'oc',
+  VOLATILITY_GREEKS: 'ocv',
 } as const;
 export type OptionsViewType = (typeof OptionsViewType)[keyof typeof OptionsViewType];
 

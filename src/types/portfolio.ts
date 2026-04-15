@@ -12,9 +12,9 @@
 
 /** Options for a portfolio request. */
 export interface PortfolioOptions {
-  /** Column to sort by . */
+  /** Column to sort by. */
   order?: string;
-  /** Column to sort by (either '' or '-'). */
+  /** Sort direction (either '' or '-'). */
   orderDirection?: string;
   /** Column indices to include (comma-separated list maps to the `c` query param). */
   fields?: number[];
@@ -22,26 +22,25 @@ export interface PortfolioOptions {
 
 /** All documented portfolio field IDs for the `c` query parameter. */
 export const PortfolioField = {
-  Ticker: 0,
-  Company: 1,
-  Price: 2,
-  ChangePercent: 3,
-  Volume: 4,
-  Transaction: 5,
-  Date: 6,
-  Shares: 7,
-  Cost: 8,
-  MarketValue: 9,
-  Gain: 10,
-  GainPercent: 11,
-  Change: 12,
+  TICKER: 0,
+  COMPANY: 1,
+  PRICE: 2,
+  CHANGE_PERCENT: 3,
+  VOLUME: 4,
+  TRANSACTION: 5,
+  DATE: 6,
+  SHARES: 7,
+  COST: 8,
+  MARKET_VALUE: 9,
+  GAIN: 10,
+  GAIN_PERCENT: 11,
+  CHANGE: 12,
 } as const;
 
-/** Union of all known screener field ID values. */
+/** Union of all known portfolio field ID values. */
 export type PortfolioField = (typeof PortfolioField)[keyof typeof PortfolioField];
 
-
-/** All documented portfolio field IDs for the `c` query parameter. */
+/** All documented portfolio sort column values for the `o` query parameter. */
 export const PortfolioOrder = {
   TICKER: 'ticker',
   COMPANY: 'company',
@@ -50,7 +49,7 @@ export const PortfolioOrder = {
   VOLUME: 'volume',
 } as const;
 
-/** Union of all known screener field ID values. */
+/** Union of all known portfolio order values. */
 export type PortfolioOrder = (typeof PortfolioOrder)[keyof typeof PortfolioOrder];
 
 /** A single row returned by the portfolio endpoint. */

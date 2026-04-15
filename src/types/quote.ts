@@ -14,30 +14,30 @@
 
 /** Valid period/interval values for the quote endpoint. */
 export const QuotePeriod = {
-  Minute1: 'i1',
-  Minute3: 'i3',
-  Minute5: 'i5',
-  Minute15: 'i15',
-  Minute30: 'i30',
-  Hour1: 'h',
-  Daily: 'd',
-  Weekly: 'w',
-  Monthly: 'm',
+  MINUTE: 'i1',
+  THREE_MINUTES: 'i3',
+  FIVE_MINUTES: 'i5',
+  FIFTEEN_MINUTES: 'i15',
+  THIRTY_MINUTES: 'i30',
+  HOURLY: 'h',
+  DAILY: 'd',
+  WEEKLY: 'w',
+  MONTHLY: 'm',
 } as const;
 export type QuotePeriod = (typeof QuotePeriod)[keyof typeof QuotePeriod];
 
 /** Valid range values for the quote endpoint. */
 export const QuoteRange = {
-  Day1: 'd1',
-  Day5: 'd5',
-  Month1: 'm1',
-  Month3: 'm3',
-  Month6: 'm6',
-  Year1: 'y1',
-  Year2: 'y2',
-  Year5: 'y5',
+  DAY: 'd1',
+  FIVE_DAYS: 'd5',
+  MONTH: 'm1',
+  THREE_MONTHS: 'm3',
+  SIX_MONTHS: 'm6',
+  YEAR: 'y1',
+  TWO_YEARS: 'y2',
+  FIVE_YEARS: 'y5',
   YTD: 'ytd',
-  Max: 'max',
+  MAX: 'max',
 } as const;
 export type QuoteRange = (typeof QuoteRange)[keyof typeof QuoteRange] | `range_${string}` | `prev_${string}`;
 
