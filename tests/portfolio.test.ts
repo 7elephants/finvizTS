@@ -69,7 +69,7 @@ describe('getPortfolio', () => {
   it('passes fields array as the c param', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getPortfolio(client, 12345, {
-      fields: [PortfolioField.Ticker, PortfolioField.Company, PortfolioField.Price],
+      fields: [PortfolioField.TICKER, PortfolioField.COMPANY, PortfolioField.PRICE],
     });
     expect(mockGetRecords).toHaveBeenCalledWith(
       '/portfolio_export.ashx',
@@ -80,19 +80,19 @@ describe('getPortfolio', () => {
   it('passes all fields constants correctly', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     const allFields = [
-      PortfolioField.Ticker,
-      PortfolioField.Company,
-      PortfolioField.Price,
-      PortfolioField.ChangePercent,
-      PortfolioField.Volume,
-      PortfolioField.Transaction,
-      PortfolioField.Date,
-      PortfolioField.Shares,
-      PortfolioField.Cost,
-      PortfolioField.MarketValue,
-      PortfolioField.Gain,
-      PortfolioField.GainPercent,
-      PortfolioField.Change,
+      PortfolioField.TICKER,
+      PortfolioField.COMPANY,
+      PortfolioField.PRICE,
+      PortfolioField.CHANGE_PERCENT,
+      PortfolioField.VOLUME,
+      PortfolioField.TRANSACTION,
+      PortfolioField.DATE,
+      PortfolioField.SHARES,
+      PortfolioField.COST,
+      PortfolioField.MARKET_VALUE,
+      PortfolioField.GAIN,
+      PortfolioField.GAIN_PERCENT,
+      PortfolioField.CHANGE,
     ];
     await getPortfolio(client, 12345, { fields: allFields });
     expect(mockGetRecords).toHaveBeenCalledWith(

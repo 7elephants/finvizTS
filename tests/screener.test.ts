@@ -16,7 +16,7 @@ describe('getScreener', () => {
 
   it('passes view ID when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getScreener(client, { view: ScreenerView.Overview });
+    await getScreener(client, { view: ScreenerView.OVERVIEW });
     expect(mockGetRecords).toHaveBeenCalledWith(
       '/export.ashx',
       expect.objectContaining({ v: 111 }),
@@ -26,7 +26,7 @@ describe('getScreener', () => {
   it('joins fields array into a comma-separated string for the c param', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, {
-      fields: [ScreenerField.No, ScreenerField.Ticker, ScreenerField.Price],
+      fields: [ScreenerField.NO, ScreenerField.TICKER, ScreenerField.PRICE],
     });
     expect(mockGetRecords).toHaveBeenCalledWith(
       '/export.ashx',

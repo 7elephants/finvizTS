@@ -26,7 +26,7 @@ export async function getNews(
   options: NewsOptions = {},
 ): Promise<NewsItem[]> {
   const rows = await client.getRecords('/news_export.ashx', {
-    v: options.type ?? NewsType.MarketByTime,
+    v: options.type ?? NewsType.MARKET_BY_TIME,
     pid: options.portfolioId,
     t: options.tickers,
   });

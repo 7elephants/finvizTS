@@ -30,6 +30,6 @@ export async function getOptionsChain(
   return client.getRecords('/export/options', {
     t: ticker,
     e: options.expiration,
-    ty: options.viewType ?? OptionsViewType.Prices,
+    ty: options.viewType ?? OptionsViewType.PRICES,
   });
 }

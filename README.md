@@ -21,8 +21,8 @@ import { FinvizClient, getScreener, ScreenerView, ScreenerField } from 'finvizts
 const client = new FinvizClient({ apiToken: process.env.FINVIZ_API_TOKEN! });
 
 const rows = await getScreener(client, {
-  view: ScreenerView.Overview,
-  fields: [ScreenerField.Ticker, ScreenerField.Price, ScreenerField.Volume],
+  view: ScreenerView.OVERVIEW,
+  fields: [ScreenerField.TICKER, ScreenerField.PRICE, ScreenerField.VOLUME],
   filters: 'exch_nasd,geo_usa',
 });
 
@@ -51,15 +51,15 @@ Fetch OHLCV time-series data for a single ticker.
 import { getQuote, QuotePeriod, QuoteRange } from 'finvizts';
 
 const bars = await getQuote(client, 'AAPL', {
-  period: QuotePeriod.Daily,  // required
-  range: QuoteRange.Year1,    // optional
+  period: QuotePeriod.DAILY,   // required
+  range: QuoteRange.YEAR,      // optional
 });
 // bars[0] → { Date, Open, High, Low, Close, Volume }
 ```
 
-**`QuotePeriod`** — `Minute1` `Minute3` `Minute5` `Minute15` `Minute30` `Hour1` `Daily` `Weekly` `Monthly`
+**`QuotePeriod`** — `MINUTE` `THREE_MINUTES` `FIVE_MINUTES` `FIFTEEN_MINUTES` `THIRTY_MINUTES` `HOURLY` `DAILY` `WEEKLY` `MONTHLY`
 
-**`QuoteRange`** — `Day1` `Day5` `Month1` `Month3` `Month6` `Year1` `Year2` `Year5` `YTD` `Max` or a custom string like `"range_01-01-2020x12-31-2020"` / `"prev_1-0-0"`
+**`QuoteRange`** — `DAY` `FIVE_DAYS` `MONTH` `THREE_MONTHS` `SIX_MONTHS` `YEAR` `TWO_YEARS` `FIVE_YEARS` `YTD` `MAX` or a custom string like `"range_01-01-2020x12-31-2020"` / `"prev_1-0-0"`
 
 ---
 
@@ -68,14 +68,15 @@ const bars = await getQuote(client, 'AAPL', {
 Query the stock screener with optional view, field selection, filters, and sorting.
 
 ```ts
-import { getScreener, ScreenerView, ScreenerField } from 'finvizts';
+import { getScreener, ScreenerView, ScreenerField, ScreenerOrder, ScreenerSignal, SortDirection } from 'finvizts';
 
 const rows = await getScreener(client, {
-  view: ScreenerView.Overview,
-  fields: [ScreenerField.Ticker, ScreenerField.Price, ScreenerField.MarketCap],
+  view: ScreenerView.OVERVIEW,
+  fields: [ScreenerField.TICKER, ScreenerField.PRICE, ScreenerField.MARKET_CAP],
   filters: 'cap_largeover,geo_usa',
-  order: '-price',
-  signal: 'ta_topgainers',
+  order: ScreenerOrder.PRICE,
+  orderDirection: SortDirection.DESC,
+  signal: ScreenerSignal.TOP_GAINERS,
 });
 ```
 
@@ -83,14 +84,22 @@ const rows = await getScreener(client, {
 |--------|------|-------------|
 | `view` | `number` | View ID. Use `ScreenerView` constants or a custom numeric ID. |
 | `fields` | `number[]` | Columns to return. Use `ScreenerField` constants. |
-| `filters` | `string` | Finviz filter string (e.g. `"cap_largeover,geo_usa"`). |
-| `order` | `string` | Sort column. Prefix with `-` for descending. |
+| `filters` | `string \| (string \| string[])[]` | Finviz filter string or array passed to `buildFilters()`. |
+| `order` | `string` | Sort column. Use `ScreenerOrder` constants or a raw string. |
+| `orderDirection` | `string` | Sort direction. Use `SortDirection.ASC` (`''`) or `SortDirection.DESC` (`'-'`). |
 | `rows` | `number` | Starting row for pagination (1-based). |
-| `signal` | `string` | Signal filter (e.g. `"ta_topgainers"`). |
+| `signal` | `string` | Signal filter. Use `ScreenerSignal` constants or a raw string. |
+| `tickers` | `string \| string[]` | Ticker symbol(s) to filter by. |
 
-**`ScreenerView`** — `Overview(111)` `Valuation(121)` `Performance(131)` `Ownership(141)` `Custom(151)` `Financial(161)` `Technical(171)` `ETF(181)` `ETFPerformance(191)` `Charts(211)` `Basic(311)` `News(321)` `Snapshot(341)` `TA(351)` `Tickers(411)` `Maps(711)`
+**`ScreenerView`** — `OVERVIEW(111)` `VALUATION(121)` `PERFORMANCE(131)` `OWNERSHIP(141)` `CUSTOM(151)` `FINANCIAL(161)` `TECHNICAL(171)` `ETF(181)` `ETF_PERFORMANCE(191)` `CHARTS(211)` `BASIC(311)` `NEWS(321)` `SNAPSHOT(341)` `TA(351)` `TICKERS(411)` `MAPS(711)`
 
-**`ScreenerField`** — 80+ constants including `No` `Ticker` `Company` `Sector` `Industry` `Country` `MarketCap` `Price` `Volume` `PE` `EPS` `Beta` `RSI` `SMA50` `SMA200` and more. See [src/types.ts](src/types.ts) for the full list.
+**`ScreenerField`** — 80+ constants including `NO` `TICKER` `COMPANY` `SECTOR` `INDUSTRY` `COUNTRY` `MARKET_CAP` `PRICE` `VOLUME` `PE` `EPS` `BETA` `RSI` `SMA_50` `SMA_200` and more. See [src/types/screener/index.ts](src/types/screener/index.ts) for the full list.
+
+**`ScreenerOrder`** — `TICKER` `COMPANY` `PRICE` `MARKET_CAP` `VOLUME` `CHANGE` `RSI` `BETA` `EPS_TTM` `PERFORMANCE_WEEK` `PERFORMANCE_YEAR` and many more. See [src/types/screener/order.ts](src/types/screener/order.ts) for the full list.
+
+**`ScreenerSignal`** — `TOP_GAINERS` `TOP_LOSERS` `NEW_HIGH` `NEW_LOW` `MOST_VOLATILE` `MOST_ACTIVE` `UNUSUAL_VOLUME` `OVERBOUGHT` `OVERSOLD` `UPGRADES` `DOWNGRADES` `EARNINGS_BEFORE` `EARNINGS_AFTER` `RECENT_INSIDER_BUYING` `RECENT_INSIDER_SELLING` `HEAD_AND_SHOULDERS` and more.
+
+**`SortDirection`** — `ASC` (`''`) `DESC` (`'-'`)
 
 ---
 
@@ -102,7 +111,7 @@ Fetch financial news by type, optionally filtered by ticker or portfolio.
 import { getNews, NewsType } from 'finvizts';
 
 const news = await getNews(client, {
-  type: NewsType.Stock,
+  type: NewsType.STOCK,
   tickers: 'AAPL,MSFT',
 });
 // news[0] → { title, source, date, url, category, ticker }
@@ -110,11 +119,11 @@ const news = await getNews(client, {
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `type` | `NewsType` | Type of news. Defaults to `MarketByTime`. |
-| `tickers` | `string` | Comma-separated tickers (for `Stock`, `ETF`, or `Crypto` types). |
-| `portfolioId` | `string` | Portfolio ID (for `Stock` or `ETF` types). |
+| `type` | `NewsType` | Type of news. Defaults to `MARKET_BY_TIME`. |
+| `tickers` | `string` | Comma-separated tickers (for `STOCK`, `ETF`, or `CRYPTO` types). |
+| `portfolioId` | `string` | Portfolio ID (for `STOCK` or `ETF` types). |
 
-**`NewsType`** — `MarketByTime(1)` `MarketBySource(2)` `Stock(3)` `ETF(4)` `Crypto(5)`
+**`NewsType`** — `MARKET_BY_TIME(1)` `MARKET_BY_SOURCE(2)` `STOCK(3)` `ETF(4)` `CRYPTO(5)`
 
 ---
 
@@ -123,18 +132,24 @@ const news = await getNews(client, {
 Fetch holdings for a saved Finviz portfolio. Find the portfolio ID in the URL when viewing it on the Finviz website.
 
 ```ts
-import { getPortfolio } from 'finvizts';
+import { getPortfolio, PortfolioField, PortfolioOrder, SortDirection } from 'finvizts';
 
 const holdings = await getPortfolio(client, '1000983827', {
-  order: '-price',
-  fields: [0, 1, 2, 8], // Ticker, Company, Price, Cost
+  order: PortfolioOrder.PRICE,
+  orderDirection: SortDirection.DESC,
+  fields: [PortfolioField.TICKER, PortfolioField.COMPANY, PortfolioField.PRICE, PortfolioField.COST],
 });
 ```
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `order` | `string` | Sort column (`ticker` `company` `price` `changepct` `volume`). Prefix with `-` for descending. |
-| `fields` | `number[]` | Column indices to include. |
+| `order` | `string` | Sort column. Use `PortfolioOrder` constants or a raw string. |
+| `orderDirection` | `string` | Sort direction. Use `SortDirection.ASC` (`''`) or `SortDirection.DESC` (`'-'`). |
+| `fields` | `number[]` | Column indices to include. Use `PortfolioField` constants. |
+
+**`PortfolioField`** — `TICKER(0)` `COMPANY(1)` `PRICE(2)` `CHANGE_PERCENT(3)` `VOLUME(4)` `TRANSACTION(5)` `DATE(6)` `SHARES(7)` `COST(8)` `MARKET_VALUE(9)` `GAIN(10)` `GAIN_PERCENT(11)` `CHANGE(12)`
+
+**`PortfolioOrder`** — `TICKER` `COMPANY` `PRICE` `CHANGE_PERCENT` `VOLUME`
 
 ---
 
@@ -147,12 +162,12 @@ import { getLatestFilings, FilingFilter } from 'finvizts';
 
 const filings = await getLatestFilings(client, 'MSFT', {
   order: '-filingDate',
-  filter: FilingFilter.AnnualQuarterlyCurrent,
+  filter: FilingFilter.ANNUAL_QUARTERLY_CURRENT,
 });
 // filings[0] → { filingDate, reportDate, form, description, filing, document }
 ```
 
-**`FilingFilter`** — `AnnualQuarterlyCurrent` `InsiderEquity` `BeneficialOwnership` `ExemptOfferings` `RegistrationStatements` `FilingReviewCorrespondence` `SECOrdersNotices` `ProxyMaterials` `TrustIndentures`
+**`FilingFilter`** — `ANNUAL_QUARTERLY_CURRENT` `INSIDER_EQUITY` `BENEFICIAL_OWNERSHIP` `EXEMPT_OFFERINGS` `REGISTRATION_STATEMENTS` `FILING_REVIEW_CORRESPONDENCE` `SEC_ORDERS_NOTICES` `PROXY_MATERIALS` `TRUST_INDENTURES`
 
 ---
 
@@ -164,12 +179,12 @@ Fetch the options chain for a ticker at a specific expiration date.
 import { getOptionsChain, OptionsViewType } from 'finvizts';
 
 const contracts = await getOptionsChain(client, 'MSFT', {
-  expiration: '2026-05-08',               // required, yyyy-mm-dd
-  viewType: OptionsViewType.Prices,       // optional, default: Prices
+  expiration: '2026-05-08',           // required, yyyy-mm-dd
+  viewType: OptionsViewType.PRICES,       // optional, default: PRICES
 });
 ```
 
-**`OptionsViewType`** — `Prices('oc')` `VolatilityGreeks('ocv')`
+**`OptionsViewType`** — `PRICES('oc')` `VOLATILITY_GREEKS('ocv')`
 
 ---
 
@@ -180,18 +195,46 @@ Fetch aggregated market data by sector, industry, country, or capitalization.
 ```ts
 import { getGroups, GroupName, GroupView, IndustrySubgroup } from 'finvizts';
 
-const sectors = await getGroups(client, GroupName.Sector, GroupView.Overview);
+const sectors = await getGroups(client, GroupName.SECTOR, GroupView.OVERVIEW);
 
-const techIndustries = await getGroups(client, GroupName.Industry, GroupView.Performance, {
-  subgroup: IndustrySubgroup.Technology,
+const techIndustries = await getGroups(client, GroupName.INDUSTRY, GroupView.PERFORMANCE, {
+  subgroup: IndustrySubgroup.TECHNOLOGY,
 });
 ```
 
-**`GroupName`** — `Sector` `Industry` `Country` `Capitalization`
+**`GroupName`** — `SECTOR` `INDUSTRY` `COUNTRY` `CAPITALIZATION`
 
-**`GroupView`** — `Overview(110)` `Valuation(120)` `Performance(140)` `Custom(150)` `PerformanceChart(210)` `Spectrum(310)` `Charts(410)` `Maps(510)`
+**`GroupView`** — `OVERVIEW(110)` `VALUATION(120)` `PERFORMANCE(140)` `CUSTOM(150)` `PERFORMANCE_CHART(210)` `SPECTRUM(310)` `CHARTS(410)` `MAPS(510)`
 
-**`IndustrySubgroup`** — `BasicMaterials` `CommunicationServices` `ConsumerCyclical` `ConsumerDefensive` `Energy` `Financial` `Healthcare` `Industrials` `RealEstate` `Technology` `Utilities`
+**`IndustrySubgroup`** — `BASIC_MATERIALS` `COMMUNICATION_SERVICES` `CONSUMER_CYCLICAL` `CONSUMER_DEFENSIVE` `ENERGY` `FINANCIAL` `HEALTHCARE` `INDUSTRIALS` `REAL_ESTATE` `TECHNOLOGY` `UTILITIES`
+
+---
+
+### `buildFilters(groups)` → `string`
+
+Compose a Finviz filter string from typed filter constants without manual string manipulation.
+
+```ts
+import { buildFilters, ScreenerExchangeFilter, ScreenerCountryFilter, ScreenerMarketCapFilter } from 'finvizts';
+
+// Single filter value per type (AND'd):
+buildFilters([ScreenerExchangeFilter.NASDAQ, ScreenerCountryFilter.USA])
+// → 'exch_nasd,geo_usa'
+
+// Multiple values for one type (OR'd), AND'd with another:
+buildFilters([[ScreenerExchangeFilter.AMEX, ScreenerExchangeFilter.NASDAQ], ScreenerCountryFilter.USA])
+// → 'exch_amex|nasd,geo_usa'
+
+// Pass the result to ScreenerOptions.filters:
+const rows = await getScreener(client, {
+  view: ScreenerView.OVERVIEW,
+  filters: buildFilters([ScreenerMarketCapFilter.LARGE_OVER, ScreenerCountryFilter.USA]),
+});
+```
+
+Each element in the array is one filter type: a **string** passes through as-is; a **string[]** OR's the values together with the shared prefix written once.
+
+Available filter constant sets: `ScreenerExchangeFilter` `ScreenerMarketCapFilter` `ScreenerEarningsDateFilter` and more — see [src/types/screener/](src/types/screener/) for the full list.
 
 ---
 

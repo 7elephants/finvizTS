@@ -20,7 +20,7 @@ describe('getNews', () => {
 
   it('passes news type when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getNews(client, { type: NewsType.Stock });
+    await getNews(client, { type: NewsType.STOCK });
     expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
       v: 3,
       pid: undefined,
@@ -30,7 +30,7 @@ describe('getNews', () => {
 
   it('passes tickers when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
-    await getNews(client, { type: NewsType.Stock, tickers: 'AAPL,MSFT' });
+    await getNews(client, { type: NewsType.STOCK, tickers: 'AAPL,MSFT' });
     expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
       v: 3,
       pid: undefined,
@@ -60,7 +60,7 @@ describe('getNews', () => {
       },
     ]);
 
-    const result = await getNews(client, { type: NewsType.Stock, tickers: 'AAPL' });
+    const result = await getNews(client, { type: NewsType.STOCK, tickers: 'AAPL' });
 
     expect(result).toEqual([
       {
