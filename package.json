@@ -5,7 +5,7 @@
   "author": "Andrew Steiger",
   "repository": {
     "type": "git",
-    "url": "https://github.com/7elephants/finvizTS"
+    "url": "git+https://github.com/7elephants/finvizTS.git"
   },
   "engines": {
     "node": ">=18.0.0"
