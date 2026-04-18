@@ -242,45 +242,6 @@ const techIndustries = await getGroups(
 
 ---
 
-### `buildFilters(groups)` → `string`
-
-Compose a Finviz filter string from typed filter constants without manual string manipulation.
-
-```ts
-import {
-  buildFilters,
-  ScreenerExchangeFilter,
-  ScreenerCountryFilter,
-  ScreenerMarketCapFilter,
-} from "finvizts";
-
-// Single filter value per type (AND'd):
-buildFilters([ScreenerExchangeFilter.NASDAQ, ScreenerCountryFilter.USA]);
-// → 'exch_nasd,geo_usa'
-
-// Multiple values for one type (OR'd), AND'd with another:
-buildFilters([
-  [ScreenerExchangeFilter.AMEX, ScreenerExchangeFilter.NASDAQ],
-  ScreenerCountryFilter.USA,
-]);
-// → 'exch_amex|nasd,geo_usa'
-
-// Pass the result to ScreenerOptions.filters:
-const rows = await getScreener(client, {
-  view: ScreenerView.OVERVIEW,
-  filters: buildFilters([
-    ScreenerMarketCapFilter.LARGE_OVER,
-    ScreenerCountryFilter.USA,
-  ]),
-});
-```
-
-Each element in the array is one filter type: a **string** passes through as-is; a **string[]** OR's the values together with the shared prefix written once.
-
-Available filter constant sets: `ScreenerExchangeFilter` `ScreenerMarketCapFilter` `ScreenerEarningsDateFilter` and more — see [src/types/screener/](src/types/screener/) for the full list.
-
----
-
 ## Rate Limiting & Retries
 
 `FinvizClient` enforces the Finviz Elite API's **1 request per 5 seconds** limit automatically:
@@ -309,28 +270,6 @@ try {
 ```
 
 When all retries are exhausted after a `429`, the thrown error message reads `"Finviz rate limit exceeded — exhausted N retries"`.
-
----
-
-## Environment Variables
-
-This package reads no environment variables directly. All configuration is passed through `FinvizClientOptions`. Load your own env vars before constructing the client:
-
-```ts
-// e.g. using dotenv in your application
-import "dotenv/config";
-
-const client = new FinvizClient({
-  apiToken: process.env.FINVIZ_API_TOKEN!, // required
-  baseUrl: process.env.FINVIZ_BASE_URL,    // optional
-});
-```
-
-Store secrets in `.env.local` (never commit this file):
-
-```
-FINVIZ_API_TOKEN=your_token_here
-```
 
 ---
 
