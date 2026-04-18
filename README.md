@@ -21,6 +21,8 @@ import {
   getScreener,
   ScreenerView,
   ScreenerField,
+  ScreenerExchangeFilter,
+  ScreenerCountryFilter,
 } from "finvizts";
 
 const client = new FinvizClient({ apiToken: process.env.FINVIZ_API_TOKEN! });
@@ -188,7 +190,8 @@ Fetch recent SEC filings for a single ticker.
 import { getLatestFilings, FilingFilter } from "finvizts";
 
 const filings = await getLatestFilings(client, "MSFT", {
-  order: "-filingDate",
+  order: FilingOrder.DATE,
+  orderDirection: SortDirection.DESC,
   filter: FilingFilter.ANNUAL_QUARTERLY_CURRENT,
 });
 // filings[0] → { filingDate, reportDate, form, description, filing, document }

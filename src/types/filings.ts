@@ -25,10 +25,21 @@ export const FilingFilter = {
 } as const;
 export type FilingFilter = (typeof FilingFilter)[keyof typeof FilingFilter];
 
+
+/** Valid filing order values */
+export const FilingOrder = {
+  DATE: 'filingDate',
+  REPORT_DATE: 'reportDate',
+  FORM: 'form',
+} as const;
+export type FilingOrder = (typeof FilingOrder)[keyof typeof FilingOrder];
+
 /** Options for a latest-filings request. */
 export interface FilingOptions {
   /** Column to sort by (prefix with "-" for descending, e.g. "-filingDate"). */
   order?: string;
+  /** Sort direction (either "" or "-"). */
+  orderDirection?: string; 
   /** Filter by filing type. */
   filter?: FilingFilter;
 }
