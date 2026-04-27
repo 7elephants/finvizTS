@@ -34,6 +34,7 @@ export {
   GroupView,
   FilingFilter,
   OptionsViewType,
+  ErrorLevel,
 } from './types';
 export type {
   FinvizClientOptions,
