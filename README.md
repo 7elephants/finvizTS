@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/finvizts)](https://www.npmjs.com/package/finvizts)
 [![license](https://img.shields.io/npm/l/finvizts)](LICENSE)
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/7elephants/finvizts/total)
 
 Unofficial TypeScript client for the [Finviz Elite API](https://finviz.com/api_explanation.ashx). Wraps all endpoints behind a typed, promise-based interface with built-in CSV parsing and error handling.
 
