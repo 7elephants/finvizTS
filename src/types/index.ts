@@ -32,3 +32,11 @@ export const SortDirection = {
 } as const;
 
 export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
+
+export const ErrorLevel = {
+    FATAL: 1,
+    ERROR: 2,
+    WARN: 3,
+}
+
+export type ErrorLevel = (typeof ErrorLevel)[keyof typeof ErrorLevel];

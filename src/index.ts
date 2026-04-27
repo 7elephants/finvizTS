@@ -22,7 +22,7 @@ export { getPortfolio } from './portfolio';
 export { getLatestFilings } from './filings';
 export { getOptionsChain } from './options';
 export { getGroups } from './groups';
-export { FinvizApiError } from './errors';
+export { FinvizError } from './errors';
 export {
   ScreenerView,
   ScreenerField,

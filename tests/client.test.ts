@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { FinvizClient } from '../src/client';
+import { FinvizError } from '../src/errors';
+import { ErrorLevel } from '../src/types/index';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -15,6 +17,17 @@ describe('FinvizClient', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockedAxios.create.mockReturnValue({ get: mockGet } as never);
+  });
+
+  it('throws a FATAL FinvizError when no API token is supplied', () => {
+    let thrown: unknown;
+    try {
+      new FinvizClient({ apiToken: '' });
+    } catch (err) {
+      thrown = err;
+    }
+    expect(thrown).toBeInstanceOf(FinvizError);
+    expect((thrown as FinvizError).level).toBe(ErrorLevel.FATAL);
   });
 
   it('creates an axios instance with the correct base URL', () => {
@@ -96,7 +109,7 @@ describe('FinvizClient', () => {
     afterEach(() => jest.useRealTimers());
 
     it('retries after a 429 and succeeds on the second attempt', async () => {
-      const err429 = Object.assign(new Error('rate limited'), {
+      const err429 = Object.assign(new Error('rate limit exceeded'), {
         isAxiosError: true,
         response: { status: 429, headers: {} },
       });
@@ -120,7 +133,7 @@ describe('FinvizClient', () => {
     });
 
     it('uses the Retry-After header value when present', async () => {
-      const err429WithHeader = Object.assign(new Error('rate limited'), {
+      const err429WithHeader = Object.assign(new Error('rate limit exceeded'), {
         isAxiosError: true,
         response: { status: 429, headers: { 'retry-after': '30' } },
       });
@@ -149,8 +162,8 @@ describe('FinvizClient', () => {
     beforeEach(() => jest.useFakeTimers());
     afterEach(() => jest.useRealTimers());
 
-    it('throws a FinvizApiError after exhausting all retries', async () => {
-      const err429 = Object.assign(new Error('rate limited'), {
+    it('throws a FinvizError after exhausting all retries', async () => {
+      const err429 = Object.assign(new Error('rate limit exceeded'), {
         isAxiosError: true,
         response: { status: 429, headers: {} },
       });
@@ -167,9 +180,9 @@ describe('FinvizClient', () => {
       const promise = client.getRecord('/api/quote.ashx', { t: 'AAPL' });
       // Attach the rejection handler before running timers to avoid unhandled rejection
       const assertion = expect(promise).rejects.toMatchObject({
-        name: 'FinvizApiError',
+        name: 'FinvizError',
         statusCode: 429,
-        message: expect.stringContaining('exhausted 2 retries'),
+        message: expect.stringContaining('rate limit exceeded'),
       });
       await jest.runAllTimersAsync();
       await assertion;

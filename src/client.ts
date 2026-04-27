@@ -16,8 +16,8 @@
 
 import axios, { isAxiosError, type AxiosInstance } from 'axios';
 import { parseRecord, parseRecords } from './csv';
-import { FinvizApiError } from './errors';
-import type { FinvizClientOptions } from './types';
+import { FinvizError } from './errors';
+import { type FinvizClientOptions, ErrorLevel } from './types';
 
 const DEFAULT_BASE_URL = 'https://elite.finviz.com';
 const DEFAULT_TIMEOUT = 10000;
@@ -34,6 +34,8 @@ export class FinvizClient {
   private lastRequestTime: number = 0;
 
   constructor(options: FinvizClientOptions) {
+    if (!options.apiToken) throw new FinvizError('Missing Finviz API token', ErrorLevel.FATAL);
+    
     this.apiToken = options.apiToken;
     this.http = axios.create({
       baseURL: options.baseUrl ?? DEFAULT_BASE_URL,
@@ -58,20 +60,19 @@ export class FinvizClient {
     // Proactive rate limiting: delay if last request was too recent
     const now = Date.now();
     const elapsed = now - this.lastRequestTime;
+    
     if (elapsed < this.rateLimitMs) {
       await this.delay(this.rateLimitMs - elapsed);
     }
     this.lastRequestTime = Date.now();
 
     let attempt = 0;
-    let lastError: FinvizApiError | undefined;
+    let lastError: FinvizError | undefined;
 
     while (attempt <= this.maxRetries) {
       if (attempt > 0) {
-        const waitMs =
-          lastError?.retryAfter !== undefined
-            ? lastError.retryAfter * 1000
-            : this.retryDelayMs;
+        const waitMs = (lastError?.retryAfter !== undefined) ? lastError.retryAfter * 1000 : this.retryDelayMs;
+        
         await this.delay(waitMs);
       }
 
@@ -82,29 +83,22 @@ export class FinvizClient {
         });
         return response.data;
       } catch (err) {
-        if (isAxiosError(err)) {
-          const status = err.response?.status;
+        if (isAxiosError(err) && (err.response?.status === 429)) {
+          //set up retry if rate limit error
+          const retryAfterHeader = err.response?.headers?.['retry-after'] as string | undefined;
+          const retryAfter = (retryAfterHeader !== undefined) 
+            ? Number(retryAfterHeader)
+            : undefined;
+          const message = (attempt < this.maxRetries)
+            ? 'Finviz rate limit exceeded'
+            : `Finviz rate limit exceeded — exhausted ${this.maxRetries} retries`;
 
-          if (status === 429) {
-            const retryAfterHeader = err.response?.headers?.['retry-after'] as string | undefined;
-            const retryAfter =
-              retryAfterHeader !== undefined ? Number(retryAfterHeader) : undefined;
-            const message =
-              attempt < this.maxRetries
-                ? 'Finviz rate limit exceeded (1 request per 5 seconds)'
-                : `Finviz rate limit exceeded — exhausted ${this.maxRetries} retries`;
-            lastError = new FinvizApiError(message, status, retryAfter);
-            attempt++;
-            continue;
-          }
-
-          const message =
-            status === 401
-              ? 'Finviz API authentication failed — check your API token'
-              : `Finviz API request failed: ${err.message}`;
-          throw new FinvizApiError(message, status);
-        }
-        throw err;
+          lastError = new FinvizError(message, ErrorLevel.ERROR, 429, retryAfter, { cause: err });
+          attempt++;
+          continue;
+        }  
+                
+        throw new FinvizError('Unable to complete request', ErrorLevel.ERROR, undefined, undefined, {cause: err} );
       }
     }
 
