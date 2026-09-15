@@ -25,7 +25,7 @@ export async function getNews(
   client: FinvizClient,
   options: NewsOptions = {},
 ): Promise<NewsItem[]> {
-  const rows = await client.getRecords('/news_export.ashx', {
+  const rows = await client.getRecords('/export/news', {
     v: options.type ?? NewsType.MARKET_BY_TIME,
     pid: options.portfolioId,
     t: options.tickers,

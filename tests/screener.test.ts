@@ -11,14 +11,14 @@ describe('getScreener', () => {
   it('calls getRecords with the export endpoint and no options', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client);
-    expect(mockGetRecords).toHaveBeenCalledWith('/export.ashx', expect.objectContaining({}));
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/screener', expect.objectContaining({}));
   });
 
   it('passes view ID when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { view: ScreenerView.OVERVIEW });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ v: 111 }),
     );
   });
@@ -29,7 +29,7 @@ describe('getScreener', () => {
       fields: [ScreenerField.NO, ScreenerField.TICKER, ScreenerField.PRICE],
     });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ c: '0,1,65' }),
     );
   });
@@ -38,7 +38,7 @@ describe('getScreener', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { filters: ScreenerExchangeFilter.NASDAQ, order: ScreenerOrder.PRICE, signal: ScreenerSignal.TOP_GAINERS });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ f: ScreenerExchangeFilter.NASDAQ, o: ScreenerOrder.PRICE, s: ScreenerSignal.TOP_GAINERS }),
     );
   });
@@ -47,7 +47,7 @@ describe('getScreener', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { order: 'price', orderDirection: '-' });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ o: '-price' }),
     );
   });
@@ -56,7 +56,7 @@ describe('getScreener', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, {filters:[ScreenerMarketCapFilter.MEGA, [ScreenerExchangeFilter.AMEX, ScreenerExchangeFilter.NASDAQ], ScreenerCountryFilter.USA]});
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ f: 'cap_mega,exch_amex|nasd,geo_usa' }),
     );
   });
@@ -67,7 +67,7 @@ describe('getScreener', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { tickers: 'AAPL' });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ t: 'AAPL' }),
     );
   });
@@ -76,7 +76,7 @@ describe('getScreener', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { tickers: ['AAPL', 'MSFT', 'NVDA'] });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ t: 'AAPL,MSFT,NVDA' }),
     );
   });
@@ -85,7 +85,7 @@ describe('getScreener', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getScreener(client, { view: 152 });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/export.ashx',
+      '/export/screener',
       expect.objectContaining({ v: 152 }),
     );
   });

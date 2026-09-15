@@ -28,7 +28,7 @@ export async function getGroups(
   viewId: number,
   options: GroupOptions = {},
 ): Promise<Group[]> {
-  return client.getRecords('/grp_export.ashx', {
+  return client.getRecords('/export/groups', {
     g: group,
     v: viewId,
     sg: options.subgroup,

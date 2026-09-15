@@ -26,7 +26,7 @@ export async function getScreener(
   client: FinvizClient,
   options: ScreenerOptions = {},
 ): Promise<Screener[]> {
-  return client.getRecords('/export.ashx', {
+  return client.getRecords('/export/screener', {
     v: options.view,
     c: options.fields?.join(','),
     f: Array.isArray(options.filters) ? buildFilters(options.filters) : options.filters,

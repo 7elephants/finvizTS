@@ -26,7 +26,7 @@ export async function getQuote(
   ticker: string,
   options: QuoteOptions,
 ): Promise<Quote[]> {
-  const rows = await client.getRecords('/quote_export.ashx', {
+  const rows = await client.getRecords('/export/stock', {
     t: ticker,
     p: options.period,
     r: options.range,
