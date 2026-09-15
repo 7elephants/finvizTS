@@ -11,7 +11,7 @@ describe('getNews', () => {
   it('defaults to MarketByTime (v=1) when no type is provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client);
-    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/news', {
       v: 1,
       pid: undefined,
       t: undefined,
@@ -21,7 +21,7 @@ describe('getNews', () => {
   it('passes news type when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client, { type: NewsType.STOCK });
-    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/news', {
       v: 3,
       pid: undefined,
       t: undefined,
@@ -31,7 +31,7 @@ describe('getNews', () => {
   it('passes tickers when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client, { type: NewsType.STOCK, tickers: 'AAPL,MSFT' });
-    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/news', {
       v: 3,
       pid: undefined,
       t: 'AAPL,MSFT',
@@ -41,7 +41,7 @@ describe('getNews', () => {
   it('passes portfolioId when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getNews(client, { type: NewsType.ETF, portfolioId: '12345' });
-    expect(mockGetRecords).toHaveBeenCalledWith('/news_export.ashx', {
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/news', {
       v: 4,
       pid: '12345',
       t: undefined,

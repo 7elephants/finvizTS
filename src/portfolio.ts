@@ -26,7 +26,7 @@ export async function getPortfolio(
   portfolioId: string | number,
   options: PortfolioOptions = {},
 ): Promise<Portfolio[]> {
-  return client.getRecords('/portfolio_export.ashx', {
+  return client.getRecords('/export/portfolio', {
     pid: String(portfolioId),
     o: (options.orderDirection || '') + (options.order || ''),
     c: Array.isArray(options.fields) ? options.fields.join(',') : options.fields,

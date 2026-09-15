@@ -25,7 +25,7 @@ describe('getPortfolio', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getPortfolio(client, 12345);
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ pid: '12345' }),
     );
   });
@@ -34,7 +34,7 @@ describe('getPortfolio', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getPortfolio(client, '1000983827');
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ pid: '1000983827' }),
     );
   });
@@ -43,7 +43,7 @@ describe('getPortfolio', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getPortfolio(client, 12345, { order: 'price' });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ o: 'price' }),
     );
   });
@@ -52,7 +52,7 @@ describe('getPortfolio', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getPortfolio(client, 12345, { orderDirection: SortDirection.DESC, order: PortfolioOrder.PRICE });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ o: SortDirection.DESC + PortfolioOrder.PRICE }),
     );
   });
@@ -61,7 +61,7 @@ describe('getPortfolio', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getPortfolio(client, 12345, { order: PortfolioOrder.COMPANY });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ o: PortfolioOrder.COMPANY }),
     );
   });
@@ -72,7 +72,7 @@ describe('getPortfolio', () => {
       fields: [PortfolioField.TICKER, PortfolioField.COMPANY, PortfolioField.PRICE],
     });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ c: '0,1,2' }),
     );
   });
@@ -96,7 +96,7 @@ describe('getPortfolio', () => {
     ];
     await getPortfolio(client, 12345, { fields: allFields });
     expect(mockGetRecords).toHaveBeenCalledWith(
-      '/portfolio_export.ashx',
+      '/export/portfolio',
       expect.objectContaining({ c: '0,1,2,3,4,5,6,7,8,9,10,11,12' }),
     );
   });

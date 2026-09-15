@@ -15,7 +15,7 @@ describe('getQuote', () => {
 
     const result = await getQuote(client, 'AAPL', { period: QuotePeriod.DAILY });
 
-    expect(mockGetRecords).toHaveBeenCalledWith('/quote_export.ashx', {
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/stock', {
       t: 'AAPL',
       p: 'd',
       r: undefined,
@@ -28,7 +28,7 @@ describe('getQuote', () => {
     mockGetRecords.mockResolvedValueOnce([]);
     await getQuote(client, 'MSFT', { period: QuotePeriod.WEEKLY, range: QuoteRange.YEAR });
 
-    expect(mockGetRecords).toHaveBeenCalledWith('/quote_export.ashx', {
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/stock', {
       t: 'MSFT',
       p: 'w',
       r: 'y1',
