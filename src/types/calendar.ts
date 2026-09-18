@@ -20,3 +20,4 @@ export interface CalendarOptions {
 
 /** A single row returned by the economic calendar endpoint. */
 export type Calendar = Record<string, string>;
+
