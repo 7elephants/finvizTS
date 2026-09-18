@@ -22,6 +22,10 @@ export { getPortfolio } from './portfolio';
 export { getLatestFilings } from './filings';
 export { getOptionsChain } from './options';
 export { getGroups } from './groups';
+export { getInsiders } from './insider';
+export { getManagers } from './manager';
+export { getFunds } from './fund';
+export { getCalendar } from './calendar';
 export { FinvizError } from './errors';
 export * from './utils';
 export {
@@ -35,6 +39,11 @@ export {
   GroupView,
   FilingFilter,
   OptionsViewType,
+  InsiderTransactionType,
+  InsiderOwnerRelationshipType,
+  InsiderOrderType,
+  ManagerFundOrderType,
+  SortDirection,
   ErrorLevel,
 } from './types';
 export type {
@@ -53,4 +62,12 @@ export type {
   Filing,
   OptionsChainOptions,
   Option,
+  InsiderOptions,
+  InsiderItem,
+  ManagerOptions,
+  ManagerItem,
+  FundOptions,
+  FundItem,
+  CalendarOptions,
+  Calendar,
 } from './types';
