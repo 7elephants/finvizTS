@@ -9,10 +9,6 @@
  * ---
  */
 
-// ---------------------------------------------------------------------------
-// Screener news date filters
-// ---------------------------------------------------------------------------
-
 /** Screener news date filter values for the `f` query parameter. */
 export const ScreenerNewsDateFilter = {
   TODAY: 'news_date_today',

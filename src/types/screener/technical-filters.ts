@@ -12,10 +12,6 @@
  * ---
  */
 
-// ---------------------------------------------------------------------------
-// Screener performance filters
-// ---------------------------------------------------------------------------
-
 /** Screener performance filter values for the `f` query parameter. */
 export const ScreenerPerformanceFilter = {
   TODAY_UP: 'ta_perf_dup',
@@ -150,10 +146,6 @@ export const ScreenerPerformanceFilter = {
 
 /** Union of all known screener performance filter values. */
 export type ScreenerPerformanceFilter = (typeof ScreenerPerformanceFilter)[keyof typeof ScreenerPerformanceFilter];
-
-// ---------------------------------------------------------------------------
-// Screener performance 2 filters
-// ---------------------------------------------------------------------------
 
 /** Screener performance 2 filter values for the `f` query parameter. */
 export const ScreenerPerformance2Filter = {
@@ -290,10 +282,6 @@ export const ScreenerPerformance2Filter = {
 /** Union of all known screener performance 2 filter values. */
 export type ScreenerPerformance2Filter = (typeof ScreenerPerformance2Filter)[keyof typeof ScreenerPerformance2Filter];
 
-// ---------------------------------------------------------------------------
-// Screener volatility filters
-// ---------------------------------------------------------------------------
-
 /** Screener volatility filter values for the `f` query parameter. */
 export const ScreenerVolatilityFilter = {
   WEEK_OVER_2: 'ta_volatility_wo2',
@@ -323,10 +311,6 @@ export const ScreenerVolatilityFilter = {
 /** Union of all known screener volatility filter values. */
 export type ScreenerVolatilityFilter = (typeof ScreenerVolatilityFilter)[keyof typeof ScreenerVolatilityFilter];
 
-// ---------------------------------------------------------------------------
-// Screener RSI (14) filters
-// ---------------------------------------------------------------------------
-
 /** Screener RSI (14) filter values for the `f` query parameter. */
 export const ScreenerRSIFilter = {
   OVERBOUGHT_90: 'ta_rsi_ob90',
@@ -345,10 +329,6 @@ export const ScreenerRSIFilter = {
 
 /** Union of all known screener RSI filter values. */
 export type ScreenerRSIFilter = (typeof ScreenerRSIFilter)[keyof typeof ScreenerRSIFilter];
-
-// ---------------------------------------------------------------------------
-// Screener gap filters
-// ---------------------------------------------------------------------------
 
 /** Screener gap filter values for the `f` query parameter. */
 export const ScreenerGapFilter = {
@@ -385,10 +365,6 @@ export const ScreenerGapFilter = {
 /** Union of all known screener gap filter values. */
 export type ScreenerGapFilter = (typeof ScreenerGapFilter)[keyof typeof ScreenerGapFilter];
 
-// ---------------------------------------------------------------------------
-// Screener 20-day SMA filters
-// ---------------------------------------------------------------------------
-
 /** Screener 20-day SMA filter values for the `f` query parameter. */
 export const ScreenerSMA20Filter = {
   PRICE_BELOW: 'ta_sma20_pb',
@@ -421,10 +397,6 @@ export const ScreenerSMA20Filter = {
 /** Union of all known screener 20-day SMA filter values. */
 export type ScreenerSMA20Filter = (typeof ScreenerSMA20Filter)[keyof typeof ScreenerSMA20Filter];
 
-// ---------------------------------------------------------------------------
-// Screener 50-day SMA filters
-// ---------------------------------------------------------------------------
-
 /** Screener 50-day SMA filter values for the `f` query parameter. */
 export const ScreenerSMA50Filter = {
   PRICE_BELOW: 'ta_sma50_pb',
@@ -456,10 +428,6 @@ export const ScreenerSMA50Filter = {
 
 /** Union of all known screener 50-day SMA filter values. */
 export type ScreenerSMA50Filter = (typeof ScreenerSMA50Filter)[keyof typeof ScreenerSMA50Filter];
-
-// ---------------------------------------------------------------------------
-// Screener 200-day SMA filters
-// ---------------------------------------------------------------------------
 
 /** Screener 200-day SMA filter values for the `f` query parameter. */
 export const ScreenerSMA200Filter = {
@@ -502,10 +470,6 @@ export const ScreenerSMA200Filter = {
 /** Union of all known screener 200-day SMA filter values. */
 export type ScreenerSMA200Filter = (typeof ScreenerSMA200Filter)[keyof typeof ScreenerSMA200Filter];
 
-// ---------------------------------------------------------------------------
-// Screener change filters
-// ---------------------------------------------------------------------------
-
 /** Screener change filter values for the `f` query parameter. */
 export const ScreenerChangeFilter = {
   UP: 'ta_change_u',
@@ -538,10 +502,6 @@ export const ScreenerChangeFilter = {
 
 /** Union of all known screener change filter values. */
 export type ScreenerChangeFilter = (typeof ScreenerChangeFilter)[keyof typeof ScreenerChangeFilter];
-
-// ---------------------------------------------------------------------------
-// Screener change from open filters
-// ---------------------------------------------------------------------------
 
 /** Screener change from open filter values for the `f` query parameter. */
 export const ScreenerChangeFromOpenFilter = {
@@ -576,10 +536,6 @@ export const ScreenerChangeFromOpenFilter = {
 /** Union of all known screener change from open filter values. */
 export type ScreenerChangeFromOpenFilter = (typeof ScreenerChangeFromOpenFilter)[keyof typeof ScreenerChangeFromOpenFilter];
 
-// ---------------------------------------------------------------------------
-// Screener 20-day high/low filters
-// ---------------------------------------------------------------------------
-
 /** Screener 20-day high/low filter values for the `f` query parameter. */
 export const ScreenerHighLow20DFilter = {
   NEW_HIGH: 'ta_highlow20d_nh',
@@ -609,10 +565,6 @@ export const ScreenerHighLow20DFilter = {
 /** Union of all known screener 20-day high/low filter values. */
 export type ScreenerHighLow20DFilter = (typeof ScreenerHighLow20DFilter)[keyof typeof ScreenerHighLow20DFilter];
 
-// ---------------------------------------------------------------------------
-// Screener 50-day high/low filters
-// ---------------------------------------------------------------------------
-
 /** Screener 50-day high/low filter values for the `f` query parameter. */
 export const ScreenerHighLow50DFilter = {
   NEW_HIGH: 'ta_highlow50d_nh',
@@ -641,10 +593,6 @@ export const ScreenerHighLow50DFilter = {
 
 /** Union of all known screener 50-day high/low filter values. */
 export type ScreenerHighLow50DFilter = (typeof ScreenerHighLow50DFilter)[keyof typeof ScreenerHighLow50DFilter];
-
-// ---------------------------------------------------------------------------
-// Screener 52-week high/low filters
-// ---------------------------------------------------------------------------
 
 /** Screener 52-week high/low filter values for the `f` query parameter. */
 export const ScreenerHighLow52WFilter = {
@@ -689,10 +637,6 @@ export const ScreenerHighLow52WFilter = {
 /** Union of all known screener 52-week high/low filter values. */
 export type ScreenerHighLow52WFilter = (typeof ScreenerHighLow52WFilter)[keyof typeof ScreenerHighLow52WFilter];
 
-// ---------------------------------------------------------------------------
-// Screener all-time high/low filters
-// ---------------------------------------------------------------------------
-
 /** Screener all-time high/low filter values for the `f` query parameter. */
 export const ScreenerAllTimeHighLowFilter = {
   NEW_HIGH: 'ta_alltime_nh',
@@ -736,10 +680,6 @@ export const ScreenerAllTimeHighLowFilter = {
 /** Union of all known screener all-time high/low filter values. */
 export type ScreenerAllTimeHighLowFilter = (typeof ScreenerAllTimeHighLowFilter)[keyof typeof ScreenerAllTimeHighLowFilter];
 
-// ---------------------------------------------------------------------------
-// Screener pattern filters
-// ---------------------------------------------------------------------------
-
 /** Screener pattern filter values for the `f` query parameter. */
 export const ScreenerPatternFilter = {
   HORIZONTAL_SR: 'ta_pattern_horizontal',
@@ -775,10 +715,6 @@ export const ScreenerPatternFilter = {
 /** Union of all known screener pattern filter values. */
 export type ScreenerPatternFilter = (typeof ScreenerPatternFilter)[keyof typeof ScreenerPatternFilter];
 
-// ---------------------------------------------------------------------------
-// Screener candlestick filters
-// ---------------------------------------------------------------------------
-
 /** Screener candlestick filter values for the `f` query parameter. */
 export const ScreenerCandlestickFilter = {
   LONG_LOWER_SHADOW: 'ta_candlestick_lls',
@@ -796,10 +732,6 @@ export const ScreenerCandlestickFilter = {
 
 /** Union of all known screener candlestick filter values. */
 export type ScreenerCandlestickFilter = (typeof ScreenerCandlestickFilter)[keyof typeof ScreenerCandlestickFilter];
-
-// ---------------------------------------------------------------------------
-// Screener beta filters
-// ---------------------------------------------------------------------------
 
 /** Screener beta filter values for the `f` query parameter. */
 export const ScreenerBetaFilter = {
@@ -826,10 +758,6 @@ export const ScreenerBetaFilter = {
 
 /** Union of all known screener beta filter values. */
 export type ScreenerBetaFilter = (typeof ScreenerBetaFilter)[keyof typeof ScreenerBetaFilter];
-
-// ---------------------------------------------------------------------------
-// Screener average true range filters
-// ---------------------------------------------------------------------------
 
 /** Screener average true range filter values for the `f` query parameter. */
 export const ScreenerAverageTrueRangeFilter = {
@@ -861,10 +789,6 @@ export const ScreenerAverageTrueRangeFilter = {
 
 /** Union of all known screener average true range filter values. */
 export type ScreenerAverageTrueRangeFilter = (typeof ScreenerAverageTrueRangeFilter)[keyof typeof ScreenerAverageTrueRangeFilter];
-
-// ---------------------------------------------------------------------------
-// Screener after-hours close filters
-// ---------------------------------------------------------------------------
 
 /** After-hours close price filters. */
 /** Screener after-hours close filter values for the `f` query parameter. */
@@ -912,10 +836,6 @@ export const ScreenerAfterHoursCloseFilter = {
 
 /** Union of all known screener after-hours close filter values. */
 export type ScreenerAfterHoursCloseFilter = (typeof ScreenerAfterHoursCloseFilter)[keyof typeof ScreenerAfterHoursCloseFilter];
-
-// ---------------------------------------------------------------------------
-// Screener after-hours change filters
-// ---------------------------------------------------------------------------
 
 /** After-hours % change filters. */
 /** Screener after-hours change filter values for the `f` query parameter. */

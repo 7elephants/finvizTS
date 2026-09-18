@@ -57,7 +57,6 @@ export class FinvizClient {
     path: string,
     params: Record<string, string | number | undefined>,
   ): Promise<string> {
-    // Proactive rate limiting: delay if last request was too recent
     const now = Date.now();
     const elapsed = now - this.lastRequestTime;
     
@@ -84,7 +83,6 @@ export class FinvizClient {
         return response.data;
       } catch (err) {
         if (isAxiosError(err) && (err.response?.status === 429)) {
-          //set up retry if rate limit error
           const retryAfterHeader = err.response?.headers?.['retry-after'] as string | undefined;
           const retryAfter = (retryAfterHeader !== undefined) 
             ? Number(retryAfterHeader)

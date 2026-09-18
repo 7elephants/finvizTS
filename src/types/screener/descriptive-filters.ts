@@ -13,10 +13,6 @@
  * ---
  */
 
-// ---------------------------------------------------------------------------
-// Screener exchange filters
-// ---------------------------------------------------------------------------
-
 /** Screener exchange filter values for the `f` query parameter. */
 export const ScreenerExchangeFilter = {
   AMEX: 'exch_amex',
@@ -27,10 +23,6 @@ export const ScreenerExchangeFilter = {
 
 /** Union of all known screener exchange filter ID values. */
 export type ScreenerExchangeFilter = (typeof ScreenerExchangeFilter)[keyof typeof ScreenerExchangeFilter];
-
-// ---------------------------------------------------------------------------
-// Screener market cap filters
-// ---------------------------------------------------------------------------
 
 /** Screener market cap filter values for the `f` query parameter. */
 export const ScreenerMarketCapFilter = {
@@ -53,10 +45,6 @@ export const ScreenerMarketCapFilter = {
 /** Union of all known screener market cap filter ID values. */
 export type ScreenerMarketCapFilter = (typeof ScreenerMarketCapFilter)[keyof typeof ScreenerMarketCapFilter];
 
-// ---------------------------------------------------------------------------
-// Screener earnings date filters
-// ---------------------------------------------------------------------------
-
 /** Screener earnings date filter values for the `f` query parameter. */
 export const ScreenerEarningsDateFilter = {
   TODAY: 'earningsdate_today',
@@ -78,10 +66,6 @@ export const ScreenerEarningsDateFilter = {
 
 /** Union of all known screener market cap filter ID values. */
 export type ScreenerEarningsDateFilter = (typeof ScreenerEarningsDateFilter)[keyof typeof ScreenerEarningsDateFilter];
-
-// ---------------------------------------------------------------------------
-// Screener price filters
-// ---------------------------------------------------------------------------
 
 /** Screener price filter values for the `f` query parameter. */
 export const ScreenerPriceFilter = {
@@ -128,10 +112,6 @@ export const ScreenerPriceFilter = {
 /** Union of all known screener price filter ID values. */
 export type ScreenerPriceFilter = (typeof ScreenerPriceFilter)[keyof typeof ScreenerPriceFilter];
 
-// ---------------------------------------------------------------------------
-// Screener index filters
-// ---------------------------------------------------------------------------
-
 /** Screener index filter values for the `f` query parameter. */
 export const ScreenerIndexFilter = {
   SP500: 'idx_sp500',
@@ -142,10 +122,6 @@ export const ScreenerIndexFilter = {
 
 /** Union of all known screener index filter ID values. */
 export type ScreenerIndexFilter = (typeof ScreenerIndexFilter)[keyof typeof ScreenerIndexFilter];
-
-// ---------------------------------------------------------------------------
-// Screener dividend yield filters
-// ---------------------------------------------------------------------------
 
 /** Screener dividend yield filter values for the `f` query parameter. */
 export const ScreenerDividendYieldFilter = {
@@ -167,10 +143,6 @@ export const ScreenerDividendYieldFilter = {
 
 /** Union of all known screener dividend yield filter ID values. */
 export type ScreenerDividendYieldFilter = (typeof ScreenerDividendYieldFilter)[keyof typeof ScreenerDividendYieldFilter];
-
-// ---------------------------------------------------------------------------
-// Screener average volume filters
-// ---------------------------------------------------------------------------
 
 /** Screener average volume filter values for the `f` query parameter. */
 export const ScreenerAverageVolumeFilter = {
@@ -197,10 +169,6 @@ export const ScreenerAverageVolumeFilter = {
 /** Union of all known screener average volume filter ID values. */
 export type ScreenerAverageVolumeFilter = (typeof ScreenerAverageVolumeFilter)[keyof typeof ScreenerAverageVolumeFilter];
 
-// ---------------------------------------------------------------------------
-// Screener target price filters
-// ---------------------------------------------------------------------------
-
 /** Screener target price filter values for the `f` query parameter. */
 export const ScreenerTargetPriceFilter = {
   A50: 'targetprice_a50',
@@ -221,10 +189,6 @@ export const ScreenerTargetPriceFilter = {
 
 /** Union of all known screener target price filter ID values. */
 export type ScreenerTargetPriceFilter = (typeof ScreenerTargetPriceFilter)[keyof typeof ScreenerTargetPriceFilter];
-
-// ---------------------------------------------------------------------------
-// Screener sub theme filters
-// ---------------------------------------------------------------------------
 
 /** Screener sub theme filter values for the `f` query parameter. */
 export const ScreenerSubThemeFilter = {
@@ -501,10 +465,6 @@ WEARABLES_SPORT: 'subtheme_wearablessport',
 /** Union of all known screener sub theme filter ID values. */
 export type ScreenerSubThemeFilter = (typeof ScreenerSubThemeFilter)[keyof typeof ScreenerSubThemeFilter];
 
-// ---------------------------------------------------------------------------
-// Screener sector filters
-// ---------------------------------------------------------------------------
-
 /** Screener sector filter values for the `f` query parameter. */
 export const ScreenerSectorFilter = {
   BASIC_MATERIALS: 'sec_basicmaterials',
@@ -522,10 +482,6 @@ export const ScreenerSectorFilter = {
 
 /** Union of all known screener sector filter ID values. */
 export type ScreenerSectorFilter = (typeof ScreenerSectorFilter)[keyof typeof ScreenerSectorFilter];
-
-// ---------------------------------------------------------------------------
-// Screener short float filters
-// ---------------------------------------------------------------------------
 
 /** Screener short float filter values for the `f` query parameter. */
 export const ScreenerShortFloatFilter = {
@@ -547,10 +503,6 @@ export const ScreenerShortFloatFilter = {
 
 /** Union of all known screener short float filter ID values. */
 export type ScreenerShortFloatFilter = (typeof ScreenerShortFloatFilter)[keyof typeof ScreenerShortFloatFilter];
-
-// ---------------------------------------------------------------------------
-// Screener relative volume filters
-// ---------------------------------------------------------------------------
 
 /** Screener relative volume filter values for the `f` query parameter. */
 export const ScreenerRelativeVolumeFilter = {
@@ -575,10 +527,6 @@ export const ScreenerRelativeVolumeFilter = {
 /** Union of all known screener relative volume filter ID values. */
 export type ScreenerRelativeVolumeFilter = (typeof ScreenerRelativeVolumeFilter)[keyof typeof ScreenerRelativeVolumeFilter];
 
-// ---------------------------------------------------------------------------
-// Screener IPO date filters
-// ---------------------------------------------------------------------------
-
 /** Screener IPO date filter values for the `f` query parameter. */
 export const ScreenerIPODateFilter = {
   TODAY: 'ipodate_today',
@@ -600,10 +548,6 @@ export const ScreenerIPODateFilter = {
 
 /** Union of all known screener IPO date filter ID values. */
 export type ScreenerIPODateFilter = (typeof ScreenerIPODateFilter)[keyof typeof ScreenerIPODateFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Industry filters
-// ---------------------------------------------------------------------------
 
 /** Screener Industry filter values for the `f` query parameter. */
 export const ScreenerIndustryFilter = {
@@ -764,10 +708,6 @@ export const ScreenerIndustryFilter = {
 /** Union of all known screener industry filter ID values. */
 export type ScreenerIndustryFilter = (typeof ScreenerIndustryFilter)[keyof typeof ScreenerIndustryFilter];
 
-// ---------------------------------------------------------------------------
-// Screener analyst recommendation filters
-// ---------------------------------------------------------------------------
-
 /** Screener analyst recommendation filter values for the `f` query parameter. */
 export const ScreenerAnalystRecommendationFilter = {
   STRONG_BUY: 'an_recom_strongbuy',
@@ -783,10 +723,6 @@ export const ScreenerAnalystRecommendationFilter = {
 
 /** Union of all known screener analyst recommendation filter ID values. */
 export type ScreenerAnalystRecommendationFilter = (typeof ScreenerAnalystRecommendationFilter)[keyof typeof ScreenerAnalystRecommendationFilter];
-
-// ---------------------------------------------------------------------------
-// Screener current volume filters
-// ---------------------------------------------------------------------------
 
 /** Screener current volume filter values for the `f` query parameter. */
 export const ScreenerCurrentVolumeFilter = {
@@ -823,10 +759,6 @@ export const ScreenerCurrentVolumeFilter = {
 /** Union of all known screener current volume filter ID values. */
 export type ScreenerCurrentVolumeFilter = (typeof ScreenerCurrentVolumeFilter)[keyof typeof ScreenerCurrentVolumeFilter];
 
-// ---------------------------------------------------------------------------
-// Screener shares outstanding filters
-// ---------------------------------------------------------------------------
-
 /** Screener shares outstanding filter values for the `f` query parameter. */
 export const ScreenerSharesOutstandingFilter = {
   UNDER_1M: 'sh_outstanding_u1000',
@@ -849,10 +781,6 @@ export const ScreenerSharesOutstandingFilter = {
 
 /** Union of all known screener shares outstanding filter ID values. */
 export type ScreenerSharesOutstandingFilter = (typeof ScreenerSharesOutstandingFilter)[keyof typeof ScreenerSharesOutstandingFilter];
-
-// ---------------------------------------------------------------------------
-// Screener country filters
-// ---------------------------------------------------------------------------
 
 /** Screener country filter values for the `f` query parameter. */
 export const ScreenerCountryFilter = {
@@ -913,10 +841,6 @@ export const ScreenerCountryFilter = {
 /** Union of all known screener country filter ID values. */
 export type ScreenerCountryFilter = (typeof ScreenerCountryFilter)[keyof typeof ScreenerCountryFilter];
 
-// ---------------------------------------------------------------------------
-// Screener option/short filters
-// ---------------------------------------------------------------------------
-
 /** Screener option/short filter values for the `f` query parameter. */
 export const ScreenerOptionShortFilter = {
   OPTIONABLE: 'sh_opt_option',
@@ -942,10 +866,6 @@ export const ScreenerOptionShortFilter = {
 /** Union of all known screener option/short filter ID values. */
 export type ScreenerOptionShortFilter = (typeof ScreenerOptionShortFilter)[keyof typeof ScreenerOptionShortFilter];
 
-// ---------------------------------------------------------------------------
-// Screener trades filters
-// ---------------------------------------------------------------------------
-
 /** Screener trades filter values for the `f` query parameter. */
 export const ScreenerTradesFilter = {
   UNDER_100: 'sh_trades_u100',
@@ -967,10 +887,6 @@ export const ScreenerTradesFilter = {
 
 /** Union of all known screener trades filter ID values. */
 export type ScreenerTradesFilter = (typeof ScreenerTradesFilter)[keyof typeof ScreenerTradesFilter];
-
-// ---------------------------------------------------------------------------
-// Screener float filters
-// ---------------------------------------------------------------------------
 
 /** Screener float filter values for the `f` query parameter. */
 export const ScreenerFloatFilter = {
@@ -1012,5 +928,4 @@ export const ScreenerFloatFilter = {
 
 /** Union of all known screener float filter ID values. */
 export type ScreenerFloatFilter = (typeof ScreenerFloatFilter)[keyof typeof ScreenerFloatFilter];
-
 

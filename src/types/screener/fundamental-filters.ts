@@ -13,10 +13,6 @@
  * ---
  */
 
-// ---------------------------------------------------------------------------
-// Screener P/E filters  (data-filter="fa_pe")
-// ---------------------------------------------------------------------------
-
 /** Screener P/E filter values for the `f` query parameter. */
 export const ScreenerPEFilter = {
   LOW: 'fa_pe_low',
@@ -46,10 +42,6 @@ export const ScreenerPEFilter = {
 
 /** Union of all known screener P/E filter values. */
 export type ScreenerPEFilter = (typeof ScreenerPEFilter)[keyof typeof ScreenerPEFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Forward P/E filters  (data-filter="fa_fpe")
-// ---------------------------------------------------------------------------
 
 /** Screener Forward P/E filter values for the `f` query parameter. */
 export const ScreenerForwardPEFilter = {
@@ -81,10 +73,6 @@ export const ScreenerForwardPEFilter = {
 /** Union of all known screener Forward P/E filter values. */
 export type ScreenerForwardPEFilter = (typeof ScreenerForwardPEFilter)[keyof typeof ScreenerForwardPEFilter];
 
-// ---------------------------------------------------------------------------
-// Screener PEG filters  (data-filter="fa_peg")
-// ---------------------------------------------------------------------------
-
 /** Screener PEG filter values for the `f` query parameter. */
 export const ScreenerPEGFilter = {
   LOW: 'fa_peg_low',
@@ -99,10 +87,6 @@ export const ScreenerPEGFilter = {
 
 /** Union of all known screener PEG filter values. */
 export type ScreenerPEGFilter = (typeof ScreenerPEGFilter)[keyof typeof ScreenerPEGFilter];
-
-// ---------------------------------------------------------------------------
-// Screener P/S filters  (data-filter="fa_ps")
-// ---------------------------------------------------------------------------
 
 /** Screener P/S filter values for the `f` query parameter. */
 export const ScreenerPSFilter = {
@@ -133,10 +117,6 @@ export const ScreenerPSFilter = {
 /** Union of all known screener P/S filter values. */
 export type ScreenerPSFilter = (typeof ScreenerPSFilter)[keyof typeof ScreenerPSFilter];
 
-// ---------------------------------------------------------------------------
-// Screener P/B filters  (data-filter="fa_pb")
-// ---------------------------------------------------------------------------
-
 /** Screener P/B filter values for the `f` query parameter. */
 export const ScreenerPBFilter = {
   LOW: 'fa_pb_low',
@@ -165,10 +145,6 @@ export const ScreenerPBFilter = {
 
 /** Union of all known screener P/B filter values. */
 export type ScreenerPBFilter = (typeof ScreenerPBFilter)[keyof typeof ScreenerPBFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Price/Cash filters  (data-filter="fa_pc")
-// ---------------------------------------------------------------------------
 
 /** Screener Price/Cash filter values for the `f` query parameter. */
 export const ScreenerPriceCashFilter = {
@@ -202,10 +178,6 @@ export const ScreenerPriceCashFilter = {
 
 /** Union of all known screener Price/Cash filter values. */
 export type ScreenerPriceCashFilter = (typeof ScreenerPriceCashFilter)[keyof typeof ScreenerPriceCashFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Price/Free Cash Flow filters  (data-filter="fa_pfcf")
-// ---------------------------------------------------------------------------
 
 /** Screener Price/Free Cash Flow filter values for the `f` query parameter. */
 export const ScreenerPriceFCFFilter = {
@@ -246,10 +218,6 @@ export const ScreenerPriceFCFFilter = {
 /** Union of all known screener Price/FCF filter values. */
 export type ScreenerPriceFCFFilter = (typeof ScreenerPriceFCFFilter)[keyof typeof ScreenerPriceFCFFilter];
 
-// ---------------------------------------------------------------------------
-// Screener EV/EBITDA filters  (data-filter="fa_evebitda")
-// ---------------------------------------------------------------------------
-
 /** Screener EV/EBITDA filter values for the `f` query parameter. */
 export const ScreenerEVEBITDAFilter = {
   NEGATIVE: 'fa_evebitda_negative',
@@ -281,10 +249,6 @@ export const ScreenerEVEBITDAFilter = {
 /** Union of all known screener EV/EBITDA filter values. */
 export type ScreenerEVEBITDAFilter = (typeof ScreenerEVEBITDAFilter)[keyof typeof ScreenerEVEBITDAFilter];
 
-// ---------------------------------------------------------------------------
-// Screener EV/Sales filters  (data-filter="fa_evsales")
-// ---------------------------------------------------------------------------
-
 /** Screener EV/Sales filter values for the `f` query parameter. */
 export const ScreenerEVSalesFilter = {
   NEGATIVE: 'fa_evsales_negative',
@@ -315,10 +279,6 @@ export const ScreenerEVSalesFilter = {
 
 /** Union of all known screener EV/Sales filter values. */
 export type ScreenerEVSalesFilter = (typeof ScreenerEVSalesFilter)[keyof typeof ScreenerEVSalesFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Dividend Growth filters  (data-filter="fa_divgrowth")
-// ---------------------------------------------------------------------------
 
 /** Screener Dividend Growth filter values for the `f` query parameter. */
 export const ScreenerDividendGrowthFilter = {
@@ -357,10 +317,6 @@ export const ScreenerDividendGrowthFilter = {
 /** Union of all known screener Dividend Growth filter values. */
 export type ScreenerDividendGrowthFilter = (typeof ScreenerDividendGrowthFilter)[keyof typeof ScreenerDividendGrowthFilter];
 
-// ---------------------------------------------------------------------------
-// Screener EPS Growth This Year filters  (data-filter="fa_epsyoy")
-// ---------------------------------------------------------------------------
-
 /** Screener EPS Growth This Year filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthThisYearFilter = {
   NEGATIVE: 'fa_epsyoy_neg',
@@ -383,10 +339,6 @@ export const ScreenerEPSGrowthThisYearFilter = {
 
 /** Union of all known screener EPS Growth This Year filter values. */
 export type ScreenerEPSGrowthThisYearFilter = (typeof ScreenerEPSGrowthThisYearFilter)[keyof typeof ScreenerEPSGrowthThisYearFilter];
-
-// ---------------------------------------------------------------------------
-// Screener EPS Growth Next Year filters  (data-filter="fa_epsyoy1")
-// ---------------------------------------------------------------------------
 
 /** Screener EPS Growth Next Year filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthNextYearFilter = {
@@ -411,10 +363,6 @@ export const ScreenerEPSGrowthNextYearFilter = {
 /** Union of all known screener EPS Growth Next Year filter values. */
 export type ScreenerEPSGrowthNextYearFilter = (typeof ScreenerEPSGrowthNextYearFilter)[keyof typeof ScreenerEPSGrowthNextYearFilter];
 
-// ---------------------------------------------------------------------------
-// Screener EPS Growth Qtr Over Qtr filters  (data-filter="fa_epsqoq")
-// ---------------------------------------------------------------------------
-
 /** Screener EPS Growth Qtr Over Qtr filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthQoQFilter = {
   NEGATIVE: 'fa_epsqoq_neg',
@@ -437,10 +385,6 @@ export const ScreenerEPSGrowthQoQFilter = {
 
 /** Union of all known screener EPS Growth QoQ filter values. */
 export type ScreenerEPSGrowthQoQFilter = (typeof ScreenerEPSGrowthQoQFilter)[keyof typeof ScreenerEPSGrowthQoQFilter];
-
-// ---------------------------------------------------------------------------
-// Screener EPS Growth TTM filters  (data-filter="fa_epsyoyttm")
-// ---------------------------------------------------------------------------
 
 /** Screener EPS Growth TTM filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthTTMFilter = {
@@ -465,10 +409,6 @@ export const ScreenerEPSGrowthTTMFilter = {
 /** Union of all known screener EPS Growth TTM filter values. */
 export type ScreenerEPSGrowthTTMFilter = (typeof ScreenerEPSGrowthTTMFilter)[keyof typeof ScreenerEPSGrowthTTMFilter];
 
-// ---------------------------------------------------------------------------
-// Screener EPS Growth Past 3 Years filters  (data-filter="fa_eps3years")
-// ---------------------------------------------------------------------------
-
 /** Screener EPS Growth Past 3 Years filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthPast3YFilter = {
   NEGATIVE: 'fa_eps3years_neg',
@@ -491,10 +431,6 @@ export const ScreenerEPSGrowthPast3YFilter = {
 
 /** Union of all known screener EPS Growth Past 3 Years filter values. */
 export type ScreenerEPSGrowthPast3YFilter = (typeof ScreenerEPSGrowthPast3YFilter)[keyof typeof ScreenerEPSGrowthPast3YFilter];
-
-// ---------------------------------------------------------------------------
-// Screener EPS Growth Past 5 Years filters  (data-filter="fa_eps5years")
-// ---------------------------------------------------------------------------
 
 /** Screener EPS Growth Past 5 Years filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthPast5YFilter = {
@@ -519,10 +455,6 @@ export const ScreenerEPSGrowthPast5YFilter = {
 /** Union of all known screener EPS Growth Past 5 Years filter values. */
 export type ScreenerEPSGrowthPast5YFilter = (typeof ScreenerEPSGrowthPast5YFilter)[keyof typeof ScreenerEPSGrowthPast5YFilter];
 
-// ---------------------------------------------------------------------------
-// Screener EPS Growth Next 5 Years filters  (data-filter="fa_estltgrowth")
-// ---------------------------------------------------------------------------
-
 /** Screener EPS Growth Next 5 Years filter values for the `f` query parameter. */
 export const ScreenerEPSGrowthNext5YFilter = {
   NEGATIVE: 'fa_estltgrowth_neg',
@@ -545,10 +477,6 @@ export const ScreenerEPSGrowthNext5YFilter = {
 
 /** Union of all known screener EPS Growth Next 5 Years filter values. */
 export type ScreenerEPSGrowthNext5YFilter = (typeof ScreenerEPSGrowthNext5YFilter)[keyof typeof ScreenerEPSGrowthNext5YFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Sales Growth Qtr Over Qtr filters  (data-filter="fa_salesqoq")
-// ---------------------------------------------------------------------------
 
 /** Screener Sales Growth Qtr Over Qtr filter values for the `f` query parameter. */
 export const ScreenerSalesGrowthQoQFilter = {
@@ -573,10 +501,6 @@ export const ScreenerSalesGrowthQoQFilter = {
 /** Union of all known screener Sales Growth QoQ filter values. */
 export type ScreenerSalesGrowthQoQFilter = (typeof ScreenerSalesGrowthQoQFilter)[keyof typeof ScreenerSalesGrowthQoQFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Sales Growth TTM filters  (data-filter="fa_salesyoyttm")
-// ---------------------------------------------------------------------------
-
 /** Screener Sales Growth TTM filter values for the `f` query parameter. */
 export const ScreenerSalesGrowthTTMFilter = {
   NEGATIVE: 'fa_salesyoyttm_neg',
@@ -599,10 +523,6 @@ export const ScreenerSalesGrowthTTMFilter = {
 
 /** Union of all known screener Sales Growth TTM filter values. */
 export type ScreenerSalesGrowthTTMFilter = (typeof ScreenerSalesGrowthTTMFilter)[keyof typeof ScreenerSalesGrowthTTMFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Sales Growth Past 3 Years filters  (data-filter="fa_sales3years")
-// ---------------------------------------------------------------------------
 
 /** Screener Sales Growth Past 3 Years filter values for the `f` query parameter. */
 export const ScreenerSalesGrowthPast3YFilter = {
@@ -627,10 +547,6 @@ export const ScreenerSalesGrowthPast3YFilter = {
 /** Union of all known screener Sales Growth Past 3 Years filter values. */
 export type ScreenerSalesGrowthPast3YFilter = (typeof ScreenerSalesGrowthPast3YFilter)[keyof typeof ScreenerSalesGrowthPast3YFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Sales Growth Past 5 Years filters  (data-filter="fa_sales5years")
-// ---------------------------------------------------------------------------
-
 /** Screener Sales Growth Past 5 Years filter values for the `f` query parameter. */
 export const ScreenerSalesGrowthPast5YFilter = {
   NEGATIVE: 'fa_sales5years_neg',
@@ -653,10 +569,6 @@ export const ScreenerSalesGrowthPast5YFilter = {
 
 /** Union of all known screener Sales Growth Past 5 Years filter values. */
 export type ScreenerSalesGrowthPast5YFilter = (typeof ScreenerSalesGrowthPast5YFilter)[keyof typeof ScreenerSalesGrowthPast5YFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Earnings & Revenue Surprise filters  (data-filter="fa_epsrev")
-// ---------------------------------------------------------------------------
 
 /** Screener Earnings & Revenue Surprise filter values for the `f` query parameter. */
 export const ScreenerEarningsRevenueSurpriseFilter = {
@@ -712,10 +624,6 @@ export const ScreenerEarningsRevenueSurpriseFilter = {
 /** Union of all known screener Earnings & Revenue Surprise filter values. */
 export type ScreenerEarningsRevenueSurpriseFilter = (typeof ScreenerEarningsRevenueSurpriseFilter)[keyof typeof ScreenerEarningsRevenueSurpriseFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Return on Assets filters  (data-filter="fa_roa")
-// ---------------------------------------------------------------------------
-
 /** Screener Return on Assets filter values for the `f` query parameter. */
 export const ScreenerROAFilter = {
   POSITIVE: 'fa_roa_pos',
@@ -746,10 +654,6 @@ export const ScreenerROAFilter = {
 
 /** Union of all known screener Return on Assets filter values. */
 export type ScreenerROAFilter = (typeof ScreenerROAFilter)[keyof typeof ScreenerROAFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Return on Equity filters  (data-filter="fa_roe")
-// ---------------------------------------------------------------------------
 
 /** Screener Return on Equity filter values for the `f` query parameter. */
 export const ScreenerROEFilter = {
@@ -782,10 +686,6 @@ export const ScreenerROEFilter = {
 /** Union of all known screener Return on Equity filter values. */
 export type ScreenerROEFilter = (typeof ScreenerROEFilter)[keyof typeof ScreenerROEFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Return on Invested Capital filters  (data-filter="fa_roi")
-// ---------------------------------------------------------------------------
-
 /** Screener Return on Invested Capital filter values for the `f` query parameter. */
 export const ScreenerROIFilter = {
   POSITIVE: 'fa_roi_pos',
@@ -817,10 +717,6 @@ export const ScreenerROIFilter = {
 /** Union of all known screener Return on Invested Capital filter values. */
 export type ScreenerROIFilter = (typeof ScreenerROIFilter)[keyof typeof ScreenerROIFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Current Ratio filters  (data-filter="fa_curratio")
-// ---------------------------------------------------------------------------
-
 /** Screener Current Ratio filter values for the `f` query parameter. */
 export const ScreenerCurrentRatioFilter = {
   HIGH: 'fa_curratio_high',
@@ -840,10 +736,6 @@ export const ScreenerCurrentRatioFilter = {
 /** Union of all known screener Current Ratio filter values. */
 export type ScreenerCurrentRatioFilter = (typeof ScreenerCurrentRatioFilter)[keyof typeof ScreenerCurrentRatioFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Quick Ratio filters  (data-filter="fa_quickratio")
-// ---------------------------------------------------------------------------
-
 /** Screener Quick Ratio filter values for the `f` query parameter. */
 export const ScreenerQuickRatioFilter = {
   HIGH: 'fa_quickratio_high',
@@ -862,10 +754,6 @@ export const ScreenerQuickRatioFilter = {
 
 /** Union of all known screener Quick Ratio filter values. */
 export type ScreenerQuickRatioFilter = (typeof ScreenerQuickRatioFilter)[keyof typeof ScreenerQuickRatioFilter];
-
-// ---------------------------------------------------------------------------
-// Screener LT Debt/Equity filters  (data-filter="fa_ltdebteq")
-// ---------------------------------------------------------------------------
 
 /** Screener LT Debt/Equity filter values for the `f` query parameter. */
 export const ScreenerLTDebtEquityFilter = {
@@ -896,10 +784,6 @@ export const ScreenerLTDebtEquityFilter = {
 /** Union of all known screener LT Debt/Equity filter values. */
 export type ScreenerLTDebtEquityFilter = (typeof ScreenerLTDebtEquityFilter)[keyof typeof ScreenerLTDebtEquityFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Debt/Equity filters  (data-filter="fa_debteq")
-// ---------------------------------------------------------------------------
-
 /** Screener Debt/Equity filter values for the `f` query parameter. */
 export const ScreenerDebtEquityFilter = {
   HIGH: 'fa_debteq_high',
@@ -928,10 +812,6 @@ export const ScreenerDebtEquityFilter = {
 
 /** Union of all known screener Debt/Equity filter values. */
 export type ScreenerDebtEquityFilter = (typeof ScreenerDebtEquityFilter)[keyof typeof ScreenerDebtEquityFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Gross Margin filters  (data-filter="fa_grossmargin")
-// ---------------------------------------------------------------------------
 
 /** Screener Gross Margin filter values for the `f` query parameter. */
 export const ScreenerGrossMarginFilter = {
@@ -971,10 +851,6 @@ export const ScreenerGrossMarginFilter = {
 /** Union of all known screener Gross Margin filter values. */
 export type ScreenerGrossMarginFilter = (typeof ScreenerGrossMarginFilter)[keyof typeof ScreenerGrossMarginFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Operating Margin filters  (data-filter="fa_opermargin")
-// ---------------------------------------------------------------------------
-
 /** Screener Operating Margin filter values for the `f` query parameter. */
 export const ScreenerOperatingMarginFilter = {
   POSITIVE: 'fa_opermargin_pos',
@@ -1008,10 +884,6 @@ export const ScreenerOperatingMarginFilter = {
 /** Union of all known screener Operating Margin filter values. */
 export type ScreenerOperatingMarginFilter = (typeof ScreenerOperatingMarginFilter)[keyof typeof ScreenerOperatingMarginFilter];
 
-// ---------------------------------------------------------------------------
-// Screener Net Profit Margin filters  (data-filter="fa_netmargin")
-// ---------------------------------------------------------------------------
-
 /** Screener Net Profit Margin filter values for the `f` query parameter. */
 export const ScreenerNetProfitMarginFilter = {
   POSITIVE: 'fa_netmargin_pos',
@@ -1044,10 +916,6 @@ export const ScreenerNetProfitMarginFilter = {
 
 /** Union of all known screener Net Profit Margin filter values. */
 export type ScreenerNetProfitMarginFilter = (typeof ScreenerNetProfitMarginFilter)[keyof typeof ScreenerNetProfitMarginFilter];
-
-// ---------------------------------------------------------------------------
-// Screener Payout Ratio filters  (data-filter="fa_payoutratio")
-// ---------------------------------------------------------------------------
 
 /** Screener Payout Ratio filter values for the `f` query parameter. */
 export const ScreenerPayoutRatioFilter = {

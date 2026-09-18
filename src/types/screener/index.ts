@@ -15,10 +15,6 @@
 /** A single row returned by the screener endpoint. */
 export type Screener = Record<string, string>;
 
-// ---------------------------------------------------------------------------
-// Screener view IDs
-// ---------------------------------------------------------------------------
-
 /** All known screener view IDs. Pass as the `view` option to `getScreener()`. */
 export const ScreenerView = {
   OVERVIEW: 111,
@@ -41,10 +37,6 @@ export const ScreenerView = {
 
 /** Union of all known screener view ID values. */
 export type ScreenerView = (typeof ScreenerView)[keyof typeof ScreenerView];
-
-// ---------------------------------------------------------------------------
-// Screener field IDs
-// ---------------------------------------------------------------------------
 
 /** All documented screener field IDs for the `c` query parameter. */
 export const ScreenerField = {
@@ -180,10 +172,6 @@ export const ScreenerField = {
 /** Union of all known screener field ID values. */
 export type ScreenerField = (typeof ScreenerField)[keyof typeof ScreenerField];
 
-// ---------------------------------------------------------------------------
-// Screener options
-// ---------------------------------------------------------------------------
-
 /** Options for a screener request. */
 export interface ScreenerOptions {
   /**
@@ -222,10 +210,6 @@ export interface ScreenerOptions {
   /** Ticker symbols (e.g. "AAPL") */
   tickers?: string | string[];
 }
-
-// ---------------------------------------------------------------------------
-// Filter imports
-// ---------------------------------------------------------------------------
 
 export * from './descriptive-filters';
 export * from './fundamental-filters';
