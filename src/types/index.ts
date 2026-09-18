@@ -14,6 +14,9 @@
  * | 6    | Re-export groups types                | types/groups.ts    | Group, GroupView etc.|
  * | 7    | Re-export filings types               | types/filings.ts   | Filing, etc.         |
  * | 8    | Re-export options types               | types/options.ts   | Option, etc.         |
+ * | 9    | Re-export calendar types              | types/calendar.ts  | Calendar, etc.       |
+ * | 10   | Export SortDirection const + type     | —                  | Typed sort direction |
+ * | 11   | Export ErrorLevel const + type        | —                  | Typed error level    |
  * ---
  */
 
@@ -25,6 +28,7 @@ export * from './portfolio';
 export * from './groups';
 export * from './filings';
 export * from './options';
+export * from './calendar';
 
 export const SortDirection = {
     ASC: '',
