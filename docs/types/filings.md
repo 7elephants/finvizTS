@@ -1,0 +1,179 @@
+[**finvizts**](../README.md)
+
+***
+
+[finvizts](../README.md) / types/filings
+
+# types/filings
+
+## Interfaces
+
+### Filing
+
+Defined in: [types/filings.ts:51](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L51)
+
+A single row returned by the latest-filings endpoint.
+
+#### Properties
+
+##### description
+
+> **description**: `string`
+
+Defined in: [types/filings.ts:55](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L55)
+
+##### document
+
+> **document**: `string`
+
+Defined in: [types/filings.ts:57](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L57)
+
+##### filing
+
+> **filing**: `string`
+
+Defined in: [types/filings.ts:56](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L56)
+
+##### filingDate
+
+> **filingDate**: `string`
+
+Defined in: [types/filings.ts:52](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L52)
+
+##### form
+
+> **form**: `string`
+
+Defined in: [types/filings.ts:54](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L54)
+
+##### reportDate
+
+> **reportDate**: `string`
+
+Defined in: [types/filings.ts:53](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L53)
+
+***
+
+### FilingOptions
+
+Defined in: [types/filings.ts:41](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L41)
+
+Options for a latest-filings request.
+
+#### Properties
+
+##### filter?
+
+> `optional` **filter?**: [`FilingFilter`](#filingfilter)
+
+Defined in: [types/filings.ts:47](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L47)
+
+Filter by filing type.
+
+##### order?
+
+> `optional` **order?**: `string`
+
+Defined in: [types/filings.ts:43](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L43)
+
+Column to sort by (prefix with "-" for descending, e.g. "-filingDate").
+
+##### orderDirection?
+
+> `optional` **orderDirection?**: `string`
+
+Defined in: [types/filings.ts:45](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L45)
+
+Sort direction (either "" or "-").
+
+## Type Aliases
+
+### FilingFilter
+
+> **FilingFilter** = *typeof* [`FilingFilter`](#filingfilter-1)\[keyof *typeof* [`FilingFilter`](#filingfilter-1)\]
+
+Defined in: [types/filings.ts:15](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L15)
+
+Union of all known filing filter values.
+
+***
+
+### FilingOrder
+
+> **FilingOrder** = *typeof* [`FilingOrder`](#filingorder-1)\[keyof *typeof* [`FilingOrder`](#filingorder-1)\]
+
+Defined in: [types/filings.ts:31](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L31)
+
+Union of all known filing order values.
+
+## Variables
+
+### FilingFilter
+
+> `const` **FilingFilter**: `object`
+
+Defined in: [types/filings.ts:15](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L15)
+
+Valid filing filter values for the latest-filings endpoint.
+
+#### Type Declaration
+
+##### ANNUAL\_QUARTERLY\_CURRENT
+
+> `readonly` **ANNUAL\_QUARTERLY\_CURRENT**: `"annual-quarterly-current"` = `'annual-quarterly-current'`
+
+##### BENEFICIAL\_OWNERSHIP
+
+> `readonly` **BENEFICIAL\_OWNERSHIP**: `"beneficial-ownership"` = `'beneficial-ownership'`
+
+##### EXEMPT\_OFFERINGS
+
+> `readonly` **EXEMPT\_OFFERINGS**: `"exempt-offerings"` = `'exempt-offerings'`
+
+##### FILING\_REVIEW\_CORRESPONDENCE
+
+> `readonly` **FILING\_REVIEW\_CORRESPONDENCE**: `"filing-review-correspondence"` = `'filing-review-correspondence'`
+
+##### INSIDER\_EQUITY
+
+> `readonly` **INSIDER\_EQUITY**: `"insider-equity"` = `'insider-equity'`
+
+##### PROXY\_MATERIALS
+
+> `readonly` **PROXY\_MATERIALS**: `"proxy-materials"` = `'proxy-materials'`
+
+##### REGISTRATION\_STATEMENTS
+
+> `readonly` **REGISTRATION\_STATEMENTS**: `"registration-statements"` = `'registration-statements'`
+
+##### SEC\_ORDERS\_NOTICES
+
+> `readonly` **SEC\_ORDERS\_NOTICES**: `"sec-orders-notices"` = `'sec-orders-notices'`
+
+##### TRUST\_INDENTURES
+
+> `readonly` **TRUST\_INDENTURES**: `"trust-indentures"` = `'trust-indentures'`
+
+***
+
+### FilingOrder
+
+> `const` **FilingOrder**: `object`
+
+Defined in: [types/filings.ts:31](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L31)
+
+Valid sort column values for the latest-filings `o` query parameter.
+
+#### Type Declaration
+
+##### DATE
+
+> `readonly` **DATE**: `"filingDate"` = `'filingDate'`
+
+##### FORM
+
+> `readonly` **FORM**: `"form"` = `'form'`
+
+##### REPORT\_DATE
+
+> `readonly` **REPORT\_DATE**: `"reportDate"` = `'reportDate'`

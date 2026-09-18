@@ -7,7 +7,7 @@
  *
  * | Step | Description                         | Input                           | Output           |
  * |------|-------------------------------------|---------------------------------|------------------|
- * | 1    | FinvizApiError constructor          | message, statusCode, retryAfter | FinvizApiError   |
+ * | 1    | FinvizError constructor             | message, statusCode, retryAfter | FinvizError      |
  * ---
  */
 

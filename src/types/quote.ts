@@ -24,6 +24,8 @@ export const QuotePeriod = {
   WEEKLY: 'w',
   MONTHLY: 'm',
 } as const;
+
+/** Union of all known quote period/interval values. */
 export type QuotePeriod = (typeof QuotePeriod)[keyof typeof QuotePeriod];
 
 /** Valid range values for the quote endpoint. */
@@ -39,6 +41,8 @@ export const QuoteRange = {
   YTD: 'ytd',
   MAX: 'max',
 } as const;
+
+/** Union of all known quote range values, plus custom `range_*` and `prev_*` patterns. */
 export type QuoteRange = (typeof QuoteRange)[keyof typeof QuoteRange] | `range_${string}` | `prev_${string}`;
 
 /** Options for a quote request. */

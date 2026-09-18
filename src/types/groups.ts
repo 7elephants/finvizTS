@@ -20,6 +20,8 @@ export const GroupName = {
   COUNTRY: 'country',
   CAPITALIZATION: 'capitalization',
 } as const;
+
+/** Union of all known group name values. */
 export type GroupName = (typeof GroupName)[keyof typeof GroupName];
 
 /** Valid industry subgroup names for the groups endpoint. */
@@ -36,6 +38,8 @@ export const IndustrySubgroup = {
   TECHNOLOGY: 'technology',
   UTILITIES: 'utilities',
 } as const;
+
+/** Union of all known industry subgroup values. */
 export type IndustrySubgroup = (typeof IndustrySubgroup)[keyof typeof IndustrySubgroup];
 
 /** Valid view IDs for the groups endpoint. */
@@ -49,6 +53,8 @@ export const GroupView = {
   CHARTS: 410,
   MAPS: 510,
 } as const;
+
+/** Union of all known group view ID values. */
 export type GroupView = (typeof GroupView)[keyof typeof GroupView];
 
 /** Options for a groups request. */
