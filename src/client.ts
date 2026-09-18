@@ -25,14 +25,26 @@ const DEFAULT_RATE_LIMIT_MS = 5000;
 const DEFAULT_MAX_RETRIES = 3;
 const DEFAULT_RETRY_DELAY_MS = 5000;
 
+/**
+ * Authenticated HTTP transport for the Finviz Elite API.
+ * Injects the API token and rate-limits/retries requests; endpoint modules call
+ * `getRecord()` or `getRecords()` on an instance to fetch and parse CSV responses.
+ */
 export class FinvizClient {
+  /** Configured axios instance used for all requests. */
   private readonly http: AxiosInstance;
+  /** Finviz Elite API token appended to every request. */
   private readonly apiToken: string;
+  /** Minimum interval between outgoing requests, in milliseconds. */
   private readonly rateLimitMs: number;
+  /** Maximum number of retries after a 429 response. */
   private readonly maxRetries: number;
+  /** Fallback delay between retries when no `Retry-After` header is present. */
   private readonly retryDelayMs: number;
+  /** Timestamp of the last outgoing request, used for proactive rate limiting. */
   private lastRequestTime: number = 0;
 
+  /** Construct a client from the given options. Throws FinvizError if `apiToken` is missing. */
   constructor(options: FinvizClientOptions) {
     if (!options.apiToken) throw new FinvizError('Missing Finviz API token', ErrorLevel.FATAL);
     
@@ -49,10 +61,16 @@ export class FinvizClient {
     this.retryDelayMs = options.retryDelayMs ?? DEFAULT_RETRY_DELAY_MS;
   }
 
+  /** Resolve after the given number of milliseconds. */
   private delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  /**
+   * Fetch a raw CSV response for the given path/params, injecting the API token.
+   * Proactively delays to respect `rateLimitMs` between requests, and retries on
+   * HTTP 429 (honoring the `Retry-After` header when present) up to `maxRetries` times.
+   */
   private async fetchCsv(
     path: string,
     params: Record<string, string | number | undefined>,

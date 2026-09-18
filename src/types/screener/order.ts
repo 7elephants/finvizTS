@@ -1,3 +1,15 @@
+/*
+ * ---
+ * Workflow Summary
+ * Invocation: Imported by consumers and re-exported from types/screener/index.ts.
+ *
+ * | Step | Description                        | Input | Output                     |
+ * |------|-------------------------------------|-------|-----------------------------|
+ * | 1    | Export ScreenerOrder const + type   | —     | Typed `o` sort column values|
+ * ---
+ */
+
+/** Valid sort column values for the screener `o` query parameter. */
 export const ScreenerOrder = {
     TICKER: 'ticker',
     TICKERS_FILTER: 'tickersfilter',
@@ -132,5 +144,5 @@ export const ScreenerOrder = {
     ETF_SECTOR_THEME:'e.sectortheme',
 } as const;
 
-/** Union of all known screener field ID values. */
+/** Union of all known screener sort column values. */
 export type ScreenerOrder = (typeof ScreenerOrder)[keyof typeof ScreenerOrder];
