@@ -1,8 +1,22 @@
+/*
+ * ---
+ * Workflow Summary
+ * Invocation: Imported by consumers and re-exported from types/screener/index.ts. Each const
+ * defines the valid values for one technical-analysis screener filter category (performance,
+ * volatility, RSI, gap, moving averages, change, high/low ranges, chart patterns, candlesticks,
+ * beta, ATR, after-hours) for the `f` query parameter.
+ *
+ * | Step | Description                                  | Input | Output                      |
+ * |------|-----------------------------------------------|-------|------------------------------|
+ * | 1    | Export Screener*Filter const + type per group  | —   | Typed filter value constants|
+ * ---
+ */
 
 // ---------------------------------------------------------------------------
 // Screener performance filters
 // ---------------------------------------------------------------------------
 
+/** Screener performance filter values for the `f` query parameter. */
 export const ScreenerPerformanceFilter = {
   TODAY_UP: 'ta_perf_dup',
   TODAY_DOWN: 'ta_perf_ddown',
@@ -141,6 +155,7 @@ export type ScreenerPerformanceFilter = (typeof ScreenerPerformanceFilter)[keyof
 // Screener performance 2 filters
 // ---------------------------------------------------------------------------
 
+/** Screener performance 2 filter values for the `f` query parameter. */
 export const ScreenerPerformance2Filter = {
   TODAY_UP: 'ta_perf2_dup',
   TODAY_DOWN: 'ta_perf2_ddown',
@@ -279,6 +294,7 @@ export type ScreenerPerformance2Filter = (typeof ScreenerPerformance2Filter)[key
 // Screener volatility filters
 // ---------------------------------------------------------------------------
 
+/** Screener volatility filter values for the `f` query parameter. */
 export const ScreenerVolatilityFilter = {
   WEEK_OVER_2: 'ta_volatility_wo2',
   WEEK_OVER_3: 'ta_volatility_wo3',
@@ -311,6 +327,7 @@ export type ScreenerVolatilityFilter = (typeof ScreenerVolatilityFilter)[keyof t
 // Screener RSI (14) filters
 // ---------------------------------------------------------------------------
 
+/** Screener RSI (14) filter values for the `f` query parameter. */
 export const ScreenerRSIFilter = {
   OVERBOUGHT_90: 'ta_rsi_ob90',
   OVERBOUGHT_80: 'ta_rsi_ob80',
@@ -333,6 +350,7 @@ export type ScreenerRSIFilter = (typeof ScreenerRSIFilter)[keyof typeof Screener
 // Screener gap filters
 // ---------------------------------------------------------------------------
 
+/** Screener gap filter values for the `f` query parameter. */
 export const ScreenerGapFilter = {
   UP: 'ta_gap_u',
   UP_0: 'ta_gap_u0',
@@ -371,6 +389,7 @@ export type ScreenerGapFilter = (typeof ScreenerGapFilter)[keyof typeof Screener
 // Screener 20-day SMA filters
 // ---------------------------------------------------------------------------
 
+/** Screener 20-day SMA filter values for the `f` query parameter. */
 export const ScreenerSMA20Filter = {
   PRICE_BELOW: 'ta_sma20_pb',
   PRICE_BELOW_10: 'ta_sma20_pb10',
@@ -406,6 +425,7 @@ export type ScreenerSMA20Filter = (typeof ScreenerSMA20Filter)[keyof typeof Scre
 // Screener 50-day SMA filters
 // ---------------------------------------------------------------------------
 
+/** Screener 50-day SMA filter values for the `f` query parameter. */
 export const ScreenerSMA50Filter = {
   PRICE_BELOW: 'ta_sma50_pb',
   PRICE_BELOW_10: 'ta_sma50_pb10',
@@ -441,6 +461,7 @@ export type ScreenerSMA50Filter = (typeof ScreenerSMA50Filter)[keyof typeof Scre
 // Screener 200-day SMA filters
 // ---------------------------------------------------------------------------
 
+/** Screener 200-day SMA filter values for the `f` query parameter. */
 export const ScreenerSMA200Filter = {
   PRICE_BELOW: 'ta_sma200_pb',
   PRICE_BELOW_10: 'ta_sma200_pb10',
@@ -485,6 +506,7 @@ export type ScreenerSMA200Filter = (typeof ScreenerSMA200Filter)[keyof typeof Sc
 // Screener change filters
 // ---------------------------------------------------------------------------
 
+/** Screener change filter values for the `f` query parameter. */
 export const ScreenerChangeFilter = {
   UP: 'ta_change_u',
   UP_1: 'ta_change_u1',
@@ -521,6 +543,7 @@ export type ScreenerChangeFilter = (typeof ScreenerChangeFilter)[keyof typeof Sc
 // Screener change from open filters
 // ---------------------------------------------------------------------------
 
+/** Screener change from open filter values for the `f` query parameter. */
 export const ScreenerChangeFromOpenFilter = {
   UP: 'ta_changeopen_u',
   UP_1: 'ta_changeopen_u1',
@@ -557,6 +580,7 @@ export type ScreenerChangeFromOpenFilter = (typeof ScreenerChangeFromOpenFilter)
 // Screener 20-day high/low filters
 // ---------------------------------------------------------------------------
 
+/** Screener 20-day high/low filter values for the `f` query parameter. */
 export const ScreenerHighLow20DFilter = {
   NEW_HIGH: 'ta_highlow20d_nh',
   NEW_LOW: 'ta_highlow20d_nl',
@@ -589,6 +613,7 @@ export type ScreenerHighLow20DFilter = (typeof ScreenerHighLow20DFilter)[keyof t
 // Screener 50-day high/low filters
 // ---------------------------------------------------------------------------
 
+/** Screener 50-day high/low filter values for the `f` query parameter. */
 export const ScreenerHighLow50DFilter = {
   NEW_HIGH: 'ta_highlow50d_nh',
   NEW_LOW: 'ta_highlow50d_nl',
@@ -621,6 +646,7 @@ export type ScreenerHighLow50DFilter = (typeof ScreenerHighLow50DFilter)[keyof t
 // Screener 52-week high/low filters
 // ---------------------------------------------------------------------------
 
+/** Screener 52-week high/low filter values for the `f` query parameter. */
 export const ScreenerHighLow52WFilter = {
   NEW_HIGH: 'ta_highlow52w_nh',
   NEW_LOW: 'ta_highlow52w_nl',
@@ -667,6 +693,7 @@ export type ScreenerHighLow52WFilter = (typeof ScreenerHighLow52WFilter)[keyof t
 // Screener all-time high/low filters
 // ---------------------------------------------------------------------------
 
+/** Screener all-time high/low filter values for the `f` query parameter. */
 export const ScreenerAllTimeHighLowFilter = {
   NEW_HIGH: 'ta_alltime_nh',
   NEW_LOW: 'ta_alltime_nl',
@@ -713,6 +740,7 @@ export type ScreenerAllTimeHighLowFilter = (typeof ScreenerAllTimeHighLowFilter)
 // Screener pattern filters
 // ---------------------------------------------------------------------------
 
+/** Screener pattern filter values for the `f` query parameter. */
 export const ScreenerPatternFilter = {
   HORIZONTAL_SR: 'ta_pattern_horizontal',
   HORIZONTAL_SR_STRONG: 'ta_pattern_horizontal2',
@@ -751,6 +779,7 @@ export type ScreenerPatternFilter = (typeof ScreenerPatternFilter)[keyof typeof 
 // Screener candlestick filters
 // ---------------------------------------------------------------------------
 
+/** Screener candlestick filter values for the `f` query parameter. */
 export const ScreenerCandlestickFilter = {
   LONG_LOWER_SHADOW: 'ta_candlestick_lls',
   LONG_UPPER_SHADOW: 'ta_candlestick_lus',
@@ -772,6 +801,7 @@ export type ScreenerCandlestickFilter = (typeof ScreenerCandlestickFilter)[keyof
 // Screener beta filters
 // ---------------------------------------------------------------------------
 
+/** Screener beta filter values for the `f` query parameter. */
 export const ScreenerBetaFilter = {
   UNDER_0: 'ta_beta_u0',
   UNDER_0_5: 'ta_beta_u0.5',
@@ -801,6 +831,7 @@ export type ScreenerBetaFilter = (typeof ScreenerBetaFilter)[keyof typeof Screen
 // Screener average true range filters
 // ---------------------------------------------------------------------------
 
+/** Screener average true range filter values for the `f` query parameter. */
 export const ScreenerAverageTrueRangeFilter = {
   OVER_0_25: 'ta_averagetruerange_o0.25',
   OVER_0_5: 'ta_averagetruerange_o0.5',
@@ -836,6 +867,7 @@ export type ScreenerAverageTrueRangeFilter = (typeof ScreenerAverageTrueRangeFil
 // ---------------------------------------------------------------------------
 
 /** After-hours close price filters. */
+/** Screener after-hours close filter values for the `f` query parameter. */
 export const ScreenerAfterHoursCloseFilter = {
   UNDER_1: 'ah_close_u1',
   UNDER_2: 'ah_close_u2',
@@ -886,6 +918,7 @@ export type ScreenerAfterHoursCloseFilter = (typeof ScreenerAfterHoursCloseFilte
 // ---------------------------------------------------------------------------
 
 /** After-hours % change filters. */
+/** Screener after-hours change filter values for the `f` query parameter. */
 export const ScreenerAfterHoursChangeFilter = {
   UP: 'ah_change_u',
   UP_1: 'ah_change_u1',
