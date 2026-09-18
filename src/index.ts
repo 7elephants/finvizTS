@@ -23,6 +23,7 @@ export { getLatestFilings } from './filings';
 export { getOptionsChain } from './options';
 export { getGroups } from './groups';
 export { FinvizError } from './errors';
+export * from './utils';
 export {
   ScreenerView,
   ScreenerField,
