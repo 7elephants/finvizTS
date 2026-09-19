@@ -3,19 +3,22 @@
  * Workflow Summary
  * Invocation: Run via `npx jest tests/calendar.test.ts` or `npm test`.
  *
- * | Step | Description                                    | Input                           | Output                     |
- * |------|------------------------------------------------|---------------------------------|----------------------------|
- * | 1    | Mock FinvizClient.getRecords                   | jest.fn()                       | Controlled mock            |
- * | 2    | Call getCalendar with request options          | CalendarOptions                 | Forwarded params           |
- * | 3    | Assert getRecords was called with correct args | Captured call args              | Passing assertions         |
- * | 4    | Assert response mapping to Calendar shape      | Mock CSV row records            | Normalized Calendar rows   |
+ * | Step | Description                                            | Input                           | Output                            |
+ * |------|----------------------------------------------------------|---------------------------------|-------------------------------------|
+ * | 1    | Mock FinvizClient.getRecords                            | jest.fn()                       | Controlled mock                     |
+ * | 2    | Call getEconomicCalendar with request options           | CalendarOptions                 | Forwarded params                    |
+ * | 3    | Assert getRecords was called with correct args          | Captured call args              | Passing assertions                  |
+ * | 4    | Assert response mapping to Calendar shape               | Mock CSV row records            | Normalized Calendar rows            |
+ * | 5    | Call getEarningsCalendar with request/sort options      | EarningsCalendarOptions         | Forwarded params                    |
+ * | 6    | Assert response mapping to EarningsCalendarItem shape   | Mock CSV row records            | Normalized EarningsCalendarItem[]   |
  * ---
  */
 
 import { FinvizClient } from '../src/client';
-import { getCalendar } from '../src/calendar';
+import { getEconomicCalendar, getEarningsCalendar } from '../src/calendar';
+import { EarningsOrderType, SortDirection } from '../src/types';
 
-describe('getCalendar', () => {
+describe('getEconomicCalendar', () => {
   const mockGetRecords = jest.fn();
   const client = { getRecords: mockGetRecords } as unknown as FinvizClient;
 
@@ -24,7 +27,7 @@ describe('getCalendar', () => {
   it('calls getRecords with the calendar endpoint and formatted from date', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
 
-    await getCalendar(client, { from: new Date(2026, 2, 1) });
+    await getEconomicCalendar(client, { from: new Date(2026, 2, 1) });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/economic', {
       dateFrom: '2026-03-01',
@@ -35,7 +38,7 @@ describe('getCalendar', () => {
   it('passes a formatted to date when provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
 
-    await getCalendar(client, { from: new Date(2026, 2, 1), to: new Date(2026, 2, 31) });
+    await getEconomicCalendar(client, { from: new Date(2026, 2, 1), to: new Date(2026, 2, 31) });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/economic', {
       dateFrom: '2026-03-01',
@@ -58,7 +61,7 @@ describe('getCalendar', () => {
       },
     ]);
 
-    const result = await getCalendar(client, { from: new Date(2026, 2, 1) });
+    const result = await getEconomicCalendar(client, { from: new Date(2026, 2, 1) });
 
     expect(result).toEqual([
       {
@@ -72,6 +75,124 @@ describe('getCalendar', () => {
         Expected: '1.5%',
         Prior: '3.1%',
       },
+    ]);
+  });
+});
+
+describe('getEarningsCalendar', () => {
+  const mockGetRecords = jest.fn();
+  const client = { getRecords: mockGetRecords } as unknown as FinvizClient;
+
+  beforeEach(() => jest.clearAllMocks());
+
+  it('calls getRecords with the earnings endpoint and formatted from date', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getEarningsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/earnings', {
+      dateFrom: '2026-07-20',
+      dateTo: undefined,
+      sort: '',
+    });
+  });
+
+  it('passes a formatted to date when provided', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getEarningsCalendar(client, { from: new Date(2026, 6, 20), to: new Date(2026, 6, 24) });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/earnings', {
+      dateFrom: '2026-07-20',
+      dateTo: '2026-07-24',
+      sort: '',
+    });
+  });
+
+  it('combines order and orderDirection into the sort param', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getEarningsCalendar(client, {
+      from: new Date(2026, 6, 20),
+      order: EarningsOrderType.MARKET_CAP,
+      orderDirection: SortDirection.DESC,
+    });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/earnings', {
+      dateFrom: '2026-07-20',
+      dateTo: undefined,
+      sort: '-marketCap',
+    });
+  });
+
+  it('maps CSV rows to EarningsCalendarItem shape', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        Date: '2026-07-20 08:30',
+        Ticker: 'AMC',
+        Company: 'AMC Entertainment Holdings Inc',
+        'Market Cap': '2410.03',
+        'EPS Estimate': '0.0039',
+        'EPS Actual': '-0.02',
+        'EPS Surprise': '-612.82',
+        'EPS GAAP Estimate': '0.0039',
+        'EPS GAAP Actual': '-0.02',
+        'EPS GAAP Surprise': '-612.82',
+        'Revenue Estimate': '1503.121',
+        'Revenue Actual': '1596.7',
+        'Revenue Surprise': '6.23',
+        '1-Day Price Reaction': '26.80',
+      },
+    ]);
+
+    const result = await getEarningsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(result).toEqual([
+      {
+        date: new Date('2026-07-20 08:30'),
+        ticker: 'AMC',
+        company: 'AMC Entertainment Holdings Inc',
+        marketCap: 2410.03,
+        epsEstimate: 0.0039,
+        epsActual: -0.02,
+        epsSurprise: -612.82,
+        epsGaapEstimate: 0.0039,
+        epsGaapActual: -0.02,
+        epsGaapSurprise: -612.82,
+        revenueEstimate: 1503.121,
+        revenueActual: 1596.7,
+        revenueSurprise: 6.23,
+        oneDayPriceReaction: 26.80,
+      },
+    ]);
+  });
+
+  it('defaults missing numeric fields to zero', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        Ticker: 'ATLO',
+        Company: 'Ames National Corp',
+      },
+    ]);
+
+    const result = await getEarningsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(result).toEqual([
+      expect.objectContaining({
+        ticker: 'ATLO',
+        company: 'Ames National Corp',
+        marketCap: 0,
+        epsEstimate: 0,
+        epsActual: 0,
+        epsSurprise: 0,
+        epsGaapEstimate: 0,
+        epsGaapActual: 0,
+        epsGaapSurprise: 0,
+        revenueEstimate: 0,
+        revenueActual: 0,
+        revenueSurprise: 0,
+        oneDayPriceReaction: 0,
+      }),
     ]);
   });
 });

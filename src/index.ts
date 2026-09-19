@@ -25,7 +25,7 @@ export { getGroups } from './groups';
 export { getInsiders } from './insider';
 export { getManagers } from './manager';
 export { getFunds } from './fund';
-export { getCalendar } from './calendar';
+export { getEconomicCalendar, getEarningsCalendar } from './calendar';
 export { FinvizError } from './errors';
 export * from './utils';
 export {
@@ -43,6 +43,7 @@ export {
   InsiderOwnerRelationshipType,
   InsiderOrderType,
   ManagerFundOrderType,
+  EarningsOrderType,
   SortDirection,
   ErrorLevel,
 } from './types';
@@ -70,4 +71,6 @@ export type {
   FundItem,
   CalendarOptions,
   Calendar,
+  EarningsCalendarOptions,
+  EarningsCalendarItem,
 } from './types';
