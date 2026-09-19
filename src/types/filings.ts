@@ -25,15 +25,18 @@ export const FilingFilter = {
   PROXY_MATERIALS: 'proxy-materials',
   TRUST_INDENTURES: 'trust-indentures',
 } as const;
+
+/** Union of all known filing filter values. */
 export type FilingFilter = (typeof FilingFilter)[keyof typeof FilingFilter];
 
-
-/** Valid filing order values */
+/** Valid sort column values for the latest-filings `o` query parameter. */
 export const FilingOrder = {
   DATE: 'filingDate',
   REPORT_DATE: 'reportDate',
   FORM: 'form',
 } as const;
+
+/** Union of all known filing order values. */
 export type FilingOrder = (typeof FilingOrder)[keyof typeof FilingOrder];
 
 /** Options for a latest-filings request. */

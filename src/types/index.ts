@@ -38,17 +38,21 @@ export * from './manager';
 export * from './fund';
 export * from './fund-manager';
 
+/** Sort direction values shared by the `o` query parameter across endpoints. */
 export const SortDirection = {
     ASC: '',
     DESC: '-',
 } as const;
 
+/** Union of all known sort direction values. */
 export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
 
+/** Severity level attached to a thrown FinvizError. */
 export const ErrorLevel = {
     FATAL: 1,
     ERROR: 2,
     WARN: 3,
 } as const;
 
+/** Union of all known error level values. */
 export type ErrorLevel = (typeof ErrorLevel)[keyof typeof ErrorLevel];

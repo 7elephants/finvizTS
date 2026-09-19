@@ -1,8 +1,17 @@
+/*
+ * ---
+ * Workflow Summary
+ * Invocation: Imported by consumers and re-exported from types/screener/index.ts. Each const
+ * defines the valid values for one ETF-specific screener filter category (category, asset type,
+ * net expense ratio, fund flows, return, sponsor, tags) for the `f` query parameter.
+ *
+ * | Step | Description                                  | Input | Output                      |
+ * |------|-----------------------------------------------|-------|------------------------------|
+ * | 1    | Export Screener*Filter const + type per group  | —   | Typed filter value constants|
+ * ---
+ */
 
-// ---------------------------------------------------------------------------
-// Screener ETF category filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF category filter values for the `f` query parameter. */
 export const ScreenerETFCategoryFilter = {
   BONDS_BROAD_MARKET: 'etf_category_bondsbroadmarket',
   BONDS_CONVERTIBLE: 'etf_category_bondsconvertible',
@@ -43,10 +52,7 @@ export const ScreenerETFCategoryFilter = {
 /** Union of all known screener ETF category filter values. */
 export type ScreenerETFCategoryFilter = (typeof ScreenerETFCategoryFilter)[keyof typeof ScreenerETFCategoryFilter];
 
-// ---------------------------------------------------------------------------
-// Screener ETF asset type filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF asset type filter values for the `f` query parameter. */
 export const ScreenerETFAssetTypeFilter = {
   BONDS: 'etf_assettype_bonds',
   CARBON_TRADING: 'etf_assettype_carbontrading',
@@ -81,10 +87,7 @@ export const ScreenerETFAssetTypeFilter = {
 /** Union of all known screener ETF asset type filter values. */
 export type ScreenerETFAssetTypeFilter = (typeof ScreenerETFAssetTypeFilter)[keyof typeof ScreenerETFAssetTypeFilter];
 
-// ---------------------------------------------------------------------------
-// Screener ETF net expense ratio filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF net expense ratio filter values for the `f` query parameter. */
 export const ScreenerETFNetExpenseFilter = {
   UNDER_0_1: 'etf_netexpense_u01',
   UNDER_0_2: 'etf_netexpense_u02',
@@ -101,10 +104,7 @@ export const ScreenerETFNetExpenseFilter = {
 /** Union of all known screener ETF net expense ratio filter values. */
 export type ScreenerETFNetExpenseFilter = (typeof ScreenerETFNetExpenseFilter)[keyof typeof ScreenerETFNetExpenseFilter];
 
-// ---------------------------------------------------------------------------
-// Screener ETF fund flows filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF fund flows filter values for the `f` query parameter. */
 export const ScreenerETFFundFlowsFilter = {
   ONE_MONTH_INFLOWS_OVER_0: 'etf_fundflows_1mo0',
   ONE_MONTH_INFLOWS_OVER_10M: 'etf_fundflows_1mo10',
@@ -135,10 +135,7 @@ export const ScreenerETFFundFlowsFilter = {
 /** Union of all known screener ETF fund flows filter values. */
 export type ScreenerETFFundFlowsFilter = (typeof ScreenerETFFundFlowsFilter)[keyof typeof ScreenerETFFundFlowsFilter];
 
-// ---------------------------------------------------------------------------
-// Screener ETF return filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF return filter values for the `f` query parameter. */
 export const ScreenerETFReturnFilter = {
   ONE_YEAR_OVER_0: 'etf_return_1yo0',
   ONE_YEAR_OVER_5: 'etf_return_1yo05',
@@ -169,10 +166,7 @@ export const ScreenerETFReturnFilter = {
 /** Union of all known screener ETF return filter values. */
 export type ScreenerETFReturnFilter = (typeof ScreenerETFReturnFilter)[keyof typeof ScreenerETFReturnFilter];
 
-// ---------------------------------------------------------------------------
-// Screener ETF sponsor filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF sponsor filter values for the `f` query parameter. */
 export const ScreenerETFSponsorFilter = {
   TWENTY_ONE_SHARES: 'etf_sponsor_21shares',
   THREE_EDGE_ASSET_MANAGEMENT: 'etf_sponsor_3edgeassetmanagement',
@@ -616,10 +610,7 @@ export const ScreenerETFSponsorFilter = {
 /** Union of all known screener ETF sponsor filter values. */
 export type ScreenerETFSponsorFilter = (typeof ScreenerETFSponsorFilter)[keyof typeof ScreenerETFSponsorFilter];
 
-// ---------------------------------------------------------------------------
-// Screener ETF tag filters
-// ---------------------------------------------------------------------------
-
+/** Screener ETF tag filter values for the `f` query parameter. */
 export const ScreenerETFTagFilter = {
   TAG_13F: 'etf_tags_13f',
   THREE_D_PRINTING: 'etf_tags_3dprinting',

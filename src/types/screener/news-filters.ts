@@ -1,8 +1,15 @@
+/*
+ * ---
+ * Workflow Summary
+ * Invocation: Imported by consumers and re-exported from types/screener/index.ts.
+ *
+ * | Step | Description                             | Input | Output                        |
+ * |------|------------------------------------------|-------|--------------------------------|
+ * | 1    | Export ScreenerNewsDateFilter const + type | —  | Typed news date filter values |
+ * ---
+ */
 
-// ---------------------------------------------------------------------------
-// Screener news date filters
-// ---------------------------------------------------------------------------
-
+/** Screener news date filter values for the `f` query parameter. */
 export const ScreenerNewsDateFilter = {
   TODAY: 'news_date_today',
   TODAY_AFTERMARKET: 'news_date_todayafter',

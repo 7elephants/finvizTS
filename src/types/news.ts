@@ -19,6 +19,8 @@ export const NewsType = {
   ETF: 4,
   CRYPTO: 5,
 } as const;
+
+/** Union of all known news type values. */
 export type NewsType = (typeof NewsType)[keyof typeof NewsType];
 
 /** Options for a news request. */

@@ -16,6 +16,8 @@ export const OptionsViewType = {
   PRICES: 'oc',
   VOLATILITY_GREEKS: 'ocv',
 } as const;
+
+/** Union of all known options view type values. */
 export type OptionsViewType = (typeof OptionsViewType)[keyof typeof OptionsViewType];
 
 /** Options for an options chain request. */

@@ -20,9 +20,3 @@ npm-debug.log*
 
 # OS
 .DS_Store
-
-# Claude
-.claude/*
-
-# Docs
-docs/*.html
