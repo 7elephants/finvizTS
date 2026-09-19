@@ -10,12 +10,14 @@
  * ---
  */
 
+import type { SortDirection } from '.';
+
 /** Options for a portfolio request. */
 export interface PortfolioOptions {
   /** Column to sort by. */
-  order?: string;
+  order?: PortfolioOrder;
   /** Sort direction (either '' or '-'). */
-  orderDirection?: string;
+  orderDirection?: SortDirection;
   /** Column indices to include (comma-separated list maps to the `c` query param). */
   fields?: number[];
 }

@@ -139,4 +139,42 @@ describe('getFunds', () => {
     ]);
     expect(result[0]!.reportDate.getTime()).toBeNaN();
   });
+
+  it('defaults empty-string numeric fields to zero', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        Name: 'Some Fund',
+        Fund: 'Some Fund Group',
+        'Investor ID': '123',
+        'Report Date': '',
+        'Portfolio Value': '',
+        '# Investments': '',
+        'New Purchased': '',
+        'Sold Out': '',
+        Added: '',
+        Reduced: '',
+        'Top 10 Concentration (%)': '',
+        'Turnover (%)': '',
+        'Time Held Top 10': '',
+        'Time Held All': '',
+      },
+    ]);
+
+    const result = await getFunds(client, { search: 'Some Fund' });
+
+    expect(result).toEqual([
+      expect.objectContaining({
+        portfolioValue: 0,
+        numInvestments: 0,
+        newPurchases: 0,
+        soldOut: 0,
+        added: 0,
+        reduced: 0,
+        top10ConcentrationPct: 0,
+        turnOverPct: 0,
+        timeHeldTopTen: 0,
+        timeHeldAll: 0,
+      }),
+    ]);
+  });
 });

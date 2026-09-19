@@ -3,39 +3,18 @@
  * Workflow Summary
  * Invocation: Imported by fund.ts and re-exported from types/index.ts.
  *
- * | Step | Description                    | Input | Output                  |
- * |------|----------------------------------|-------|--------------------------|
- * | 1    | Export FundOptions interface    | —     | Typed request options    |
- * | 2    | Export FundItem interface       | —     | Typed fund portfolio row |
+ * | Step | Description                          | Input | Output                          |
+ * |------|----------------------------------------|-------|----------------------------------|
+ * | 1    | Alias FundOptions to FundManagerOptions | —     | Typed request options            |
+ * | 2    | Alias FundItem to FundManagerItem       | —     | Typed fund portfolio row         |
  * ---
  */
 
-import { SortDirection, ManagerFundOrderType } from ".";
+import type { ManagerFundItem, ManagerFundOptions } from './fund-manager';
 
-/** Options for a funds request. */
-export interface FundOptions {
-  /** Search term to filter funds by name. */
-  search?: string;
-  /** Column to sort by. */
-  order?: ManagerFundOrderType;
-  /** Sort direction (either '' or '-'). */
-  orderDirection?: SortDirection;
-}
+/** Options for a funds request. Identical in shape to `ManagerOptions` — funds and fund
+ * managers are the same underlying Finviz resource, queried by fund name vs. manager name. */
+export type FundOptions = ManagerFundOptions;
 
-/** A single fund portfolio returned by the funds endpoint. */
-export interface FundItem {
-  name: string;
-  manager: string;
-  id: string;
-  reportDate: Date;
-  portfolioValue: number;
-  numInvestments: number;
-  newPurchases: number;
-  soldOut: number;
-  added: number;
-  reduced: number;
-  top10ConcentrationPct: number;
-  turnOverPct: number;
-  timeHeldTopTen: number;
-  timeHeldAll: number;
-}
+/** A single fund portfolio returned by the funds endpoint. Identical in shape to `ManagerItem`. */
+export type FundItem = ManagerFundItem;

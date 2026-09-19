@@ -3,39 +3,18 @@
  * Workflow Summary
  * Invocation: Imported by manager.ts and re-exported from types/index.ts.
  *
- * | Step | Description                      | Input | Output                    |
- * |------|-----------------------------------|-------|----------------------------|
- * | 1    | Export ManagerOptions interface  | —     | Typed request options      |
- * | 2    | Export ManagerItem interface     | —     | Typed fund manager row     |
+ * | Step | Description                                | Input | Output                    |
+ * |------|----------------------------------------------|-------|----------------------------|
+ * | 1    | Alias ManagerOptions to FundManagerOptions   | —     | Typed request options      |
+ * | 2    | Alias ManagerItem to FundManagerItem         | —     | Typed fund manager row     |
  * ---
  */
 
-import { SortDirection, ManagerFundOrderType } from ".";
+import type { ManagerFundItem, ManagerFundOptions } from './fund-manager';
 
-/** Options for a fund managers request. */
-export interface ManagerOptions {
-  /** Search term to filter managers by name. */
-  search?: string;
-  /** Column to sort by. */
-  order?: ManagerFundOrderType;
-  /** Sort direction (either '' or '-'). */
-  orderDirection?: SortDirection;
-}
+/** Options for a fund managers request. Identical in shape to `FundOptions` — fund managers
+ * and funds are the same underlying Finviz resource, queried by manager name vs. fund name. */
+export type ManagerOptions = ManagerFundOptions;
 
-/** A single fund manager portfolio returned by the managers endpoint. */
-export interface ManagerItem {
-  name: string;
-  manager: string;
-  id: string;
-  reportDate: Date;
-  portfolioValue: number;
-  numInvestments: number;
-  newPurchases: number;
-  soldOut: number;
-  added: number;
-  reduced: number;
-  top10ConcentrationPct: number;
-  turnOverPct: number;
-  timeHeldTopTen: number;
-  timeHeldAll: number;
-}
+/** A single fund manager portfolio returned by the managers endpoint. Identical in shape to `FundItem`. */
+export type ManagerItem = ManagerFundItem;

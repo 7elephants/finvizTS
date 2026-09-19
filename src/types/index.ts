@@ -16,10 +16,11 @@
  * | 8    | Re-export options types               | types/options.ts   | Option, etc.         |
  * | 9    | Re-export calendar types              | types/calendar.ts  | Calendar, etc.       |
  * | 10   | Re-export insider types               | types/insider.ts   | InsiderItem, etc.    |
- * | 11   | Re-export manager/fund types          | types/manager.ts,  | ManagerFundOrderType,|
- * |      |                                        | types/fund.ts      | etc.                 |
- * | 12   | Export SortDirection const + type     | —                  | Typed sort direction |
- * | 13   | Export ErrorLevel const + type        | —                  | Typed error level    |
+ * | 11   | Re-export manager/fund types          | types/manager.ts,  | ManagerOptions,      |
+ * |      |                                        | types/fund.ts      | FundOptions, etc.    |
+ * | 12   | Re-export shared fund/manager shape   | types/fund-manager.ts | ManagerFundOrderType, etc. |
+ * | 13   | Export SortDirection const + type     | —                  | Typed sort direction |
+ * | 14   | Export ErrorLevel const + type        | —                  | Typed error level    |
  * ---
  */
 
@@ -35,6 +36,7 @@ export * from './calendar';
 export * from './insider';
 export * from './manager';
 export * from './fund';
+export * from './fund-manager';
 
 export const SortDirection = {
     ASC: '',
@@ -47,21 +49,6 @@ export const ErrorLevel = {
     FATAL: 1,
     ERROR: 2,
     WARN: 3,
-}
+} as const;
 
 export type ErrorLevel = (typeof ErrorLevel)[keyof typeof ErrorLevel];
-
-export const ManagerFundOrderType = {
-  MOST_POPULAR: 'most_popular',
-  PORTFOLIO_VALUE: 'portfolio_value',
-  INVESTMENTS: 'num_investments',
-  PURCHASED: 'new_purchased',
-  SOLD: 'sold_out',
-  ADDED: 'added',
-  REDUCED: 'reduced',
-  TOP_TEN_CONCENTRATION: 'top_ten_concentration',
-  TURNOVER: 'turnover',
-  TIME_HELD_TOP_TEN: 'time_held_top10',
-  TIME_HELD_ALL: 'time_held_all',
-} as const;
-export type ManagerFundOrderType = (typeof ManagerFundOrderType)[keyof typeof ManagerFundOrderType];
