@@ -5,11 +5,13 @@
  *
  * | Step | Description                             | Input | Output                       |
  * |------|------------------------------------------|-------|-------------------------------|
- * | 1    | Export CalendarOptions interface        | —     | Typed request options         |
- * | 2    | Export Calendar response type           | —     | Typed calendar event row      |
- * | 3    | Export EarningsOrderType const + type   | —     | Typed sort column constants   |
- * | 4    | Export EarningsCalendarOptions interface| —     | Typed request options         |
- * | 5    | Export EarningsCalendarItem interface   | —     | Typed earnings calendar row   |
+ * | 1    | Export CalendarOptions interface         | —     | Typed request options         |
+ * | 2    | Export Calendar response type            | —     | Typed calendar event row      |
+ * | 3    | Export EarningsOrderType const + type    | —     | Typed sort column constants   |
+ * | 4    | Export EarningsCalendarOptions interface | —     | Typed request options         |
+ * | 5    | Export EarningsCalendarItem interface    | —     | Typed earnings calendar row   |
+ * | 6    | Export DividendsCalendarOptions interface| —     | Typed request options         |
+ * | 7    | Export DividendsCalendarItem interface   | —     | Typed dividends calendar row  |
  * ---
  */
 
@@ -73,5 +75,23 @@ export interface EarningsCalendarItem {
   revenueActual: number;
   revenueSurprise: number;
   oneDayPriceReaction: number;
+}
+
+/** Options for a dividends calendar request. */
+export interface DividendsCalendarOptions {
+  /** Start date of the range to fetch dividends for (required). */
+  from: Date;
+  /** Optional end date of the range to fetch dividends for (max 90 days from `from`). */
+  to?: Date;
+}
+
+/** A single row returned by the dividends calendar endpoint. */
+export interface DividendsCalendarItem {
+  ticker: string;
+  company: string;
+  exDate: Date;
+  amount: number;
+  special: number;
+  dividendEstYield: number;
 }
 

@@ -296,6 +296,27 @@ const earnings = await getEarningsCalendar(client, {
 
 ---
 
+### `getDividendsCalendar(client, options)` → `Promise<DividendsCalendarItem[]>`
+
+Fetch upcoming ex-dividend dates for a date range (max 90 days from `from`).
+
+```ts
+import { getDividendsCalendar } from "finvizts";
+
+const dividends = await getDividendsCalendar(client, {
+  from: new Date("2026-07-20"), // required
+  to: new Date("2026-07-24"), // optional, max 90 days from `from`
+});
+// dividends[0] → { ticker, company, exDate, amount, special, dividendEstYield }
+```
+
+| Option | Type   | Description                                    |
+| ------ | ------ | ----------------------------------------------- |
+| `from` | `Date` | Start date of the range (required).              |
+| `to`   | `Date` | Optional end date (max 90 days from `from`).     |
+
+---
+
 ## Rate Limiting & Retries
 
 `FinvizClient` enforces the Finviz Elite API's **1 request per 5 seconds** limit automatically:

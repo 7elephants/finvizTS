@@ -1,19 +1,28 @@
 /*
  * ---
  * Workflow Summary
- * Invocation: Called via `getEconomicCalendar(client, options)` or
- * `getEarningsCalendar(client, options)`. Fetches a multi-row CSV of calendar events for a
- * date range; economic events are returned as key/value records, earnings events as typed rows.
+ * Invocation: Called via `getEconomicCalendar(client, options)`, `getEarningsCalendar(client,
+ * options)`, or `getDividendsCalendar(client, options)`. Fetches a multi-row CSV of calendar
+ * events for a date range; economic events are returned as key/value records, earnings and
+ * dividends events as typed rows.
  *
- * | Step | Method                  | Input                                | Output                       |
- * |------|--------------------------|---------------------------------------|-------------------------------|
- * | 1    | getEconomicCalendar()   | FinvizClient, CalendarOptions         | Promise<Calendar[]>           |
- * | 2    | getEarningsCalendar()   | FinvizClient, EarningsCalendarOptions | Promise<EarningsCalendarItem[]> |
+ * | Step | Method                  | Input                                  | Output                            |
+ * |------|--------------------------|------------------------------------------|--------------------------------------|
+ * | 1    | getEconomicCalendar()   | FinvizClient, CalendarOptions           | Promise<Calendar[]>                  |
+ * | 2    | getEarningsCalendar()   | FinvizClient, EarningsCalendarOptions   | Promise<EarningsCalendarItem[]>      |
+ * | 3    | getDividendsCalendar()  | FinvizClient, DividendsCalendarOptions  | Promise<DividendsCalendarItem[]>     |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { Calendar, CalendarOptions, EarningsCalendarItem, EarningsCalendarOptions } from './types';
+import type {
+  Calendar,
+  CalendarOptions,
+  DividendsCalendarItem,
+  DividendsCalendarOptions,
+  EarningsCalendarItem,
+  EarningsCalendarOptions,
+} from './types';
 
 import { formatDateToYYYYMMDD } from '.';
 
@@ -65,5 +74,30 @@ export async function getEarningsCalendar(
     revenueActual: parseFloat(row['Revenue Actual'] ?? '0'),
     revenueSurprise: parseFloat(row['Revenue Surprise'] ?? '0'),
     oneDayPriceReaction: parseFloat(row['1-Day Price Reaction'] ?? '0'),
+  }));
+}
+
+/**
+ * Fetch dividends calendar events for a given date range (max 90 days).
+ * The API returns a multi-row CSV; each row represents one company's upcoming ex-dividend date.
+ *
+ * @param client  - Authenticated FinvizClient instance
+ * @param options - Start date (required) and optional end date
+ */
+export async function getDividendsCalendar(
+  client: FinvizClient,
+  options: DividendsCalendarOptions,
+): Promise<DividendsCalendarItem[]> {
+  const rows = await client.getRecords('/export/calendar/dividends', {
+    dateFrom: formatDateToYYYYMMDD(options.from),
+    dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
+  });
+  return rows.map((row) => ({
+    ticker: row['Ticker'] ?? '',
+    company: row['Company'] ?? '',
+    exDate: new Date(row['Ex-Date'] || ''),
+    amount: parseFloat(row['Amount'] ?? '0'),
+    special: parseFloat(row['Special'] ?? '0'),
+    dividendEstYield: parseFloat(row['Dividend Est. Yield'] ?? '0'),
   }));
 }

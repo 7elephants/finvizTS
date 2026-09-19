@@ -10,12 +10,14 @@
  * | 3    | Assert getRecords was called with correct args          | Captured call args              | Passing assertions                  |
  * | 4    | Assert response mapping to Calendar shape               | Mock CSV row records            | Normalized Calendar rows            |
  * | 5    | Call getEarningsCalendar with request/sort options      | EarningsCalendarOptions         | Forwarded params                    |
- * | 6    | Assert response mapping to EarningsCalendarItem shape   | Mock CSV row records            | Normalized EarningsCalendarItem[]   |
+ * | 6    | Assert response mapping to EarningsCalendarItem shape    | Mock CSV row records            | Normalized EarningsCalendarItem[]   |
+ * | 7    | Call getDividendsCalendar with request options          | DividendsCalendarOptions        | Forwarded params                    |
+ * | 8    | Assert response mapping to DividendsCalendarItem shape   | Mock CSV row records            | Normalized DividendsCalendarItem[]  |
  * ---
  */
 
 import { FinvizClient } from '../src/client';
-import { getEconomicCalendar, getEarningsCalendar } from '../src/calendar';
+import { getEconomicCalendar, getEarningsCalendar, getDividendsCalendar } from '../src/calendar';
 import { EarningsOrderType, SortDirection } from '../src/types';
 
 describe('getEconomicCalendar', () => {
@@ -192,6 +194,82 @@ describe('getEarningsCalendar', () => {
         revenueActual: 0,
         revenueSurprise: 0,
         oneDayPriceReaction: 0,
+      }),
+    ]);
+  });
+});
+
+describe('getDividendsCalendar', () => {
+  const mockGetRecords = jest.fn();
+  const client = { getRecords: mockGetRecords } as unknown as FinvizClient;
+
+  beforeEach(() => jest.clearAllMocks());
+
+  it('calls getRecords with the dividends endpoint and formatted from date', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getDividendsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/dividends', {
+      dateFrom: '2026-07-20',
+      dateTo: undefined,
+    });
+  });
+
+  it('passes a formatted to date when provided', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getDividendsCalendar(client, { from: new Date(2026, 6, 20), to: new Date(2026, 6, 24) });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/calendar/dividends', {
+      dateFrom: '2026-07-20',
+      dateTo: '2026-07-24',
+    });
+  });
+
+  it('maps CSV rows to DividendsCalendarItem shape', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        Ticker: 'CAT',
+        Company: 'Caterpillar Inc',
+        'Ex-Date': '2026-07-20',
+        Amount: '1.63',
+        Special: '',
+        'Dividend Est. Yield': '0.77',
+      },
+    ]);
+
+    const result = await getDividendsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(result).toEqual([
+      {
+        ticker: 'CAT',
+        company: 'Caterpillar Inc',
+        exDate: new Date('2026-07-20'),
+        amount: 1.63,
+        special: NaN,
+        dividendEstYield: 0.77,
+      },
+    ]);
+  });
+
+  it('defaults missing numeric fields to zero', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        Ticker: 'HSHP',
+        Company: 'Himalaya Shipping Ltd',
+      },
+    ]);
+
+    const result = await getDividendsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(result).toEqual([
+      expect.objectContaining({
+        ticker: 'HSHP',
+        company: 'Himalaya Shipping Ltd',
+        amount: 0,
+        special: 0,
+        dividendEstYield: 0,
       }),
     ]);
   });
