@@ -14,6 +14,8 @@
 import type { FinvizClient } from './client';
 import type { InsiderItem, InsiderOptions } from './types';
 
+import { buildSortParam } from './utils';
+
 /**
  * Fetch insider trading transactions, optionally filtered by ticker, transaction type,
  * owner relationship, minimum transaction value, or owner CIK.
@@ -32,7 +34,7 @@ export async function getInsiders(
     or: options.ownerRel,
     tv: options.minimumTransactionValue,
     oc: options.ownerCIK,
-    o: (options.orderDirection || '') + (options.order || ''),
+    o: buildSortParam(options.order, options.orderDirection),
   });
   return rows.map((row) => ({
     ticker: row['Ticker'] ?? '',

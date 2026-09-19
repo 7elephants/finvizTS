@@ -12,6 +12,9 @@
  * ---
  */
 
+import type { SortDirection } from '..';
+import type { ScreenerOrder } from './order';
+
 /** A single row returned by the screener endpoint. */
 export type Screener = Record<string, string>;
 
@@ -212,9 +215,9 @@ export interface ScreenerOptions {
    */
   filters?: string | (string | string[])[];
   /** Sort order column */
-  order?: string;
+  order?: ScreenerOrder;
   /** Sort order column direction (either '' or '-') */
-  orderDirection?: string;
+  orderDirection?: SortDirection;
   /** Starting row index for pagination (1-based) */
   rows?: number;
   /** Signal filter shortcut (e.g. `ScreenerSignal.TOP_GAINERS`) */

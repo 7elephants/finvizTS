@@ -24,7 +24,7 @@ import type {
   EarningsCalendarOptions,
 } from './types';
 
-import { formatDateToYYYYMMDD } from '.';
+import { formatDateToYYYYMMDD, buildSortParam } from '.';
 
 /**
  * Fetch economic calendar events for a given date range.
@@ -57,7 +57,7 @@ export async function getEarningsCalendar(
   const rows = await client.getRecords('/export/calendar/earnings', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
-    sort: (options.orderDirection || '') + (options.order || ''),
+    sort: buildSortParam(options.order, options.orderDirection),
   });
   return rows.map((row) => ({
     date: new Date(row['Date'] || ''),

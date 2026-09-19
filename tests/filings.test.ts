@@ -8,13 +8,14 @@
  * | 1    | Mock FinvizClient.getRecords                   | jest.fn()                       | Controlled mock            |
  * | 2    | Call getLatestFilings with request options     | ticker, FilingOptions           | Forwarded params           |
  * | 3    | Assert getRecords was called with correct args | Captured call args              | Passing assertions         |
- * | 4    | Assert response mapping to Filing shape        | Mock CSV row records            | Normalized Filing objects  |
+ * | 4    | Assert order and orderDirection combine        | order, orderDirection           | Combined `o` param         |
+ * | 5    | Assert response mapping to Filing shape        | Mock CSV row records            | Normalized Filing objects  |
  * ---
  */
 
 import { FinvizClient } from '../src/client';
 import { getLatestFilings } from '../src/filings';
-import { FilingFilter } from '../src/types';
+import { FilingFilter, FilingOrder, SortDirection } from '../src/types';
 
 describe('getLatestFilings', () => {
   const mockGetRecords = jest.fn();
@@ -29,15 +30,30 @@ describe('getLatestFilings', () => {
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/latest-filings', {
       t: 'MSFT',
-      o: undefined,
+      o: '',
       f: undefined,
     });
   });
 
-  it('passes the order option when provided', async () => {
+  it('passes ascending order when only order is provided', async () => {
     mockGetRecords.mockResolvedValueOnce([]);
 
-    await getLatestFilings(client, 'AAPL', { order: '-filingDate' });
+    await getLatestFilings(client, 'AAPL', { order: FilingOrder.DATE });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/latest-filings', {
+      t: 'AAPL',
+      o: 'filingDate',
+      f: undefined,
+    });
+  });
+
+  it('combines order and orderDirection into the `o` param', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getLatestFilings(client, 'AAPL', {
+      order: FilingOrder.DATE,
+      orderDirection: SortDirection.DESC,
+    });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/latest-filings', {
       t: 'AAPL',
@@ -53,7 +69,7 @@ describe('getLatestFilings', () => {
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/latest-filings', {
       t: 'GOOG',
-      o: undefined,
+      o: '',
       f: 'insider-equity',
     });
   });

@@ -13,6 +13,8 @@
 import type { FinvizClient } from './client';
 import type { FilingOptions, Filing } from './types';
 
+import { buildSortParam } from './utils';
+
 /**
  * Fetch recent SEC filings for a single ticker symbol.
  * The API returns a multi-row CSV; each row is mapped to a Filing.
@@ -28,7 +30,7 @@ export async function getLatestFilings(
 ): Promise<Filing[]> {
   const rows = await client.getRecords('/export/latest-filings', {
     t: ticker,
-    o: options.order,
+    o: buildSortParam(options.order, options.orderDirection),
     f: options.filter,
   });
   return rows.map((row) => ({
