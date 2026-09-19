@@ -37,7 +37,7 @@ export const InsiderOrderType = {
   TRANSACTION_DATE: 'transactionDate',
   TRANSACTION_PRICE_PER_SHARE: 'transactionPricePerShare',
   TRANSACTION_SHARES: 'transactionShares',
-  TOTAL_SHARES: 'sharedOwnedFollowingTransaction',
+  TOTAL_SHARES: 'sharesOwnedFollowingTransaction',
 } as const;
 export type InsiderOrderType = (typeof InsiderOrderType)[keyof typeof InsiderOrderType];
 
