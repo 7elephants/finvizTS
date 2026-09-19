@@ -14,6 +14,7 @@ import type { FinvizClient } from './client';
 import type { ScreenerOptions, Screener } from './types';
 
 import { buildFilters } from './filters';
+import { buildSortParam } from './utils';
 
 /**
  * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
@@ -30,7 +31,7 @@ export async function getScreener(
     v: options.view,
     c: options.fields?.join(','),
     f: Array.isArray(options.filters) ? buildFilters(options.filters) : options.filters,
-    o: (options.orderDirection || '') + (options.order || ''),
+    o: buildSortParam(options.order, options.orderDirection),
     r: options.rows,
     s: options.signal,
     t: Array.isArray(options.tickers) ? options.tickers.join(',') : options.tickers,

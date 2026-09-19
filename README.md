@@ -66,6 +66,77 @@ const client = new FinvizClient({
 
 Request option types (`ScreenerOptions`, `QuoteOptions`, etc.) and every filter/enum constant (`ScreenerField`, `ScreenerOrder`, `ScreenerSignal`, `ScreenerExchangeFilter`, and the rest of the screener filter families) are documented under [docs/types/](docs/types/client.md).
 
+### `getEconomicCalendar(client, options)` → `Promise<Calendar[]>`
+
+Fetch economic calendar events for a date range.
+
+```ts
+import { getEconomicCalendar } from "finvizts";
+
+const events = await getEconomicCalendar(client, {
+  from: new Date("2026-03-01"), // required
+  to: new Date("2026-03-31"), // optional
+});
+// events[0] → { Date, Time, Datetime, Release, Impact, For, Actual, Expected, Prior }
+```
+
+| Option | Type   | Description                                    |
+| ------ | ------ | ----------------------------------------------- |
+| `from` | `Date` | Start date of the range (required).              |
+| `to`   | `Date` | Optional end date of the range.                  |
+
+---
+
+### `getEarningsCalendar(client, options)` → `Promise<EarningsCalendarItem[]>`
+
+Fetch earnings reports for a date range (max 90 days from `from`), optionally sorted.
+
+```ts
+import { getEarningsCalendar, EarningsOrderType, SortDirection } from "finvizts";
+
+const earnings = await getEarningsCalendar(client, {
+  from: new Date("2026-07-20"), // required
+  to: new Date("2026-07-24"), // optional, max 90 days from `from`
+  order: EarningsOrderType.MARKET_CAP, // optional
+  orderDirection: SortDirection.DESC, // optional
+});
+// earnings[0] → { date, ticker, company, marketCap, epsEstimate, epsActual, epsSurprise,
+//                 epsGaapEstimate, epsGaapActual, epsGaapSurprise, revenueEstimate,
+//                 revenueActual, revenueSurprise, oneDayPriceReaction }
+```
+
+| Option           | Type                | Description                                                                     |
+| ---------------- | ------------------- | -------------------------------------------------------------------------------- |
+| `from`           | `Date`              | Start date of the range (required).                                              |
+| `to`             | `Date`              | Optional end date (max 90 days from `from`).                                     |
+| `order`          | `EarningsOrderType` | Sort column. Use `EarningsOrderType` constants.                                  |
+| `orderDirection` | `string`            | Sort direction. Use `SortDirection.ASC` (`''`) or `SortDirection.DESC` (`'-'`).  |
+
+**`EarningsOrderType`** — `EARNINGS_DATE` `TICKER` `COMPANY` `MARKET_CAP` `EPS_ESTIMATE` `EPS_ACTUAL` `EPS_SURPRISE` `EPS_GAAP_ESTIMATE` `EPS_GAAP_ACTUAL` `EPS_GAAP_SURPRISE` `REVENUE_ESTIMATE` `REVENUE_ACTUAL` `REVENUE_SURPRISE` `ONE_DAY_PRICE_REACTION`
+
+---
+
+### `getDividendsCalendar(client, options)` → `Promise<DividendsCalendarItem[]>`
+
+Fetch upcoming ex-dividend dates for a date range (max 90 days from `from`).
+
+```ts
+import { getDividendsCalendar } from "finvizts";
+
+const dividends = await getDividendsCalendar(client, {
+  from: new Date("2026-07-20"), // required
+  to: new Date("2026-07-24"), // optional, max 90 days from `from`
+});
+// dividends[0] → { ticker, company, exDate, amount, special, dividendEstYield }
+```
+
+| Option | Type   | Description                                    |
+| ------ | ------ | ----------------------------------------------- |
+| `from` | `Date` | Start date of the range (required).              |
+| `to`   | `Date` | Optional end date (max 90 days from `from`).     |
+
+---
+
 ## Rate Limiting & Retries
 
 `FinvizClient` enforces the Finviz Elite API's **1 request per 5 seconds** limit automatically:

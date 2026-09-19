@@ -11,6 +11,8 @@
  * ---
  */
 
+import type { SortDirection } from '.';
+
 /** Valid filing filter values for the latest-filings endpoint. */
 export const FilingFilter = {
   ANNUAL_QUARTERLY_CURRENT: 'annual-quarterly-current',
@@ -39,10 +41,10 @@ export type FilingOrder = (typeof FilingOrder)[keyof typeof FilingOrder];
 
 /** Options for a latest-filings request. */
 export interface FilingOptions {
-  /** Column to sort by (prefix with "-" for descending, e.g. "-filingDate"). */
-  order?: string;
+  /** Column to sort by. */
+  order?: FilingOrder;
   /** Sort direction (either "" or "-"). */
-  orderDirection?: string; 
+  orderDirection?: SortDirection;
   /** Filter by filing type. */
   filter?: FilingFilter;
 }

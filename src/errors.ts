@@ -5,9 +5,9 @@
  * catch FinvizError and inspect statusCode to distinguish rate-limit (429) from auth (401)
  * or server errors (5xx).
  *
- * | Step | Description                         | Input                           | Output           |
- * |------|-------------------------------------|---------------------------------|------------------|
- * | 1    | FinvizError constructor             | message, statusCode, retryAfter | FinvizError      |
+ * | Step | Description                         | Input                                                | Output      |
+ * |------|-------------------------------------|--------------------------------------------------------|-------------|
+ * | 1    | FinvizError constructor            | message, level, statusCode, retryAfter, options       | FinvizError |
  * ---
  */
 

@@ -13,6 +13,8 @@
 import type { FinvizClient } from './client';
 import type { PortfolioOptions, Portfolio } from './types';
 
+import { buildSortParam } from './utils';
+
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
  * The portfolio ID can be found in the URL when viewing a portfolio on the Finviz website.
@@ -28,7 +30,7 @@ export async function getPortfolio(
 ): Promise<Portfolio[]> {
   return client.getRecords('/export/portfolio', {
     pid: String(portfolioId),
-    o: (options.orderDirection || '') + (options.order || ''),
+    o: buildSortParam(options.order, options.orderDirection),
     c: Array.isArray(options.fields) ? options.fields.join(',') : options.fields,
   });
 }
