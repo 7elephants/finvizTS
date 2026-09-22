@@ -10,7 +10,7 @@
 
 ### ScreenerOptions
 
-Defined in: [types/screener/index.ts:176](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L176)
+Defined in: [types/screener/index.ts:179](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L179)
 
 Options for a screener request.
 
@@ -20,7 +20,7 @@ Options for a screener request.
 
 > `optional` **fields?**: `number`[]
 
-Defined in: [types/screener/index.ts:186](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L186)
+Defined in: [types/screener/index.ts:189](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L189)
 
 Columns to include in the response. Maps to the `c` query param as a comma-separated list.
 Use the `ScreenerField` constants (e.g. `ScreenerField.TICKER`, `ScreenerField.PRICE`).
@@ -29,7 +29,7 @@ Use the `ScreenerField` constants (e.g. `ScreenerField.TICKER`, `ScreenerField.P
 
 > `optional` **filters?**: `string` \| (`string` \| `string`[])[]
 
-Defined in: [types/screener/index.ts:201](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L201)
+Defined in: [types/screener/index.ts:204](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L204)
 
 Filters for the `f` query parameter. Accepts either:
 - A pre-built filter string (e.g. `"exch_nasd,geo_usa"`)
@@ -50,17 +50,17 @@ filters: [[ScreenerExchangeFilter.AMEX, ScreenerExchangeFilter.NASDAQ], Screener
 
 ##### order?
 
-> `optional` **order?**: `string`
+> `optional` **order?**: [`ScreenerOrder`](screener/order.md#screenerorder)
 
-Defined in: [types/screener/index.ts:203](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L203)
+Defined in: [types/screener/index.ts:206](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L206)
 
 Sort order column
 
 ##### orderDirection?
 
-> `optional` **orderDirection?**: `string`
+> `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/screener/index.ts:205](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L205)
+Defined in: [types/screener/index.ts:208](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L208)
 
 Sort order column direction (either '' or '-')
 
@@ -68,7 +68,7 @@ Sort order column direction (either '' or '-')
 
 > `optional` **rows?**: `number`
 
-Defined in: [types/screener/index.ts:207](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L207)
+Defined in: [types/screener/index.ts:210](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L210)
 
 Starting row index for pagination (1-based)
 
@@ -76,7 +76,7 @@ Starting row index for pagination (1-based)
 
 > `optional` **signal?**: `string`
 
-Defined in: [types/screener/index.ts:209](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L209)
+Defined in: [types/screener/index.ts:212](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L212)
 
 Signal filter shortcut (e.g. `ScreenerSignal.TOP_GAINERS`)
 
@@ -84,7 +84,7 @@ Signal filter shortcut (e.g. `ScreenerSignal.TOP_GAINERS`)
 
 > `optional` **tickers?**: `string` \| `string`[]
 
-Defined in: [types/screener/index.ts:211](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L211)
+Defined in: [types/screener/index.ts:214](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L214)
 
 Ticker symbols (e.g. "AAPL")
 
@@ -92,7 +92,7 @@ Ticker symbols (e.g. "AAPL")
 
 > `optional` **view?**: `number`
 
-Defined in: [types/screener/index.ts:181](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L181)
+Defined in: [types/screener/index.ts:184](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L184)
 
 Screener view ID controlling which columns are returned.
 Use the `ScreenerView` constants (e.g. `ScreenerView.OVERVIEW`) or a custom numeric ID.
@@ -103,7 +103,7 @@ Use the `ScreenerView` constants (e.g. `ScreenerView.OVERVIEW`) or a custom nume
 
 > **Screener** = `Record`\<`string`, `string`\>
 
-Defined in: [types/screener/index.ts:16](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L16)
+Defined in: [types/screener/index.ts:19](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L19)
 
 A single row returned by the screener endpoint.
 
@@ -113,7 +113,7 @@ A single row returned by the screener endpoint.
 
 > **ScreenerField** = *typeof* [`ScreenerField`](#screenerfield-1)\[keyof *typeof* [`ScreenerField`](#screenerfield-1)\]
 
-Defined in: [types/screener/index.ts:42](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L42)
+Defined in: [types/screener/index.ts:45](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L45)
 
 Union of all known screener field ID values.
 
@@ -123,7 +123,7 @@ Union of all known screener field ID values.
 
 > **ScreenerView** = *typeof* [`ScreenerView`](#screenerview-1)\[keyof *typeof* [`ScreenerView`](#screenerview-1)\]
 
-Defined in: [types/screener/index.ts:19](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L19)
+Defined in: [types/screener/index.ts:22](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L22)
 
 Union of all known screener view ID values.
 
@@ -133,7 +133,7 @@ Union of all known screener view ID values.
 
 > `const` **ScreenerField**: `object`
 
-Defined in: [types/screener/index.ts:42](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L42)
+Defined in: [types/screener/index.ts:45](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L45)
 
 All documented screener field IDs for the `c` query parameter.
 
@@ -653,7 +653,7 @@ All documented screener field IDs for the `c` query parameter.
 
 > `const` **ScreenerView**: `object`
 
-Defined in: [types/screener/index.ts:19](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/screener/index.ts#L19)
+Defined in: [types/screener/index.ts:22](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/index.ts#L22)
 
 All known screener view IDs. Pass as the `view` option to `getScreener()`.
 

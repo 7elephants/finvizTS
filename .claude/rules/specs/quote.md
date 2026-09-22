@@ -4,7 +4,7 @@ The quote API allows for a single stock ticker to be requested and returns them 
 
 ## Request
 
-The screener endpoint is a GET request to `quote_export.ashx` with the following query parameters:
+The quote endpoint is a GET request to `export/stock` with the following query parameters:
 
 - `auth` (required): Your API key
 - `t` (required): The stock ticker symbol you want to retrieve data for. For example, `AAPL` for Apple Inc.
@@ -22,7 +22,7 @@ The screener endpoint is a GET request to `quote_export.ashx` with the following
 | w     | Weekly      |
 | m     | Monthly     |
 
-- 'r' (optional): The range of time to return data for. Here is a list of valid values:
+- `r` (optional): The range of time to return data for. Here is a list of valid values:
 
 | Value                       | Description                                                                                            |
 | --------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -57,4 +57,4 @@ Date,Open,High,Low,Close,Volume
 
 ## Example
 
-`https://elite.finviz.com/quote_export.ashx?auth=YOUR_API_KEY&t=MSFT&p=d&r=y1`
+`https://elite.finviz.com/export/stock?auth=YOUR_API_KEY&t=MSFT&p=d&r=y1`

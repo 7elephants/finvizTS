@@ -4,9 +4,9 @@ The screener API allows for multiple stock tickers to be requested and returns t
 
 ## Request
 
-The screener endpoint is a GET request to `export.ashx` with the following query parameters:
+The screener endpoint is a GET request to `export/screener` with the following query parameters:
 
-- `auth` (required)): Your API key
+- `auth` (required): Your API key
 - `v` (required): The ID of the screener view you want to retrieve. The view ID determines which fields are returned in the response. Here is a table of the views and their corresponding IDs:
 
 | ID  | Name            |
@@ -213,10 +213,10 @@ No.,Ticker,Company,Sector,Industry,Country,Market Cap,P/E,Price,Change,Volume
 ## Examples
 
 Basic request with view and custom columns:
-`https://elite.finviz.com/export.ashx?auth=YOUR_API_KEY&v=111&c=0,1,2`
+`https://elite.finviz.com/export/screener?auth=YOUR_API_KEY&v=111&c=0,1,2`
 
 With filters (NASDAQ or AMEX exchange, AND USA country):
-`https://elite.finviz.com/export.ashx?auth=YOUR_API_KEY&v=111&f=exch_nasd|amex,geo_usa`
+`https://elite.finviz.com/export/screener?auth=YOUR_API_KEY&v=111&f=exch_nasd|amex,geo_usa`
 
 With a signal filter:
-`https://elite.finviz.com/export.ashx?auth=YOUR_API_KEY&v=111&s=ta_topgainers`
+`https://elite.finviz.com/export/screener?auth=YOUR_API_KEY&v=111&s=ta_topgainers`

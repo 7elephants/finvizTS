@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-`finviz-ts` is a TypeScript npm package that provides a typed client for the [Finviz Elite API](https://finviz.com/api_explanation.ashx). It wraps authentication, HTTP transport, and the main endpoints (quote, screener, news) behind a clean, promise-based interface. The API is a CSV export-based API.
+`finviz-ts` is a TypeScript npm package that provides a typed client for the [Finviz Elite API](https://finviz.com/api_explanation.ashx). It wraps authentication, HTTP transport, and all endpoints (quote, screener, news, portfolio, filings, options, groups, insiders, managers, funds, calendars) behind a clean, promise-based interface. The API is a CSV export-based API.
 
 ## Commands
 
@@ -39,17 +39,25 @@ npm run test:coverage
 
 ```
 src/
-  index.ts      # Public API surface — re-exports everything
-  client.ts     # FinvizClient — axios transport, CSV parsing, auth injection
-  csv.ts        # parseRecord() and parseRecords() — csv-parse wrappers
-  types.ts      # All shared TypeScript interfaces, types, and const objects
-  quote.ts      # getQuote(client, ticker, options) → QuoteRow[]
-  screener.ts   # getScreener(client, options) → ScreenerRow[]
-  news.ts       # getNews(client, options) → NewsItem[]
-  portfolio.ts  # getPortfolio(client, portfolioId, options) → PortfolioRow[]
-  filings.ts    # getLatestFilings(client, ticker, options) → FilingRow[]
-  options.ts    # getOptionsChain(client, ticker, options) → OptionRow[]
-  groups.ts     # getGroups(client, group, viewId, options) → GroupRow[]
+  index.ts        # Public API surface — re-exports everything
+  client.ts       # FinvizClient — axios transport, CSV parsing, auth injection, rate limiting/retries
+  csv.ts          # parseRecord() and parseRecords() — csv-parse wrappers
+  errors.ts       # FinvizError — thrown on HTTP/network failures
+  filters.ts      # buildFilters() — composes the screener `f` query string
+  utils.ts        # formatDateToYYYYMMDD(), buildSortParam() — shared request-building helpers
+  types/          # All shared TypeScript interfaces, types, and const objects (one file per domain)
+  quote.ts        # getQuote(client, ticker, options) → QuoteRow[]
+  screener.ts     # getScreener(client, options) → ScreenerRow[]
+  news.ts         # getNews(client, options) → NewsItem[]
+  portfolio.ts    # getPortfolio(client, portfolioId, options) → PortfolioRow[]
+  filings.ts      # getLatestFilings(client, ticker, options) → FilingRow[]
+  options.ts      # getOptionsChain(client, ticker, options) → OptionRow[]
+  groups.ts       # getGroups(client, group, viewId, options) → GroupRow[]
+  insider.ts      # getInsiders(client, options) → InsiderItem[]
+  manager.ts      # getManagers(client, options) → ManagerItem[]
+  fund.ts         # getFunds(client, options) → FundItem[]
+  fund-manager.ts # getFundManagerItems() — internal helper shared by fund.ts/manager.ts (not exported)
+  calendar.ts     # getEconomicCalendar(), getEarningsCalendar(), getDividendsCalendar()
 
 tests/
   client.test.ts
@@ -57,15 +65,21 @@ tests/
   quote.test.ts
   screener.test.ts
   news.test.ts
+  portfolio.test.ts
+  filings.test.ts
+  insider.test.ts
+  manager.test.ts
+  fund.test.ts
+  calendar.test.ts
 ```
 
 ### Key design decisions
 
 - **All responses are CSV.** The Finviz API returns `text/csv`. Requests use `responseType: 'text'` and axios sends `Accept: text/csv`.
-- **Two response shapes.** `client.getRecord()` handles two-row CSV (header + single value row) for quote; `client.getRecords()` handles N-row CSV for screener and news. The `csv-parse` library does the actual parsing.
-- **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around.
-- **Auth is injected by the client.** `auth` is appended to every request params automatically — individual modules never handle auth.
-- **Endpoint paths are placeholders.** The exact paths (`/api/quote.ashx`, etc.) need to be verified against the official Finviz Elite API docs. Update `src/quote.ts`, `src/screener.ts`, and `src/news.ts` accordingly.
+- **Two response shapes.** `client.getRecord()` handles two-row CSV (header + single value row) for quote; `client.getRecords()` handles N-row CSV for screener, news, and the rest of the multi-row endpoints. The `csv-parse` library does the actual parsing.
+- **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around. It also proactively rate-limits requests and retries `429` responses (see `.claude/rules/rate_limiting.md`).
+- **Auth is injected by the client.** `auth` is appended to every request params automatically — individual modules never handle auth (see `.claude/rules/authenication.md`).
+- **`fund.ts` and `manager.ts` share one implementation.** Funds and fund managers are the same underlying Finviz resource (`/export/funds` vs `/export/managers`), so both call the internal `getFundManagerItems()` in `fund-manager.ts`, which is not part of the public API surface.
 - **Jest `.js` import mapping.** `moduleNameMapper` in `jest.config.js` strips `.js` extensions at test time since ts-jest runs CommonJS but source imports use ESM-style `.js` suffixes for tsup compatibility.
 
 ## Environment

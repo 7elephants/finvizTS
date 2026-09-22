@@ -4,7 +4,7 @@ The groups API allows for a single group to be requested and returns them with t
 
 ## Request
 
-The screener endpoint is a GET request to `grp_export.ashx` with the following query parameters:
+The groups endpoint is a GET request to `export/groups` with the following query parameters:
 
 - `auth` (required): Your API key
 - `g` (required): The group name you want to retrieve. For example, if you want to retrieve the "Sectors" group, you would use `g=sector`. Here is a list of valid group names:
@@ -96,4 +96,4 @@ No.,Name,Market Cap,P/E,Dividend Yield,Average Volume,Change,Volume,Stocks
 
 ## Example
 
-`https://elite.finviz.com/grp_export.ashx?auth=YOUR_API_KEY&g=sector&v=110`
+`https://elite.finviz.com/export/groups?auth=YOUR_API_KEY&g=sector&v=110`

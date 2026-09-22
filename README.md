@@ -63,6 +63,12 @@ const client = new FinvizClient({
 | `getLatestFilings(client, ticker, options?)` | Recent SEC filings for a ticker | [docs/filings.md](docs/filings.md) |
 | `getOptionsChain(client, ticker, options)` | Options chain for a ticker/expiration | [docs/options.md](docs/options.md) |
 | `getGroups(client, group, viewId, options?)` | Aggregated data by sector/industry/country/cap | [docs/groups.md](docs/groups.md) |
+| `getInsiders(client, options?)` | Insider trading transactions | [docs/insider.md](docs/insider.md) |
+| `getManagers(client, options?)` | Fund manager portfolios | [docs/manager.md](docs/manager.md) |
+| `getFunds(client, options?)` | Fund portfolios | [docs/fund.md](docs/fund.md) |
+| `getEconomicCalendar(client, options)` | Economic calendar events by date range | [docs/calendar.md](docs/calendar.md) |
+| `getEarningsCalendar(client, options)` | Earnings reports by date range | [docs/calendar.md](docs/calendar.md) |
+| `getDividendsCalendar(client, options)` | Upcoming ex-dividend dates by date range | [docs/calendar.md](docs/calendar.md) |
 
 Request option types (`ScreenerOptions`, `QuoteOptions`, etc.) and every filter/enum constant (`ScreenerField`, `ScreenerOrder`, `ScreenerSignal`, `ScreenerExchangeFilter`, and the rest of the screener filter families) are documented under [docs/types/](docs/types/client.md).
 
@@ -134,6 +140,94 @@ const dividends = await getDividendsCalendar(client, {
 | ------ | ------ | ----------------------------------------------- |
 | `from` | `Date` | Start date of the range (required).              |
 | `to`   | `Date` | Optional end date (max 90 days from `from`).     |
+
+---
+
+### `getInsiders(client, options?)` → `Promise<InsiderItem[]>`
+
+Fetch insider trading transactions, optionally filtered by ticker, transaction type, owner relationship, minimum transaction value, or owner CIK.
+
+```ts
+import {
+  getInsiders,
+  InsiderTransactionType,
+  InsiderOwnerRelationshipType,
+  InsiderOrderType,
+  SortDirection,
+} from "finvizts";
+
+const trades = await getInsiders(client, {
+  ticker: "AAPL", // optional
+  type: InsiderTransactionType.SALE, // optional
+  ownerRel: InsiderOwnerRelationshipType.EXCLUDE_TEN_PERCENT, // optional
+  minimumTransactionValue: 50000, // optional
+  ownerCIK: 1214156, // optional
+  order: InsiderOrderType.TRANSACTION_VALUE, // optional
+  orderDirection: SortDirection.DESC, // optional
+});
+// trades[0] → { ticker, owner, ownerCIK, relationship, date, transactionType, cost,
+//               shares, value, totalShares, SECForm, SECFormUrl }
+```
+
+| Option | Type | Description |
+| --- | --- | --- |
+| `ticker` | `string` | Filter by ticker symbol. |
+| `type` | `InsiderTransactionType` | Filter by transaction type (`BUY`, `SALE`, `OPTION_EXERCISE`, `ALL`). |
+| `ownerRel` | `InsiderOwnerRelationshipType` | Filter by 10%+ owner status (`INCLUDE_TEN_PERCENT`, `EXCLUDE_TEN_PERCENT`). |
+| `minimumTransactionValue` | `number` | Minimum transaction value in dollars. |
+| `ownerCIK` | `number` | Filter by owner's SEC CIK number. |
+| `order` | `InsiderOrderType` | Sort column. |
+| `orderDirection` | `string` | Sort direction. Use `SortDirection.ASC` (`''`) or `SortDirection.DESC` (`'-'`). |
+
+---
+
+### `getManagers(client, options?)` → `Promise<ManagerItem[]>`
+
+Fetch fund manager portfolios, optionally filtered by a search term and sorted by order/direction.
+
+```ts
+import { getManagers, ManagerFundOrderType, SortDirection } from "finvizts";
+
+const managers = await getManagers(client, {
+  search: "Berkshire", // optional
+  order: ManagerFundOrderType.PORTFOLIO_VALUE, // optional
+  orderDirection: SortDirection.DESC, // optional
+});
+// managers[0] → { name, manager, id, reportDate, portfolioValue, numInvestments,
+//                 newPurchases, soldOut, added, reduced, top10ConcentrationPct,
+//                 turnOverPct, timeHeldTopTen, timeHeldAll }
+```
+
+| Option | Type | Description |
+| --- | --- | --- |
+| `search` | `string` | Search term to filter by manager name. |
+| `order` | `ManagerFundOrderType` | Sort column. |
+| `orderDirection` | `string` | Sort direction. Use `SortDirection.ASC` (`''`) or `SortDirection.DESC` (`'-'`). |
+
+---
+
+### `getFunds(client, options?)` → `Promise<FundItem[]>`
+
+Fetch fund portfolios, optionally filtered by a search term and sorted by order/direction. Same underlying resource and response shape as `getManagers`, queried by fund name instead of manager name.
+
+```ts
+import { getFunds, ManagerFundOrderType, SortDirection } from "finvizts";
+
+const funds = await getFunds(client, {
+  search: "Vanguard", // optional
+  order: ManagerFundOrderType.PORTFOLIO_VALUE, // optional
+  orderDirection: SortDirection.DESC, // optional
+});
+// funds[0] → { name, manager, id, reportDate, portfolioValue, numInvestments,
+//              newPurchases, soldOut, added, reduced, top10ConcentrationPct,
+//              turnOverPct, timeHeldTopTen, timeHeldAll }
+```
+
+| Option | Type | Description |
+| --- | --- | --- |
+| `search` | `string` | Search term to filter by fund name. |
+| `order` | `ManagerFundOrderType` | Sort column. |
+| `orderDirection` | `string` | Sort direction. Use `SortDirection.ASC` (`''`) or `SortDirection.DESC` (`'-'`). |
 
 ---
 

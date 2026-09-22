@@ -4,7 +4,7 @@ The options API allows for a single stock to be requested and returns them with 
 
 ## Request
 
-The screener endpoint is a GET request to `export/options` with the following query parameters:
+The options endpoint is a GET request to `export/options` with the following query parameters:
 
 - `auth` (required): Your API key
 - `t` (required): The stock ticker symbol you want to retrieve data for. For example, `AAPL` for Apple Inc.

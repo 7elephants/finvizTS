@@ -12,7 +12,7 @@
 
 > **ErrorLevel** = *typeof* [`ErrorLevel`](#errorlevel-1)\[keyof *typeof* [`ErrorLevel`](#errorlevel-1)\]
 
-Defined in: [types/index.ts:39](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/index.ts#L39)
+Defined in: [types/index.ts:51](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L51)
 
 Union of all known error level values.
 
@@ -22,7 +22,7 @@ Union of all known error level values.
 
 > **SortDirection** = *typeof* [`SortDirection`](#sortdirection-1)\[keyof *typeof* [`SortDirection`](#sortdirection-1)\]
 
-Defined in: [types/index.ts:30](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/index.ts#L30)
+Defined in: [types/index.ts:42](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L42)
 
 Union of all known sort direction values.
 
@@ -32,7 +32,7 @@ Union of all known sort direction values.
 
 > `const` **ErrorLevel**: `object`
 
-Defined in: [types/index.ts:39](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/index.ts#L39)
+Defined in: [types/index.ts:51](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L51)
 
 Severity level attached to a thrown FinvizError.
 
@@ -40,15 +40,15 @@ Severity level attached to a thrown FinvizError.
 
 ##### ERROR
 
-> **ERROR**: `number` = `2`
+> `readonly` **ERROR**: `2` = `2`
 
 ##### FATAL
 
-> **FATAL**: `number` = `1`
+> `readonly` **FATAL**: `1` = `1`
 
 ##### WARN
 
-> **WARN**: `number` = `3`
+> `readonly` **WARN**: `3` = `3`
 
 ***
 
@@ -56,7 +56,7 @@ Severity level attached to a thrown FinvizError.
 
 > `const` **SortDirection**: `object`
 
-Defined in: [types/index.ts:30](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/index.ts#L30)
+Defined in: [types/index.ts:42](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L42)
 
 Sort direction values shared by the `o` query parameter across endpoints.
 
@@ -71,6 +71,48 @@ Sort direction values shared by the `o` query parameter across endpoints.
 > `readonly` **DESC**: `"-"` = `'-'`
 
 ## References
+
+### Calendar
+
+Re-exports [Calendar](types/calendar.md#calendar)
+
+***
+
+### CalendarOptions
+
+Re-exports [CalendarOptions](types/calendar.md#calendaroptions)
+
+***
+
+### DividendsCalendarItem
+
+Re-exports [DividendsCalendarItem](types/calendar.md#dividendscalendaritem)
+
+***
+
+### DividendsCalendarOptions
+
+Re-exports [DividendsCalendarOptions](types/calendar.md#dividendscalendaroptions)
+
+***
+
+### EarningsCalendarItem
+
+Re-exports [EarningsCalendarItem](types/calendar.md#earningscalendaritem)
+
+***
+
+### EarningsCalendarOptions
+
+Re-exports [EarningsCalendarOptions](types/calendar.md#earningscalendaroptions)
+
+***
+
+### EarningsOrderType
+
+Re-exports [EarningsOrderType](types/calendar.md#earningsordertype-1)
+
+***
 
 ### Filing
 
@@ -102,6 +144,18 @@ Re-exports [FinvizClientOptions](types/client.md#finvizclientoptions)
 
 ***
 
+### FundItem
+
+Re-exports [FundItem](types/fund.md#funditem)
+
+***
+
+### FundOptions
+
+Re-exports [FundOptions](types/fund.md#fundoptions)
+
+***
+
 ### Group
 
 Re-exports [Group](types/groups.md#group)
@@ -129,6 +183,66 @@ Re-exports [GroupView](types/groups.md#groupview-1)
 ### IndustrySubgroup
 
 Re-exports [IndustrySubgroup](types/groups.md#industrysubgroup-1)
+
+***
+
+### InsiderItem
+
+Re-exports [InsiderItem](types/insider.md#insideritem)
+
+***
+
+### InsiderOptions
+
+Re-exports [InsiderOptions](types/insider.md#insideroptions)
+
+***
+
+### InsiderOrderType
+
+Re-exports [InsiderOrderType](types/insider.md#insiderordertype-1)
+
+***
+
+### InsiderOwnerRelationshipType
+
+Re-exports [InsiderOwnerRelationshipType](types/insider.md#insiderownerrelationshiptype-1)
+
+***
+
+### InsiderTransactionType
+
+Re-exports [InsiderTransactionType](types/insider.md#insidertransactiontype-1)
+
+***
+
+### ManagerFundItem
+
+Re-exports [ManagerFundItem](types/fund-manager.md#managerfunditem)
+
+***
+
+### ManagerFundOptions
+
+Re-exports [ManagerFundOptions](types/fund-manager.md#managerfundoptions)
+
+***
+
+### ManagerFundOrderType
+
+Re-exports [ManagerFundOrderType](types/fund-manager.md#managerfundordertype-1)
+
+***
+
+### ManagerItem
+
+Re-exports [ManagerItem](types/manager.md#manageritem)
+
+***
+
+### ManagerOptions
+
+Re-exports [ManagerOptions](types/manager.md#manageroptions)
 
 ***
 

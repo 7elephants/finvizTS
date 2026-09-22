@@ -4,7 +4,7 @@ The latest filings API allows for a single stock ticker to be requested and retu
 
 ## Request
 
-The screener endpoint is a GET request to `export/latest-filings` with the following query parameters:
+The latest filings endpoint is a GET request to `export/latest-filings` with the following query parameters:
 
 - `auth` (required): Your API key
 - `t` (required): The stock ticker symbol you want to retrieve data for. For example, `AAPL` for Apple Inc.

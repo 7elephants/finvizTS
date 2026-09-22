@@ -4,7 +4,7 @@ The news API allows for a single group to be requested and returns them with the
 
 ## Request
 
-The screener endpoint is a GET request to `news_export.ashx` with the following query parameters:
+The news endpoint is a GET request to `export/news` with the following query parameters:
 
 - `auth` (required): Your API key
 - `v` (required): Type of news to retrieve. Valid values are:
@@ -41,4 +41,4 @@ Wyloo project drilling to drive Novo news flow - ICYMI,Proactive,4/11/2026 6:00,
 
 ## Example
 
-`https://elite.finviz.com/news_export.ashx?auth=YOUR_API_KEY&&v=1`
+`https://elite.finviz.com/export/news?auth=YOUR_API_KEY&v=1`

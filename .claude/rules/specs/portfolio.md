@@ -4,7 +4,7 @@ The portfolio API allows for multiple stock tickers to be requested and returns 
 
 ## Request
 
-The screener endpoint is a GET request to `portfolio_export.ashx` with the following query parameters:
+The portfolio endpoint is a GET request to `export/portfolio` with the following query parameters:
 
 - `auth` (required): Your API key
 - `pid` (required): The ID of the portfolio view you want to retrieve. You can get this ID by opening the portfolio on the Finviz website and looking at the URL. For example, if the URL is `https://elite.finviz.com/portfolio.ashx?pid=111`, then the `pid` would be `111`.
@@ -57,4 +57,4 @@ SMCI,Super Micro Computer Inc,25.26,8.79%,43565769,Watch,12/15/2025,0,0,,,,
 
 ## Example
 
-`https://elite.finviz.com/portfolio_export.ashx?auth=YOUR_API_KEY&pid=1000983827&o=company&c=0,1,2,8`
+`https://elite.finviz.com/export/portfolio?auth=YOUR_API_KEY&pid=1000983827&o=company&c=0,1,2,8`

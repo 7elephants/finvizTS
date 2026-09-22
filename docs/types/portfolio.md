@@ -10,7 +10,7 @@
 
 ### PortfolioOptions
 
-Defined in: [types/portfolio.ts:14](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L14)
+Defined in: [types/portfolio.ts:16](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L16)
 
 Options for a portfolio request.
 
@@ -20,23 +20,23 @@ Options for a portfolio request.
 
 > `optional` **fields?**: `number`[]
 
-Defined in: [types/portfolio.ts:20](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L20)
+Defined in: [types/portfolio.ts:22](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L22)
 
 Column indices to include (comma-separated list maps to the `c` query param).
 
 ##### order?
 
-> `optional` **order?**: `string`
+> `optional` **order?**: [`PortfolioOrder`](#portfolioorder)
 
-Defined in: [types/portfolio.ts:16](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L16)
+Defined in: [types/portfolio.ts:18](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L18)
 
 Column to sort by.
 
 ##### orderDirection?
 
-> `optional` **orderDirection?**: `string`
+> `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/portfolio.ts:18](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L18)
+Defined in: [types/portfolio.ts:20](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L20)
 
 Sort direction (either '' or '-').
 
@@ -46,7 +46,7 @@ Sort direction (either '' or '-').
 
 > **Portfolio** = `Record`\<`string`, `string`\>
 
-Defined in: [types/portfolio.ts:56](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L56)
+Defined in: [types/portfolio.ts:58](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L58)
 
 A single row returned by the portfolio endpoint.
 
@@ -56,7 +56,7 @@ A single row returned by the portfolio endpoint.
 
 > **PortfolioField** = *typeof* [`PortfolioField`](#portfoliofield-1)\[keyof *typeof* [`PortfolioField`](#portfoliofield-1)\]
 
-Defined in: [types/portfolio.ts:24](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L24)
+Defined in: [types/portfolio.ts:26](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L26)
 
 Union of all known portfolio field ID values.
 
@@ -66,7 +66,7 @@ Union of all known portfolio field ID values.
 
 > **PortfolioOrder** = *typeof* [`PortfolioOrder`](#portfolioorder-1)\[keyof *typeof* [`PortfolioOrder`](#portfolioorder-1)\]
 
-Defined in: [types/portfolio.ts:44](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L44)
+Defined in: [types/portfolio.ts:46](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L46)
 
 Union of all known portfolio order values.
 
@@ -76,7 +76,7 @@ Union of all known portfolio order values.
 
 > `const` **PortfolioField**: `object`
 
-Defined in: [types/portfolio.ts:24](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L24)
+Defined in: [types/portfolio.ts:26](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L26)
 
 All documented portfolio field IDs for the `c` query parameter.
 
@@ -140,7 +140,7 @@ All documented portfolio field IDs for the `c` query parameter.
 
 > `const` **PortfolioOrder**: `object`
 
-Defined in: [types/portfolio.ts:44](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/portfolio.ts#L44)
+Defined in: [types/portfolio.ts:46](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/portfolio.ts#L46)
 
 All documented portfolio sort column values for the `o` query parameter.
 

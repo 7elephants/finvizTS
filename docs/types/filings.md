@@ -10,7 +10,7 @@
 
 ### Filing
 
-Defined in: [types/filings.ts:51](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L51)
+Defined in: [types/filings.ts:53](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L53)
 
 A single row returned by the latest-filings endpoint.
 
@@ -20,43 +20,43 @@ A single row returned by the latest-filings endpoint.
 
 > **description**: `string`
 
-Defined in: [types/filings.ts:55](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L55)
+Defined in: [types/filings.ts:57](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L57)
 
 ##### document
 
 > **document**: `string`
 
-Defined in: [types/filings.ts:57](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L57)
+Defined in: [types/filings.ts:59](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L59)
 
 ##### filing
 
 > **filing**: `string`
 
-Defined in: [types/filings.ts:56](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L56)
+Defined in: [types/filings.ts:58](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L58)
 
 ##### filingDate
 
 > **filingDate**: `string`
 
-Defined in: [types/filings.ts:52](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L52)
+Defined in: [types/filings.ts:54](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L54)
 
 ##### form
 
 > **form**: `string`
 
-Defined in: [types/filings.ts:54](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L54)
+Defined in: [types/filings.ts:56](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L56)
 
 ##### reportDate
 
 > **reportDate**: `string`
 
-Defined in: [types/filings.ts:53](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L53)
+Defined in: [types/filings.ts:55](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L55)
 
 ***
 
 ### FilingOptions
 
-Defined in: [types/filings.ts:41](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L41)
+Defined in: [types/filings.ts:43](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L43)
 
 Options for a latest-filings request.
 
@@ -66,23 +66,23 @@ Options for a latest-filings request.
 
 > `optional` **filter?**: [`FilingFilter`](#filingfilter)
 
-Defined in: [types/filings.ts:47](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L47)
+Defined in: [types/filings.ts:49](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L49)
 
 Filter by filing type.
 
 ##### order?
 
-> `optional` **order?**: `string`
+> `optional` **order?**: [`FilingOrder`](#filingorder)
 
-Defined in: [types/filings.ts:43](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L43)
+Defined in: [types/filings.ts:45](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L45)
 
-Column to sort by (prefix with "-" for descending, e.g. "-filingDate").
+Column to sort by.
 
 ##### orderDirection?
 
-> `optional` **orderDirection?**: `string`
+> `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/filings.ts:45](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L45)
+Defined in: [types/filings.ts:47](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L47)
 
 Sort direction (either "" or "-").
 
@@ -92,7 +92,7 @@ Sort direction (either "" or "-").
 
 > **FilingFilter** = *typeof* [`FilingFilter`](#filingfilter-1)\[keyof *typeof* [`FilingFilter`](#filingfilter-1)\]
 
-Defined in: [types/filings.ts:15](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L15)
+Defined in: [types/filings.ts:17](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L17)
 
 Union of all known filing filter values.
 
@@ -102,7 +102,7 @@ Union of all known filing filter values.
 
 > **FilingOrder** = *typeof* [`FilingOrder`](#filingorder-1)\[keyof *typeof* [`FilingOrder`](#filingorder-1)\]
 
-Defined in: [types/filings.ts:31](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L31)
+Defined in: [types/filings.ts:33](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L33)
 
 Union of all known filing order values.
 
@@ -112,7 +112,7 @@ Union of all known filing order values.
 
 > `const` **FilingFilter**: `object`
 
-Defined in: [types/filings.ts:15](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L15)
+Defined in: [types/filings.ts:17](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L17)
 
 Valid filing filter values for the latest-filings endpoint.
 
@@ -160,7 +160,7 @@ Valid filing filter values for the latest-filings endpoint.
 
 > `const` **FilingOrder**: `object`
 
-Defined in: [types/filings.ts:31](https://github.com/7elephants/finvizTS/blob/d73323451cc466a717d752578726ed80f8ea4df6/src/types/filings.ts#L31)
+Defined in: [types/filings.ts:33](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/filings.ts#L33)
 
 Valid sort column values for the latest-filings `o` query parameter.
 
