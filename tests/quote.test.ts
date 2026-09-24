@@ -10,7 +10,7 @@ describe('getQuote', () => {
 
   it('calls getRecords with the quote endpoint, ticker, and period', async () => {
     mockGetRecords.mockResolvedValueOnce([
-      { Date: '4/1/2026', Open: '180.00', High: '182.00', Low: '179.50', Close: '181.00', Volume: '50000000' },
+      { Date: '4/1/2026', Open: '180.00', High: '182.00', Low: '179.50', Close: '181.00', Volume: '50000000', ChangeFromOpen: '3.40%'},
     ]);
 
     const result = await getQuote(client, 'AAPL', { period: QuotePeriod.DAILY });
@@ -37,8 +37,8 @@ describe('getQuote', () => {
 
   it('maps CSV rows to Quote shape', async () => {
     mockGetRecords.mockResolvedValueOnce([
-      { Date: '3/31/2016', Open: '54.95', High: '55.59', Low: '54.86', Close: '55.23', Volume: '26360496' },
-      { Date: '4/1/2016', Open: '55.05', High: '55.61', Low: '54.57', Close: '55.57', Volume: '24399192' },
+      { Date: '3/31/2016', Open: '54.95', High: '55.59', Low: '54.86', Close: '55.23', Volume: '26360496', ChangeFromOpen: '3.40%' },
+      { Date: '4/1/2016', Open: '55.05', High: '55.61', Low: '54.57', Close: '55.57', Volume: '24399192', ChangeFromOpen: '2.33%' },
     ]);
 
     const result = await getQuote(client, 'MSFT', { period: QuotePeriod.DAILY });
@@ -51,6 +51,7 @@ describe('getQuote', () => {
       Low: '54.86',
       Close: '55.23',
       Volume: '26360496',
+      ChangeFromOpen: '3.40%'
     });
   });
 });

@@ -38,5 +38,6 @@ export async function getQuote(
     Low: row['Low'] ?? '',
     Close: row['Close'] ?? '',
     Volume: row['Volume'] ?? '',
+    ChangeFromOpen: row['ChangeFromOpen'] ?? ''
   }));
 }
