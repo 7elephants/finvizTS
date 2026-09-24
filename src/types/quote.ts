@@ -61,4 +61,5 @@ export interface Quote {
   Low: string;
   Close: string;
   Volume: string;
+  ChangeFromOpen: string;
 }
