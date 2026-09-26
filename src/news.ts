@@ -6,14 +6,14 @@
  *
  * | Step | Method    | Input                      | Output              |
  * |------|-----------|----------------------------|---------------------|
- * | 1    | getNews() | FinvizClient, NewsOptions  | Promise<FinvizResponse<NewsItem>> |
+ * | 1    | getNews() | FinvizClient, NewsOptions  | Promise<FinvizResponse<NewsItem, F>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, NewsItem, NewsOptions } from './types';
+import type { FinvizResponse, NewsItem, NewsOptions, FormatOption, ResponseFormat } from './types';
 import { NewsType } from './types';
-import { parseRows, text, type RowSchema } from './parse';
+import { formatOf, parseRows, text, type RowSchema } from './parse';
 
 /** NewsItem property → CSV column mapping. */
 const NEWS_SCHEMA: RowSchema<NewsItem> = {
@@ -30,16 +30,17 @@ const NEWS_SCHEMA: RowSchema<NewsItem> = {
  * The API returns a multi-row CSV; each row is mapped to a NewsItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - News type, optional ticker(s) or portfolio ID
+ * @param options - News type, optional ticker(s) or portfolio ID, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getNews(
-  client: FinvizClient,
-  options: NewsOptions = {},
-): Promise<FinvizResponse<NewsItem>> {
+export async function getNews<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: NewsOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<NewsItem, F>> {
   const rows = await client.getRecords('/export/news', {
     v: options.type ?? NewsType.MARKET_BY_TIME,
     pid: options.portfolioId,
     t: options.tickers,
   });
-  return parseRows(rows, NEWS_SCHEMA);
+  return parseRows(rows, NEWS_SCHEMA, formatOf(client, options));
 }

@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                |
  * |------|------------|-------------------------------|-----------------------|
- * | 1    | getFunds() | FinvizClient, FundOptions    | Promise<FinvizResponse<FundItem>>   |
+ * | 1    | getFunds() | FinvizClient, FundOptions    | Promise<FinvizResponse<FundItem, F>>   |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, FundItem, FundOptions } from './types';
+import type { FinvizResponse, FundItem, FundOptions, FormatOption, ResponseFormat } from './types';
 
 import { getFundManagerItems } from './fund-manager';
 
@@ -20,11 +20,12 @@ import { getFundManagerItems } from './fund-manager';
  * The API returns a multi-row CSV; each row is mapped to a FundItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Search term and sort options
+ * @param options - Search term and sort options, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getFunds(
-  client: FinvizClient,
-  options: FundOptions = {},
-): Promise<FinvizResponse<FundItem>> {
+export async function getFunds<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: FundOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<FundItem, F>> {
   return getFundManagerItems(client, '/export/funds', 'Series Name', options);
 }

@@ -6,13 +6,13 @@
  *
  * | Step | Method              | Input                                          | Output               |
  * |------|---------------------|------------------------------------------------|----------------------|
- * | 1    | getOptionsChain()   | FinvizClient, ticker: string, OptionsChainOptions | Promise<FinvizResponse<Option>> |
+ * | 1    | getOptionsChain()   | FinvizClient, ticker: string, OptionsChainOptions | Promise<FinvizResponse<Option, F>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, Option, OptionsChainOptions } from './types';
-import { rawResponse } from './parse';
+import type { FinvizResponse, Option, OptionsChainOptions, FormatOption, ResponseFormat } from './types';
+import { formatOf, rawResponse } from './parse';
 import { OptionsViewType } from './types';
 
 /**
@@ -21,17 +21,18 @@ import { OptionsViewType } from './types';
  *
  * @param client  - Authenticated FinvizClient instance
  * @param ticker  - Stock ticker symbol (e.g. "MSFT")
- * @param options - Expiration date (required) and optional view type
+ * @param options - Expiration date (required) and optional view type, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getOptionsChain(
-  client: FinvizClient,
+export async function getOptionsChain<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
   ticker: string,
-  options: OptionsChainOptions,
-): Promise<FinvizResponse<Option>> {
+  options: OptionsChainOptions & FormatOption<F>,
+): Promise<FinvizResponse<Option, F>> {
   const rows = await client.getRecords('/export/options', {
     t: ticker,
     e: options.expiration,
     ty: options.viewType ?? OptionsViewType.PRICES,
   });
-  return rawResponse(rows);
+  return rawResponse(rows, formatOf(client, options));
 }

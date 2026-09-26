@@ -12,7 +12,7 @@
 
 > **ErrorLevel** = *typeof* [`ErrorLevel`](#errorlevel-1)\[keyof *typeof* [`ErrorLevel`](#errorlevel-1)\]
 
-Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L59)
+Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/index.ts#L59)
 
 Union of all known error level values.
 
@@ -22,7 +22,7 @@ Union of all known error level values.
 
 > **SortDirection** = *typeof* [`SortDirection`](#sortdirection-1)\[keyof *typeof* [`SortDirection`](#sortdirection-1)\]
 
-Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L50)
+Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/index.ts#L50)
 
 Union of all known sort direction values.
 
@@ -32,7 +32,7 @@ Union of all known sort direction values.
 
 > `const` **ErrorLevel**: `object`
 
-Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L59)
+Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/index.ts#L59)
 
 Severity level attached to a thrown FinvizError.
 
@@ -56,7 +56,7 @@ Severity level attached to a thrown FinvizError.
 
 > `const` **SortDirection**: `object`
 
-Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L50)
+Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/index.ts#L50)
 
 Sort direction values shared by the `o` query parameter across endpoints.
 
@@ -210,6 +210,12 @@ Re-exports [ForexUnit](types/forex.md#forexunit-1)
 
 ***
 
+### FormatOption
+
+Re-exports [FormatOption](types/response.md#formatoption)
+
+***
+
 ### FundItem
 
 Re-exports [FundItem](types/fund.md#funditem)
@@ -360,6 +366,18 @@ Re-exports [OptionsViewType](types/options.md#optionsviewtype-1)
 
 ***
 
+### ParsedAndRawResponse
+
+Re-exports [ParsedAndRawResponse](types/response.md#parsedandrawresponse)
+
+***
+
+### ParsedResponse
+
+Re-exports [ParsedResponse](types/response.md#parsedresponse)
+
+***
+
 ### ParseError
 
 Re-exports [ParseError](types/response.md#parseerror)
@@ -435,6 +453,24 @@ Re-exports [QuotePeriod](types/quote.md#quoteperiod-1)
 ### QuoteRange
 
 Re-exports [QuoteRange](types/quote.md#quoterange-1)
+
+***
+
+### RawRecord
+
+Re-exports [RawRecord](types/response.md#rawrecord)
+
+***
+
+### RawResponse
+
+Re-exports [RawResponse](types/response.md#rawresponse)
+
+***
+
+### ResponseFormat
+
+Re-exports [ResponseFormat](types/response.md#responseformat-1)
 
 ***
 

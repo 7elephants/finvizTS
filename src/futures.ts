@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                 |
  * |------|------------|-------------------------------|------------------------|
- * | 1    | getFutures() | FinvizClient, FuturesOptions    | Promise<FinvizResponse<FuturesItem>>    |
+ * | 1    | getFutures() | FinvizClient, FuturesOptions    | Promise<FinvizResponse<FuturesItem, F>>    |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, FuturesItem, FuturesOptions } from './types';
+import type { FinvizResponse, FuturesItem, FuturesOptions, FormatOption, ResponseFormat } from './types';
 
 import { getPerformanceItems } from './performance';
 
@@ -20,11 +20,12 @@ import { getPerformanceItems } from './performance';
  * The API returns a multi-row CSV; each row is mapped to a FuturesItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Sort options
+ * @param options - Sort options, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getFutures(
-  client: FinvizClient,
-  options: FuturesOptions = {},
-): Promise<FinvizResponse<FuturesItem>> {
+export async function getFutures<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: FuturesOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<FuturesItem, F>> {
   return getPerformanceItems(client, '/export/futures/performance', options);
 }

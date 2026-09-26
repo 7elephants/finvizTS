@@ -10,7 +10,7 @@
 
 ### GroupOptions
 
-Defined in: [types/groups.ts:61](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L61)
+Defined in: [types/groups.ts:61](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L61)
 
 Options for a groups request.
 
@@ -20,7 +20,7 @@ Options for a groups request.
 
 > `optional` **fields?**: `number`[]
 
-Defined in: [types/groups.ts:65](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L65)
+Defined in: [types/groups.ts:65](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L65)
 
 Column indices to include in the response.
 
@@ -28,7 +28,7 @@ Column indices to include in the response.
 
 > `optional` **subgroup?**: `string`
 
-Defined in: [types/groups.ts:63](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L63)
+Defined in: [types/groups.ts:63](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L63)
 
 Subgroup name (only applicable for certain groups).
 
@@ -38,7 +38,7 @@ Subgroup name (only applicable for certain groups).
 
 > **Group** = `Record`\<`string`, `string`\>
 
-Defined in: [types/groups.ts:69](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L69)
+Defined in: [types/groups.ts:69](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L69)
 
 A single row returned by the groups endpoint.
 
@@ -48,7 +48,7 @@ A single row returned by the groups endpoint.
 
 > **GroupName** = *typeof* [`GroupName`](#groupname-1)\[keyof *typeof* [`GroupName`](#groupname-1)\]
 
-Defined in: [types/groups.ts:17](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L17)
+Defined in: [types/groups.ts:17](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L17)
 
 Union of all known group name values.
 
@@ -58,7 +58,7 @@ Union of all known group name values.
 
 > **GroupView** = *typeof* [`GroupView`](#groupview-1)\[keyof *typeof* [`GroupView`](#groupview-1)\]
 
-Defined in: [types/groups.ts:46](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L46)
+Defined in: [types/groups.ts:46](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L46)
 
 Union of all known group view ID values.
 
@@ -68,7 +68,7 @@ Union of all known group view ID values.
 
 > **IndustrySubgroup** = *typeof* [`IndustrySubgroup`](#industrysubgroup-1)\[keyof *typeof* [`IndustrySubgroup`](#industrysubgroup-1)\]
 
-Defined in: [types/groups.ts:28](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L28)
+Defined in: [types/groups.ts:28](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L28)
 
 Union of all known industry subgroup values.
 
@@ -78,7 +78,7 @@ Union of all known industry subgroup values.
 
 > `const` **GroupName**: `object`
 
-Defined in: [types/groups.ts:17](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L17)
+Defined in: [types/groups.ts:17](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L17)
 
 Valid group names for the groups endpoint.
 
@@ -106,7 +106,7 @@ Valid group names for the groups endpoint.
 
 > `const` **GroupView**: `object`
 
-Defined in: [types/groups.ts:46](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L46)
+Defined in: [types/groups.ts:46](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L46)
 
 Valid view IDs for the groups endpoint.
 
@@ -150,7 +150,7 @@ Valid view IDs for the groups endpoint.
 
 > `const` **IndustrySubgroup**: `object`
 
-Defined in: [types/groups.ts:28](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/groups.ts#L28)
+Defined in: [types/groups.ts:28](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/types/groups.ts#L28)
 
 Valid industry subgroup names for the groups endpoint.
 

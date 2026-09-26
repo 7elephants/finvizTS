@@ -10,18 +10,28 @@
 
 ### getPortfolio()
 
-> **getPortfolio**(`client`, `portfolioId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio)\>\>
+> **getPortfolio**\<`C`, `F`\>(`client`, `portfolioId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio), `F`\>\>
 
-Defined in: [portfolio.ts:27](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/portfolio.ts#L27)
+Defined in: [portfolio.ts:28](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/portfolio.ts#L28)
 
 Fetch holdings for a saved Finviz portfolio by its ID.
 The portfolio ID can be found in the URL when viewing a portfolio on the Finviz website.
+
+#### Type Parameters
+
+##### C
+
+`C` *extends* [`ResponseFormat`](types/response.md#responseformat) = `"parsed"`
+
+##### F
+
+`F` *extends* [`ResponseFormat`](types/response.md#responseformat) = `C`
 
 #### Parameters
 
 ##### client
 
-[`FinvizClient`](client.md#finvizclient)
+[`FinvizClient`](client.md#finvizclient)\<`C`\>
 
 Authenticated FinvizClient instance
 
@@ -33,10 +43,11 @@ The numeric portfolio ID from the Finviz URL
 
 ##### options?
 
-[`PortfolioOptions`](types/portfolio.md#portfoliooptions) = `{}`
+[`PortfolioOptions`](types/portfolio.md#portfoliooptions) & [`FormatOption`](types/response.md#formatoption)\<`F`\> = `{}`
 
-Optional sort order and column selection
+Optional sort order and column selection, plus optional `format`
+                 (`parsed` | `raw` | `both`) overriding the client default
 
 #### Returns
 
-`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio)\>\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio), `F`\>\>

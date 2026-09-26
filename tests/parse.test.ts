@@ -8,11 +8,15 @@
  * | 1    | Assert each column parser accepts/rejects raw cells  | Raw cell strings         | Parsed value or undefined  |
  * | 2    | Assert parseRows maps blank/missing cells to undefined | Records + RowSchema    | Items with undefined fields |
  * | 3    | Assert parseRows reports unparseable cells as errors | Records + RowSchema      | ParseError[]               |
- * | 4    | Assert rawResponse wraps records unchanged           | Records                  | `{ items, errors: [] }`    |
+ * | 4    | Assert parseRows honors parsed/raw/both formats      | Records + format         | items / raw / both         |
+ * | 5    | Assert rawResponse wraps records per format          | Records + format         | `{ items or raw, errors }`  |
+ * | 6    | Assert formatOf prefers per-call over client default | Client + options         | Effective ResponseFormat   |
  * ---
  */
 
-import { date, integer, number, parseRows, rawResponse, text, type RowSchema } from '../src/parse';
+import type { FinvizClient } from '../src/client';
+import { date, formatOf, integer, number, parseRows, rawResponse, text, type RowSchema } from '../src/parse';
+import { ResponseFormat } from '../src/types';
 
 describe('column parsers', () => {
   it('text returns the raw string', () => {
@@ -153,10 +157,69 @@ describe('parseRows', () => {
   });
 });
 
-describe('rawResponse', () => {
-  it('wraps records unchanged with no errors', () => {
-    const rows = [{ Ticker: 'AAPL', Price: '' }];
+describe('parseRows formats', () => {
+  const rows = [{ Label: 'x', Amount: 'N/A' }];
 
+  it('parsed (explicit) returns items and errors without raw', () => {
+    const result = parseRows<Row, 'parsed'>(rows, schema, ResponseFormat.PARSED);
+
+    expect(Object.keys(result)).toEqual(['items', 'errors']);
+    expect(result.errors).toHaveLength(1);
+  });
+
+  it('raw returns the records unparsed, with no errors even for unparseable cells', () => {
+    const result = parseRows<Row, 'raw'>(rows, schema, ResponseFormat.RAW);
+
+    expect(result).toEqual({ raw: rows, errors: [] });
+    expect(result.raw).toBe(rows);
+  });
+
+  it('both returns items, raw records and parse errors', () => {
+    const result = parseRows<Row, 'both'>(rows, schema, ResponseFormat.BOTH);
+
+    expect(result.items).toEqual([{ label: 'x', amount: undefined, count: undefined, when: undefined }]);
+    expect(result.raw).toBe(rows);
+    expect(result.errors).toEqual([
+      { row: 0, column: 'Amount', field: 'amount', value: 'N/A', expected: 'number' },
+    ]);
+  });
+
+  it('never calls a column parser in raw mode', () => {
+    const parse = jest.fn();
+    parseRows([{ V: '1' }], { v: { column: 'V', parse } }, ResponseFormat.RAW);
+
+    expect(parse).not.toHaveBeenCalled();
+  });
+});
+
+describe('rawResponse', () => {
+  const rows = [{ Ticker: 'AAPL', Price: '' }];
+
+  it('wraps records unchanged with no errors', () => {
     expect(rawResponse(rows)).toEqual({ items: rows, errors: [] });
+  });
+
+  it('raw returns the records under raw', () => {
+    expect(rawResponse(rows, ResponseFormat.RAW)).toEqual({ raw: rows, errors: [] });
+  });
+
+  it('both returns the same records as items and raw', () => {
+    const result = rawResponse(rows, ResponseFormat.BOTH);
+
+    expect(result).toEqual({ items: rows, raw: rows, errors: [] });
+  });
+});
+
+describe('formatOf', () => {
+  it('prefers the per-call format over the client default', () => {
+    const client = { format: ResponseFormat.RAW } as unknown as FinvizClient<'raw'>;
+
+    expect(formatOf(client, { format: ResponseFormat.BOTH })).toBe('both');
+  });
+
+  it('falls back to the client default when the call omits format', () => {
+    const client = { format: ResponseFormat.RAW } as unknown as FinvizClient<'raw'>;
+
+    expect(formatOf(client, {})).toBe('raw');
   });
 });

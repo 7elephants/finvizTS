@@ -182,6 +182,12 @@ Re-exports [formatDateToYYYYMMDD](utils.md#formatdatetoyyyymmdd)
 
 ***
 
+### FormatOption
+
+Re-exports [FormatOption](types/response.md#formatoption)
+
+***
+
 ### FundItem
 
 Re-exports [FundItem](types/fund.md#funditem)
@@ -428,6 +434,18 @@ Re-exports [OptionsViewType](types/options.md#optionsviewtype-1)
 
 ***
 
+### ParsedAndRawResponse
+
+Re-exports [ParsedAndRawResponse](types/response.md#parsedandrawresponse)
+
+***
+
+### ParsedResponse
+
+Re-exports [ParsedResponse](types/response.md#parsedresponse)
+
+***
+
 ### ParseError
 
 Re-exports [ParseError](types/response.md#parseerror)
@@ -503,6 +521,24 @@ Re-exports [QuotePeriod](types/quote.md#quoteperiod-1)
 ### QuoteRange
 
 Re-exports [QuoteRange](types/quote.md#quoterange-1)
+
+***
+
+### RawRecord
+
+Re-exports [RawRecord](types/response.md#rawrecord)
+
+***
+
+### RawResponse
+
+Re-exports [RawResponse](types/response.md#rawresponse)
+
+***
+
+### ResponseFormat
+
+Re-exports [ResponseFormat](types/response.md#responseformat-1)
 
 ***
 

@@ -7,7 +7,7 @@
  *
  * | Step | Method        | Input                             | Output                             |
  * |------|---------------|-----------------------------------|------------------------------------|
- * | 1    | constructor() | FinvizClientOptions               | Configured axios instance + limits |
+ * | 1    | constructor() | FinvizClientOptions               | Configured axios instance + limits + default `format` |
  * | 2    | fetchCsv()    | path, params                      | Raw CSV string (with rate limiting and 429 retry) |
  * | 3    | getRecord()   | path, params                      | Parsed single-row Record           |
  * | 4    | getRecords()  | path, params                      | Parsed multi-row Record[]          |
@@ -17,7 +17,7 @@
 import axios, { isAxiosError, type AxiosInstance } from 'axios';
 import { parseRecord, parseRecords } from './csv';
 import { FinvizError } from './errors';
-import { type FinvizClientOptions, ErrorLevel } from './types';
+import { type FinvizClientOptions, ErrorLevel, ResponseFormat } from './types';
 
 const DEFAULT_BASE_URL = 'https://elite.finviz.com';
 const DEFAULT_TIMEOUT = 10000;
@@ -29,8 +29,13 @@ const DEFAULT_RETRY_DELAY_MS = 5000;
  * Authenticated HTTP transport for the Finviz Elite API.
  * Injects the API token and rate-limits/retries requests; endpoint modules call
  * `getRecord()` or `getRecords()` on an instance to fetch and parse CSV responses.
+ *
+ * `F` is the default ResponseFormat of `get*` calls made with this client, inferred from the
+ * `format` option (`parsed` when omitted).
  */
-export class FinvizClient {
+export class FinvizClient<F extends ResponseFormat = 'parsed'> {
+  /** Default response format for `get*` calls; each call may override it via `format`. */
+  readonly format: F;
   /** Configured axios instance used for all requests. */
   private readonly http: AxiosInstance;
   /** Finviz Elite API token appended to every request. */
@@ -45,10 +50,12 @@ export class FinvizClient {
   private lastRequestTime: number = 0;
 
   /** Construct a client from the given options. Throws FinvizError if `apiToken` is missing. */
-  constructor(options: FinvizClientOptions) {
+  constructor(options: FinvizClientOptions<F>) {
     if (!options.apiToken) throw new FinvizError('Missing Finviz API token', ErrorLevel.FATAL);
-    
+
     this.apiToken = options.apiToken;
+    // Without `format`, F defaults to 'parsed', so this cast matches the inferred type.
+    this.format = options.format ?? (ResponseFormat.PARSED as F);
     this.http = axios.create({
       baseURL: options.baseUrl ?? DEFAULT_BASE_URL,
       timeout: options.timeout ?? DEFAULT_TIMEOUT,

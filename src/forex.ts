@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                 |
  * |------|------------|-------------------------------|------------------------|
- * | 1    | getForex() | FinvizClient, ForexOptions    | Promise<FinvizResponse<ForexItem>>    |
+ * | 1    | getForex() | FinvizClient, ForexOptions    | Promise<FinvizResponse<ForexItem, F>>    |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, ForexItem, ForexOptions } from './types';
+import type { FinvizResponse, ForexItem, ForexOptions, FormatOption, ResponseFormat } from './types';
 
 import { ForexUnit } from './types';
 import { getPerformanceItems } from './performance';
@@ -22,12 +22,13 @@ import { getPerformanceItems } from './performance';
  * The API returns a multi-row CSV; each row is mapped to a ForexItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Unit and sort options
+ * @param options - Unit and sort options, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getForex(
-  client: FinvizClient,
-  options: ForexOptions = {},
-): Promise<FinvizResponse<ForexItem>> {
+export async function getForex<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: ForexOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<ForexItem, F>> {
   const isPips = options.unit === ForexUnit.PIPS;
   return getPerformanceItems(
     client,

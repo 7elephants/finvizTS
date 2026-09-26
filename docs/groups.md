@@ -10,18 +10,28 @@
 
 ### getGroups()
 
-> **getGroups**(`client`, `group`, `viewId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Group`](types/groups.md#group)\>\>
+> **getGroups**\<`C`, `F`\>(`client`, `group`, `viewId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Group`](types/groups.md#group), `F`\>\>
 
-Defined in: [groups.ts:26](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/groups.ts#L26)
+Defined in: [groups.ts:27](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/groups.ts#L27)
 
 Fetch aggregated market data for a group (sector, industry, country, or capitalization).
 The API returns a multi-row CSV; each row represents one group entry.
+
+#### Type Parameters
+
+##### C
+
+`C` *extends* [`ResponseFormat`](types/response.md#responseformat) = `"parsed"`
+
+##### F
+
+`F` *extends* [`ResponseFormat`](types/response.md#responseformat) = `C`
 
 #### Parameters
 
 ##### client
 
-[`FinvizClient`](client.md#finvizclient)
+[`FinvizClient`](client.md#finvizclient)\<`C`\>
 
 Authenticated FinvizClient instance
 
@@ -39,10 +49,11 @@ View ID controlling which fields are returned (e.g. GroupView.Overview)
 
 ##### options?
 
-[`GroupOptions`](types/groups.md#groupoptions) = `{}`
+[`GroupOptions`](types/groups.md#groupoptions) & [`FormatOption`](types/response.md#formatoption)\<`F`\> = `{}`
 
-Optional subgroup filter and column selection
+Optional subgroup filter and column selection, plus optional `format`
+                 (`parsed` | `raw` | `both`) overriding the client default
 
 #### Returns
 
-`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Group`](types/groups.md#group)\>\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Group`](types/groups.md#group), `F`\>\>

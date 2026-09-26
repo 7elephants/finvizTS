@@ -6,15 +6,15 @@
  *
  * | Step | Method              | Input                                     | Output                |
  * |------|---------------------|-------------------------------------------|-----------------------|
- * | 1    | getLatestFilings()  | FinvizClient, ticker: string, FilingOptions | Promise<FinvizResponse<Filing>> |
+ * | 1    | getLatestFilings()  | FinvizClient, ticker: string, FilingOptions | Promise<FinvizResponse<Filing, F>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, FilingOptions, Filing } from './types';
+import type { FinvizResponse, FilingOptions, Filing, FormatOption, ResponseFormat } from './types';
 
 import { buildSortParam } from './utils';
-import { parseRows, text, type RowSchema } from './parse';
+import { formatOf, parseRows, text, type RowSchema } from './parse';
 
 /** Filing property → CSV column mapping. */
 const FILING_SCHEMA: RowSchema<Filing> = {
@@ -32,17 +32,18 @@ const FILING_SCHEMA: RowSchema<Filing> = {
  *
  * @param client  - Authenticated FinvizClient instance
  * @param ticker  - Stock ticker symbol (e.g. "MSFT")
- * @param options - Optional sort order and filing type filter
+ * @param options - Optional sort order and filing type filter, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getLatestFilings(
-  client: FinvizClient,
+export async function getLatestFilings<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
   ticker: string,
-  options: FilingOptions = {},
-): Promise<FinvizResponse<Filing>> {
+  options: FilingOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<Filing, F>> {
   const rows = await client.getRecords('/export/latest-filings', {
     t: ticker,
     o: buildSortParam(options.order, options.orderDirection),
     f: options.filter,
   });
-  return parseRows(rows, FILING_SCHEMA);
+  return parseRows(rows, FILING_SCHEMA, formatOf(client, options));
 }

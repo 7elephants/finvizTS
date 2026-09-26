@@ -6,14 +6,14 @@
  *
  * | Step | Method     | Input                                     | Output               |
  * |------|------------|-------------------------------------------|----------------------|
- * | 1    | getQuote() | FinvizClient, ticker: string, QuoteOptions| Promise<FinvizResponse<Quote>>  |
+ * | 1    | getQuote() | FinvizClient, ticker: string, QuoteOptions| Promise<FinvizResponse<Quote, F>>  |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, QuoteOptions, Quote } from './types';
+import type { FinvizResponse, QuoteOptions, Quote, FormatOption, ResponseFormat } from './types';
 
-import { parseRows, text, type RowSchema } from './parse';
+import { formatOf, parseRows, text, type RowSchema } from './parse';
 
 /** Quote property → CSV column mapping. */
 const QUOTE_SCHEMA: RowSchema<Quote> = {
@@ -31,17 +31,18 @@ const QUOTE_SCHEMA: RowSchema<Quote> = {
  *
  * @param client  - Authenticated FinvizClient instance
  * @param ticker  - Stock ticker symbol (e.g. "AAPL")
- * @param options - Period (required) and optional range
+ * @param options - Period (required) and optional range, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getQuote(
-  client: FinvizClient,
+export async function getQuote<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
   ticker: string,
-  options: QuoteOptions,
-): Promise<FinvizResponse<Quote>> {
+  options: QuoteOptions & FormatOption<F>,
+): Promise<FinvizResponse<Quote, F>> {
   const rows = await client.getRecords('/export/stock', {
     t: ticker,
     p: options.period,
     r: options.range,
   });
-  return parseRows(rows, QUOTE_SCHEMA);
+  return parseRows(rows, QUOTE_SCHEMA, formatOf(client, options));
 }

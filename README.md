@@ -77,6 +77,29 @@ for (const e of errors) {
 
 `ParseError.expected` is one of `ParseErrorExpected.NUMBER`, `INTEGER` or `DATE`. Untyped record endpoints (`getScreener`, `getPortfolio`, `getGroups`, `getOptionsChain`, `getEconomicCalendar`) return raw CSV strings unchanged (blank cells stay `''`), so their `errors` array is always empty.
 
+### Raw records: `parsed`, `raw` or `both`
+
+By default every `get*` returns typed `items`. Pass `format` to get the CSV records exactly as Finviz sent them (`RawRecord = Record<string, string>`, header → cell text), or both:
+
+| `format` | Response shape | Notes |
+| --- | --- | --- |
+| `parsed` (default) | `{ items, errors }` | Unchanged from earlier versions |
+| `raw` | `{ raw, errors: [] }` | No parsing at all, so `errors` is always empty |
+| `both` | `{ items, raw, errors }` | `ParseError.row` indexes both `items` and `raw` |
+
+Set a default on the client, and override it per call. The return type narrows to match:
+
+```ts
+import { FinvizClient, ResponseFormat, getInsiders, getNews } from "finvizts";
+
+const client = new FinvizClient({ apiToken, format: ResponseFormat.BOTH }); // FinvizClient<'both'>
+
+const { items, raw, errors } = await getInsiders(client); // ParsedAndRawResponse<InsiderItem>
+const { raw: news } = await getNews(client, { format: ResponseFormat.RAW }); // RawResponse
+```
+
+`FinvizResponse<T, F>` resolves to `ParsedResponse<T>`, `RawResponse` or `ParsedAndRawResponse<T>`; `FinvizResponse<T>` is still the parsed shape. If the format is only known at runtime (e.g. a `FinvizClient<ResponseFormat>`), the result is a union of the three; narrow it with `'items' in response` / `'raw' in response`. For the untyped record endpoints, `both` returns the same array as `items` and `raw`.
+
 ## API Reference
 
 Full API reference — every function, option, constant, and type — is generated from the source JSDoc and lives in [`docs/`](docs/README.md). Start at [docs/README.md](docs/README.md) for the module index.
@@ -91,6 +114,7 @@ const client = new FinvizClient({
   rateLimitMs: 5000, // optional, min ms between requests (default: 5000)
   maxRetries: 3, // optional, max 429 retries (default: 3)
   retryDelayMs: 5000, // optional, ms to wait per retry when no Retry-After header (default: 5000)
+  format: "parsed", // optional, default response format: "parsed" | "raw" | "both" (default: "parsed")
 });
 ```
 

@@ -10,19 +10,29 @@
 
 ### getPerformanceItems()
 
-> **getPerformanceItems**(`client`, `path`, `options`, `extraParams?`, `perfColumn?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
+> **getPerformanceItems**\<`C`, `F`\>(`client`, `path`, `options`, `extraParams?`, `perfColumn?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem), `F`\>\>
 
-Defined in: [performance.ts:65](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/performance.ts#L65)
+Defined in: [performance.ts:66](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/performance.ts#L66)
 
 Fetch futures, forex or crypto performance rows, optionally sorted by order/direction.
 The API returns a multi-row CSV; each row is mapped to a PerformanceItem via
 parseRows().
 
+#### Type Parameters
+
+##### C
+
+`C` *extends* [`ResponseFormat`](types/response.md#responseformat) = `"parsed"`
+
+##### F
+
+`F` *extends* [`ResponseFormat`](types/response.md#responseformat) = `C`
+
 #### Parameters
 
 ##### client
 
-[`FinvizClient`](client.md#finvizclient)
+[`FinvizClient`](client.md#finvizclient)\<`C`\>
 
 Authenticated FinvizClient instance
 
@@ -35,9 +45,10 @@ Authenticated FinvizClient instance
 
 ##### options
 
-[`PerformanceOptions`](types/performance.md#performanceoptions) \| [`ForexOptions`](types/forex.md#forexoptions)
+PerformanceOptions \| ForexOptions & [`FormatOption`](types/response.md#formatoption)\<`F`\>
 
-Sort options
+Sort options, plus optional `format`
+                 (`parsed` | `raw` | `both`) overriding the client default
 
 ##### extraParams?
 
@@ -56,4 +67,4 @@ Blank cells (e.g. newly listed crypto with no long-range history) are `undefined
 
 #### Returns
 
-`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem), `F`\>\>
