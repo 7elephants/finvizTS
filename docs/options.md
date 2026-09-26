@@ -12,7 +12,7 @@
 
 > **getOptionsChain**(`client`, `ticker`, `options`): `Promise`\<[`Option`](types/options.md#option)[]\>
 
-Defined in: [options.ts:25](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/options.ts#L25)
+Defined in: [options.ts:25](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/options.ts#L25)
 
 Fetch the options chain for a single ticker symbol at a given expiration date.
 The API returns a multi-row CSV; each row represents one option contract.

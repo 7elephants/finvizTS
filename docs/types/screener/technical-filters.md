@@ -12,7 +12,7 @@
 
 > **ScreenerAfterHoursChangeFilter** = *typeof* [`ScreenerAfterHoursChangeFilter`](#screenerafterhourschangefilter-1)\[keyof *typeof* [`ScreenerAfterHoursChangeFilter`](#screenerafterhourschangefilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:842](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L842)
+Defined in: [types/screener/technical-filters.ts:842](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L842)
 
 Union of all known screener after-hours change filter values.
 
@@ -22,7 +22,7 @@ Union of all known screener after-hours change filter values.
 
 > **ScreenerAfterHoursCloseFilter** = *typeof* [`ScreenerAfterHoursCloseFilter`](#screenerafterhoursclosefilter-1)\[keyof *typeof* [`ScreenerAfterHoursCloseFilter`](#screenerafterhoursclosefilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:795](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L795)
+Defined in: [types/screener/technical-filters.ts:795](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L795)
 
 Union of all known screener after-hours close filter values.
 
@@ -32,7 +32,7 @@ Union of all known screener after-hours close filter values.
 
 > **ScreenerAllTimeHighLowFilter** = *typeof* [`ScreenerAllTimeHighLowFilter`](#screeneralltimehighlowfilter-1)\[keyof *typeof* [`ScreenerAllTimeHighLowFilter`](#screeneralltimehighlowfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:641](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L641)
+Defined in: [types/screener/technical-filters.ts:641](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L641)
 
 Union of all known screener all-time high/low filter values.
 
@@ -42,7 +42,7 @@ Union of all known screener all-time high/low filter values.
 
 > **ScreenerAverageTrueRangeFilter** = *typeof* [`ScreenerAverageTrueRangeFilter`](#screeneraveragetruerangefilter-1)\[keyof *typeof* [`ScreenerAverageTrueRangeFilter`](#screeneraveragetruerangefilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:763](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L763)
+Defined in: [types/screener/technical-filters.ts:763](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L763)
 
 Union of all known screener average true range filter values.
 
@@ -52,7 +52,7 @@ Union of all known screener average true range filter values.
 
 > **ScreenerBetaFilter** = *typeof* [`ScreenerBetaFilter`](#screenerbetafilter-1)\[keyof *typeof* [`ScreenerBetaFilter`](#screenerbetafilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:737](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L737)
+Defined in: [types/screener/technical-filters.ts:737](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L737)
 
 Union of all known screener beta filter values.
 
@@ -62,7 +62,7 @@ Union of all known screener beta filter values.
 
 > **ScreenerCandlestickFilter** = *typeof* [`ScreenerCandlestickFilter`](#screenercandlestickfilter-1)\[keyof *typeof* [`ScreenerCandlestickFilter`](#screenercandlestickfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:719](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L719)
+Defined in: [types/screener/technical-filters.ts:719](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L719)
 
 Union of all known screener candlestick filter values.
 
@@ -72,7 +72,7 @@ Union of all known screener candlestick filter values.
 
 > **ScreenerChangeFilter** = *typeof* [`ScreenerChangeFilter`](#screenerchangefilter-1)\[keyof *typeof* [`ScreenerChangeFilter`](#screenerchangefilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:474](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L474)
+Defined in: [types/screener/technical-filters.ts:474](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L474)
 
 Union of all known screener change filter values.
 
@@ -82,7 +82,7 @@ Union of all known screener change filter values.
 
 > **ScreenerChangeFromOpenFilter** = *typeof* [`ScreenerChangeFromOpenFilter`](#screenerchangefromopenfilter-1)\[keyof *typeof* [`ScreenerChangeFromOpenFilter`](#screenerchangefromopenfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:507](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L507)
+Defined in: [types/screener/technical-filters.ts:507](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L507)
 
 Union of all known screener change from open filter values.
 
@@ -92,7 +92,7 @@ Union of all known screener change from open filter values.
 
 > **ScreenerGapFilter** = *typeof* [`ScreenerGapFilter`](#screenergapfilter-1)\[keyof *typeof* [`ScreenerGapFilter`](#screenergapfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:334](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L334)
+Defined in: [types/screener/technical-filters.ts:334](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L334)
 
 Union of all known screener gap filter values.
 
@@ -102,7 +102,7 @@ Union of all known screener gap filter values.
 
 > **ScreenerHighLow20DFilter** = *typeof* [`ScreenerHighLow20DFilter`](#screenerhighlow20dfilter-1)\[keyof *typeof* [`ScreenerHighLow20DFilter`](#screenerhighlow20dfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:540](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L540)
+Defined in: [types/screener/technical-filters.ts:540](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L540)
 
 Union of all known screener 20-day high/low filter values.
 
@@ -112,7 +112,7 @@ Union of all known screener 20-day high/low filter values.
 
 > **ScreenerHighLow50DFilter** = *typeof* [`ScreenerHighLow50DFilter`](#screenerhighlow50dfilter-1)\[keyof *typeof* [`ScreenerHighLow50DFilter`](#screenerhighlow50dfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:569](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L569)
+Defined in: [types/screener/technical-filters.ts:569](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L569)
 
 Union of all known screener 50-day high/low filter values.
 
@@ -122,7 +122,7 @@ Union of all known screener 50-day high/low filter values.
 
 > **ScreenerHighLow52WFilter** = *typeof* [`ScreenerHighLow52WFilter`](#screenerhighlow52wfilter-1)\[keyof *typeof* [`ScreenerHighLow52WFilter`](#screenerhighlow52wfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:598](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L598)
+Defined in: [types/screener/technical-filters.ts:598](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L598)
 
 Union of all known screener 52-week high/low filter values.
 
@@ -132,7 +132,7 @@ Union of all known screener 52-week high/low filter values.
 
 > **ScreenerPatternFilter** = *typeof* [`ScreenerPatternFilter`](#screenerpatternfilter-1)\[keyof *typeof* [`ScreenerPatternFilter`](#screenerpatternfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:684](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L684)
+Defined in: [types/screener/technical-filters.ts:684](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L684)
 
 Union of all known screener pattern filter values.
 
@@ -142,7 +142,7 @@ Union of all known screener pattern filter values.
 
 > **ScreenerPerformance2Filter** = *typeof* [`ScreenerPerformance2Filter`](#screenerperformance2filter-1)\[keyof *typeof* [`ScreenerPerformance2Filter`](#screenerperformance2filter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:151](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L151)
+Defined in: [types/screener/technical-filters.ts:151](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L151)
 
 Union of all known screener performance 2 filter values.
 
@@ -152,7 +152,7 @@ Union of all known screener performance 2 filter values.
 
 > **ScreenerPerformanceFilter** = *typeof* [`ScreenerPerformanceFilter`](#screenerperformancefilter-1)\[keyof *typeof* [`ScreenerPerformanceFilter`](#screenerperformancefilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:16](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L16)
+Defined in: [types/screener/technical-filters.ts:16](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L16)
 
 Union of all known screener performance filter values.
 
@@ -162,7 +162,7 @@ Union of all known screener performance filter values.
 
 > **ScreenerRSIFilter** = *typeof* [`ScreenerRSIFilter`](#screenerrsifilter-1)\[keyof *typeof* [`ScreenerRSIFilter`](#screenerrsifilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:315](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L315)
+Defined in: [types/screener/technical-filters.ts:315](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L315)
 
 Union of all known screener RSI filter values.
 
@@ -172,7 +172,7 @@ Union of all known screener RSI filter values.
 
 > **ScreenerSMA200Filter** = *typeof* [`ScreenerSMA200Filter`](#screenersma200filter-1)\[keyof *typeof* [`ScreenerSMA200Filter`](#screenersma200filter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:433](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L433)
+Defined in: [types/screener/technical-filters.ts:433](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L433)
 
 Union of all known screener 200-day SMA filter values.
 
@@ -182,7 +182,7 @@ Union of all known screener 200-day SMA filter values.
 
 > **ScreenerSMA20Filter** = *typeof* [`ScreenerSMA20Filter`](#screenersma20filter-1)\[keyof *typeof* [`ScreenerSMA20Filter`](#screenersma20filter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:369](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L369)
+Defined in: [types/screener/technical-filters.ts:369](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L369)
 
 Union of all known screener 20-day SMA filter values.
 
@@ -192,7 +192,7 @@ Union of all known screener 20-day SMA filter values.
 
 > **ScreenerSMA50Filter** = *typeof* [`ScreenerSMA50Filter`](#screenersma50filter-1)\[keyof *typeof* [`ScreenerSMA50Filter`](#screenersma50filter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:401](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L401)
+Defined in: [types/screener/technical-filters.ts:401](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L401)
 
 Union of all known screener 50-day SMA filter values.
 
@@ -202,7 +202,7 @@ Union of all known screener 50-day SMA filter values.
 
 > **ScreenerVolatilityFilter** = *typeof* [`ScreenerVolatilityFilter`](#screenervolatilityfilter-1)\[keyof *typeof* [`ScreenerVolatilityFilter`](#screenervolatilityfilter-1)\]
 
-Defined in: [types/screener/technical-filters.ts:286](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L286)
+Defined in: [types/screener/technical-filters.ts:286](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L286)
 
 Union of all known screener volatility filter values.
 
@@ -212,7 +212,7 @@ Union of all known screener volatility filter values.
 
 > `const` **ScreenerAfterHoursChangeFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:842](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L842)
+Defined in: [types/screener/technical-filters.ts:842](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L842)
 
 Screener after-hours change filter values for the `f` query parameter.
 
@@ -328,7 +328,7 @@ Screener after-hours change filter values for the `f` query parameter.
 
 > `const` **ScreenerAfterHoursCloseFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:795](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L795)
+Defined in: [types/screener/technical-filters.ts:795](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L795)
 
 Screener after-hours close filter values for the `f` query parameter.
 
@@ -496,7 +496,7 @@ Screener after-hours close filter values for the `f` query parameter.
 
 > `const` **ScreenerAllTimeHighLowFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:641](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L641)
+Defined in: [types/screener/technical-filters.ts:641](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L641)
 
 Screener all-time high/low filter values for the `f` query parameter.
 
@@ -652,7 +652,7 @@ Screener all-time high/low filter values for the `f` query parameter.
 
 > `const` **ScreenerAverageTrueRangeFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:763](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L763)
+Defined in: [types/screener/technical-filters.ts:763](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L763)
 
 Screener average true range filter values for the `f` query parameter.
 
@@ -760,7 +760,7 @@ Screener average true range filter values for the `f` query parameter.
 
 > `const` **ScreenerBetaFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:737](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L737)
+Defined in: [types/screener/technical-filters.ts:737](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L737)
 
 Screener beta filter values for the `f` query parameter.
 
@@ -848,7 +848,7 @@ Screener beta filter values for the `f` query parameter.
 
 > `const` **ScreenerCandlestickFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:719](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L719)
+Defined in: [types/screener/technical-filters.ts:719](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L719)
 
 Screener candlestick filter values for the `f` query parameter.
 
@@ -904,7 +904,7 @@ Screener candlestick filter values for the `f` query parameter.
 
 > `const` **ScreenerChangeFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:474](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L474)
+Defined in: [types/screener/technical-filters.ts:474](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L474)
 
 Screener change filter values for the `f` query parameter.
 
@@ -1020,7 +1020,7 @@ Screener change filter values for the `f` query parameter.
 
 > `const` **ScreenerChangeFromOpenFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:507](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L507)
+Defined in: [types/screener/technical-filters.ts:507](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L507)
 
 Screener change from open filter values for the `f` query parameter.
 
@@ -1136,7 +1136,7 @@ Screener change from open filter values for the `f` query parameter.
 
 > `const` **ScreenerGapFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:334](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L334)
+Defined in: [types/screener/technical-filters.ts:334](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L334)
 
 Screener gap filter values for the `f` query parameter.
 
@@ -1260,7 +1260,7 @@ Screener gap filter values for the `f` query parameter.
 
 > `const` **ScreenerHighLow20DFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:540](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L540)
+Defined in: [types/screener/technical-filters.ts:540](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L540)
 
 Screener 20-day high/low filter values for the `f` query parameter.
 
@@ -1360,7 +1360,7 @@ Screener 20-day high/low filter values for the `f` query parameter.
 
 > `const` **ScreenerHighLow50DFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:569](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L569)
+Defined in: [types/screener/technical-filters.ts:569](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L569)
 
 Screener 50-day high/low filter values for the `f` query parameter.
 
@@ -1460,7 +1460,7 @@ Screener 50-day high/low filter values for the `f` query parameter.
 
 > `const` **ScreenerHighLow52WFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:598](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L598)
+Defined in: [types/screener/technical-filters.ts:598](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L598)
 
 Screener 52-week high/low filter values for the `f` query parameter.
 
@@ -1616,7 +1616,7 @@ Screener 52-week high/low filter values for the `f` query parameter.
 
 > `const` **ScreenerPatternFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:684](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L684)
+Defined in: [types/screener/technical-filters.ts:684](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L684)
 
 Screener pattern filter values for the `f` query parameter.
 
@@ -1740,7 +1740,7 @@ Screener pattern filter values for the `f` query parameter.
 
 > `const` **ScreenerPerformance2Filter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:151](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L151)
+Defined in: [types/screener/technical-filters.ts:151](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L151)
 
 Screener performance 2 filter values for the `f` query parameter.
 
@@ -2264,7 +2264,7 @@ Screener performance 2 filter values for the `f` query parameter.
 
 > `const` **ScreenerPerformanceFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:16](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L16)
+Defined in: [types/screener/technical-filters.ts:16](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L16)
 
 Screener performance filter values for the `f` query parameter.
 
@@ -2788,7 +2788,7 @@ Screener performance filter values for the `f` query parameter.
 
 > `const` **ScreenerRSIFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:315](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L315)
+Defined in: [types/screener/technical-filters.ts:315](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L315)
 
 Screener RSI (14) filter values for the `f` query parameter.
 
@@ -2848,7 +2848,7 @@ Screener RSI (14) filter values for the `f` query parameter.
 
 > `const` **ScreenerSMA200Filter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:433](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L433)
+Defined in: [types/screener/technical-filters.ts:433](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L433)
 
 Screener 200-day SMA filter values for the `f` query parameter.
 
@@ -2996,7 +2996,7 @@ Screener 200-day SMA filter values for the `f` query parameter.
 
 > `const` **ScreenerSMA20Filter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:369](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L369)
+Defined in: [types/screener/technical-filters.ts:369](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L369)
 
 Screener 20-day SMA filter values for the `f` query parameter.
 
@@ -3108,7 +3108,7 @@ Screener 20-day SMA filter values for the `f` query parameter.
 
 > `const` **ScreenerSMA50Filter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:401](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L401)
+Defined in: [types/screener/technical-filters.ts:401](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L401)
 
 Screener 50-day SMA filter values for the `f` query parameter.
 
@@ -3220,7 +3220,7 @@ Screener 50-day SMA filter values for the `f` query parameter.
 
 > `const` **ScreenerVolatilityFilter**: `object`
 
-Defined in: [types/screener/technical-filters.ts:286](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/technical-filters.ts#L286)
+Defined in: [types/screener/technical-filters.ts:286](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/screener/technical-filters.ts#L286)
 
 Screener volatility filter values for the `f` query parameter.
 

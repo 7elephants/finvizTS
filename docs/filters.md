@@ -12,7 +12,7 @@
 
 > **buildFilters**(`groups`): `string`
 
-Defined in: [filters.ts:62](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/filters.ts#L62)
+Defined in: [filters.ts:62](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/filters.ts#L62)
 
 Combines screener filter values into the string expected by the Finviz `f` query parameter.
 
