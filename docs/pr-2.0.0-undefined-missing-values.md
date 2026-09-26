@@ -60,7 +60,7 @@ In 1.x, `YYYY-MM-DD` values were read with `new Date(string)`, which treats a da
 - **`ManagerItem.manager` / `FundItem.manager` was always empty.** Finviz's columns are `Portfolio Manager` (managers) and `Series Name` (funds), not `Manager`/`Fund`. For funds, `manager` now holds the fund **series** name (e.g. `VANGUARD HEALTH CARE FUND`), and `name` holds the filer (e.g. `VANGUARD SPECIALIZED FUNDS`).
 - **The package root now exports every constant.** 88 const objects, including all `Screener*Filter` families, `ScreenerOrder`, `ScreenerSignal`, `PortfolioField`, `PortfolioOrder` and `FilingOrder`, were missing from `finvizts`, so the README Quick Start threw at runtime. `src/index.ts` now uses `export * from './types'`, and `tests/index.test.ts` guards against regressions. This change only adds exports.
 - **Economic calendar docs:** the actual columns are `Event, Date, Time, Impact, For, Actual, Expected, Prior`. The README and spec are corrected; the code is unchanged because this endpoint returns raw records.
-- **Known:** `Quote.ChangeFromOpen` is never returned by Finviz for any period, so it is always `undefined`. It is left in place for now.
+- **Removed `Quote.ChangeFromOpen`.** Finviz never returns this column for any period (daily, weekly or intraday), so the field was always empty. `Quote` now has only `Date`, `Open`, `High`, `Low`, `Close` and `Volume`.
 
 ## Migration
 
@@ -83,7 +83,7 @@ if (errors.length) console.warn('Unparseable cells', errors);
 
 ## Testing
 
-- **Live:** `npm run test:live`: 16/16 endpoints pass against the real Finviz Elite API with **0 parse errors**, and every typed field is populated (except the documented `Quote.ChangeFromOpen`, market-news `ticker`, and dividend `special`). `getPortfolio` is skipped unless `FINVIZ_PORTFOLIO_ID` is set.
+- **Live:** `npm run test:live`: 16/16 endpoints pass against the real Finviz Elite API with **0 parse errors**, and every typed field is populated (except market-news `ticker` and dividend `special`, which Finviz legitimately omits). `getPortfolio` is skipped unless `FINVIZ_PORTFOLIO_ID` is set.
 - **Offline:** 236 tests pass under `TZ=America/Los_Angeles`, `UTC` and `Asia/Tokyo`; typecheck, lint and build are clean.
 - New `tests/parse.test.ts` covers the parsers (including both date formats, rollover and thousands separators), blank/whitespace handling, error reporting and `rawResponse`.
 - New `tests/index.test.ts` checks that every const object in `src/types` is exported from the package root.

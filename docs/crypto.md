@@ -12,7 +12,7 @@
 
 > **getCrypto**(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
 
-Defined in: [crypto.ts:25](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/crypto.ts#L25)
+Defined in: [crypto.ts:25](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/crypto.ts#L25)
 
 Fetch crypto performance, optionally sorted by order/direction.
 The API returns a multi-row CSV; each row is mapped to a CryptoItem.

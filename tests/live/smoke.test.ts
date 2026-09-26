@@ -106,8 +106,7 @@ describeLive('Finviz Elite API (live)', () => {
   it('getQuote', async () => {
     const response = await getQuote(client, 'MSFT', { period: QuotePeriod.DAILY, range: QuoteRange.MONTH });
     expectClean(response);
-    // Finviz does not return a ChangeFromOpen column for any period.
-    expectAllFieldsPopulated(response.items, ['ChangeFromOpen']);
+    expectAllFieldsPopulated(response.items);
   }, TIMEOUT_MS);
 
   it('getScreener', async () => {

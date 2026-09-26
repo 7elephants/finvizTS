@@ -12,7 +12,7 @@
 
 > **parseRecord**(`csv`): `Record`\<`string`, `string`\>
 
-Defined in: [csv.ts:24](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/csv.ts#L24)
+Defined in: [csv.ts:24](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/csv.ts#L24)
 
 Parse a two-row CSV (header + single value row) into a flat key/value record.
 Used for single-ticker quote responses.
@@ -40,7 +40,7 @@ Output: { Ticker: "AAPL", Price: "180.00", Volume: "1234567" }
 
 > **parseRecords**(`csv`): `Record`\<`string`, `string`\>[]
 
-Defined in: [csv.ts:40](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/csv.ts#L40)
+Defined in: [csv.ts:40](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/csv.ts#L40)
 
 Parse a multi-row CSV (header + N data rows) into an array of key/value records.
 Used for screener and news responses.

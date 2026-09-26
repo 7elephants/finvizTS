@@ -12,7 +12,7 @@
 
 > **ErrorLevel** = *typeof* [`ErrorLevel`](#errorlevel-1)\[keyof *typeof* [`ErrorLevel`](#errorlevel-1)\]
 
-Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/index.ts#L59)
+Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/index.ts#L59)
 
 Union of all known error level values.
 
@@ -22,7 +22,7 @@ Union of all known error level values.
 
 > **SortDirection** = *typeof* [`SortDirection`](#sortdirection-1)\[keyof *typeof* [`SortDirection`](#sortdirection-1)\]
 
-Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/index.ts#L50)
+Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/index.ts#L50)
 
 Union of all known sort direction values.
 
@@ -32,7 +32,7 @@ Union of all known sort direction values.
 
 > `const` **ErrorLevel**: `object`
 
-Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/index.ts#L59)
+Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/index.ts#L59)
 
 Severity level attached to a thrown FinvizError.
 
@@ -56,7 +56,7 @@ Severity level attached to a thrown FinvizError.
 
 > `const` **SortDirection**: `object`
 
-Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/index.ts#L50)
+Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/index.ts#L50)
 
 Sort direction values shared by the `o` query parameter across endpoints.
 

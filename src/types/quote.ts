@@ -61,5 +61,4 @@ export interface Quote {
   Low: string | undefined;
   Close: string | undefined;
   Volume: string | undefined;
-  ChangeFromOpen: string | undefined;
 }

@@ -23,7 +23,6 @@ const QUOTE_SCHEMA: RowSchema<Quote> = {
   Low: text('Low'),
   Close: text('Close'),
   Volume: text('Volume'),
-  ChangeFromOpen: text('ChangeFromOpen'),
 };
 
 /**
