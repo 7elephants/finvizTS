@@ -10,59 +10,53 @@
 
 ### Quote
 
-Defined in: [types/quote.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L57)
+Defined in: [types/quote.ts:57](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L57)
 
-A single OHLCV row returned by the quote endpoint.
+A single OHLCV row returned by the quote endpoint. Fields are `undefined` when the API returns no value.
 
 #### Properties
 
-##### ChangeFromOpen
-
-> **ChangeFromOpen**: `string`
-
-Defined in: [types/quote.ts:64](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L64)
-
 ##### Close
 
-> **Close**: `string`
+> **Close**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:62](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L62)
+Defined in: [types/quote.ts:62](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L62)
 
 ##### Date
 
-> **Date**: `string`
+> **Date**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:58](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L58)
+Defined in: [types/quote.ts:58](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L58)
 
 ##### High
 
-> **High**: `string`
+> **High**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:60](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L60)
+Defined in: [types/quote.ts:60](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L60)
 
 ##### Low
 
-> **Low**: `string`
+> **Low**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:61](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L61)
+Defined in: [types/quote.ts:61](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L61)
 
 ##### Open
 
-> **Open**: `string`
+> **Open**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:59](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L59)
+Defined in: [types/quote.ts:59](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L59)
 
 ##### Volume
 
-> **Volume**: `string`
+> **Volume**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:63](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L63)
+Defined in: [types/quote.ts:63](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L63)
 
 ***
 
 ### QuoteOptions
 
-Defined in: [types/quote.ts:49](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L49)
+Defined in: [types/quote.ts:49](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L49)
 
 Options for a quote request.
 
@@ -72,7 +66,7 @@ Options for a quote request.
 
 > **period**: [`QuotePeriod`](#quoteperiod)
 
-Defined in: [types/quote.ts:51](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L51)
+Defined in: [types/quote.ts:51](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L51)
 
 Period/interval of quote data (required).
 
@@ -80,7 +74,7 @@ Period/interval of quote data (required).
 
 > `optional` **range?**: `string`
 
-Defined in: [types/quote.ts:53](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L53)
+Defined in: [types/quote.ts:53](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L53)
 
 Range of time to return data for (optional).
 
@@ -90,7 +84,7 @@ Range of time to return data for (optional).
 
 > **QuotePeriod** = *typeof* [`QuotePeriod`](#quoteperiod-1)\[keyof *typeof* [`QuotePeriod`](#quoteperiod-1)\]
 
-Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L16)
+Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L16)
 
 Union of all known quote period/interval values.
 
@@ -100,7 +94,7 @@ Union of all known quote period/interval values.
 
 > **QuoteRange** = *typeof* [`QuoteRange`](#quoterange-1)\[keyof *typeof* [`QuoteRange`](#quoterange-1)\] \| `` `range_${string}` `` \| `` `prev_${string}` ``
 
-Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L32)
+Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L32)
 
 Union of all known quote range values, plus custom `range_*` and `prev_*` patterns.
 
@@ -110,7 +104,7 @@ Union of all known quote range values, plus custom `range_*` and `prev_*` patter
 
 > `const` **QuotePeriod**: `object`
 
-Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L16)
+Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L16)
 
 Valid period/interval values for the quote endpoint.
 
@@ -158,7 +152,7 @@ Valid period/interval values for the quote endpoint.
 
 > `const` **QuoteRange**: `object`
 
-Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/quote.ts#L32)
+Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/quote.ts#L32)
 
 Valid range values for the quote endpoint.
 

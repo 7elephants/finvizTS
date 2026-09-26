@@ -6,12 +6,24 @@
  *
  * | Step | Method     | Input                                     | Output               |
  * |------|------------|-------------------------------------------|----------------------|
- * | 1    | getQuote() | FinvizClient, ticker: string, QuoteOptions| Promise<Quote[]>  |
+ * | 1    | getQuote() | FinvizClient, ticker: string, QuoteOptions| Promise<FinvizResponse<Quote>>  |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { QuoteOptions, Quote } from './types';
+import type { FinvizResponse, QuoteOptions, Quote } from './types';
+
+import { parseRows, text, type RowSchema } from './parse';
+
+/** Quote property → CSV column mapping. */
+const QUOTE_SCHEMA: RowSchema<Quote> = {
+  Date: text('Date'),
+  Open: text('Open'),
+  High: text('High'),
+  Low: text('Low'),
+  Close: text('Close'),
+  Volume: text('Volume'),
+};
 
 /**
  * Fetch OHLCV time-series data for a single ticker symbol.
@@ -25,19 +37,11 @@ export async function getQuote(
   client: FinvizClient,
   ticker: string,
   options: QuoteOptions,
-): Promise<Quote[]> {
+): Promise<FinvizResponse<Quote>> {
   const rows = await client.getRecords('/export/stock', {
     t: ticker,
     p: options.period,
     r: options.range,
   });
-  return rows.map((row) => ({
-    Date: row['Date'] ?? '',
-    Open: row['Open'] ?? '',
-    High: row['High'] ?? '',
-    Low: row['Low'] ?? '',
-    Close: row['Close'] ?? '',
-    Volume: row['Volume'] ?? '',
-    ChangeFromOpen: row['ChangeFromOpen'] ?? ''
-  }));
+  return parseRows(rows, QUOTE_SCHEMA);
 }

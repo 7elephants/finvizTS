@@ -53,18 +53,18 @@ export interface InsiderOptions {
   orderDirection?: SortDirection;
 }
 
-/** A single insider trading transaction returned by the insider endpoint. */
+/** A single insider trading transaction returned by the insider endpoint. Fields are `undefined` when the API returns no value. */
 export interface InsiderItem {
-  ticker: string;
-  owner: string;
-  ownerCIK: number;
-  relationship: string;
-  date: Date;
-  transactionType: string;
-  cost: number;
-  shares: number;
-  value: number;
-  totalShares: number;
-  SECForm: Date;
-  SECFormUrl: string;
+  ticker: string | undefined;
+  owner: string | undefined;
+  ownerCIK: number | undefined;
+  relationship: string | undefined;
+  date: Date | undefined;
+  transactionType: string | undefined;
+  cost: number | undefined;
+  shares: number | undefined;
+  value: number | undefined;
+  totalShares: number | undefined;
+  SECForm: Date | undefined;
+  SECFormUrl: string | undefined;
 }

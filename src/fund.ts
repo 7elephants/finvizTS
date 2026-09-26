@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                |
  * |------|------------|-------------------------------|-----------------------|
- * | 1    | getFunds() | FinvizClient, FundOptions    | Promise<FundItem[]>   |
+ * | 1    | getFunds() | FinvizClient, FundOptions    | Promise<FinvizResponse<FundItem>>   |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FundItem, FundOptions } from './types';
+import type { FinvizResponse, FundItem, FundOptions } from './types';
 
 import { getFundManagerItems } from './fund-manager';
 
@@ -25,6 +25,6 @@ import { getFundManagerItems } from './fund-manager';
 export async function getFunds(
   client: FinvizClient,
   options: FundOptions = {},
-): Promise<FundItem[]> {
-  return getFundManagerItems(client, '/export/funds', 'Fund', options);
+): Promise<FinvizResponse<FundItem>> {
+  return getFundManagerItems(client, '/export/funds', 'Series Name', options);
 }

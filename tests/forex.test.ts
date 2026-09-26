@@ -120,7 +120,7 @@ describe('getForex', () => {
 
     const result = await getForex(client);
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         ticker: 'EUR/USD',
         name: 'Euro',
@@ -161,7 +161,7 @@ describe('getForex', () => {
 
     const result = await getForex(client, { unit: ForexUnit.PIPS });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         ticker: 'EUR/USD',
         name: 'Euro',
@@ -180,13 +180,13 @@ describe('getForex', () => {
     ]);
   });
 
-  it('defaults missing columns', async () => {
+  it('leaves missing columns undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([{ Price: '1.5' }]);
 
-    const [row] = await getForex(client);
+    const { items: [row] } = await getForex(client);
 
-    expect(row?.ticker).toBe('');
-    expect(row?.name).toBe('');
-    expect(row?.perfYear).toBe(0);
+    expect(row?.ticker).toBeUndefined();
+    expect(row?.name).toBeUndefined();
+    expect(row?.perfYear).toBeUndefined();
   });
 });

@@ -12,7 +12,7 @@
 
 > **ScreenerETFAssetTypeFilter** = *typeof* [`ScreenerETFAssetTypeFilter`](#screeneretfassettypefilter-1)\[keyof *typeof* [`ScreenerETFAssetTypeFilter`](#screeneretfassettypefilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:56](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L56)
+Defined in: [types/screener/etf-filters.ts:56](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L56)
 
 Union of all known screener ETF asset type filter values.
 
@@ -22,7 +22,7 @@ Union of all known screener ETF asset type filter values.
 
 > **ScreenerETFCategoryFilter** = *typeof* [`ScreenerETFCategoryFilter`](#screeneretfcategoryfilter-1)\[keyof *typeof* [`ScreenerETFCategoryFilter`](#screeneretfcategoryfilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:15](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L15)
+Defined in: [types/screener/etf-filters.ts:15](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L15)
 
 Union of all known screener ETF category filter values.
 
@@ -32,7 +32,7 @@ Union of all known screener ETF category filter values.
 
 > **ScreenerETFFundFlowsFilter** = *typeof* [`ScreenerETFFundFlowsFilter`](#screeneretffundflowsfilter-1)\[keyof *typeof* [`ScreenerETFFundFlowsFilter`](#screeneretffundflowsfilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:108](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L108)
+Defined in: [types/screener/etf-filters.ts:108](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L108)
 
 Union of all known screener ETF fund flows filter values.
 
@@ -42,7 +42,7 @@ Union of all known screener ETF fund flows filter values.
 
 > **ScreenerETFNetExpenseFilter** = *typeof* [`ScreenerETFNetExpenseFilter`](#screeneretfnetexpensefilter-1)\[keyof *typeof* [`ScreenerETFNetExpenseFilter`](#screeneretfnetexpensefilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:91](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L91)
+Defined in: [types/screener/etf-filters.ts:91](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L91)
 
 Union of all known screener ETF net expense ratio filter values.
 
@@ -52,7 +52,7 @@ Union of all known screener ETF net expense ratio filter values.
 
 > **ScreenerETFReturnFilter** = *typeof* [`ScreenerETFReturnFilter`](#screeneretfreturnfilter-1)\[keyof *typeof* [`ScreenerETFReturnFilter`](#screeneretfreturnfilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:139](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L139)
+Defined in: [types/screener/etf-filters.ts:139](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L139)
 
 Union of all known screener ETF return filter values.
 
@@ -62,7 +62,7 @@ Union of all known screener ETF return filter values.
 
 > **ScreenerETFSponsorFilter** = *typeof* [`ScreenerETFSponsorFilter`](#screeneretfsponsorfilter-1)\[keyof *typeof* [`ScreenerETFSponsorFilter`](#screeneretfsponsorfilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:170](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L170)
+Defined in: [types/screener/etf-filters.ts:170](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L170)
 
 Union of all known screener ETF sponsor filter values.
 
@@ -72,7 +72,7 @@ Union of all known screener ETF sponsor filter values.
 
 > **ScreenerETFTagFilter** = *typeof* [`ScreenerETFTagFilter`](#screeneretftagfilter-1)\[keyof *typeof* [`ScreenerETFTagFilter`](#screeneretftagfilter-1)\]
 
-Defined in: [types/screener/etf-filters.ts:614](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L614)
+Defined in: [types/screener/etf-filters.ts:614](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L614)
 
 Union of all known screener ETF tag filter values.
 
@@ -82,7 +82,7 @@ Union of all known screener ETF tag filter values.
 
 > `const` **ScreenerETFAssetTypeFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:56](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L56)
+Defined in: [types/screener/etf-filters.ts:56](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L56)
 
 Screener ETF asset type filter values for the `f` query parameter.
 
@@ -206,7 +206,7 @@ Screener ETF asset type filter values for the `f` query parameter.
 
 > `const` **ScreenerETFCategoryFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:15](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L15)
+Defined in: [types/screener/etf-filters.ts:15](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L15)
 
 Screener ETF category filter values for the `f` query parameter.
 
@@ -354,7 +354,7 @@ Screener ETF category filter values for the `f` query parameter.
 
 > `const` **ScreenerETFFundFlowsFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:108](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L108)
+Defined in: [types/screener/etf-filters.ts:108](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L108)
 
 Screener ETF fund flows filter values for the `f` query parameter.
 
@@ -462,7 +462,7 @@ Screener ETF fund flows filter values for the `f` query parameter.
 
 > `const` **ScreenerETFNetExpenseFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:91](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L91)
+Defined in: [types/screener/etf-filters.ts:91](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L91)
 
 Screener ETF net expense ratio filter values for the `f` query parameter.
 
@@ -514,7 +514,7 @@ Screener ETF net expense ratio filter values for the `f` query parameter.
 
 > `const` **ScreenerETFReturnFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:139](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L139)
+Defined in: [types/screener/etf-filters.ts:139](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L139)
 
 Screener ETF return filter values for the `f` query parameter.
 
@@ -622,7 +622,7 @@ Screener ETF return filter values for the `f` query parameter.
 
 > `const` **ScreenerETFSponsorFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:170](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L170)
+Defined in: [types/screener/etf-filters.ts:170](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L170)
 
 Screener ETF sponsor filter values for the `f` query parameter.
 
@@ -2382,7 +2382,7 @@ Screener ETF sponsor filter values for the `f` query parameter.
 
 > `const` **ScreenerETFTagFilter**: `object`
 
-Defined in: [types/screener/etf-filters.ts:614](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/etf-filters.ts#L614)
+Defined in: [types/screener/etf-filters.ts:614](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/etf-filters.ts#L614)
 
 Screener ETF tag filter values for the `f` query parameter.
 

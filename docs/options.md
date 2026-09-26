@@ -10,9 +10,9 @@
 
 ### getOptionsChain()
 
-> **getOptionsChain**(`client`, `ticker`, `options`): `Promise`\<[`Option`](types/options.md#option)[]\>
+> **getOptionsChain**(`client`, `ticker`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Option`](types/options.md#option)\>\>
 
-Defined in: [options.ts:25](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/options.ts#L25)
+Defined in: [options.ts:26](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/options.ts#L26)
 
 Fetch the options chain for a single ticker symbol at a given expiration date.
 The API returns a multi-row CSV; each row represents one option contract.
@@ -39,4 +39,4 @@ Expiration date (required) and optional view type
 
 #### Returns
 
-`Promise`\<[`Option`](types/options.md#option)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Option`](types/options.md#option)\>\>

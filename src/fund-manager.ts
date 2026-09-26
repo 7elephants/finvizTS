@@ -7,14 +7,41 @@
  *
  * | Step | Method                  | Input                                               | Output                       |
  * |------|--------------------------|-------------------------------------------------------|-------------------------------|
- * | 1    | getFundManagerItems()   | FinvizClient, path, nameColumn, ManagerFundOptions   | Promise<ManagerFundItem[]>   |
+ * | 1    | getFundManagerItems()   | FinvizClient, path, nameColumn, ManagerFundOptions   | Promise<FinvizResponse<ManagerFundItem>>   |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { ManagerFundItem, ManagerFundOptions } from './types';
+import type { FinvizResponse, ManagerFundItem, ManagerFundOptions } from './types';
 
+import { date, integer, number, parseRows, text, type RowSchema } from './parse';
 import { buildSortParam } from './utils';
+
+/**
+ * CSV column holding the fund series name (`/export/funds`) or portfolio manager name
+ * (`/export/managers`); mapped to `ManagerFundItem.manager`.
+ */
+type FundManagerNameColumn = 'Series Name' | 'Portfolio Manager';
+
+/** Build the ManagerFundItem property → CSV column mapping; `manager` reads `nameColumn`. */
+function fundManagerSchema(nameColumn: FundManagerNameColumn): RowSchema<ManagerFundItem> {
+  return {
+    name: text('Name'),
+    manager: text(nameColumn),
+    id: text('Investor ID'),
+    reportDate: date('Report Date'),
+    portfolioValue: number('Portfolio Value'),
+    numInvestments: integer('# Investments'),
+    newPurchases: integer('New Purchased'),
+    soldOut: integer('Sold Out'),
+    added: integer('Added'),
+    reduced: integer('Reduced'),
+    top10ConcentrationPct: number('Top 10 Concentration (%)'),
+    turnOverPct: number('Turnover (%)'),
+    timeHeldTopTen: number('Time Held Top 10'),
+    timeHeldAll: number('Time Held All'),
+  };
+}
 
 /**
  * Fetch fund or fund-manager portfolios, optionally filtered by a search term and sorted by
@@ -22,33 +49,18 @@ import { buildSortParam } from './utils';
  *
  * @param client     - Authenticated FinvizClient instance
  * @param path       - `/export/funds` or `/export/managers`
- * @param nameColumn - CSV column holding the fund/manager name
+ * @param nameColumn - `Series Name` (funds) or `Portfolio Manager` (managers)
  * @param options    - Search term and sort options
  */
 export async function getFundManagerItems(
   client: FinvizClient,
   path: string,
-  nameColumn: 'Fund' | 'Manager',
+  nameColumn: FundManagerNameColumn,
   options: ManagerFundOptions,
-): Promise<ManagerFundItem[]> {
+): Promise<FinvizResponse<ManagerFundItem>> {
   const rows = await client.getRecords(path, {
     search: options.search,
     sort: buildSortParam(options.order, options.orderDirection),
   });
-  return rows.map((row) => ({
-    name: row['Name'] ?? '',
-    manager: row[nameColumn] ?? '',
-    id: row['Investor ID'] ?? '',
-    reportDate: new Date(row['Report Date'] || ''),
-    portfolioValue: parseFloat(row['Portfolio Value'] || '0'),
-    numInvestments: parseInt(row['# Investments'] || '0', 10),
-    newPurchases: parseInt(row['New Purchased'] || '0', 10),
-    soldOut: parseInt(row['Sold Out'] || '0', 10),
-    added: parseInt(row['Added'] || '0', 10),
-    reduced: parseInt(row['Reduced'] || '0', 10),
-    top10ConcentrationPct: parseFloat(row['Top 10 Concentration (%)'] || '0'),
-    turnOverPct: parseFloat(row['Turnover (%)'] || '0'),
-    timeHeldTopTen: parseFloat(row['Time Held Top 10'] || '0'),
-    timeHeldAll: parseFloat(row['Time Held All'] || '0'),
-  }));
+  return parseRows(rows, fundManagerSchema(nameColumn));
 }

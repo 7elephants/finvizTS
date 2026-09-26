@@ -10,12 +10,13 @@
 
 ### getPerformanceItems()
 
-> **getPerformanceItems**(`client`, `path`, `options`, `extraParams?`, `perfColumn?`): `Promise`\<[`PerformanceItem`](types/performance.md#performanceitem)[]\>
+> **getPerformanceItems**(`client`, `path`, `options`, `extraParams?`, `perfColumn?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
 
-Defined in: [performance.ts:42](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/performance.ts#L42)
+Defined in: [performance.ts:65](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/performance.ts#L65)
 
 Fetch futures, forex or crypto performance rows, optionally sorted by order/direction.
-The API returns a multi-row CSV; each row is mapped to a PerformanceItem.
+The API returns a multi-row CSV; each row is mapped to a PerformanceItem via
+parseRows().
 
 #### Parameters
 
@@ -51,9 +52,8 @@ Endpoint-specific query params (e.g. forex `unit`, crypto `c`)
 CSV header prefix of the performance columns (forex pips uses
                      `Performance in Pips`)
 
-Blank cells intentionally parse to `NaN` (`parseFloat('')`), unlike fund-manager.ts, which
-defaults them to `0` via `||`.
+Blank cells (e.g. newly listed crypto with no long-range history) are `undefined`.
 
 #### Returns
 
-`Promise`\<[`PerformanceItem`](types/performance.md#performanceitem)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>

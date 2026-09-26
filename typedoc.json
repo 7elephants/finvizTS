@@ -6,6 +6,7 @@
   "plugin": ["typedoc-plugin-markdown"],
   "router": "module",
   "out": "docs",
+  "cleanOutputDir": false,
   "readme": "none",
   "excludePrivate": false,
   "excludeProtected": false,

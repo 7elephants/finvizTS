@@ -76,7 +76,7 @@ describe('getFutures', () => {
 
     const result = await getFutures(client);
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         ticker: '@GC',
         name: 'Gold',
@@ -95,14 +95,14 @@ describe('getFutures', () => {
     ]);
   });
 
-  it('parses scientific notation and defaults missing columns', async () => {
+  it('parses scientific notation and leaves missing columns undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([{ Price: '6.04E-06' }]);
 
-    const [row] = await getFutures(client);
+    const { items: [row] } = await getFutures(client);
 
     expect(row?.price).toBe(6.04e-6);
-    expect(row?.ticker).toBe('');
-    expect(row?.name).toBe('');
-    expect(row?.perfYear).toBe(0);
+    expect(row?.ticker).toBeUndefined();
+    expect(row?.name).toBeUndefined();
+    expect(row?.perfYear).toBeUndefined();
   });
 });

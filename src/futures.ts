@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                 |
  * |------|------------|-------------------------------|------------------------|
- * | 1    | getFutures() | FinvizClient, FuturesOptions    | Promise<FuturesItem[]>    |
+ * | 1    | getFutures() | FinvizClient, FuturesOptions    | Promise<FinvizResponse<FuturesItem>>    |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FuturesItem, FuturesOptions } from './types';
+import type { FinvizResponse, FuturesItem, FuturesOptions } from './types';
 
 import { getPerformanceItems } from './performance';
 
@@ -25,6 +25,6 @@ import { getPerformanceItems } from './performance';
 export async function getFutures(
   client: FinvizClient,
   options: FuturesOptions = {},
-): Promise<FuturesItem[]> {
+): Promise<FinvizResponse<FuturesItem>> {
   return getPerformanceItems(client, '/export/futures/performance', options);
 }

@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                 |
  * |------|------------|-------------------------------|------------------------|
- * | 1    | getForex() | FinvizClient, ForexOptions    | Promise<ForexItem[]>    |
+ * | 1    | getForex() | FinvizClient, ForexOptions    | Promise<FinvizResponse<ForexItem>>    |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { ForexItem, ForexOptions } from './types';
+import type { FinvizResponse, ForexItem, ForexOptions } from './types';
 
 import { ForexUnit } from './types';
 import { getPerformanceItems } from './performance';
@@ -27,7 +27,7 @@ import { getPerformanceItems } from './performance';
 export async function getForex(
   client: FinvizClient,
   options: ForexOptions = {},
-): Promise<ForexItem[]> {
+): Promise<FinvizResponse<ForexItem>> {
   const isPips = options.unit === ForexUnit.PIPS;
   return getPerformanceItems(
     client,

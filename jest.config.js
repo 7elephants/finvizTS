@@ -4,6 +4,8 @@ module.exports = {
   testEnvironment: 'node',
   rootDir: '.',
   testMatch: ['<rootDir>/tests/**/*.test.ts'],
+  // Live tests hit the real Finviz API; run them explicitly with `npm run test:live`.
+  testPathIgnorePatterns: ['/node_modules/', '<rootDir>/tests/live/'],
   collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts'],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov'],

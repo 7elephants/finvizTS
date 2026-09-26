@@ -6,15 +6,16 @@
  *
  * | Step | Method        | Input                         | Output                 |
  * |------|---------------|-------------------------------|------------------------|
- * | 1    | getScreener() | FinvizClient, ScreenerOptions | Promise<Screener[]> |
+ * | 1    | getScreener() | FinvizClient, ScreenerOptions | Promise<FinvizResponse<Screener>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { ScreenerOptions, Screener } from './types';
+import type { FinvizResponse, ScreenerOptions, Screener } from './types';
 
 import { buildFilters } from './filters';
 import { buildSortParam } from './utils';
+import { rawResponse } from './parse';
 
 /**
  * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
@@ -26,8 +27,8 @@ import { buildSortParam } from './utils';
 export async function getScreener(
   client: FinvizClient,
   options: ScreenerOptions = {},
-): Promise<Screener[]> {
-  return client.getRecords('/export/screener', {
+): Promise<FinvizResponse<Screener>> {
+  const rows = await client.getRecords('/export/screener', {
     v: options.view,
     c: options.fields?.join(','),
     f: Array.isArray(options.filters) ? buildFilters(options.filters) : options.filters,
@@ -36,4 +37,5 @@ export async function getScreener(
     s: options.signal,
     t: Array.isArray(options.tickers) ? options.tickers.join(',') : options.tickers,
   });
+  return rawResponse(rows);
 }

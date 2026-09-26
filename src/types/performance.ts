@@ -48,33 +48,33 @@ export interface PerformanceOptions {
 /**
  * A single futures, forex or crypto performance row. Performance values are percentages
  * (pips for forex requested with `unit: 'pips'`). Blank CSV cells (e.g. newly listed crypto with
- * no long-range history) parse to `NaN`. `FuturesItem`/`ForexItem`/`CryptoItem` alias this.
+ * no long-range history) are `undefined`. `FuturesItem`/`ForexItem`/`CryptoItem` alias this.
  */
 export interface PerformanceItem {
   /** Instrument ticker, e.g. `@GC` (futures/crypto) or `EUR/USD` (forex). */
-  ticker: string;
+  ticker: string | undefined;
   /** Instrument name. */
-  name: string;
+  name: string | undefined;
   /** Last price. */
-  price: number;
+  price: number | undefined;
   /** Performance over the last 5 minutes. */
-  perf5Min: number;
+  perf5Min: number | undefined;
   /** Performance over the last hour. */
-  perf1Hour: number;
+  perf1Hour: number | undefined;
   /** Performance over the day. */
-  perfDay: number;
+  perfDay: number | undefined;
   /** Performance over the week. */
-  perfWeek: number;
+  perfWeek: number | undefined;
   /** Performance over the month. */
-  perfMonth: number;
+  perfMonth: number | undefined;
   /** Performance month to date. */
-  perfMonthToDate: number;
+  perfMonthToDate: number | undefined;
   /** Performance over the quarter. */
-  perfQuarter: number;
+  perfQuarter: number | undefined;
   /** Performance over the half year. */
-  perfHalfYear: number;
+  perfHalfYear: number | undefined;
   /** Performance year to date. */
-  perfYearToDate: number;
+  perfYearToDate: number | undefined;
   /** Performance over the year. */
-  perfYear: number;
+  perfYear: number | undefined;
 }

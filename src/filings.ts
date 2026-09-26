@@ -6,14 +6,25 @@
  *
  * | Step | Method              | Input                                     | Output                |
  * |------|---------------------|-------------------------------------------|-----------------------|
- * | 1    | getLatestFilings()  | FinvizClient, ticker: string, FilingOptions | Promise<Filing[]> |
+ * | 1    | getLatestFilings()  | FinvizClient, ticker: string, FilingOptions | Promise<FinvizResponse<Filing>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FilingOptions, Filing } from './types';
+import type { FinvizResponse, FilingOptions, Filing } from './types';
 
 import { buildSortParam } from './utils';
+import { parseRows, text, type RowSchema } from './parse';
+
+/** Filing property → CSV column mapping. */
+const FILING_SCHEMA: RowSchema<Filing> = {
+  filingDate: text('Filing Date'),
+  reportDate: text('Report Date'),
+  form: text('Form'),
+  description: text('Description'),
+  filing: text('Filing'),
+  document: text('Document'),
+};
 
 /**
  * Fetch recent SEC filings for a single ticker symbol.
@@ -27,18 +38,11 @@ export async function getLatestFilings(
   client: FinvizClient,
   ticker: string,
   options: FilingOptions = {},
-): Promise<Filing[]> {
+): Promise<FinvizResponse<Filing>> {
   const rows = await client.getRecords('/export/latest-filings', {
     t: ticker,
     o: buildSortParam(options.order, options.orderDirection),
     f: options.filter,
   });
-  return rows.map((row) => ({
-    filingDate: row['Filing Date'] ?? '',
-    reportDate: row['Report Date'] ?? '',
-    form: row['Form'] ?? '',
-    description: row['Description'] ?? '',
-    filing: row['Filing'] ?? '',
-    document: row['Document'] ?? '',
-  }));
+  return parseRows(rows, FILING_SCHEMA);
 }

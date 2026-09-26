@@ -46,21 +46,23 @@ export interface ManagerFundOptions {
 
 /**
  * A single fund or fund-manager portfolio row (the same underlying Finviz resource, queried by
- * fund name vs. manager name). `FundItem`/`ManagerItem` alias this.
+ * fund name vs. manager name). `FundItem`/`ManagerItem` alias this. Fields are `undefined` when
+ * the API returns no value.
  */
 export interface ManagerFundItem {
-  name: string;
-  manager: string;
-  id: string;
-  reportDate: Date;
-  portfolioValue: number;
-  numInvestments: number;
-  newPurchases: number;
-  soldOut: number;
-  added: number;
-  reduced: number;
-  top10ConcentrationPct: number;
-  turnOverPct: number;
-  timeHeldTopTen: number;
-  timeHeldAll: number;
+  name: string | undefined;
+  /** Portfolio manager name (managers, `Portfolio Manager` column) or fund series name (funds, `Series Name` column). */
+  manager: string | undefined;
+  id: string | undefined;
+  reportDate: Date | undefined;
+  portfolioValue: number | undefined;
+  numInvestments: number | undefined;
+  newPurchases: number | undefined;
+  soldOut: number | undefined;
+  added: number | undefined;
+  reduced: number | undefined;
+  top10ConcentrationPct: number | undefined;
+  turnOverPct: number | undefined;
+  timeHeldTopTen: number | undefined;
+  timeHeldAll: number | undefined;
 }

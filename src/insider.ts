@@ -7,14 +7,31 @@
  *
  * | Step | Method        | Input                          | Output                  |
  * |------|---------------|---------------------------------|-------------------------|
- * | 1    | getInsiders() | FinvizClient, InsiderOptions   | Promise<InsiderItem[]>  |
+ * | 1    | getInsiders() | FinvizClient, InsiderOptions   | Promise<FinvizResponse<InsiderItem>>  |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { InsiderItem, InsiderOptions } from './types';
+import type { FinvizResponse, InsiderItem, InsiderOptions } from './types';
 
 import { buildSortParam } from './utils';
+import { date, integer, number, parseRows, text, type RowSchema } from './parse';
+
+/** InsiderItem property → CSV column mapping. */
+const INSIDER_SCHEMA: RowSchema<InsiderItem> = {
+  ticker: text('Ticker'),
+  owner: text('Owner'),
+  ownerCIK: integer('Owner CIK'),
+  relationship: text('Relationship'),
+  date: date('Date'),
+  transactionType: text('Transaction'),
+  cost: number('Cost'),
+  shares: integer('#Shares'),
+  value: number('Value ($)'),
+  totalShares: integer('#Shares Total'),
+  SECForm: date('SEC Form 4'),
+  SECFormUrl: text('SEC Form 4 Link'),
+};
 
 /**
  * Fetch insider trading transactions, optionally filtered by ticker, transaction type,
@@ -27,7 +44,7 @@ import { buildSortParam } from './utils';
 export async function getInsiders(
   client: FinvizClient,
   options: InsiderOptions = {},
-): Promise<InsiderItem[]> {
+): Promise<FinvizResponse<InsiderItem>> {
   const rows = await client.getRecords('/export/insiders', {
     t: options.ticker,
     tc: options.type,
@@ -36,18 +53,5 @@ export async function getInsiders(
     oc: options.ownerCIK,
     o: buildSortParam(options.order, options.orderDirection),
   });
-  return rows.map((row) => ({
-    ticker: row['Ticker'] ?? '',
-    owner: row['Owner'] ?? '',
-    ownerCIK: parseInt(row['Owner CIK'] ?? '0', 10),
-    relationship: row['Relationship'] ?? '',
-    date: new Date(row['Date'] ?? ''),
-    transactionType: row['Transaction'] ?? '',
-    cost: parseFloat(row['Cost'] ?? '0'),
-    shares: parseInt(row['#Shares'] ?? '0', 10),
-    value: parseFloat(row['Value ($)'] ?? '0'),
-    totalShares: parseInt(row['#Shares Total'] ?? '0', 10),
-    SECForm: new Date(row['SEC Form 4'] ?? ''),
-    SECFormUrl: row['SEC Form 4 Link'] ?? '',
-  }));
+  return parseRows(rows, INSIDER_SCHEMA);
 }

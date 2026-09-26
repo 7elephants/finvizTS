@@ -13,8 +13,8 @@ GET request to `export/calendar/economic`:
 ### Response
 
 ```csv
-Date,Time,Datetime,Release,Impact,For,Actual,Expected,Prior
-3/27/2026,8:30AM,2026-03-27 08:30:00,Durable Goods Orders,2,Feb,,1.5%,3.1%
+Event,Date,Time,Impact,For,Actual,Expected,Prior
+Richmond Fed Manufacturing Index,2026-09-22,10:00,1,Sep,-2,5,4
 ```
 
 ### Example

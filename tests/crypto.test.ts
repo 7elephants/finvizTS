@@ -81,7 +81,7 @@ describe('getCrypto', () => {
     });
   });
 
-  it('parses blank performance cells (newly listed coins) to NaN', async () => {
+  it('leaves blank performance cells (newly listed coins) undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Ticker: '@GRAM',
@@ -93,11 +93,12 @@ describe('getCrypto', () => {
       },
     ]);
 
-    const [row] = await getCrypto(client);
+    const { items: [row], errors } = await getCrypto(client);
 
     expect(row?.perfMonthToDate).toBe(11.99);
-    expect(row?.perfQuarter).toBeNaN();
-    expect(row?.perfYear).toBeNaN();
+    expect(row?.perfQuarter).toBeUndefined();
+    expect(row?.perfYear).toBeUndefined();
+    expect(errors).toEqual([]);
   });
 
   it('maps CSV rows to CryptoItem shape', async () => {
@@ -122,7 +123,7 @@ describe('getCrypto', () => {
 
     const result = await getCrypto(client);
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         ticker: '@BTC',
         name: 'Bitcoin',
@@ -141,14 +142,14 @@ describe('getCrypto', () => {
     ]);
   });
 
-  it('parses scientific notation and defaults missing columns', async () => {
+  it('parses scientific notation and leaves missing columns undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([{ Price: '6.04E-06' }]);
 
-    const [row] = await getCrypto(client);
+    const { items: [row] } = await getCrypto(client);
 
     expect(row?.price).toBe(6.04e-6);
-    expect(row?.ticker).toBe('');
-    expect(row?.name).toBe('');
-    expect(row?.perfYear).toBe(0);
+    expect(row?.ticker).toBeUndefined();
+    expect(row?.name).toBeUndefined();
+    expect(row?.perfYear).toBeUndefined();
   });
 });

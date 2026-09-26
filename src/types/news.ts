@@ -33,12 +33,12 @@ export interface NewsOptions {
   tickers?: string;
 }
 
-/** A single news item returned by the news endpoint. */
+/** A single news item returned by the news endpoint. Fields are `undefined` when the API returns no value. */
 export interface NewsItem {
-  title: string;
-  source: string;
-  date: string;
-  url: string;
-  category: string;
-  ticker: string;
+  title: string | undefined;
+  source: string | undefined;
+  date: string | undefined;
+  url: string | undefined;
+  category: string | undefined;
+  ticker: string | undefined;
 }

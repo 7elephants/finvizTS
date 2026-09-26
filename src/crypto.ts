@@ -6,12 +6,12 @@
  *
  * | Step | Method     | Input                        | Output                 |
  * |------|------------|-------------------------------|------------------------|
- * | 1    | getCrypto() | FinvizClient, CryptoOptions    | Promise<CryptoItem[]>    |
+ * | 1    | getCrypto() | FinvizClient, CryptoOptions    | Promise<FinvizResponse<CryptoItem>>    |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { CryptoItem, CryptoOptions } from './types';
+import type { FinvizResponse, CryptoItem, CryptoOptions } from './types';
 
 import { getPerformanceItems } from './performance';
 
@@ -25,7 +25,7 @@ import { getPerformanceItems } from './performance';
 export async function getCrypto(
   client: FinvizClient,
   options: CryptoOptions = {},
-): Promise<CryptoItem[]> {
+): Promise<FinvizResponse<CryptoItem>> {
   return getPerformanceItems(client, '/export/crypto/performance', options, {
     c: options.currency,
   });

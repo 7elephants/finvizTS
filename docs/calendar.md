@@ -10,9 +10,9 @@
 
 ### getDividendsCalendar()
 
-> **getDividendsCalendar**(`client`, `options`): `Promise`\<[`DividendsCalendarItem`](types/calendar.md#dividendscalendaritem)[]\>
+> **getDividendsCalendar**(`client`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`DividendsCalendarItem`](types/calendar.md#dividendscalendaritem)\>\>
 
-Defined in: [calendar.ts:87](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/calendar.ts#L87)
+Defined in: [calendar.ts:104](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/calendar.ts#L104)
 
 Fetch dividends calendar events for a given date range (max 90 days).
 The API returns a multi-row CSV; each row represents one company's upcoming ex-dividend date.
@@ -33,15 +33,15 @@ Start date (required) and optional end date
 
 #### Returns
 
-`Promise`\<[`DividendsCalendarItem`](types/calendar.md#dividendscalendaritem)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`DividendsCalendarItem`](types/calendar.md#dividendscalendaritem)\>\>
 
 ***
 
 ### getEarningsCalendar()
 
-> **getEarningsCalendar**(`client`, `options`): `Promise`\<[`EarningsCalendarItem`](types/calendar.md#earningscalendaritem)[]\>
+> **getEarningsCalendar**(`client`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`EarningsCalendarItem`](types/calendar.md#earningscalendaritem)\>\>
 
-Defined in: [calendar.ts:53](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/calendar.ts#L53)
+Defined in: [calendar.ts:85](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/calendar.ts#L85)
 
 Fetch earnings calendar events for a given date range (max 90 days).
 The API returns a multi-row CSV; each row represents one company's earnings report.
@@ -62,15 +62,15 @@ Start date (required), optional end date, and optional sort order
 
 #### Returns
 
-`Promise`\<[`EarningsCalendarItem`](types/calendar.md#earningscalendaritem)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`EarningsCalendarItem`](types/calendar.md#earningscalendaritem)\>\>
 
 ***
 
 ### getEconomicCalendar()
 
-> **getEconomicCalendar**(`client`, `options`): `Promise`\<[`Calendar`](types/calendar.md#calendar)[]\>
+> **getEconomicCalendar**(`client`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Calendar`](types/calendar.md#calendar)\>\>
 
-Defined in: [calendar.ts:36](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/calendar.ts#L36)
+Defined in: [calendar.ts:67](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/calendar.ts#L67)
 
 Fetch economic calendar events for a given date range.
 The API returns a multi-row CSV; each row represents one economic event.
@@ -91,4 +91,4 @@ Start date (required) and optional end date
 
 #### Returns
 
-`Promise`\<[`Calendar`](types/calendar.md#calendar)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Calendar`](types/calendar.md#calendar)\>\>

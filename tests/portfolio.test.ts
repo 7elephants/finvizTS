@@ -108,6 +108,6 @@ describe('getPortfolio', () => {
     ];
     mockGetRecords.mockResolvedValueOnce(mockRows);
     const result = await getPortfolio(client, 12345);
-    expect(result).toEqual(mockRows);
+    expect(result.items).toEqual(mockRows);
   });
 });

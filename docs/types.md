@@ -12,7 +12,7 @@
 
 > **ErrorLevel** = *typeof* [`ErrorLevel`](#errorlevel-1)\[keyof *typeof* [`ErrorLevel`](#errorlevel-1)\]
 
-Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L57)
+Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L59)
 
 Union of all known error level values.
 
@@ -22,7 +22,7 @@ Union of all known error level values.
 
 > **SortDirection** = *typeof* [`SortDirection`](#sortdirection-1)\[keyof *typeof* [`SortDirection`](#sortdirection-1)\]
 
-Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L48)
+Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L50)
 
 Union of all known sort direction values.
 
@@ -32,7 +32,7 @@ Union of all known sort direction values.
 
 > `const` **ErrorLevel**: `object`
 
-Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L57)
+Defined in: [types/index.ts:59](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L59)
 
 Severity level attached to a thrown FinvizError.
 
@@ -56,7 +56,7 @@ Severity level attached to a thrown FinvizError.
 
 > `const` **SortDirection**: `object`
 
-Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L48)
+Defined in: [types/index.ts:50](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/index.ts#L50)
 
 Sort direction values shared by the `o` query parameter across endpoints.
 
@@ -159,6 +159,12 @@ Re-exports [FilingOrder](types/filings.md#filingorder-1)
 ### FinvizClientOptions
 
 Re-exports [FinvizClientOptions](types/client.md#finvizclientoptions)
+
+***
+
+### FinvizResponse
+
+Re-exports [FinvizResponse](types/response.md#finvizresponse)
 
 ***
 
@@ -351,6 +357,18 @@ Re-exports [OptionsChainOptions](types/options.md#optionschainoptions)
 ### OptionsViewType
 
 Re-exports [OptionsViewType](types/options.md#optionsviewtype-1)
+
+***
+
+### ParseError
+
+Re-exports [ParseError](types/response.md#parseerror)
+
+***
+
+### ParseErrorExpected
+
+Re-exports [ParseErrorExpected](types/response.md#parseerrorexpected-2)
 
 ***
 

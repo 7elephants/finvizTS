@@ -10,7 +10,7 @@
 
 ### OptionsChainOptions
 
-Defined in: [types/options.ts:24](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/options.ts#L24)
+Defined in: [types/options.ts:24](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/options.ts#L24)
 
 Options for an options chain request.
 
@@ -20,7 +20,7 @@ Options for an options chain request.
 
 > **expiration**: `string`
 
-Defined in: [types/options.ts:26](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/options.ts#L26)
+Defined in: [types/options.ts:26](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/options.ts#L26)
 
 Option expiration date in yyyy-mm-dd format.
 
@@ -28,7 +28,7 @@ Option expiration date in yyyy-mm-dd format.
 
 > `optional` **viewType?**: [`OptionsViewType`](#optionsviewtype)
 
-Defined in: [types/options.ts:28](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/options.ts#L28)
+Defined in: [types/options.ts:28](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/options.ts#L28)
 
 View type (Prices or Volatility & Greeks).
 
@@ -38,7 +38,7 @@ View type (Prices or Volatility & Greeks).
 
 > **Option** = `Record`\<`string`, `string`\>
 
-Defined in: [types/options.ts:32](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/options.ts#L32)
+Defined in: [types/options.ts:32](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/options.ts#L32)
 
 A single row returned by the options endpoint.
 
@@ -48,7 +48,7 @@ A single row returned by the options endpoint.
 
 > **OptionsViewType** = *typeof* [`OptionsViewType`](#optionsviewtype-1)\[keyof *typeof* [`OptionsViewType`](#optionsviewtype-1)\]
 
-Defined in: [types/options.ts:15](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/options.ts#L15)
+Defined in: [types/options.ts:15](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/options.ts#L15)
 
 Union of all known options view type values.
 
@@ -58,7 +58,7 @@ Union of all known options view type values.
 
 > `const` **OptionsViewType**: `object`
 
-Defined in: [types/options.ts:15](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/options.ts#L15)
+Defined in: [types/options.ts:15](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/options.ts#L15)
 
 Valid view types for the options endpoint.
 

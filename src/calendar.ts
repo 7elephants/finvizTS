@@ -4,13 +4,14 @@
  * Invocation: Called via `getEconomicCalendar(client, options)`, `getEarningsCalendar(client,
  * options)`, or `getDividendsCalendar(client, options)`. Fetches a multi-row CSV of calendar
  * events for a date range; economic events are returned as key/value records, earnings and
- * dividends events as typed rows.
+ * dividends events as typed rows parsed via parseRows() (blank cells → undefined, unparseable
+ * cells → undefined + ParseError). Every function returns a FinvizResponse `{ items, errors }`.
  *
- * | Step | Method                  | Input                                  | Output                            |
- * |------|--------------------------|------------------------------------------|--------------------------------------|
- * | 1    | getEconomicCalendar()   | FinvizClient, CalendarOptions           | Promise<Calendar[]>                  |
- * | 2    | getEarningsCalendar()   | FinvizClient, EarningsCalendarOptions   | Promise<EarningsCalendarItem[]>      |
- * | 3    | getDividendsCalendar()  | FinvizClient, DividendsCalendarOptions  | Promise<DividendsCalendarItem[]>     |
+ * | Step | Method                  | Input                                  | Output                                          |
+ * |------|--------------------------|------------------------------------------|--------------------------------------------------|
+ * | 1    | getEconomicCalendar()   | FinvizClient, CalendarOptions           | Promise<FinvizResponse<Calendar>>               |
+ * | 2    | getEarningsCalendar()   | FinvizClient, EarningsCalendarOptions   | Promise<FinvizResponse<EarningsCalendarItem>>   |
+ * | 3    | getDividendsCalendar()  | FinvizClient, DividendsCalendarOptions  | Promise<FinvizResponse<DividendsCalendarItem>>  |
  * ---
  */
 
@@ -22,9 +23,39 @@ import type {
   DividendsCalendarOptions,
   EarningsCalendarItem,
   EarningsCalendarOptions,
+  FinvizResponse,
 } from './types';
 
 import { formatDateToYYYYMMDD, buildSortParam } from '.';
+import { date, number, parseRows, rawResponse, text, type RowSchema } from './parse';
+
+/** EarningsCalendarItem property → CSV column mapping. */
+const EARNINGS_SCHEMA: RowSchema<EarningsCalendarItem> = {
+  date: date('Date'),
+  ticker: text('Ticker'),
+  company: text('Company'),
+  marketCap: number('Market Cap'),
+  epsEstimate: number('EPS Estimate'),
+  epsActual: number('EPS Actual'),
+  epsSurprise: number('EPS Surprise'),
+  epsGaapEstimate: number('EPS GAAP Estimate'),
+  epsGaapActual: number('EPS GAAP Actual'),
+  epsGaapSurprise: number('EPS GAAP Surprise'),
+  revenueEstimate: number('Revenue Estimate'),
+  revenueActual: number('Revenue Actual'),
+  revenueSurprise: number('Revenue Surprise'),
+  oneDayPriceReaction: number('1-Day Price Reaction'),
+};
+
+/** DividendsCalendarItem property → CSV column mapping. */
+const DIVIDENDS_SCHEMA: RowSchema<DividendsCalendarItem> = {
+  ticker: text('Ticker'),
+  company: text('Company'),
+  exDate: date('Ex-Date'),
+  amount: number('Amount'),
+  special: number('Special'),
+  dividendEstYield: number('Dividend Est. Yield'),
+};
 
 /**
  * Fetch economic calendar events for a given date range.
@@ -36,11 +67,12 @@ import { formatDateToYYYYMMDD, buildSortParam } from '.';
 export async function getEconomicCalendar(
   client: FinvizClient,
   options: CalendarOptions,
-): Promise<Calendar[]> {
-  return client.getRecords('/export/calendar/economic', {
+): Promise<FinvizResponse<Calendar>> {
+  const rows = await client.getRecords('/export/calendar/economic', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
   });
+  return rawResponse(rows);
 }
 
 /**
@@ -53,28 +85,13 @@ export async function getEconomicCalendar(
 export async function getEarningsCalendar(
   client: FinvizClient,
   options: EarningsCalendarOptions,
-): Promise<EarningsCalendarItem[]> {
+): Promise<FinvizResponse<EarningsCalendarItem>> {
   const rows = await client.getRecords('/export/calendar/earnings', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
     sort: buildSortParam(options.order, options.orderDirection),
   });
-  return rows.map((row) => ({
-    date: new Date(row['Date'] || ''),
-    ticker: row['Ticker'] ?? '',
-    company: row['Company'] ?? '',
-    marketCap: parseFloat(row['Market Cap'] ?? '0'),
-    epsEstimate: parseFloat(row['EPS Estimate'] ?? '0'),
-    epsActual: parseFloat(row['EPS Actual'] ?? '0'),
-    epsSurprise: parseFloat(row['EPS Surprise'] ?? '0'),
-    epsGaapEstimate: parseFloat(row['EPS GAAP Estimate'] ?? '0'),
-    epsGaapActual: parseFloat(row['EPS GAAP Actual'] ?? '0'),
-    epsGaapSurprise: parseFloat(row['EPS GAAP Surprise'] ?? '0'),
-    revenueEstimate: parseFloat(row['Revenue Estimate'] ?? '0'),
-    revenueActual: parseFloat(row['Revenue Actual'] ?? '0'),
-    revenueSurprise: parseFloat(row['Revenue Surprise'] ?? '0'),
-    oneDayPriceReaction: parseFloat(row['1-Day Price Reaction'] ?? '0'),
-  }));
+  return parseRows(rows, EARNINGS_SCHEMA);
 }
 
 /**
@@ -87,17 +104,10 @@ export async function getEarningsCalendar(
 export async function getDividendsCalendar(
   client: FinvizClient,
   options: DividendsCalendarOptions,
-): Promise<DividendsCalendarItem[]> {
+): Promise<FinvizResponse<DividendsCalendarItem>> {
   const rows = await client.getRecords('/export/calendar/dividends', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
   });
-  return rows.map((row) => ({
-    ticker: row['Ticker'] ?? '',
-    company: row['Company'] ?? '',
-    exDate: new Date(row['Ex-Date'] || ''),
-    amount: parseFloat(row['Amount'] ?? '0'),
-    special: parseFloat(row['Special'] ?? '0'),
-    dividendEstYield: parseFloat(row['Dividend Est. Yield'] ?? '0'),
-  }));
+  return parseRows(rows, DIVIDENDS_SCHEMA);
 }
