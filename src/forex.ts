@@ -20,11 +20,13 @@ import { getPerformanceItems } from './performance';
  * The API returns a multi-row CSV; each row is mapped to a ForexItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Sort options
+ * @param options - Unit and sort options
  */
 export async function getForex(
   client: FinvizClient,
   options: ForexOptions = {},
 ): Promise<ForexItem[]> {
-  return getPerformanceItems(client, '/export/forex/performance', options);
+  return getPerformanceItems(client, '/export/forex/performance', options, {
+    unit: options.unit,
+  });
 }

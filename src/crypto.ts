@@ -20,11 +20,13 @@ import { getPerformanceItems } from './performance';
  * The API returns a multi-row CSV; each row is mapped to a CryptoItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Sort options
+ * @param options - Quote currency and sort options
  */
 export async function getCrypto(
   client: FinvizClient,
   options: CryptoOptions = {},
 ): Promise<CryptoItem[]> {
-  return getPerformanceItems(client, '/export/crypto/performance', options);
+  return getPerformanceItems(client, '/export/crypto/performance', options, {
+    c: options.currency,
+  });
 }

@@ -25,7 +25,10 @@ GET requests to `export/futures/performance`, `export/forex/performance` and `ex
 | perfYtdPct      | Year-to-date            |
 | perfYearPct     | Year performance        |
 
-Sort keys are documented for futures; forex and crypto are assumed to accept the same keys (unverified). The default sort order is ascending unless noted. To sort in descending order, add a minus sign before the column name (e.g. `sort=-perfDayPct`).
+The same sort keys apply to futures, forex and crypto. The default sort order is ascending unless noted. To sort in descending order, add a minus sign before the column name (e.g. `sort=-perfDayPct`).
+
+- `unit` (optional, forex only): `pct` (default) or `pips`. With `unit=pips` every performance sort column ends in `Pips` instead of `Pct` (e.g. `sort=-perfWeekPips`), and the sort value must match the unit.
+- `c` (optional, crypto only): Quote currency. One of `USD` (default), `USDT`, `EUR`, `BTC`.
 
 ## Response
 
@@ -55,6 +58,6 @@ No.,Ticker,Name,Price,Performance (5 Minutes),Performance (1 Hour),Performance (
 
 `https://elite.finviz.com/export/futures/performance?auth=YOUR_API_KEY&sort=-perfDayPct`
 
-`https://elite.finviz.com/export/forex/performance?auth=YOUR_API_KEY`
+`https://elite.finviz.com/export/forex/performance?auth=YOUR_API_KEY&unit=pips&sort=-perfWeekPips`
 
-`https://elite.finviz.com/export/crypto/performance?auth=YOUR_API_KEY`
+`https://elite.finviz.com/export/crypto/performance?auth=YOUR_API_KEY&c=EUR`

@@ -48,6 +48,9 @@ export {
   ManagerFundOrderType,
   EarningsOrderType,
   PerformanceOrderType,
+  ForexUnit,
+  ForexPipsOrderType,
+  CryptoCurrency,
   SortDirection,
   ErrorLevel,
 } from './types';

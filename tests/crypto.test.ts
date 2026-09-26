@@ -14,7 +14,7 @@
 
 import { FinvizClient } from '../src/client';
 import { getCrypto } from '../src/crypto';
-import { PerformanceOrderType, SortDirection } from '../src/types';
+import { CryptoCurrency, PerformanceOrderType, SortDirection } from '../src/types';
 
 describe('getCrypto', () => {
   const mockGetRecords = jest.fn();
@@ -27,7 +27,7 @@ describe('getCrypto', () => {
 
     await getCrypto(client);
 
-    expect(mockGetRecords).toHaveBeenCalledWith('/export/crypto/performance', { sort: '' });
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/crypto/performance', { c: undefined, sort: '' });
   });
 
   it('combines order and orderDirection into the sort param', async () => {
@@ -39,6 +39,7 @@ describe('getCrypto', () => {
     });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/crypto/performance', {
+      c: undefined,
       sort: '-perfDayPct',
     });
   });
@@ -52,6 +53,17 @@ describe('getCrypto', () => {
       '/export/crypto/performance',
       expect.objectContaining({ sort: 'ticker' }),
     );
+  });
+
+  it('passes the quote currency as the c param', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getCrypto(client, { currency: CryptoCurrency.EUR });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/crypto/performance', {
+      c: 'EUR',
+      sort: '',
+    });
   });
 
   it('maps CSV rows to CryptoItem shape', async () => {

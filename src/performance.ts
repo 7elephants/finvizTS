@@ -7,12 +7,12 @@
  *
  * | Step | Method                  | Input                                      | Output                      |
  * |------|--------------------------|----------------------------------------------|------------------------------|
- * | 1    | getPerformanceItems()   | FinvizClient, path, PerformanceOptions      | Promise<PerformanceItem[]>  |
+ * | 1    | getPerformanceItems()   | FinvizClient, path, sort options, extraParams? | Promise<PerformanceItem[]>  |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { PerformanceItem, PerformanceOptions } from './types';
+import type { PerformanceItem, SortDirection } from './types';
 
 import { buildSortParam } from './utils';
 
@@ -24,13 +24,16 @@ import { buildSortParam } from './utils';
  * @param path    - `/export/futures/performance`, `/export/forex/performance` or
  *                  `/export/crypto/performance`
  * @param options - Sort options
+ * @param extraParams - Endpoint-specific query params (e.g. forex `unit`, crypto `c`)
  */
 export async function getPerformanceItems(
   client: FinvizClient,
   path: string,
-  options: PerformanceOptions,
+  options: { order?: string; orderDirection?: SortDirection },
+  extraParams: Record<string, string | undefined> = {},
 ): Promise<PerformanceItem[]> {
   const rows = await client.getRecords(path, {
+    ...extraParams,
     sort: buildSortParam(options.order, options.orderDirection),
   });
   return rows.map((row) => ({

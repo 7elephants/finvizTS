@@ -14,7 +14,7 @@
 
 import { FinvizClient } from '../src/client';
 import { getForex } from '../src/forex';
-import { PerformanceOrderType, SortDirection } from '../src/types';
+import { ForexPipsOrderType, ForexUnit, PerformanceOrderType, SortDirection } from '../src/types';
 
 describe('getForex', () => {
   const mockGetRecords = jest.fn();
@@ -27,7 +27,7 @@ describe('getForex', () => {
 
     await getForex(client);
 
-    expect(mockGetRecords).toHaveBeenCalledWith('/export/forex/performance', { sort: '' });
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/forex/performance', { unit: undefined, sort: '' });
   });
 
   it('combines order and orderDirection into the sort param', async () => {
@@ -39,6 +39,7 @@ describe('getForex', () => {
     });
 
     expect(mockGetRecords).toHaveBeenCalledWith('/export/forex/performance', {
+      unit: undefined,
       sort: '-perfDayPct',
     });
   });
@@ -52,6 +53,21 @@ describe('getForex', () => {
       '/export/forex/performance',
       expect.objectContaining({ sort: 'ticker' }),
     );
+  });
+
+  it('passes the unit param and pips sort key', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getForex(client, {
+      unit: ForexUnit.PIPS,
+      order: ForexPipsOrderType.PERF_WEEK,
+      orderDirection: SortDirection.DESC,
+    });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/forex/performance', {
+      unit: 'pips',
+      sort: '-perfWeekPips',
+    });
   });
 
   it('maps CSV rows to ForexItem shape', async () => {
