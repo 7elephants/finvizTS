@@ -10,9 +10,9 @@
 
 ### getQuote()
 
-> **getQuote**(`client`, `ticker`, `options`): `Promise`\<[`Quote`](types/quote.md#quote)[]\>
+> **getQuote**(`client`, `ticker`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Quote`](types/quote.md#quote)\>\>
 
-Defined in: [quote.ts:24](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/quote.ts#L24)
+Defined in: [quote.ts:37](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/quote.ts#L37)
 
 Fetch OHLCV time-series data for a single ticker symbol.
 The API returns a multi-row CSV (header + data rows); each row becomes a Quote.
@@ -39,4 +39,4 @@ Period (required) and optional range
 
 #### Returns
 
-`Promise`\<[`Quote`](types/quote.md#quote)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Quote`](types/quote.md#quote)\>\>

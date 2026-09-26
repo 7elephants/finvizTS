@@ -91,7 +91,7 @@ describe('getManagers', () => {
 
     const result = await getManagers(client, { search: 'Berkshire' });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         name: 'Berkshire Hathaway Inc',
         manager: 'Warren Buffett',
@@ -111,7 +111,7 @@ describe('getManagers', () => {
     ]);
   });
 
-  it('defaults missing/empty numeric fields to zero', async () => {
+  it('leaves missing/empty numeric fields undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Name: 'Some Fund',
@@ -120,27 +120,28 @@ describe('getManagers', () => {
 
     const result = await getManagers(client, { search: 'Some Fund' });
 
-    expect(result).toEqual([
+    expect(result.errors).toEqual([]);
+    expect(result.items).toEqual([
       expect.objectContaining({
         name: 'Some Fund',
-        manager: '',
-        id: '',
-        portfolioValue: 0,
-        numInvestments: 0,
-        newPurchases: 0,
-        soldOut: 0,
-        added: 0,
-        reduced: 0,
-        top10ConcentrationPct: 0,
-        turnOverPct: 0,
-        timeHeldTopTen: 0,
-        timeHeldAll: 0,
+        manager: undefined,
+        id: undefined,
+        portfolioValue: undefined,
+        numInvestments: undefined,
+        newPurchases: undefined,
+        soldOut: undefined,
+        added: undefined,
+        reduced: undefined,
+        top10ConcentrationPct: undefined,
+        turnOverPct: undefined,
+        timeHeldTopTen: undefined,
+        timeHeldAll: undefined,
       }),
     ]);
-    expect(result[0]!.reportDate.getTime()).toBeNaN();
+    expect(result.items[0]?.reportDate).toBeUndefined();
   });
 
-  it('defaults empty-string numeric fields to zero', async () => {
+  it('leaves empty-string numeric fields undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Name: 'Some Fund',
@@ -162,18 +163,19 @@ describe('getManagers', () => {
 
     const result = await getManagers(client, { search: 'Some Fund' });
 
-    expect(result).toEqual([
+    expect(result.errors).toEqual([]);
+    expect(result.items).toEqual([
       expect.objectContaining({
-        portfolioValue: 0,
-        numInvestments: 0,
-        newPurchases: 0,
-        soldOut: 0,
-        added: 0,
-        reduced: 0,
-        top10ConcentrationPct: 0,
-        turnOverPct: 0,
-        timeHeldTopTen: 0,
-        timeHeldAll: 0,
+        portfolioValue: undefined,
+        numInvestments: undefined,
+        newPurchases: undefined,
+        soldOut: undefined,
+        added: undefined,
+        reduced: undefined,
+        top10ConcentrationPct: undefined,
+        turnOverPct: undefined,
+        timeHeldTopTen: undefined,
+        timeHeldAll: undefined,
       }),
     ]);
   });

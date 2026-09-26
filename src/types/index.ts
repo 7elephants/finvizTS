@@ -21,8 +21,9 @@
  * | 12   | Re-export shared fund/manager shape   | types/fund-manager.ts | ManagerFundOrderType, etc. |
  * | 13   | Re-export performance types           | types/performance.ts, | PerformanceOrderType, |
  * |      |                                        | futures/forex/crypto.ts | FuturesItem, etc.   |
- * | 14   | Export SortDirection const + type     | —                  | Typed sort direction |
- * | 15   | Export ErrorLevel const + type        | —                  | Typed error level    |
+ * | 14   | Re-export response types              | types/response.ts  | FinvizResponse, ParseError |
+ * | 15   | Export SortDirection const + type     | —                  | Typed sort direction |
+ * | 16   | Export ErrorLevel const + type        | —                  | Typed error level    |
  * ---
  */
 
@@ -43,6 +44,7 @@ export * from './performance';
 export * from './futures';
 export * from './forex';
 export * from './crypto';
+export * from './response';
 
 /** Sort direction values shared by the `o` query parameter across endpoints. */
 export const SortDirection = {

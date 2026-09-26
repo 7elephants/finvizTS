@@ -89,4 +89,13 @@ describe('getScreener', () => {
       expect.objectContaining({ v: 152 }),
     );
   });
+
+  it('returns the records unchanged with no errors', async () => {
+    const rows = [{ 'No.': '1', Ticker: 'AAA', 'P/E': '' }];
+    mockGetRecords.mockResolvedValueOnce(rows);
+
+    const result = await getScreener(client);
+
+    expect(result).toEqual({ items: rows, errors: [] });
+  });
 });

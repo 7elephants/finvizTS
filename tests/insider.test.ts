@@ -121,7 +121,7 @@ describe('getInsiders', () => {
 
     const result = await getInsiders(client, { ticker: 'AAPL' });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         ticker: 'AAPL',
         owner: 'Cook Timothy D',
@@ -139,7 +139,7 @@ describe('getInsiders', () => {
     ]);
   });
 
-  it('defaults missing/empty fields to zero values', async () => {
+  it('leaves missing/empty fields undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Ticker: 'MSFT',
@@ -148,21 +148,22 @@ describe('getInsiders', () => {
 
     const result = await getInsiders(client, { ticker: 'MSFT' });
 
-    expect(result).toEqual([
+    expect(result.errors).toEqual([]);
+    expect(result.items).toEqual([
       expect.objectContaining({
         ticker: 'MSFT',
-        owner: '',
-        ownerCIK: 0,
-        relationship: '',
-        transactionType: '',
-        cost: 0,
-        shares: 0,
-        value: 0,
-        totalShares: 0,
-        SECFormUrl: '',
+        owner: undefined,
+        ownerCIK: undefined,
+        relationship: undefined,
+        transactionType: undefined,
+        cost: undefined,
+        shares: undefined,
+        value: undefined,
+        totalShares: undefined,
+        SECFormUrl: undefined,
       }),
     ]);
-    expect(result[0]!.date.getTime()).toBeNaN();
-    expect(result[0]!.SECForm.getTime()).toBeNaN();
+    expect(result.items[0]?.date).toBeUndefined();
+    expect(result.items[0]?.SECForm).toBeUndefined();
   });
 });

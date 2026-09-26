@@ -62,7 +62,7 @@ describe('getNews', () => {
 
     const result = await getNews(client, { type: NewsType.STOCK, tickers: 'AAPL' });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         title: 'Apple hits ATH',
         source: 'Reuters',

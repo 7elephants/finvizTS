@@ -65,7 +65,7 @@ describe('getEconomicCalendar', () => {
 
     const result = await getEconomicCalendar(client, { from: new Date(2026, 2, 1) });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         Date: '3/27/2026',
         Time: '8:30AM',
@@ -149,7 +149,7 @@ describe('getEarningsCalendar', () => {
 
     const result = await getEarningsCalendar(client, { from: new Date(2026, 6, 20) });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         date: new Date('2026-07-20 08:30'),
         ticker: 'AMC',
@@ -169,7 +169,7 @@ describe('getEarningsCalendar', () => {
     ]);
   });
 
-  it('defaults missing numeric fields to zero', async () => {
+  it('leaves missing fields undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Ticker: 'ATLO',
@@ -179,22 +179,36 @@ describe('getEarningsCalendar', () => {
 
     const result = await getEarningsCalendar(client, { from: new Date(2026, 6, 20) });
 
-    expect(result).toEqual([
+    expect(result.errors).toEqual([]);
+    expect(result.items).toEqual([
       expect.objectContaining({
         ticker: 'ATLO',
         company: 'Ames National Corp',
-        marketCap: 0,
-        epsEstimate: 0,
-        epsActual: 0,
-        epsSurprise: 0,
-        epsGaapEstimate: 0,
-        epsGaapActual: 0,
-        epsGaapSurprise: 0,
-        revenueEstimate: 0,
-        revenueActual: 0,
-        revenueSurprise: 0,
-        oneDayPriceReaction: 0,
+        marketCap: undefined,
+        epsEstimate: undefined,
+        epsActual: undefined,
+        epsSurprise: undefined,
+        epsGaapEstimate: undefined,
+        epsGaapActual: undefined,
+        epsGaapSurprise: undefined,
+        revenueEstimate: undefined,
+        revenueActual: undefined,
+        revenueSurprise: undefined,
+        oneDayPriceReaction: undefined,
       }),
+    ]);
+  });
+  it('reports unparseable cells as errors and leaves the field undefined', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      { Date: '2026-07-20 08:30', Ticker: 'AMC', 'Market Cap': 'N/A', 'EPS Actual': '-0.02' },
+    ]);
+
+    const result = await getEarningsCalendar(client, { from: new Date(2026, 6, 20) });
+
+    expect(result.items[0]?.marketCap).toBeUndefined();
+    expect(result.items[0]?.epsActual).toBe(-0.02);
+    expect(result.errors).toEqual([
+      { row: 0, column: 'Market Cap', field: 'marketCap', value: 'N/A', expected: 'number' },
     ]);
   });
 });
@@ -241,19 +255,19 @@ describe('getDividendsCalendar', () => {
 
     const result = await getDividendsCalendar(client, { from: new Date(2026, 6, 20) });
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         ticker: 'CAT',
         company: 'Caterpillar Inc',
         exDate: new Date('2026-07-20'),
         amount: 1.63,
-        special: NaN,
+        special: undefined,
         dividendEstYield: 0.77,
       },
     ]);
   });
 
-  it('defaults missing numeric fields to zero', async () => {
+  it('leaves missing fields undefined', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Ticker: 'HSHP',
@@ -263,13 +277,14 @@ describe('getDividendsCalendar', () => {
 
     const result = await getDividendsCalendar(client, { from: new Date(2026, 6, 20) });
 
-    expect(result).toEqual([
+    expect(result.errors).toEqual([]);
+    expect(result.items).toEqual([
       expect.objectContaining({
         ticker: 'HSHP',
         company: 'Himalaya Shipping Ltd',
-        amount: 0,
-        special: 0,
-        dividendEstYield: 0,
+        amount: undefined,
+        special: undefined,
+        dividendEstYield: undefined,
       }),
     ]);
   });

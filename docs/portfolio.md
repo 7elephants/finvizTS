@@ -10,9 +10,9 @@
 
 ### getPortfolio()
 
-> **getPortfolio**(`client`, `portfolioId`, `options?`): `Promise`\<[`Portfolio`](types/portfolio.md#portfolio)[]\>
+> **getPortfolio**(`client`, `portfolioId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio)\>\>
 
-Defined in: [portfolio.ts:26](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/portfolio.ts#L26)
+Defined in: [portfolio.ts:27](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/portfolio.ts#L27)
 
 Fetch holdings for a saved Finviz portfolio by its ID.
 The portfolio ID can be found in the URL when viewing a portfolio on the Finviz website.
@@ -39,4 +39,4 @@ Optional sort order and column selection
 
 #### Returns
 
-`Promise`\<[`Portfolio`](types/portfolio.md#portfolio)[]\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio)\>\>

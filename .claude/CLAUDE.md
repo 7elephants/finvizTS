@@ -42,35 +42,39 @@ src/
   index.ts        # Public API surface — re-exports everything
   client.ts       # FinvizClient — axios transport, CSV parsing, auth injection, rate limiting/retries
   csv.ts          # parseRecord() and parseRecords() — csv-parse wrappers
+  parse.ts        # parseRows(), rawResponse() + text/number/integer/date column parsers — record → typed item mapping (not exported)
   errors.ts       # FinvizError — thrown on HTTP/network failures
   filters.ts      # buildFilters() — composes the screener `f` query string
   utils.ts        # formatDateToYYYYMMDD(), buildSortParam() — shared request-building helpers
-  types/          # All shared TypeScript interfaces, types, and const objects (one file per domain)
-  quote.ts        # getQuote(client, ticker, options) → QuoteRow[]
-  screener.ts     # getScreener(client, options) → ScreenerRow[]
-  news.ts         # getNews(client, options) → NewsItem[]
-  portfolio.ts    # getPortfolio(client, portfolioId, options) → PortfolioRow[]
-  filings.ts      # getLatestFilings(client, ticker, options) → FilingRow[]
-  options.ts      # getOptionsChain(client, ticker, options) → OptionRow[]
-  groups.ts       # getGroups(client, group, viewId, options) → GroupRow[]
-  insider.ts      # getInsiders(client, options) → InsiderItem[]
-  manager.ts      # getManagers(client, options) → ManagerItem[]
-  fund.ts         # getFunds(client, options) → FundItem[]
+  types/          # All shared TypeScript interfaces, types, and const objects (one file per domain; response.ts holds FinvizResponse/ParseError)
+  quote.ts        # getQuote(client, ticker, options) → FinvizResponse<Quote>
+  screener.ts     # getScreener(client, options) → FinvizResponse<Screener>
+  news.ts         # getNews(client, options) → FinvizResponse<NewsItem>
+  portfolio.ts    # getPortfolio(client, portfolioId, options) → FinvizResponse<Portfolio>
+  filings.ts      # getLatestFilings(client, ticker, options) → FinvizResponse<Filing>
+  options.ts      # getOptionsChain(client, ticker, options) → FinvizResponse<Option>
+  groups.ts       # getGroups(client, group, viewId, options) → FinvizResponse<Group>
+  insider.ts      # getInsiders(client, options) → FinvizResponse<InsiderItem>
+  manager.ts      # getManagers(client, options) → FinvizResponse<ManagerItem>
+  fund.ts         # getFunds(client, options) → FinvizResponse<FundItem>
   fund-manager.ts # getFundManagerItems() — internal helper shared by fund.ts/manager.ts (not exported)
   calendar.ts     # getEconomicCalendar(), getEarningsCalendar(), getDividendsCalendar()
-  futures.ts      # getFutures(client, options) → FuturesItem[]
-  forex.ts        # getForex(client, options) → ForexItem[]
-  crypto.ts       # getCrypto(client, options) → CryptoItem[]
+  futures.ts      # getFutures(client, options) → FinvizResponse<FuturesItem>
+  forex.ts        # getForex(client, options) → FinvizResponse<ForexItem>
+  crypto.ts       # getCrypto(client, options) → FinvizResponse<CryptoItem>
   performance.ts  # getPerformanceItems() — internal helper shared by futures.ts/forex.ts/crypto.ts (not exported)
 
 tests/
   client.test.ts
   csv.test.ts
+  parse.test.ts
   quote.test.ts
   screener.test.ts
   news.test.ts
   portfolio.test.ts
   filings.test.ts
+  options.test.ts
+  groups.test.ts
   insider.test.ts
   manager.test.ts
   fund.test.ts
@@ -84,6 +88,7 @@ tests/
 
 - **All responses are CSV.** The Finviz API returns `text/csv`. Requests use `responseType: 'text'` and axios sends `Accept: text/csv`.
 - **Two response shapes.** `client.getRecord()` handles two-row CSV (header + single value row) for quote; `client.getRecords()` handles N-row CSV for screener, news, and the rest of the multi-row endpoints. The `csv-parse` library does the actual parsing.
+- **Every `get*` returns `FinvizResponse<T>` (`{ items, errors }`).** Typed endpoints declare a `RowSchema<T>` (item property → `text`/`number`/`integer`/`date` column parser) and call `parseRows()` in `parse.ts`. Every item field is `T | undefined`: blank/missing cells become `undefined`; non-blank cells that fail to parse also become `undefined` and are reported as a `ParseError { row, column, field, value, expected }`. Record endpoints (screener, portfolio, groups, options, economic calendar) return raw rows via `rawResponse()` with an empty `errors` array.
 - **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around. It also proactively rate-limits requests and retries `429` responses (see `.claude/rules/rate_limiting.md`).
 - **Auth is injected by the client.** `auth` is appended to every request params automatically — individual modules never handle auth (see `.claude/rules/authenication.md`).
 - **`fund.ts` and `manager.ts` share one implementation.** Funds and fund managers are the same underlying Finviz resource (`/export/funds` vs `/export/managers`), so both call the internal `getFundManagerItems()` in `fund-manager.ts`, which is not part of the public API surface.

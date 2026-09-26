@@ -53,13 +53,13 @@ export interface QuoteOptions {
   range?: string;
 }
 
-/** A single OHLCV row returned by the quote endpoint. */
+/** A single OHLCV row returned by the quote endpoint. Fields are `undefined` when the API returns no value. */
 export interface Quote {
-  Date: string;
-  Open: string;
-  High: string;
-  Low: string;
-  Close: string;
-  Volume: string;
-  ChangeFromOpen: string;
+  Date: string | undefined;
+  Open: string | undefined;
+  High: string | undefined;
+  Low: string | undefined;
+  Close: string | undefined;
+  Volume: string | undefined;
+  ChangeFromOpen: string | undefined;
 }

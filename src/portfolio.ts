@@ -6,14 +6,15 @@
  *
  * | Step | Method          | Input                                    | Output                  |
  * |------|-----------------|------------------------------------------|-------------------------|
- * | 1    | getPortfolio()  | FinvizClient, portfolioId, PortfolioOptions | Promise<Portfolio[]> |
+ * | 1    | getPortfolio()  | FinvizClient, portfolioId, PortfolioOptions | Promise<FinvizResponse<Portfolio>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { PortfolioOptions, Portfolio } from './types';
+import type { FinvizResponse, PortfolioOptions, Portfolio } from './types';
 
 import { buildSortParam } from './utils';
+import { rawResponse } from './parse';
 
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
@@ -27,10 +28,11 @@ export async function getPortfolio(
   client: FinvizClient,
   portfolioId: string | number,
   options: PortfolioOptions = {},
-): Promise<Portfolio[]> {
-  return client.getRecords('/export/portfolio', {
+): Promise<FinvizResponse<Portfolio>> {
+  const rows = await client.getRecords('/export/portfolio', {
     pid: String(portfolioId),
     o: buildSortParam(options.order, options.orderDirection),
     c: Array.isArray(options.fields) ? options.fields.join(',') : options.fields,
   });
+  return rawResponse(rows);
 }

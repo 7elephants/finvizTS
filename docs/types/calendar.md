@@ -10,7 +10,7 @@
 
 ### CalendarOptions
 
-Defined in: [types/calendar.ts:21](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L21)
+Defined in: [types/calendar.ts:21](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L21)
 
 Options for an economic calendar request.
 
@@ -20,7 +20,7 @@ Options for an economic calendar request.
 
 > **from**: `Date`
 
-Defined in: [types/calendar.ts:23](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L23)
+Defined in: [types/calendar.ts:23](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L23)
 
 Start date of the range to fetch events for.
 
@@ -28,7 +28,7 @@ Start date of the range to fetch events for.
 
 > `optional` **to?**: `Date`
 
-Defined in: [types/calendar.ts:25](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L25)
+Defined in: [types/calendar.ts:25](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L25)
 
 Optional end date of the range to fetch events for.
 
@@ -36,53 +36,53 @@ Optional end date of the range to fetch events for.
 
 ### DividendsCalendarItem
 
-Defined in: [types/calendar.ts:89](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L89)
+Defined in: [types/calendar.ts:89](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L89)
 
-A single row returned by the dividends calendar endpoint.
+A single row returned by the dividends calendar endpoint. Fields are `undefined` when the API returns no value.
 
 #### Properties
 
 ##### amount
 
-> **amount**: `number`
+> **amount**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:93](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L93)
+Defined in: [types/calendar.ts:93](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L93)
 
 ##### company
 
-> **company**: `string`
+> **company**: `string` \| `undefined`
 
-Defined in: [types/calendar.ts:91](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L91)
+Defined in: [types/calendar.ts:91](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L91)
 
 ##### dividendEstYield
 
-> **dividendEstYield**: `number`
+> **dividendEstYield**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:95](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L95)
+Defined in: [types/calendar.ts:95](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L95)
 
 ##### exDate
 
-> **exDate**: `Date`
+> **exDate**: `Date` \| `undefined`
 
-Defined in: [types/calendar.ts:92](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L92)
+Defined in: [types/calendar.ts:92](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L92)
 
 ##### special
 
-> **special**: `number`
+> **special**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:94](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L94)
+Defined in: [types/calendar.ts:94](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L94)
 
 ##### ticker
 
-> **ticker**: `string`
+> **ticker**: `string` \| `undefined`
 
-Defined in: [types/calendar.ts:90](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L90)
+Defined in: [types/calendar.ts:90](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L90)
 
 ***
 
 ### DividendsCalendarOptions
 
-Defined in: [types/calendar.ts:81](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L81)
+Defined in: [types/calendar.ts:81](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L81)
 
 Options for a dividends calendar request.
 
@@ -92,7 +92,7 @@ Options for a dividends calendar request.
 
 > **from**: `Date`
 
-Defined in: [types/calendar.ts:83](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L83)
+Defined in: [types/calendar.ts:83](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L83)
 
 Start date of the range to fetch dividends for (required).
 
@@ -100,7 +100,7 @@ Start date of the range to fetch dividends for (required).
 
 > `optional` **to?**: `Date`
 
-Defined in: [types/calendar.ts:85](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L85)
+Defined in: [types/calendar.ts:85](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L85)
 
 Optional end date of the range to fetch dividends for (max 90 days from `from`).
 
@@ -108,101 +108,101 @@ Optional end date of the range to fetch dividends for (max 90 days from `from`).
 
 ### EarningsCalendarItem
 
-Defined in: [types/calendar.ts:63](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L63)
+Defined in: [types/calendar.ts:63](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L63)
 
-A single row returned by the earnings calendar endpoint.
+A single row returned by the earnings calendar endpoint. Fields are `undefined` when the API returns no value.
 
 #### Properties
 
 ##### company
 
-> **company**: `string`
+> **company**: `string` \| `undefined`
 
-Defined in: [types/calendar.ts:66](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L66)
+Defined in: [types/calendar.ts:66](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L66)
 
 ##### date
 
-> **date**: `Date`
+> **date**: `Date` \| `undefined`
 
-Defined in: [types/calendar.ts:64](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L64)
+Defined in: [types/calendar.ts:64](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L64)
 
 ##### epsActual
 
-> **epsActual**: `number`
+> **epsActual**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:69](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L69)
+Defined in: [types/calendar.ts:69](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L69)
 
 ##### epsEstimate
 
-> **epsEstimate**: `number`
+> **epsEstimate**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:68](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L68)
+Defined in: [types/calendar.ts:68](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L68)
 
 ##### epsGaapActual
 
-> **epsGaapActual**: `number`
+> **epsGaapActual**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:72](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L72)
+Defined in: [types/calendar.ts:72](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L72)
 
 ##### epsGaapEstimate
 
-> **epsGaapEstimate**: `number`
+> **epsGaapEstimate**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:71](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L71)
+Defined in: [types/calendar.ts:71](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L71)
 
 ##### epsGaapSurprise
 
-> **epsGaapSurprise**: `number`
+> **epsGaapSurprise**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:73](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L73)
+Defined in: [types/calendar.ts:73](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L73)
 
 ##### epsSurprise
 
-> **epsSurprise**: `number`
+> **epsSurprise**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:70](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L70)
+Defined in: [types/calendar.ts:70](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L70)
 
 ##### marketCap
 
-> **marketCap**: `number`
+> **marketCap**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:67](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L67)
+Defined in: [types/calendar.ts:67](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L67)
 
 ##### oneDayPriceReaction
 
-> **oneDayPriceReaction**: `number`
+> **oneDayPriceReaction**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:77](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L77)
+Defined in: [types/calendar.ts:77](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L77)
 
 ##### revenueActual
 
-> **revenueActual**: `number`
+> **revenueActual**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:75](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L75)
+Defined in: [types/calendar.ts:75](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L75)
 
 ##### revenueEstimate
 
-> **revenueEstimate**: `number`
+> **revenueEstimate**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:74](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L74)
+Defined in: [types/calendar.ts:74](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L74)
 
 ##### revenueSurprise
 
-> **revenueSurprise**: `number`
+> **revenueSurprise**: `number` \| `undefined`
 
-Defined in: [types/calendar.ts:76](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L76)
+Defined in: [types/calendar.ts:76](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L76)
 
 ##### ticker
 
-> **ticker**: `string`
+> **ticker**: `string` \| `undefined`
 
-Defined in: [types/calendar.ts:65](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L65)
+Defined in: [types/calendar.ts:65](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L65)
 
 ***
 
 ### EarningsCalendarOptions
 
-Defined in: [types/calendar.ts:51](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L51)
+Defined in: [types/calendar.ts:51](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L51)
 
 Options for an earnings calendar request.
 
@@ -212,7 +212,7 @@ Options for an earnings calendar request.
 
 > **from**: `Date`
 
-Defined in: [types/calendar.ts:53](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L53)
+Defined in: [types/calendar.ts:53](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L53)
 
 Start date of the range to fetch earnings for (required).
 
@@ -220,7 +220,7 @@ Start date of the range to fetch earnings for (required).
 
 > `optional` **order?**: [`EarningsOrderType`](#earningsordertype)
 
-Defined in: [types/calendar.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L57)
+Defined in: [types/calendar.ts:57](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L57)
 
 Column to sort by.
 
@@ -228,7 +228,7 @@ Column to sort by.
 
 > `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/calendar.ts:59](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L59)
+Defined in: [types/calendar.ts:59](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L59)
 
 Sort direction (either '' or '-').
 
@@ -236,7 +236,7 @@ Sort direction (either '' or '-').
 
 > `optional` **to?**: `Date`
 
-Defined in: [types/calendar.ts:55](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L55)
+Defined in: [types/calendar.ts:55](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L55)
 
 Optional end date of the range to fetch earnings for (max 90 days from `from`).
 
@@ -246,7 +246,7 @@ Optional end date of the range to fetch earnings for (max 90 days from `from`).
 
 > **Calendar** = `Record`\<`string`, `string`\>
 
-Defined in: [types/calendar.ts:29](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L29)
+Defined in: [types/calendar.ts:29](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L29)
 
 A single row returned by the economic calendar endpoint.
 
@@ -256,7 +256,7 @@ A single row returned by the economic calendar endpoint.
 
 > **EarningsOrderType** = *typeof* [`EarningsOrderType`](#earningsordertype-1)\[keyof *typeof* [`EarningsOrderType`](#earningsordertype-1)\]
 
-Defined in: [types/calendar.ts:32](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L32)
+Defined in: [types/calendar.ts:32](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L32)
 
 Valid sort columns for the earnings calendar endpoint.
 
@@ -266,7 +266,7 @@ Valid sort columns for the earnings calendar endpoint.
 
 > `const` **EarningsOrderType**: `object`
 
-Defined in: [types/calendar.ts:32](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/calendar.ts#L32)
+Defined in: [types/calendar.ts:32](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/calendar.ts#L32)
 
 Valid sort columns for the earnings calendar endpoint.
 

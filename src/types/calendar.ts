@@ -59,22 +59,22 @@ export interface EarningsCalendarOptions {
   orderDirection?: SortDirection;
 }
 
-/** A single row returned by the earnings calendar endpoint. */
+/** A single row returned by the earnings calendar endpoint. Fields are `undefined` when the API returns no value. */
 export interface EarningsCalendarItem {
-  date: Date;
-  ticker: string;
-  company: string;
-  marketCap: number;
-  epsEstimate: number;
-  epsActual: number;
-  epsSurprise: number;
-  epsGaapEstimate: number;
-  epsGaapActual: number;
-  epsGaapSurprise: number;
-  revenueEstimate: number;
-  revenueActual: number;
-  revenueSurprise: number;
-  oneDayPriceReaction: number;
+  date: Date | undefined;
+  ticker: string | undefined;
+  company: string | undefined;
+  marketCap: number | undefined;
+  epsEstimate: number | undefined;
+  epsActual: number | undefined;
+  epsSurprise: number | undefined;
+  epsGaapEstimate: number | undefined;
+  epsGaapActual: number | undefined;
+  epsGaapSurprise: number | undefined;
+  revenueEstimate: number | undefined;
+  revenueActual: number | undefined;
+  revenueSurprise: number | undefined;
+  oneDayPriceReaction: number | undefined;
 }
 
 /** Options for a dividends calendar request. */
@@ -85,13 +85,13 @@ export interface DividendsCalendarOptions {
   to?: Date;
 }
 
-/** A single row returned by the dividends calendar endpoint. */
+/** A single row returned by the dividends calendar endpoint. Fields are `undefined` when the API returns no value. */
 export interface DividendsCalendarItem {
-  ticker: string;
-  company: string;
-  exDate: Date;
-  amount: number;
-  special: number;
-  dividendEstYield: number;
+  ticker: string | undefined;
+  company: string | undefined;
+  exDate: Date | undefined;
+  amount: number | undefined;
+  special: number | undefined;
+  dividendEstYield: number | undefined;
 }
 

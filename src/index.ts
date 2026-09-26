@@ -51,6 +51,7 @@ export {
   ForexUnit,
   ForexPipsOrderType,
   CryptoCurrency,
+  ParseErrorExpected,
   SortDirection,
   ErrorLevel,
 } from './types';
@@ -93,4 +94,6 @@ export type {
   ForexItem,
   CryptoOptions,
   CryptoItem,
+  FinvizResponse,
+  ParseError,
 } from './types';

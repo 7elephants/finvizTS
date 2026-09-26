@@ -28,14 +28,41 @@ import {
 
 const client = new FinvizClient({ apiToken: process.env.FINVIZ_API_TOKEN! });
 
-const rows = await getScreener(client, {
+const { items } = await getScreener(client, {
   view: ScreenerView.OVERVIEW,
   fields: [ScreenerField.TICKER, ScreenerField.PRICE, ScreenerField.VOLUME],
   filters: [ScreenerExchangeFilter.NASDAQ, ScreenerCountryFilter.USA],
 });
 
-console.log(rows[0]); // { Ticker: 'AAPL', Price: '172.50', Volume: '55123456' }
+console.log(items[0]); // { Ticker: 'AAPL', Price: '172.50', Volume: '55123456' }
 ```
+
+## Responses, Missing Values & Parse Errors
+
+Every `get*` function resolves to a `FinvizResponse<T>`:
+
+```ts
+interface FinvizResponse<T> {
+  items: T[];           // one item per CSV row
+  errors: ParseError[]; // cells that were present but could not be parsed
+}
+```
+
+For typed items (`EarningsCalendarItem`, `DividendsCalendarItem`, `InsiderItem`, `ManagerItem`/`FundItem`, `FuturesItem`/`ForexItem`/`CryptoItem`, `NewsItem`, `Filing`, `Quote`) every field is typed `T | undefined`:
+
+- **Missing or blank cell** → the field is `undefined`. This is not an error.
+- **Unparseable cell** (e.g. `N/A` in a numeric column, or a malformed date) → the field is `undefined` **and** a `ParseError` is added to `errors`.
+
+```ts
+const { items, errors } = await getCrypto(client);
+
+for (const e of errors) {
+  // { row: 3, column: 'Price', field: 'price', value: 'N/A', expected: 'number' }
+  console.warn(`Row ${e.row}: ${e.column}="${e.value}" is not a ${e.expected}`);
+}
+```
+
+`ParseError.expected` is one of `ParseErrorExpected.NUMBER`, `INTEGER` or `DATE`. Untyped record endpoints (`getScreener`, `getPortfolio`, `getGroups`, `getOptionsChain`, `getEconomicCalendar`) return raw CSV strings unchanged (blank cells stay `''`), so their `errors` array is always empty.
 
 ## API Reference
 
@@ -72,14 +99,14 @@ const client = new FinvizClient({
 
 Request option types (`ScreenerOptions`, `QuoteOptions`, etc.) and every filter/enum constant (`ScreenerField`, `ScreenerOrder`, `ScreenerSignal`, `ScreenerExchangeFilter`, and the rest of the screener filter families) are documented under [docs/types/](docs/types/client.md).
 
-### `getEconomicCalendar(client, options)` → `Promise<Calendar[]>`
+### `getEconomicCalendar(client, options)` → `Promise<FinvizResponse<Calendar>>`
 
 Fetch economic calendar events for a date range.
 
 ```ts
 import { getEconomicCalendar } from "finvizts";
 
-const events = await getEconomicCalendar(client, {
+const { items: events } = await getEconomicCalendar(client, {
   from: new Date("2026-03-01"), // required
   to: new Date("2026-03-31"), // optional
 });
@@ -93,14 +120,14 @@ const events = await getEconomicCalendar(client, {
 
 ---
 
-### `getEarningsCalendar(client, options)` → `Promise<EarningsCalendarItem[]>`
+### `getEarningsCalendar(client, options)` → `Promise<FinvizResponse<EarningsCalendarItem>>`
 
 Fetch earnings reports for a date range (max 90 days from `from`), optionally sorted.
 
 ```ts
 import { getEarningsCalendar, EarningsOrderType, SortDirection } from "finvizts";
 
-const earnings = await getEarningsCalendar(client, {
+const { items: earnings } = await getEarningsCalendar(client, {
   from: new Date("2026-07-20"), // required
   to: new Date("2026-07-24"), // optional, max 90 days from `from`
   order: EarningsOrderType.MARKET_CAP, // optional
@@ -122,14 +149,14 @@ const earnings = await getEarningsCalendar(client, {
 
 ---
 
-### `getDividendsCalendar(client, options)` → `Promise<DividendsCalendarItem[]>`
+### `getDividendsCalendar(client, options)` → `Promise<FinvizResponse<DividendsCalendarItem>>`
 
 Fetch upcoming ex-dividend dates for a date range (max 90 days from `from`).
 
 ```ts
 import { getDividendsCalendar } from "finvizts";
 
-const dividends = await getDividendsCalendar(client, {
+const { items: dividends } = await getDividendsCalendar(client, {
   from: new Date("2026-07-20"), // required
   to: new Date("2026-07-24"), // optional, max 90 days from `from`
 });
@@ -143,7 +170,7 @@ const dividends = await getDividendsCalendar(client, {
 
 ---
 
-### `getInsiders(client, options?)` → `Promise<InsiderItem[]>`
+### `getInsiders(client, options?)` → `Promise<FinvizResponse<InsiderItem>>`
 
 Fetch insider trading transactions, optionally filtered by ticker, transaction type, owner relationship, minimum transaction value, or owner CIK.
 
@@ -156,7 +183,7 @@ import {
   SortDirection,
 } from "finvizts";
 
-const trades = await getInsiders(client, {
+const { items: trades } = await getInsiders(client, {
   ticker: "AAPL", // optional
   type: InsiderTransactionType.SALE, // optional
   ownerRel: InsiderOwnerRelationshipType.EXCLUDE_TEN_PERCENT, // optional
@@ -181,14 +208,14 @@ const trades = await getInsiders(client, {
 
 ---
 
-### `getManagers(client, options?)` → `Promise<ManagerItem[]>`
+### `getManagers(client, options?)` → `Promise<FinvizResponse<ManagerItem>>`
 
 Fetch fund manager portfolios, optionally filtered by a search term and sorted by order/direction.
 
 ```ts
 import { getManagers, ManagerFundOrderType, SortDirection } from "finvizts";
 
-const managers = await getManagers(client, {
+const { items: managers } = await getManagers(client, {
   search: "Berkshire", // optional
   order: ManagerFundOrderType.PORTFOLIO_VALUE, // optional
   orderDirection: SortDirection.DESC, // optional
@@ -206,14 +233,14 @@ const managers = await getManagers(client, {
 
 ---
 
-### `getFunds(client, options?)` → `Promise<FundItem[]>`
+### `getFunds(client, options?)` → `Promise<FinvizResponse<FundItem>>`
 
 Fetch fund portfolios, optionally filtered by a search term and sorted by order/direction. Same underlying resource and response shape as `getManagers`, queried by fund name instead of manager name.
 
 ```ts
 import { getFunds, ManagerFundOrderType, SortDirection } from "finvizts";
 
-const funds = await getFunds(client, {
+const { items: funds } = await getFunds(client, {
   search: "Vanguard", // optional
   order: ManagerFundOrderType.PORTFOLIO_VALUE, // optional
   orderDirection: SortDirection.DESC, // optional
@@ -248,7 +275,7 @@ All functions throw `FinvizError` on HTTP errors. Check `statusCode` to distingu
 import { FinvizError } from "finvizts";
 
 try {
-  const rows = await getScreener(client);
+  const { items } = await getScreener(client);
 } catch (err) {
   if (err instanceof FinvizError) {
     console.error(err.message); // human-readable message

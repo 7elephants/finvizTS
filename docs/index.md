@@ -122,6 +122,12 @@ Re-exports [FinvizError](errors.md#finvizerror)
 
 ***
 
+### FinvizResponse
+
+Re-exports [FinvizResponse](types/response.md#finvizresponse)
+
+***
+
 ### ForexItem
 
 Re-exports [ForexItem](types/forex.md#forexitem)
@@ -401,6 +407,18 @@ Re-exports [OptionsChainOptions](types/options.md#optionschainoptions)
 ### OptionsViewType
 
 Re-exports [OptionsViewType](types/options.md#optionsviewtype-1)
+
+***
+
+### ParseError
+
+Re-exports [ParseError](types/response.md#parseerror)
+
+***
+
+### ParseErrorExpected
+
+Re-exports [ParseErrorExpected](types/response.md#parseerrorexpected-2)
 
 ***
 

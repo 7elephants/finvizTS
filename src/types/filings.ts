@@ -49,12 +49,12 @@ export interface FilingOptions {
   filter?: FilingFilter;
 }
 
-/** A single row returned by the latest-filings endpoint. */
+/** A single row returned by the latest-filings endpoint. Fields are `undefined` when the API returns no value. */
 export interface Filing {
-  filingDate: string;
-  reportDate: string;
-  form: string;
-  description: string;
-  filing: string;
-  document: string;
+  filingDate: string | undefined;
+  reportDate: string | undefined;
+  form: string | undefined;
+  description: string | undefined;
+  filing: string | undefined;
+  document: string | undefined;
 }

@@ -88,12 +88,12 @@ describe('getLatestFilings', () => {
 
     const result = await getLatestFilings(client, 'MSFT');
 
-    expect(result).toEqual([
+    expect(result.items).toEqual([
       {
         filingDate: '3/27/2026',
-        reportDate: '',
+        reportDate: undefined,
         form: 'SCHEDULE 13G/A',
-        description: '',
+        description: undefined,
         filing: 'https://www.sec.gov/example',
         document: 'https://www.sec.gov/example/doc.xml',
       },

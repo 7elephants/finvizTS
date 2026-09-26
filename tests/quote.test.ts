@@ -20,8 +20,8 @@ describe('getQuote', () => {
       p: 'd',
       r: undefined,
     });
-    expect(result).toHaveLength(1);
-    expect(result[0]).toMatchObject({ Date: '4/1/2026', Close: '181.00' });
+    expect(result.items).toHaveLength(1);
+    expect(result.items[0]).toMatchObject({ Date: '4/1/2026', Close: '181.00' });
   });
 
   it('passes range when provided', async () => {
@@ -43,8 +43,8 @@ describe('getQuote', () => {
 
     const result = await getQuote(client, 'MSFT', { period: QuotePeriod.DAILY });
 
-    expect(result).toHaveLength(2);
-    expect(result[0]).toEqual({
+    expect(result.items).toHaveLength(2);
+    expect(result.items[0]).toEqual({
       Date: '3/31/2016',
       Open: '54.95',
       High: '55.59',
