@@ -12,7 +12,7 @@
 
 > **getFutures**(`client`, `options?`): `Promise`\<[`PerformanceItem`](types/performance.md#performanceitem)[]\>
 
-Defined in: [futures.ts:25](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/futures.ts#L25)
+Defined in: [futures.ts:25](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/futures.ts#L25)
 
 Fetch futures performance, optionally sorted by order/direction.
 The API returns a multi-row CSV; each row is mapped to a FuturesItem.

@@ -12,7 +12,7 @@
 
 > **getScreener**(`client`, `options?`): `Promise`\<[`Screener`](types/screener.md#screener)[]\>
 
-Defined in: [screener.ts:26](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/screener.ts#L26)
+Defined in: [screener.ts:26](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/screener.ts#L26)
 
 Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
 The API returns a multi-row CSV; each data row becomes a key/value record.

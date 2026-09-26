@@ -134,6 +134,18 @@ Re-exports [ForexOptions](types/forex.md#forexoptions)
 
 ***
 
+### ForexPercentOptions
+
+Re-exports [ForexPercentOptions](types/forex.md#forexpercentoptions)
+
+***
+
+### ForexPipsOptions
+
+Re-exports [ForexPipsOptions](types/forex.md#forexpipsoptions)
+
+***
+
 ### ForexPipsOrderType
 
 Re-exports [ForexPipsOrderType](types/forex.md#forexpipsordertype-1)

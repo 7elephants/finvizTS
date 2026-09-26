@@ -12,7 +12,7 @@
 
 > **ErrorLevel** = *typeof* [`ErrorLevel`](#errorlevel-1)\[keyof *typeof* [`ErrorLevel`](#errorlevel-1)\]
 
-Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/index.ts#L57)
+Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/index.ts#L57)
 
 Union of all known error level values.
 
@@ -22,7 +22,7 @@ Union of all known error level values.
 
 > **SortDirection** = *typeof* [`SortDirection`](#sortdirection-1)\[keyof *typeof* [`SortDirection`](#sortdirection-1)\]
 
-Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/index.ts#L48)
+Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/index.ts#L48)
 
 Union of all known sort direction values.
 
@@ -32,7 +32,7 @@ Union of all known sort direction values.
 
 > `const` **ErrorLevel**: `object`
 
-Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/index.ts#L57)
+Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/index.ts#L57)
 
 Severity level attached to a thrown FinvizError.
 
@@ -56,7 +56,7 @@ Severity level attached to a thrown FinvizError.
 
 > `const` **SortDirection**: `object`
 
-Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/index.ts#L48)
+Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/index.ts#L48)
 
 Sort direction values shared by the `o` query parameter across endpoints.
 
@@ -171,6 +171,18 @@ Re-exports [ForexItem](types/forex.md#forexitem)
 ### ForexOptions
 
 Re-exports [ForexOptions](types/forex.md#forexoptions)
+
+***
+
+### ForexPercentOptions
+
+Re-exports [ForexPercentOptions](types/forex.md#forexpercentoptions)
+
+***
+
+### ForexPipsOptions
+
+Re-exports [ForexPipsOptions](types/forex.md#forexpipsoptions)
 
 ***
 

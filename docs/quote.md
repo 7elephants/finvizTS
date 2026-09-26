@@ -12,7 +12,7 @@
 
 > **getQuote**(`client`, `ticker`, `options`): `Promise`\<[`Quote`](types/quote.md#quote)[]\>
 
-Defined in: [quote.ts:24](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/quote.ts#L24)
+Defined in: [quote.ts:24](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/quote.ts#L24)
 
 Fetch OHLCV time-series data for a single ticker symbol.
 The API returns a multi-row CSV (header + data rows); each row becomes a Quote.
