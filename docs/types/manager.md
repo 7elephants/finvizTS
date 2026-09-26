@@ -12,7 +12,7 @@
 
 > **ManagerItem** = [`ManagerFundItem`](fund-manager.md#managerfunditem)
 
-Defined in: [types/manager.ts:20](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/manager.ts#L20)
+Defined in: [types/manager.ts:20](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/manager.ts#L20)
 
 A single fund manager portfolio returned by the managers endpoint. Identical in shape to `FundItem`.
 
@@ -22,7 +22,7 @@ A single fund manager portfolio returned by the managers endpoint. Identical in 
 
 > **ManagerOptions** = [`ManagerFundOptions`](fund-manager.md#managerfundoptions)
 
-Defined in: [types/manager.ts:17](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/manager.ts#L17)
+Defined in: [types/manager.ts:17](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/manager.ts#L17)
 
 Options for a fund managers request. Identical in shape to `FundOptions` — fund managers
 and funds are the same underlying Finviz resource, queried by manager name vs. fund name.

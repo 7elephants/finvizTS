@@ -10,7 +10,7 @@
 
 ### InsiderItem
 
-Defined in: [types/insider.ts:57](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L57)
+Defined in: [types/insider.ts:57](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L57)
 
 A single insider trading transaction returned by the insider endpoint.
 
@@ -20,79 +20,79 @@ A single insider trading transaction returned by the insider endpoint.
 
 > **cost**: `number`
 
-Defined in: [types/insider.ts:64](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L64)
+Defined in: [types/insider.ts:64](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L64)
 
 ##### date
 
 > **date**: `Date`
 
-Defined in: [types/insider.ts:62](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L62)
+Defined in: [types/insider.ts:62](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L62)
 
 ##### owner
 
 > **owner**: `string`
 
-Defined in: [types/insider.ts:59](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L59)
+Defined in: [types/insider.ts:59](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L59)
 
 ##### ownerCIK
 
 > **ownerCIK**: `number`
 
-Defined in: [types/insider.ts:60](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L60)
+Defined in: [types/insider.ts:60](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L60)
 
 ##### relationship
 
 > **relationship**: `string`
 
-Defined in: [types/insider.ts:61](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L61)
+Defined in: [types/insider.ts:61](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L61)
 
 ##### SECForm
 
 > **SECForm**: `Date`
 
-Defined in: [types/insider.ts:68](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L68)
+Defined in: [types/insider.ts:68](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L68)
 
 ##### SECFormUrl
 
 > **SECFormUrl**: `string`
 
-Defined in: [types/insider.ts:69](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L69)
+Defined in: [types/insider.ts:69](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L69)
 
 ##### shares
 
 > **shares**: `number`
 
-Defined in: [types/insider.ts:65](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L65)
+Defined in: [types/insider.ts:65](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L65)
 
 ##### ticker
 
 > **ticker**: `string`
 
-Defined in: [types/insider.ts:58](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L58)
+Defined in: [types/insider.ts:58](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L58)
 
 ##### totalShares
 
 > **totalShares**: `number`
 
-Defined in: [types/insider.ts:67](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L67)
+Defined in: [types/insider.ts:67](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L67)
 
 ##### transactionType
 
 > **transactionType**: `string`
 
-Defined in: [types/insider.ts:63](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L63)
+Defined in: [types/insider.ts:63](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L63)
 
 ##### value
 
 > **value**: `number`
 
-Defined in: [types/insider.ts:66](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L66)
+Defined in: [types/insider.ts:66](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L66)
 
 ***
 
 ### InsiderOptions
 
-Defined in: [types/insider.ts:46](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L46)
+Defined in: [types/insider.ts:46](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L46)
 
 Options for an insider trading request.
 
@@ -102,43 +102,43 @@ Options for an insider trading request.
 
 > `optional` **minimumTransactionValue?**: `number`
 
-Defined in: [types/insider.ts:49](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L49)
+Defined in: [types/insider.ts:49](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L49)
 
 ##### order?
 
 > `optional` **order?**: [`InsiderOrderType`](#insiderordertype)
 
-Defined in: [types/insider.ts:52](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L52)
+Defined in: [types/insider.ts:52](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L52)
 
 ##### orderDirection?
 
 > `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/insider.ts:53](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L53)
+Defined in: [types/insider.ts:53](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L53)
 
 ##### ownerCIK?
 
 > `optional` **ownerCIK?**: `number`
 
-Defined in: [types/insider.ts:50](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L50)
+Defined in: [types/insider.ts:50](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L50)
 
 ##### ownerRel?
 
 > `optional` **ownerRel?**: [`InsiderOwnerRelationshipType`](#insiderownerrelationshiptype)
 
-Defined in: [types/insider.ts:48](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L48)
+Defined in: [types/insider.ts:48](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L48)
 
 ##### ticker?
 
 > `optional` **ticker?**: `string`
 
-Defined in: [types/insider.ts:51](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L51)
+Defined in: [types/insider.ts:51](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L51)
 
 ##### type?
 
 > `optional` **type?**: [`InsiderTransactionType`](#insidertransactiontype)
 
-Defined in: [types/insider.ts:47](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L47)
+Defined in: [types/insider.ts:47](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L47)
 
 ## Type Aliases
 
@@ -146,7 +146,7 @@ Defined in: [types/insider.ts:47](https://github.com/7elephants/finvizTS/blob/d0
 
 > **InsiderOrderType** = *typeof* [`InsiderOrderType`](#insiderordertype-1)\[keyof *typeof* [`InsiderOrderType`](#insiderordertype-1)\]
 
-Defined in: [types/insider.ts:33](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L33)
+Defined in: [types/insider.ts:33](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L33)
 
 ***
 
@@ -154,7 +154,7 @@ Defined in: [types/insider.ts:33](https://github.com/7elephants/finvizTS/blob/d0
 
 > **InsiderOwnerRelationshipType** = *typeof* [`InsiderOwnerRelationshipType`](#insiderownerrelationshiptype-1)\[keyof *typeof* [`InsiderOwnerRelationshipType`](#insiderownerrelationshiptype-1)\]
 
-Defined in: [types/insider.ts:27](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L27)
+Defined in: [types/insider.ts:27](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L27)
 
 ***
 
@@ -162,7 +162,7 @@ Defined in: [types/insider.ts:27](https://github.com/7elephants/finvizTS/blob/d0
 
 > **InsiderTransactionType** = *typeof* [`InsiderTransactionType`](#insidertransactiontype-1)\[keyof *typeof* [`InsiderTransactionType`](#insidertransactiontype-1)\]
 
-Defined in: [types/insider.ts:19](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L19)
+Defined in: [types/insider.ts:19](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L19)
 
 Valid transaction type values for the insider endpoint.
 
@@ -172,7 +172,7 @@ Valid transaction type values for the insider endpoint.
 
 > `const` **InsiderOrderType**: `object`
 
-Defined in: [types/insider.ts:33](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L33)
+Defined in: [types/insider.ts:33](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L33)
 
 #### Type Declaration
 
@@ -210,7 +210,7 @@ Defined in: [types/insider.ts:33](https://github.com/7elephants/finvizTS/blob/d0
 
 > `const` **InsiderOwnerRelationshipType**: `object`
 
-Defined in: [types/insider.ts:27](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L27)
+Defined in: [types/insider.ts:27](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L27)
 
 #### Type Declaration
 
@@ -228,7 +228,7 @@ Defined in: [types/insider.ts:27](https://github.com/7elephants/finvizTS/blob/d0
 
 > `const` **InsiderTransactionType**: `object`
 
-Defined in: [types/insider.ts:19](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/types/insider.ts#L19)
+Defined in: [types/insider.ts:19](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/types/insider.ts#L19)
 
 Valid transaction type values for the insider endpoint.
 

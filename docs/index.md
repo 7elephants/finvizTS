@@ -32,6 +32,12 @@ Re-exports [CalendarOptions](types/calendar.md#calendaroptions)
 
 ***
 
+### CryptoCurrency
+
+Re-exports [CryptoCurrency](types/crypto.md#cryptocurrency-1)
+
+***
+
 ### CryptoItem
 
 Re-exports [CryptoItem](types/crypto.md#cryptoitem)
@@ -125,6 +131,18 @@ Re-exports [ForexItem](types/forex.md#forexitem)
 ### ForexOptions
 
 Re-exports [ForexOptions](types/forex.md#forexoptions)
+
+***
+
+### ForexPipsOrderType
+
+Re-exports [ForexPipsOrderType](types/forex.md#forexpipsordertype-1)
+
+***
+
+### ForexUnit
+
+Re-exports [ForexUnit](types/forex.md#forexunit-1)
 
 ***
 

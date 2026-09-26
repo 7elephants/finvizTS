@@ -12,7 +12,7 @@
 
 > **getFundManagerItems**(`client`, `path`, `nameColumn`, `options`): `Promise`\<[`ManagerFundItem`](types/fund-manager.md#managerfunditem)[]\>
 
-Defined in: [fund-manager.ts:28](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/fund-manager.ts#L28)
+Defined in: [fund-manager.ts:28](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/fund-manager.ts#L28)
 
 Fetch fund or fund-manager portfolios, optionally filtered by a search term and sorted by
 order/direction. The API returns a multi-row CSV; each row is mapped to a ManagerFundItem.

@@ -12,7 +12,7 @@
 
 > **getDividendsCalendar**(`client`, `options`): `Promise`\<[`DividendsCalendarItem`](types/calendar.md#dividendscalendaritem)[]\>
 
-Defined in: [calendar.ts:87](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/calendar.ts#L87)
+Defined in: [calendar.ts:87](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/calendar.ts#L87)
 
 Fetch dividends calendar events for a given date range (max 90 days).
 The API returns a multi-row CSV; each row represents one company's upcoming ex-dividend date.
@@ -41,7 +41,7 @@ Start date (required) and optional end date
 
 > **getEarningsCalendar**(`client`, `options`): `Promise`\<[`EarningsCalendarItem`](types/calendar.md#earningscalendaritem)[]\>
 
-Defined in: [calendar.ts:53](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/calendar.ts#L53)
+Defined in: [calendar.ts:53](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/calendar.ts#L53)
 
 Fetch earnings calendar events for a given date range (max 90 days).
 The API returns a multi-row CSV; each row represents one company's earnings report.
@@ -70,7 +70,7 @@ Start date (required), optional end date, and optional sort order
 
 > **getEconomicCalendar**(`client`, `options`): `Promise`\<[`Calendar`](types/calendar.md#calendar)[]\>
 
-Defined in: [calendar.ts:36](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/calendar.ts#L36)
+Defined in: [calendar.ts:36](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/calendar.ts#L36)
 
 Fetch economic calendar events for a given date range.
 The API returns a multi-row CSV; each row represents one economic event.

@@ -10,7 +10,7 @@
 
 ### FinvizError
 
-Defined in: [errors.ts:18](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/errors.ts#L18)
+Defined in: [errors.ts:18](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/errors.ts#L18)
 
 Thrown when the Finviz Elite API returns an error response or a network error occurs.
 
@@ -24,7 +24,7 @@ Thrown when the Finviz Elite API returns an error response or a network error oc
 
 > **new FinvizError**(`message`, `level?`, `statusCode?`, `retryAfter?`, `options?`): [`FinvizError`](#finvizerror)
 
-Defined in: [errors.ts:27](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/errors.ts#L27)
+Defined in: [errors.ts:27](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/errors.ts#L27)
 
 ###### Parameters
 
@@ -62,7 +62,7 @@ Defined in: [errors.ts:27](https://github.com/7elephants/finvizTS/blob/d00d34aa8
 
 > `readonly` **level**: [`ErrorLevel`](types.md#errorlevel) \| `undefined`
 
-Defined in: [errors.ts:24](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/errors.ts#L24)
+Defined in: [errors.ts:24](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/errors.ts#L24)
 
 Level of error
 
@@ -70,7 +70,7 @@ Level of error
 
 > `readonly` **retryAfter**: `number` \| `undefined`
 
-Defined in: [errors.ts:22](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/errors.ts#L22)
+Defined in: [errors.ts:22](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/errors.ts#L22)
 
 Parsed value of the Retry-After response header in seconds, if present.
 
@@ -78,6 +78,6 @@ Parsed value of the Retry-After response header in seconds, if present.
 
 > `readonly` **statusCode**: `number` \| `undefined`
 
-Defined in: [errors.ts:20](https://github.com/7elephants/finvizTS/blob/d00d34aa8d6b6f5017c56eafb1130a718f09ad93/src/errors.ts#L20)
+Defined in: [errors.ts:20](https://github.com/7elephants/finvizTS/blob/cf3affc8092870b336ac093aca4485addf4f6c2a/src/errors.ts#L20)
 
 HTTP status code from the response, or undefined for network-level errors.
