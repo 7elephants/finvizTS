@@ -27,7 +27,7 @@ export type ParseErrorExpected = (typeof ParseErrorExpected)[keyof typeof ParseE
  * field is `undefined`. Blank or missing cells are not errors — they are simply `undefined`.
  */
 export interface ParseError {
-  /** Zero-based index of the data row (and of the item in `items`). */
+  /** Zero-based index of the data row (and of the item in `items` and record in `raw`). */
   row: number;
   /** CSV header of the cell, e.g. `Price`. */
   column: string;
@@ -76,10 +76,7 @@ export interface RawResponse {
 }
 
 /** `both` response: typed items and the CSV records they were parsed from. */
-export interface ParsedAndRawResponse<T> extends ParsedResponse<T>, RawResponse {
-  /** Cells that were present but could not be parsed. `row` indexes both `items` and `raw`. */
-  errors: ParseError[];
-}
+export interface ParsedAndRawResponse<T> extends ParsedResponse<T>, RawResponse {}
 
 /**
  * Wrapper returned by every `get*` function, shaped by the ResponseFormat `F` (default

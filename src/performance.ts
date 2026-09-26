@@ -9,7 +9,7 @@
  * |------|--------------------------|----------------------------------------------|------------------------------|
  * | 1    | buildSortParam()        | order?, orderDirection?                     | `sort` query param          |
  * | 2    | client.getRecords()     | path, sort + extraParams                    | CSV row records             |
- * | 3    | parseRows()             | rows, performanceSchema(perfColumn)         | Promise<FinvizResponse<PerformanceItem, F>> |
+ * | 3    | parseRows()             | rows, performanceSchema(perfColumn), formatOf(client, options) | FinvizResponse<PerformanceItem, F> |
  * ---
  */
 

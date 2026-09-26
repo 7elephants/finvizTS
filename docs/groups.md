@@ -12,7 +12,7 @@
 
 > **getGroups**\<`C`, `F`\>(`client`, `group`, `viewId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Group`](types/groups.md#group), `F`\>\>
 
-Defined in: [groups.ts:27](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/groups.ts#L27)
+Defined in: [groups.ts:27](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/groups.ts#L27)
 
 Fetch aggregated market data for a group (sector, industry, country, or capitalization).
 The API returns a multi-row CSV; each row represents one group entry.

@@ -10,7 +10,7 @@
 
 ### FinvizClient
 
-Defined in: [client.ts:36](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L36)
+Defined in: [client.ts:36](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L36)
 
 Authenticated HTTP transport for the Finviz Elite API.
 Injects the API token and rate-limits/retries requests; endpoint modules call
@@ -31,7 +31,7 @@ Injects the API token and rate-limits/retries requests; endpoint modules call
 
 > **new FinvizClient**\<`F`\>(`options`): [`FinvizClient`](#finvizclient)\<`F`\>
 
-Defined in: [client.ts:53](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L53)
+Defined in: [client.ts:53](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L53)
 
 Construct a client from the given options. Throws FinvizError if `apiToken` is missing.
 
@@ -51,7 +51,7 @@ Construct a client from the given options. Throws FinvizError if `apiToken` is m
 
 > `private` `readonly` **apiToken**: `string`
 
-Defined in: [client.ts:42](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L42)
+Defined in: [client.ts:42](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L42)
 
 Finviz Elite API token appended to every request.
 
@@ -59,7 +59,7 @@ Finviz Elite API token appended to every request.
 
 > `readonly` **format**: `F`
 
-Defined in: [client.ts:38](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L38)
+Defined in: [client.ts:38](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L38)
 
 Default response format for `get*` calls; each call may override it via `format`.
 
@@ -67,7 +67,7 @@ Default response format for `get*` calls; each call may override it via `format`
 
 > `private` `readonly` **http**: `AxiosInstance`
 
-Defined in: [client.ts:40](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L40)
+Defined in: [client.ts:40](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L40)
 
 Configured axios instance used for all requests.
 
@@ -75,7 +75,7 @@ Configured axios instance used for all requests.
 
 > `private` **lastRequestTime**: `number` = `0`
 
-Defined in: [client.ts:50](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L50)
+Defined in: [client.ts:50](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L50)
 
 Timestamp of the last outgoing request, used for proactive rate limiting.
 
@@ -83,7 +83,7 @@ Timestamp of the last outgoing request, used for proactive rate limiting.
 
 > `private` `readonly` **maxRetries**: `number`
 
-Defined in: [client.ts:46](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L46)
+Defined in: [client.ts:46](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L46)
 
 Maximum number of retries after a 429 response.
 
@@ -91,7 +91,7 @@ Maximum number of retries after a 429 response.
 
 > `private` `readonly` **rateLimitMs**: `number`
 
-Defined in: [client.ts:44](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L44)
+Defined in: [client.ts:44](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L44)
 
 Minimum interval between outgoing requests, in milliseconds.
 
@@ -99,7 +99,7 @@ Minimum interval between outgoing requests, in milliseconds.
 
 > `private` `readonly` **retryDelayMs**: `number`
 
-Defined in: [client.ts:48](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L48)
+Defined in: [client.ts:48](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L48)
 
 Fallback delay between retries when no `Retry-After` header is present.
 
@@ -109,7 +109,7 @@ Fallback delay between retries when no `Retry-After` header is present.
 
 > `private` **delay**(`ms`): `Promise`\<`void`\>
 
-Defined in: [client.ts:72](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L72)
+Defined in: [client.ts:72](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L72)
 
 Resolve after the given number of milliseconds.
 
@@ -127,7 +127,7 @@ Resolve after the given number of milliseconds.
 
 > `private` **fetchCsv**(`path`, `params`): `Promise`\<`string`\>
 
-Defined in: [client.ts:81](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L81)
+Defined in: [client.ts:81](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L81)
 
 Fetch a raw CSV response for the given path/params, injecting the API token.
 Proactively delays to respect `rateLimitMs` between requests, and retries on
@@ -151,7 +151,7 @@ HTTP 429 (honoring the `Retry-After` header when present) up to `maxRetries` tim
 
 > **getRecord**(`path`, `params?`): `Promise`\<`Record`\<`string`, `string`\>\>
 
-Defined in: [client.ts:132](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L132)
+Defined in: [client.ts:132](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L132)
 
 Fetch a single-row CSV response and return it as a flat key/value record.
 
@@ -173,7 +173,7 @@ Fetch a single-row CSV response and return it as a flat key/value record.
 
 > **getRecords**(`path`, `params?`): `Promise`\<`Record`\<`string`, `string`\>[]\>
 
-Defined in: [client.ts:141](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/client.ts#L141)
+Defined in: [client.ts:141](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/client.ts#L141)
 
 Fetch a multi-row CSV response and return it as an array of key/value records.
 

@@ -12,7 +12,7 @@
 
 > **getDividendsCalendar**\<`C`, `F`\>(`client`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`DividendsCalendarItem`](types/calendar.md#dividendscalendaritem), `F`\>\>
 
-Defined in: [calendar.ts:109](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/calendar.ts#L109)
+Defined in: [calendar.ts:109](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/calendar.ts#L109)
 
 Fetch dividends calendar events for a given date range (max 90 days).
 The API returns a multi-row CSV; each row represents one company's upcoming ex-dividend date.
@@ -52,7 +52,7 @@ Start date (required) and optional end date, plus optional `format`
 
 > **getEarningsCalendar**\<`C`, `F`\>(`client`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`EarningsCalendarItem`](types/calendar.md#earningscalendaritem), `F`\>\>
 
-Defined in: [calendar.ts:89](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/calendar.ts#L89)
+Defined in: [calendar.ts:89](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/calendar.ts#L89)
 
 Fetch earnings calendar events for a given date range (max 90 days).
 The API returns a multi-row CSV; each row represents one company's earnings report.
@@ -92,7 +92,7 @@ Start date (required), optional end date, and optional sort order, plus optional
 
 > **getEconomicCalendar**\<`C`, `F`\>(`client`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Calendar`](types/calendar.md#calendar), `F`\>\>
 
-Defined in: [calendar.ts:70](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/calendar.ts#L70)
+Defined in: [calendar.ts:70](https://github.com/7elephants/finvizTS/blob/706aab1e24071062daf1484d72ac61b15cccad77/src/calendar.ts#L70)
 
 Fetch economic calendar events for a given date range.
 The API returns a multi-row CSV; each row represents one economic event.
