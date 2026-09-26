@@ -7,14 +7,22 @@
  *
  * | Step | Method                  | Input                                      | Output                      |
  * |------|--------------------------|----------------------------------------------|------------------------------|
- * | 1    | getPerformanceItems()   | FinvizClient, path, sort options, extraParams? | Promise<PerformanceItem[]>  |
+ * | 1    | buildSortParam()        | order?, orderDirection?                     | `sort` query param          |
+ * | 2    | client.getRecords()     | path, sort + extraParams                    | CSV row records             |
+ * | 3    | getPerformanceItems()   | rows, perfColumn header prefix              | Promise<PerformanceItem[]>  |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { PerformanceItem, SortDirection } from './types';
+import type { PerformanceItem, PerformanceOptions, ForexOptions } from './types';
 
 import { buildSortParam } from './utils';
+
+/** Endpoint paths served by getPerformanceItems(). */
+type PerformancePath =
+  | '/export/futures/performance'
+  | '/export/forex/performance'
+  | '/export/crypto/performance';
 
 /**
  * Fetch futures, forex or crypto performance rows, optionally sorted by order/direction.
@@ -25,12 +33,18 @@ import { buildSortParam } from './utils';
  *                  `/export/crypto/performance`
  * @param options - Sort options
  * @param extraParams - Endpoint-specific query params (e.g. forex `unit`, crypto `c`)
+ * @param perfColumn  - CSV header prefix of the performance columns (forex pips uses
+ *                      `Performance in Pips`)
+ *
+ * Blank cells intentionally parse to `NaN` (`parseFloat('')`), unlike fund-manager.ts, which
+ * defaults them to `0` via `||`.
  */
 export async function getPerformanceItems(
   client: FinvizClient,
-  path: string,
-  options: { order?: string; orderDirection?: SortDirection },
+  path: PerformancePath,
+  options: PerformanceOptions | ForexOptions,
   extraParams: Record<string, string | undefined> = {},
+  perfColumn = 'Performance',
 ): Promise<PerformanceItem[]> {
   const rows = await client.getRecords(path, {
     ...extraParams,
@@ -40,15 +54,15 @@ export async function getPerformanceItems(
     ticker: row['Ticker'] ?? '',
     name: row['Name'] ?? '',
     price: parseFloat(row['Price'] ?? '0'),
-    perf5Min: parseFloat(row['Performance (5 Minutes)'] ?? '0'),
-    perf1Hour: parseFloat(row['Performance (1 Hour)'] ?? '0'),
-    perfDay: parseFloat(row['Performance (Day)'] ?? '0'),
-    perfWeek: parseFloat(row['Performance (Week)'] ?? '0'),
-    perfMonth: parseFloat(row['Performance (Month)'] ?? '0'),
-    perfMonthToDate: parseFloat(row['Performance (Month To Date)'] ?? '0'),
-    perfQuarter: parseFloat(row['Performance (Quarter)'] ?? '0'),
-    perfHalfYear: parseFloat(row['Performance (Half Year)'] ?? '0'),
-    perfYearToDate: parseFloat(row['Performance (Year To Date)'] ?? '0'),
-    perfYear: parseFloat(row['Performance (Year)'] ?? '0'),
+    perf5Min: parseFloat(row[`${perfColumn} (5 Minutes)`] ?? '0'),
+    perf1Hour: parseFloat(row[`${perfColumn} (1 Hour)`] ?? '0'),
+    perfDay: parseFloat(row[`${perfColumn} (Day)`] ?? '0'),
+    perfWeek: parseFloat(row[`${perfColumn} (Week)`] ?? '0'),
+    perfMonth: parseFloat(row[`${perfColumn} (Month)`] ?? '0'),
+    perfMonthToDate: parseFloat(row[`${perfColumn} (Month To Date)`] ?? '0'),
+    perfQuarter: parseFloat(row[`${perfColumn} (Quarter)`] ?? '0'),
+    perfHalfYear: parseFloat(row[`${perfColumn} (Half Year)`] ?? '0'),
+    perfYearToDate: parseFloat(row[`${perfColumn} (Year To Date)`] ?? '0'),
+    perfYear: parseFloat(row[`${perfColumn} (Year)`] ?? '0'),
   }));
 }

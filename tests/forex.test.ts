@@ -3,12 +3,13 @@
  * Workflow Summary
  * Invocation: Run via `npx jest tests/forex.test.ts` or `npm test`.
  *
- * | Step | Description                                    | Input                 | Output                    |
- * |------|--------------------------------------------------|------------------------|-----------------------------|
- * | 1    | Mock FinvizClient.getRecords                   | jest.fn()             | Controlled mock           |
- * | 2    | Call getForex with sort options                | ForexOptions           | Forwarded params          |
- * | 3    | Assert getRecords was called with correct args | Captured call args    | Passing assertions        |
- * | 4    | Assert response mapping to ForexItem shape      | Mock CSV row records  | Normalized ForexItem[]     |
+ * | Step | Description                                      | Input                 | Output                    |
+ * |------|----------------------------------------------------|------------------------|-----------------------------|
+ * | 1    | Mock FinvizClient.getRecords                     | jest.fn()             | Controlled mock           |
+ * | 2    | Call getForex with unit and sort options         | ForexOptions          | Forwarded params          |
+ * | 3    | Assert getRecords was called with correct args   | Captured call args    | Passing assertions        |
+ * | 4    | Assert percent and pips response mapping         | Mock CSV row records  | Normalized ForexItem[]    |
+ * | 5    | Assert unit/sort mismatches fail to compile      | @ts-expect-error      | Type-level assertions     |
  * ---
  */
 
@@ -27,7 +28,10 @@ describe('getForex', () => {
 
     await getForex(client);
 
-    expect(mockGetRecords).toHaveBeenCalledWith('/export/forex/performance', { unit: undefined, sort: '' });
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/forex/performance', {
+      unit: undefined,
+      sort: '',
+    });
   });
 
   it('combines order and orderDirection into the sort param', async () => {
@@ -70,23 +74,47 @@ describe('getForex', () => {
     });
   });
 
-  it('maps CSV rows to ForexItem shape', async () => {
+  it('allows shared sort columns with the pips unit', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getForex(client, { unit: ForexUnit.PIPS, order: PerformanceOrderType.TICKER });
+
+    expect(mockGetRecords).toHaveBeenCalledWith(
+      '/export/forex/performance',
+      expect.objectContaining({ unit: 'pips', sort: 'ticker' }),
+    );
+  });
+
+  it('rejects sort columns that do not match the unit at compile time', () => {
+    const check = (): unknown[] => [
+      // @ts-expect-error percent sort column with the pips unit
+      getForex(client, { unit: ForexUnit.PIPS, order: PerformanceOrderType.PERF_WEEK }),
+      // @ts-expect-error pips sort column with the percent unit
+      getForex(client, { unit: ForexUnit.PERCENT, order: ForexPipsOrderType.PERF_WEEK }),
+      // @ts-expect-error pips sort column with the default (percent) unit
+      getForex(client, { order: ForexPipsOrderType.PERF_WEEK }),
+    ];
+    // Never invoked: the assertions are the @ts-expect-error directives, checked by ts-jest.
+    expect(typeof check).toBe('function');
+  });
+
+  it('maps percent CSV rows to ForexItem shape', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
-        'No.': '1',
+        'No.': '4',
         Ticker: 'EUR/USD',
         Name: 'Euro',
-        Price: '4320.5',
-        'Performance (5 Minutes)': '-0.02',
-        'Performance (1 Hour)': '-0.14',
-        'Performance (Day)': '0.54',
-        'Performance (Week)': '-2.34',
-        'Performance (Month)': '-7.95',
-        'Performance (Month To Date)': '-3.58',
-        'Performance (Quarter)': '5.18',
-        'Performance (Half Year)': '-7.63',
-        'Performance (Year To Date)': '-4.04',
-        'Performance (Year)': '8.83',
+        Price: '1.13905',
+        'Performance (5 Minutes)': '-0.01',
+        'Performance (1 Hour)': '-0.04',
+        'Performance (Day)': '0.09',
+        'Performance (Week)': '-0.83',
+        'Performance (Month)': '-2.42',
+        'Performance (Month To Date)': '-1.95',
+        'Performance (Quarter)': '0.19',
+        'Performance (Half Year)': '-1.45',
+        'Performance (Year To Date)': '-2.96',
+        'Performance (Year)': '-2.35',
       },
     ]);
 
@@ -96,27 +124,67 @@ describe('getForex', () => {
       {
         ticker: 'EUR/USD',
         name: 'Euro',
-        price: 4320.5,
-        perf5Min: -0.02,
-        perf1Hour: -0.14,
-        perfDay: 0.54,
-        perfWeek: -2.34,
-        perfMonth: -7.95,
-        perfMonthToDate: -3.58,
-        perfQuarter: 5.18,
-        perfHalfYear: -7.63,
-        perfYearToDate: -4.04,
-        perfYear: 8.83,
+        price: 1.13905,
+        perf5Min: -0.01,
+        perf1Hour: -0.04,
+        perfDay: 0.09,
+        perfWeek: -0.83,
+        perfMonth: -2.42,
+        perfMonthToDate: -1.95,
+        perfQuarter: 0.19,
+        perfHalfYear: -1.45,
+        perfYearToDate: -2.96,
+        perfYear: -2.35,
       },
     ]);
   });
 
-  it('parses scientific notation and defaults missing columns', async () => {
-    mockGetRecords.mockResolvedValueOnce([{ Price: '6.04E-06' }]);
+  it('maps pips CSV rows (Performance in Pips headers) to ForexItem shape', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        'No.': '4',
+        Ticker: 'EUR/USD',
+        Name: 'Euro',
+        Price: '1.13905',
+        'Performance in Pips (5 Minutes)': '-2',
+        'Performance in Pips (1 Hour)': '-5',
+        'Performance in Pips (Day)': '10',
+        'Performance in Pips (Week)': '-95',
+        'Performance in Pips (Month)': '-283',
+        'Performance in Pips (Month To Date)': '-227',
+        'Performance in Pips (Quarter)': '21',
+        'Performance in Pips (Half Year)': '-168',
+        'Performance in Pips (Year To Date)': '-348',
+        'Performance in Pips (Year)': '-275',
+      },
+    ]);
+
+    const result = await getForex(client, { unit: ForexUnit.PIPS });
+
+    expect(result).toEqual([
+      {
+        ticker: 'EUR/USD',
+        name: 'Euro',
+        price: 1.13905,
+        perf5Min: -2,
+        perf1Hour: -5,
+        perfDay: 10,
+        perfWeek: -95,
+        perfMonth: -283,
+        perfMonthToDate: -227,
+        perfQuarter: 21,
+        perfHalfYear: -168,
+        perfYearToDate: -348,
+        perfYear: -275,
+      },
+    ]);
+  });
+
+  it('defaults missing columns', async () => {
+    mockGetRecords.mockResolvedValueOnce([{ Price: '1.5' }]);
 
     const [row] = await getForex(client);
 
-    expect(row?.price).toBe(6.04e-6);
     expect(row?.ticker).toBe('');
     expect(row?.name).toBe('');
     expect(row?.perfYear).toBe(0);

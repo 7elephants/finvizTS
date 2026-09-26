@@ -46,21 +46,35 @@ export interface PerformanceOptions {
 }
 
 /**
- * A single futures, forex or crypto performance row. Performance values are percentages.
- * `FuturesItem`/`ForexItem`/`CryptoItem` alias this.
+ * A single futures, forex or crypto performance row. Performance values are percentages
+ * (pips for forex requested with `unit: 'pips'`). Blank CSV cells (e.g. newly listed crypto with
+ * no long-range history) parse to `NaN`. `FuturesItem`/`ForexItem`/`CryptoItem` alias this.
  */
 export interface PerformanceItem {
+  /** Instrument ticker, e.g. `@GC` (futures/crypto) or `EUR/USD` (forex). */
   ticker: string;
+  /** Instrument name. */
   name: string;
+  /** Last price. */
   price: number;
+  /** Performance over the last 5 minutes. */
   perf5Min: number;
+  /** Performance over the last hour. */
   perf1Hour: number;
+  /** Performance over the day. */
   perfDay: number;
+  /** Performance over the week. */
   perfWeek: number;
+  /** Performance over the month. */
   perfMonth: number;
+  /** Performance month to date. */
   perfMonthToDate: number;
+  /** Performance over the quarter. */
   perfQuarter: number;
+  /** Performance over the half year. */
   perfHalfYear: number;
+  /** Performance year to date. */
   perfYearToDate: number;
+  /** Performance over the year. */
   perfYear: number;
 }

@@ -66,13 +66,47 @@ describe('getCrypto', () => {
     });
   });
 
+  it('combines currency with the sort param', async () => {
+    mockGetRecords.mockResolvedValueOnce([]);
+
+    await getCrypto(client, {
+      currency: CryptoCurrency.BTC,
+      order: PerformanceOrderType.PERF_WEEK,
+      orderDirection: SortDirection.DESC,
+    });
+
+    expect(mockGetRecords).toHaveBeenCalledWith('/export/crypto/performance', {
+      c: 'BTC',
+      sort: '-perfWeekPct',
+    });
+  });
+
+  it('parses blank performance cells (newly listed coins) to NaN', async () => {
+    mockGetRecords.mockResolvedValueOnce([
+      {
+        Ticker: '@GRAM',
+        Name: 'Gram',
+        Price: '1.504',
+        'Performance (Month To Date)': '11.99',
+        'Performance (Quarter)': '',
+        'Performance (Year)': '',
+      },
+    ]);
+
+    const [row] = await getCrypto(client);
+
+    expect(row?.perfMonthToDate).toBe(11.99);
+    expect(row?.perfQuarter).toBeNaN();
+    expect(row?.perfYear).toBeNaN();
+  });
+
   it('maps CSV rows to CryptoItem shape', async () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         'No.': '1',
         Ticker: '@BTC',
         Name: 'Bitcoin',
-        Price: '4320.5',
+        Price: '84092.4',
         'Performance (5 Minutes)': '-0.02',
         'Performance (1 Hour)': '-0.14',
         'Performance (Day)': '0.54',
@@ -92,7 +126,7 @@ describe('getCrypto', () => {
       {
         ticker: '@BTC',
         name: 'Bitcoin',
-        price: 4320.5,
+        price: 84092.4,
         perf5Min: -0.02,
         perf1Hour: -0.14,
         perfDay: 0.54,
