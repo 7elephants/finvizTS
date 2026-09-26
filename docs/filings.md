@@ -12,7 +12,7 @@
 
 > **getLatestFilings**(`client`, `ticker`, `options?`): `Promise`\<[`Filing`](types/filings.md#filing)[]\>
 
-Defined in: [filings.ts:26](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/filings.ts#L26)
+Defined in: [filings.ts:26](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/filings.ts#L26)
 
 Fetch recent SEC filings for a single ticker symbol.
 The API returns a multi-row CSV; each row is mapped to a Filing.

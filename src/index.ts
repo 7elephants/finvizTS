@@ -89,6 +89,7 @@ export type {
   ForexOptions,
   ForexPercentOptions,
   ForexPipsOptions,
+  ForexSharedOrderType,
   ForexItem,
   CryptoOptions,
   CryptoItem,

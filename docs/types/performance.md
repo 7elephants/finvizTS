@@ -10,7 +10,7 @@
 
 ### PerformanceItem
 
-Defined in: [types/performance.ts:53](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L53)
+Defined in: [types/performance.ts:53](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L53)
 
 A single futures, forex or crypto performance row. Performance values are percentages
 (pips for forex requested with `unit: 'pips'`). Blank CSV cells (e.g. newly listed crypto with
@@ -22,7 +22,7 @@ no long-range history) parse to `NaN`. `FuturesItem`/`ForexItem`/`CryptoItem` al
 
 > **name**: `string`
 
-Defined in: [types/performance.ts:57](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L57)
+Defined in: [types/performance.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L57)
 
 Instrument name.
 
@@ -30,7 +30,7 @@ Instrument name.
 
 > **perf1Hour**: `number`
 
-Defined in: [types/performance.ts:63](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L63)
+Defined in: [types/performance.ts:63](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L63)
 
 Performance over the last hour.
 
@@ -38,7 +38,7 @@ Performance over the last hour.
 
 > **perf5Min**: `number`
 
-Defined in: [types/performance.ts:61](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L61)
+Defined in: [types/performance.ts:61](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L61)
 
 Performance over the last 5 minutes.
 
@@ -46,7 +46,7 @@ Performance over the last 5 minutes.
 
 > **perfDay**: `number`
 
-Defined in: [types/performance.ts:65](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L65)
+Defined in: [types/performance.ts:65](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L65)
 
 Performance over the day.
 
@@ -54,7 +54,7 @@ Performance over the day.
 
 > **perfHalfYear**: `number`
 
-Defined in: [types/performance.ts:75](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L75)
+Defined in: [types/performance.ts:75](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L75)
 
 Performance over the half year.
 
@@ -62,7 +62,7 @@ Performance over the half year.
 
 > **perfMonth**: `number`
 
-Defined in: [types/performance.ts:69](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L69)
+Defined in: [types/performance.ts:69](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L69)
 
 Performance over the month.
 
@@ -70,7 +70,7 @@ Performance over the month.
 
 > **perfMonthToDate**: `number`
 
-Defined in: [types/performance.ts:71](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L71)
+Defined in: [types/performance.ts:71](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L71)
 
 Performance month to date.
 
@@ -78,7 +78,7 @@ Performance month to date.
 
 > **perfQuarter**: `number`
 
-Defined in: [types/performance.ts:73](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L73)
+Defined in: [types/performance.ts:73](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L73)
 
 Performance over the quarter.
 
@@ -86,7 +86,7 @@ Performance over the quarter.
 
 > **perfWeek**: `number`
 
-Defined in: [types/performance.ts:67](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L67)
+Defined in: [types/performance.ts:67](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L67)
 
 Performance over the week.
 
@@ -94,7 +94,7 @@ Performance over the week.
 
 > **perfYear**: `number`
 
-Defined in: [types/performance.ts:79](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L79)
+Defined in: [types/performance.ts:79](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L79)
 
 Performance over the year.
 
@@ -102,7 +102,7 @@ Performance over the year.
 
 > **perfYearToDate**: `number`
 
-Defined in: [types/performance.ts:77](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L77)
+Defined in: [types/performance.ts:77](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L77)
 
 Performance year to date.
 
@@ -110,7 +110,7 @@ Performance year to date.
 
 > **price**: `number`
 
-Defined in: [types/performance.ts:59](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L59)
+Defined in: [types/performance.ts:59](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L59)
 
 Last price.
 
@@ -118,7 +118,7 @@ Last price.
 
 > **ticker**: `string`
 
-Defined in: [types/performance.ts:55](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L55)
+Defined in: [types/performance.ts:55](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L55)
 
 Instrument ticker, e.g. `@GC` (futures/crypto) or `EUR/USD` (forex).
 
@@ -126,7 +126,7 @@ Instrument ticker, e.g. `@GC` (futures/crypto) or `EUR/USD` (forex).
 
 ### PerformanceOptions
 
-Defined in: [types/performance.ts:41](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L41)
+Defined in: [types/performance.ts:41](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L41)
 
 Options shared by the futures, forex and crypto performance endpoints (same request and
 response shape). `FuturesOptions`/`ForexOptions`/`CryptoOptions` alias this.
@@ -141,7 +141,7 @@ response shape). `FuturesOptions`/`ForexOptions`/`CryptoOptions` alias this.
 
 > `optional` **order?**: [`PerformanceOrderType`](#performanceordertype)
 
-Defined in: [types/performance.ts:43](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L43)
+Defined in: [types/performance.ts:43](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L43)
 
 Column to sort by. Finviz defaults to day performance, best first.
 
@@ -149,7 +149,7 @@ Column to sort by. Finviz defaults to day performance, best first.
 
 > `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/performance.ts:45](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L45)
+Defined in: [types/performance.ts:45](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L45)
 
 Sort direction (either '' or '-').
 
@@ -159,7 +159,7 @@ Sort direction (either '' or '-').
 
 > **PerformanceOrderType** = *typeof* [`PerformanceOrderType`](#performanceordertype-1)\[keyof *typeof* [`PerformanceOrderType`](#performanceordertype-1)\]
 
-Defined in: [types/performance.ts:20](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L20)
+Defined in: [types/performance.ts:20](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L20)
 
 Valid sort columns for the futures, forex and crypto performance endpoints.
 
@@ -169,7 +169,7 @@ Valid sort columns for the futures, forex and crypto performance endpoints.
 
 > `const` **PerformanceOrderType**: `object`
 
-Defined in: [types/performance.ts:20](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/performance.ts#L20)
+Defined in: [types/performance.ts:20](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/performance.ts#L20)
 
 Valid sort columns for the futures, forex and crypto performance endpoints.
 

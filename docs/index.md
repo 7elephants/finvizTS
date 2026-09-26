@@ -152,6 +152,12 @@ Re-exports [ForexPipsOrderType](types/forex.md#forexpipsordertype-1)
 
 ***
 
+### ForexSharedOrderType
+
+Re-exports [ForexSharedOrderType](types/forex.md#forexsharedordertype)
+
+***
+
 ### ForexUnit
 
 Re-exports [ForexUnit](types/forex.md#forexunit-1)

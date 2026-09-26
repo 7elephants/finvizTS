@@ -12,7 +12,7 @@
 
 > **FuturesItem** = [`PerformanceItem`](performance.md#performanceitem)
 
-Defined in: [types/futures.ts:19](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/futures.ts#L19)
+Defined in: [types/futures.ts:19](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/futures.ts#L19)
 
 A single futures performance row returned by the futures endpoint.
 
@@ -22,6 +22,6 @@ A single futures performance row returned by the futures endpoint.
 
 > **FuturesOptions** = [`PerformanceOptions`](performance.md#performanceoptions)
 
-Defined in: [types/futures.ts:16](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/futures.ts#L16)
+Defined in: [types/futures.ts:16](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/futures.ts#L16)
 
 Options for a futures performance request. Identical in shape to the forex/crypto/futures options.

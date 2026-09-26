@@ -12,7 +12,7 @@
 
 > **ScreenerSignal** = *typeof* [`ScreenerSignal`](#screenersignal-1)\[keyof *typeof* [`ScreenerSignal`](#screenersignal-1)\]
 
-Defined in: [types/screener/signal.ts:13](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/screener/signal.ts#L13)
+Defined in: [types/screener/signal.ts:13](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/signal.ts#L13)
 
 Union of all known screener signal values.
 
@@ -22,7 +22,7 @@ Union of all known screener signal values.
 
 > `const` **ScreenerSignal**: `object`
 
-Defined in: [types/screener/signal.ts:13](https://github.com/7elephants/finvizTS/blob/d23addfae925d6c740f235b944360447f6cbc93c/src/types/screener/signal.ts#L13)
+Defined in: [types/screener/signal.ts:13](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/signal.ts#L13)
 
 All known screener signal values for the `s` query parameter.
 

@@ -43,7 +43,7 @@ export const ForexPipsOrderType = {
 export type ForexPipsOrderType = (typeof ForexPipsOrderType)[keyof typeof ForexPipsOrderType];
 
 /** Non-performance sort columns, valid with either unit. */
-type ForexSharedOrderType = Extract<PerformanceOrderType, 'ticker' | 'name' | 'last'>;
+export type ForexSharedOrderType = Extract<PerformanceOrderType, 'ticker' | 'name' | 'last'>;
 
 /** Forex request options in percent (the default unit). */
 export interface ForexPercentOptions {
