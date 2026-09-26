@@ -9,7 +9,7 @@
  * | 1    | Re-export client      | —     | FinvizClient class                                           |
  * | 2    | Re-export modules     | —     | getQuote, getScreener, getNews, getPortfolio, getGroups, etc |
  * | 3    | Re-export CSV utils   | —     | parseRecord, parseRecords                                    |
- * | 4    | Re-export types       | —     | All public TypeScript types and const objects                |
+ * | 4    | Re-export types       | —     | `export *` of types/ — every public type and const object     |
  * ---
  */
 
@@ -31,69 +31,6 @@ export { getForex } from './forex';
 export { getCrypto } from './crypto';
 export { FinvizError } from './errors';
 export * from './utils';
-export {
-  ScreenerView,
-  ScreenerField,
-  QuotePeriod,
-  QuoteRange,
-  NewsType,
-  GroupName,
-  IndustrySubgroup,
-  GroupView,
-  FilingFilter,
-  OptionsViewType,
-  InsiderTransactionType,
-  InsiderOwnerRelationshipType,
-  InsiderOrderType,
-  ManagerFundOrderType,
-  EarningsOrderType,
-  PerformanceOrderType,
-  ForexUnit,
-  ForexPipsOrderType,
-  CryptoCurrency,
-  ParseErrorExpected,
-  SortDirection,
-  ErrorLevel,
-} from './types';
-export type {
-  FinvizClientOptions,
-  QuoteOptions,
-  Quote,
-  ScreenerOptions,
-  Screener,
-  NewsOptions,
-  NewsItem,
-  PortfolioOptions,
-  Portfolio,
-  GroupOptions,
-  Group,
-  FilingOptions,
-  Filing,
-  OptionsChainOptions,
-  Option,
-  InsiderOptions,
-  InsiderItem,
-  ManagerOptions,
-  ManagerItem,
-  FundOptions,
-  FundItem,
-  CalendarOptions,
-  Calendar,
-  EarningsCalendarOptions,
-  EarningsCalendarItem,
-  DividendsCalendarOptions,
-  DividendsCalendarItem,
-  PerformanceOptions,
-  PerformanceItem,
-  FuturesOptions,
-  FuturesItem,
-  ForexOptions,
-  ForexPercentOptions,
-  ForexPipsOptions,
-  ForexSharedOrderType,
-  ForexItem,
-  CryptoOptions,
-  CryptoItem,
-  FinvizResponse,
-  ParseError,
-} from './types';
+// Every public type and const object (filters, sort columns, views, response types, …). Wildcard
+// so new constants in types/ can't be forgotten here.
+export * from './types';

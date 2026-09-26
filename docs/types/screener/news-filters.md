@@ -12,7 +12,7 @@
 
 > **ScreenerNewsDateFilter** = *typeof* [`ScreenerNewsDateFilter`](#screenernewsdatefilter-1)\[keyof *typeof* [`ScreenerNewsDateFilter`](#screenernewsdatefilter-1)\]
 
-Defined in: [types/screener/news-filters.ts:13](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/screener/news-filters.ts#L13)
+Defined in: [types/screener/news-filters.ts:13](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/screener/news-filters.ts#L13)
 
 Union of all known screener news date filter values.
 
@@ -22,7 +22,7 @@ Union of all known screener news date filter values.
 
 > `const` **ScreenerNewsDateFilter**: `object`
 
-Defined in: [types/screener/news-filters.ts:13](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/screener/news-filters.ts#L13)
+Defined in: [types/screener/news-filters.ts:13](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/screener/news-filters.ts#L13)
 
 Screener news date filter values for the `f` query parameter.
 

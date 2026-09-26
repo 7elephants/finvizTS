@@ -73,7 +73,7 @@ describe('getFunds', () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Name: 'Vanguard Total Stock Market Index Fund',
-        Fund: 'Vanguard Group',
+        'Series Name': 'Vanguard Group',
         'Investor ID': '2011124',
         'Report Date': '3/31/2026',
         'Portfolio Value': '1500000000000',
@@ -145,7 +145,7 @@ describe('getFunds', () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Name: 'Some Fund',
-        Fund: 'Some Fund Group',
+        'Series Name': 'Some Fund Group',
         'Investor ID': '123',
         'Report Date': '',
         'Portfolio Value': '',

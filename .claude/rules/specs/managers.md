@@ -29,8 +29,8 @@ The default sort order is ascending. To sort in descending order, add a minus si
 ## Response
 
 ```csv
-Name,Manager,Investor ID,Report Date,Portfolio Value,# Investments,New Purchased,Sold Out,Added,Reduced,Top 10 Concentration (%),Turnover (%),Time Held Top 10,Time Held All
-Berkshire Hathaway Inc,Warren Buffett,1067983,3/31/2026,350000000000,45,2,1,3,4,85.5,5.2,12,10
+Name,Portfolio Manager,Investor ID,Report Date,Portfolio Value,# Investments,New Purchased,Sold Out,Added,Reduced,Top 10 Concentration (%),Turnover (%),Time Held Top 10,Time Held All
+BERKSHIRE HATHAWAY INC,Warren Buffett,1067983,2026-06-30,350000000000,45,2,1,3,4,85.5,5.2,12,10
 ```
 
 ## Example

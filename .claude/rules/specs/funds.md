@@ -29,8 +29,8 @@ The default sort order is ascending. To sort in descending order, add a minus si
 ## Response
 
 ```csv
-Name,Fund,Investor ID,Report Date,Portfolio Value,# Investments,New Purchased,Sold Out,Added,Reduced,Top 10 Concentration (%),Turnover (%),Time Held Top 10,Time Held All
-Vanguard Total Stock Market Index Fund,Vanguard Group,2011124,3/31/2026,1500000000000,3800,50,30,900,850,25.1,2.3,20,18
+Name,Series Name,Investor ID,Report Date,Portfolio Value,# Investments,New Purchased,Sold Out,Added,Reduced,Top 10 Concentration (%),Turnover (%),Time Held Top 10,Time Held All
+VANGUARD SPECIALIZED FUNDS,VANGUARD HEALTH CARE FUND,S000002922,2026-04-30,36758224622,103,21,19,34,36,40.82,5.1,20,18
 ```
 
 ## Example

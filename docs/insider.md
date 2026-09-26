@@ -12,7 +12,7 @@
 
 > **getInsiders**(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`InsiderItem`](types/insider.md#insideritem)\>\>
 
-Defined in: [insider.ts:44](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/insider.ts#L44)
+Defined in: [insider.ts:44](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/insider.ts#L44)
 
 Fetch insider trading transactions, optionally filtered by ticker, transaction type,
 owner relationship, minimum transaction value, or owner CIK.

@@ -12,7 +12,7 @@
 
 > **getPortfolio**(`client`, `portfolioId`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`Portfolio`](types/portfolio.md#portfolio)\>\>
 
-Defined in: [portfolio.ts:27](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/portfolio.ts#L27)
+Defined in: [portfolio.ts:27](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/portfolio.ts#L27)
 
 Fetch holdings for a saved Finviz portfolio by its ID.
 The portfolio ID can be found in the URL when viewing a portfolio on the Finviz website.

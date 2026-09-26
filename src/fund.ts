@@ -26,5 +26,5 @@ export async function getFunds(
   client: FinvizClient,
   options: FundOptions = {},
 ): Promise<FinvizResponse<FundItem>> {
-  return getFundManagerItems(client, '/export/funds', 'Fund', options);
+  return getFundManagerItems(client, '/export/funds', 'Series Name', options);
 }

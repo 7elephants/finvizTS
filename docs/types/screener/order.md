@@ -12,7 +12,7 @@
 
 > **ScreenerOrder** = *typeof* [`ScreenerOrder`](#screenerorder-1)\[keyof *typeof* [`ScreenerOrder`](#screenerorder-1)\]
 
-Defined in: [types/screener/order.ts:13](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/screener/order.ts#L13)
+Defined in: [types/screener/order.ts:13](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/screener/order.ts#L13)
 
 Union of all known screener sort column values.
 
@@ -22,7 +22,7 @@ Union of all known screener sort column values.
 
 > `const` **ScreenerOrder**: `object`
 
-Defined in: [types/screener/order.ts:13](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/screener/order.ts#L13)
+Defined in: [types/screener/order.ts:13](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/types/screener/order.ts#L13)
 
 Valid sort column values for the screener `o` query parameter.
 

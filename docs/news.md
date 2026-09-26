@@ -12,7 +12,7 @@
 
 > **getNews**(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`NewsItem`](types/news.md#newsitem)\>\>
 
-Defined in: [news.ts:35](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/news.ts#L35)
+Defined in: [news.ts:35](https://github.com/7elephants/finvizTS/blob/f744eabcb42982a597319cae2efa34ee2e597d43/src/news.ts#L35)
 
 Fetch financial news filtered by type and optionally by ticker or portfolio.
 The API returns a multi-row CSV; each row is mapped to a NewsItem.

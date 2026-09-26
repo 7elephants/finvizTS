@@ -123,7 +123,7 @@ const { items: events } = await getEconomicCalendar(client, {
   from: new Date("2026-03-01"), // required
   to: new Date("2026-03-31"), // optional
 });
-// events[0] → { Date, Time, Datetime, Release, Impact, For, Actual, Expected, Prior }
+// events[0] → { Event, Date, Time, Impact, For, Actual, Expected, Prior } (all strings)
 ```
 
 | Option | Type   | Description                                    |
@@ -299,6 +299,18 @@ try {
 ```
 
 When all retries are exhausted after a `429`, the thrown error message reads `"Finviz rate limit exceeded — exhausted N retries"`.
+
+---
+
+## Development
+
+```bash
+npm test              # offline unit tests (HTTP client is mocked)
+npm run test:coverage
+npm run test:live     # opt-in smoke tests against the real Finviz API
+```
+
+`npm run test:live` calls every endpoint once through a real `FinvizClient`. At the 1 request per 5 seconds rate limit it takes about 90 seconds. It checks that each endpoint returns rows with no `ParseError`s, and that every typed field is filled in at least one row, which catches Finviz renaming a CSV header. It reads `FINVIZ_API_TOKEN` (plus optional `FINVIZ_BASE_URL` and `FINVIZ_PORTFOLIO_ID`) from `.env.local` or the environment, and skips itself when no token is set.
 
 ---
 

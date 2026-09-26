@@ -51,6 +51,7 @@ export interface ManagerFundOptions {
  */
 export interface ManagerFundItem {
   name: string | undefined;
+  /** Portfolio manager name (managers, `Portfolio Manager` column) or fund series name (funds, `Series Name` column). */
   manager: string | undefined;
   id: string | undefined;
   reportDate: Date | undefined;

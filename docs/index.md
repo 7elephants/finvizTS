@@ -104,6 +104,12 @@ Re-exports [FilingOptions](types/filings.md#filingoptions)
 
 ***
 
+### FilingOrder
+
+Re-exports [FilingOrder](types/filings.md#filingorder-1)
+
+***
+
 ### FinvizClient
 
 Re-exports [FinvizClient](client.md#finvizclient)
@@ -356,6 +362,18 @@ Re-exports [InsiderTransactionType](types/insider.md#insidertransactiontype-1)
 
 ***
 
+### ManagerFundItem
+
+Re-exports [ManagerFundItem](types/fund-manager.md#managerfunditem)
+
+***
+
+### ManagerFundOptions
+
+Re-exports [ManagerFundOptions](types/fund-manager.md#managerfundoptions)
+
+***
+
 ### ManagerFundOrderType
 
 Re-exports [ManagerFundOrderType](types/fund-manager.md#managerfundordertype-1)
@@ -446,9 +464,21 @@ Re-exports [Portfolio](types/portfolio.md#portfolio)
 
 ***
 
+### PortfolioField
+
+Re-exports [PortfolioField](types/portfolio.md#portfoliofield-1)
+
+***
+
 ### PortfolioOptions
 
 Re-exports [PortfolioOptions](types/portfolio.md#portfoliooptions)
+
+***
+
+### PortfolioOrder
+
+Re-exports [PortfolioOrder](types/portfolio.md#portfolioorder-1)
 
 ***
 
@@ -482,9 +512,309 @@ Re-exports [Screener](types/screener.md#screener)
 
 ***
 
+### ScreenerAfterHoursChangeFilter
+
+Re-exports [ScreenerAfterHoursChangeFilter](types/screener/technical-filters.md#screenerafterhourschangefilter-1)
+
+***
+
+### ScreenerAfterHoursCloseFilter
+
+Re-exports [ScreenerAfterHoursCloseFilter](types/screener/technical-filters.md#screenerafterhoursclosefilter-1)
+
+***
+
+### ScreenerAllTimeHighLowFilter
+
+Re-exports [ScreenerAllTimeHighLowFilter](types/screener/technical-filters.md#screeneralltimehighlowfilter-1)
+
+***
+
+### ScreenerAnalystRecommendationFilter
+
+Re-exports [ScreenerAnalystRecommendationFilter](types/screener/descriptive-filters.md#screeneranalystrecommendationfilter-1)
+
+***
+
+### ScreenerAverageTrueRangeFilter
+
+Re-exports [ScreenerAverageTrueRangeFilter](types/screener/technical-filters.md#screeneraveragetruerangefilter-1)
+
+***
+
+### ScreenerAverageVolumeFilter
+
+Re-exports [ScreenerAverageVolumeFilter](types/screener/descriptive-filters.md#screeneraveragevolumefilter-1)
+
+***
+
+### ScreenerBetaFilter
+
+Re-exports [ScreenerBetaFilter](types/screener/technical-filters.md#screenerbetafilter-1)
+
+***
+
+### ScreenerCandlestickFilter
+
+Re-exports [ScreenerCandlestickFilter](types/screener/technical-filters.md#screenercandlestickfilter-1)
+
+***
+
+### ScreenerChangeFilter
+
+Re-exports [ScreenerChangeFilter](types/screener/technical-filters.md#screenerchangefilter-1)
+
+***
+
+### ScreenerChangeFromOpenFilter
+
+Re-exports [ScreenerChangeFromOpenFilter](types/screener/technical-filters.md#screenerchangefromopenfilter-1)
+
+***
+
+### ScreenerCountryFilter
+
+Re-exports [ScreenerCountryFilter](types/screener/descriptive-filters.md#screenercountryfilter-1)
+
+***
+
+### ScreenerCurrentRatioFilter
+
+Re-exports [ScreenerCurrentRatioFilter](types/screener/fundamental-filters.md#screenercurrentratiofilter-1)
+
+***
+
+### ScreenerCurrentVolumeFilter
+
+Re-exports [ScreenerCurrentVolumeFilter](types/screener/descriptive-filters.md#screenercurrentvolumefilter-1)
+
+***
+
+### ScreenerDebtEquityFilter
+
+Re-exports [ScreenerDebtEquityFilter](types/screener/fundamental-filters.md#screenerdebtequityfilter-1)
+
+***
+
+### ScreenerDividendGrowthFilter
+
+Re-exports [ScreenerDividendGrowthFilter](types/screener/fundamental-filters.md#screenerdividendgrowthfilter-1)
+
+***
+
+### ScreenerDividendYieldFilter
+
+Re-exports [ScreenerDividendYieldFilter](types/screener/descriptive-filters.md#screenerdividendyieldfilter-1)
+
+***
+
+### ScreenerEarningsDateFilter
+
+Re-exports [ScreenerEarningsDateFilter](types/screener/descriptive-filters.md#screenerearningsdatefilter-1)
+
+***
+
+### ScreenerEarningsRevenueSurpriseFilter
+
+Re-exports [ScreenerEarningsRevenueSurpriseFilter](types/screener/fundamental-filters.md#screenerearningsrevenuesurprisefilter-1)
+
+***
+
+### ScreenerEPSGrowthNext5YFilter
+
+Re-exports [ScreenerEPSGrowthNext5YFilter](types/screener/fundamental-filters.md#screenerepsgrowthnext5yfilter-1)
+
+***
+
+### ScreenerEPSGrowthNextYearFilter
+
+Re-exports [ScreenerEPSGrowthNextYearFilter](types/screener/fundamental-filters.md#screenerepsgrowthnextyearfilter-1)
+
+***
+
+### ScreenerEPSGrowthPast3YFilter
+
+Re-exports [ScreenerEPSGrowthPast3YFilter](types/screener/fundamental-filters.md#screenerepsgrowthpast3yfilter-1)
+
+***
+
+### ScreenerEPSGrowthPast5YFilter
+
+Re-exports [ScreenerEPSGrowthPast5YFilter](types/screener/fundamental-filters.md#screenerepsgrowthpast5yfilter-1)
+
+***
+
+### ScreenerEPSGrowthQoQFilter
+
+Re-exports [ScreenerEPSGrowthQoQFilter](types/screener/fundamental-filters.md#screenerepsgrowthqoqfilter-1)
+
+***
+
+### ScreenerEPSGrowthThisYearFilter
+
+Re-exports [ScreenerEPSGrowthThisYearFilter](types/screener/fundamental-filters.md#screenerepsgrowththisyearfilter-1)
+
+***
+
+### ScreenerEPSGrowthTTMFilter
+
+Re-exports [ScreenerEPSGrowthTTMFilter](types/screener/fundamental-filters.md#screenerepsgrowthttmfilter-1)
+
+***
+
+### ScreenerETFAssetTypeFilter
+
+Re-exports [ScreenerETFAssetTypeFilter](types/screener/etf-filters.md#screeneretfassettypefilter-1)
+
+***
+
+### ScreenerETFCategoryFilter
+
+Re-exports [ScreenerETFCategoryFilter](types/screener/etf-filters.md#screeneretfcategoryfilter-1)
+
+***
+
+### ScreenerETFFundFlowsFilter
+
+Re-exports [ScreenerETFFundFlowsFilter](types/screener/etf-filters.md#screeneretffundflowsfilter-1)
+
+***
+
+### ScreenerETFNetExpenseFilter
+
+Re-exports [ScreenerETFNetExpenseFilter](types/screener/etf-filters.md#screeneretfnetexpensefilter-1)
+
+***
+
+### ScreenerETFReturnFilter
+
+Re-exports [ScreenerETFReturnFilter](types/screener/etf-filters.md#screeneretfreturnfilter-1)
+
+***
+
+### ScreenerETFSponsorFilter
+
+Re-exports [ScreenerETFSponsorFilter](types/screener/etf-filters.md#screeneretfsponsorfilter-1)
+
+***
+
+### ScreenerETFTagFilter
+
+Re-exports [ScreenerETFTagFilter](types/screener/etf-filters.md#screeneretftagfilter-1)
+
+***
+
+### ScreenerEVEBITDAFilter
+
+Re-exports [ScreenerEVEBITDAFilter](types/screener/fundamental-filters.md#screenerevebitdafilter-1)
+
+***
+
+### ScreenerEVSalesFilter
+
+Re-exports [ScreenerEVSalesFilter](types/screener/fundamental-filters.md#screenerevsalesfilter-1)
+
+***
+
+### ScreenerExchangeFilter
+
+Re-exports [ScreenerExchangeFilter](types/screener/descriptive-filters.md#screenerexchangefilter-1)
+
+***
+
 ### ScreenerField
 
 Re-exports [ScreenerField](types/screener.md#screenerfield-1)
+
+***
+
+### ScreenerFloatFilter
+
+Re-exports [ScreenerFloatFilter](types/screener/descriptive-filters.md#screenerfloatfilter-1)
+
+***
+
+### ScreenerForwardPEFilter
+
+Re-exports [ScreenerForwardPEFilter](types/screener/fundamental-filters.md#screenerforwardpefilter-1)
+
+***
+
+### ScreenerGapFilter
+
+Re-exports [ScreenerGapFilter](types/screener/technical-filters.md#screenergapfilter-1)
+
+***
+
+### ScreenerGrossMarginFilter
+
+Re-exports [ScreenerGrossMarginFilter](types/screener/fundamental-filters.md#screenergrossmarginfilter-1)
+
+***
+
+### ScreenerHighLow20DFilter
+
+Re-exports [ScreenerHighLow20DFilter](types/screener/technical-filters.md#screenerhighlow20dfilter-1)
+
+***
+
+### ScreenerHighLow50DFilter
+
+Re-exports [ScreenerHighLow50DFilter](types/screener/technical-filters.md#screenerhighlow50dfilter-1)
+
+***
+
+### ScreenerHighLow52WFilter
+
+Re-exports [ScreenerHighLow52WFilter](types/screener/technical-filters.md#screenerhighlow52wfilter-1)
+
+***
+
+### ScreenerIndexFilter
+
+Re-exports [ScreenerIndexFilter](types/screener/descriptive-filters.md#screenerindexfilter-1)
+
+***
+
+### ScreenerIndustryFilter
+
+Re-exports [ScreenerIndustryFilter](types/screener/descriptive-filters.md#screenerindustryfilter-1)
+
+***
+
+### ScreenerIPODateFilter
+
+Re-exports [ScreenerIPODateFilter](types/screener/descriptive-filters.md#screeneripodatefilter-1)
+
+***
+
+### ScreenerLTDebtEquityFilter
+
+Re-exports [ScreenerLTDebtEquityFilter](types/screener/fundamental-filters.md#screenerltdebtequityfilter-1)
+
+***
+
+### ScreenerMarketCapFilter
+
+Re-exports [ScreenerMarketCapFilter](types/screener/descriptive-filters.md#screenermarketcapfilter-1)
+
+***
+
+### ScreenerNetProfitMarginFilter
+
+Re-exports [ScreenerNetProfitMarginFilter](types/screener/fundamental-filters.md#screenernetprofitmarginfilter-1)
+
+***
+
+### ScreenerNewsDateFilter
+
+Re-exports [ScreenerNewsDateFilter](types/screener/news-filters.md#screenernewsdatefilter-1)
+
+***
+
+### ScreenerOperatingMarginFilter
+
+Re-exports [ScreenerOperatingMarginFilter](types/screener/fundamental-filters.md#screeneroperatingmarginfilter-1)
 
 ***
 
@@ -494,9 +824,213 @@ Re-exports [ScreenerOptions](types/screener.md#screeneroptions)
 
 ***
 
+### ScreenerOptionShortFilter
+
+Re-exports [ScreenerOptionShortFilter](types/screener/descriptive-filters.md#screeneroptionshortfilter-1)
+
+***
+
+### ScreenerOrder
+
+Re-exports [ScreenerOrder](types/screener/order.md#screenerorder-1)
+
+***
+
+### ScreenerPatternFilter
+
+Re-exports [ScreenerPatternFilter](types/screener/technical-filters.md#screenerpatternfilter-1)
+
+***
+
+### ScreenerPayoutRatioFilter
+
+Re-exports [ScreenerPayoutRatioFilter](types/screener/fundamental-filters.md#screenerpayoutratiofilter-1)
+
+***
+
+### ScreenerPBFilter
+
+Re-exports [ScreenerPBFilter](types/screener/fundamental-filters.md#screenerpbfilter-1)
+
+***
+
+### ScreenerPEFilter
+
+Re-exports [ScreenerPEFilter](types/screener/fundamental-filters.md#screenerpefilter-1)
+
+***
+
+### ScreenerPEGFilter
+
+Re-exports [ScreenerPEGFilter](types/screener/fundamental-filters.md#screenerpegfilter-1)
+
+***
+
+### ScreenerPerformance2Filter
+
+Re-exports [ScreenerPerformance2Filter](types/screener/technical-filters.md#screenerperformance2filter-1)
+
+***
+
+### ScreenerPerformanceFilter
+
+Re-exports [ScreenerPerformanceFilter](types/screener/technical-filters.md#screenerperformancefilter-1)
+
+***
+
+### ScreenerPriceCashFilter
+
+Re-exports [ScreenerPriceCashFilter](types/screener/fundamental-filters.md#screenerpricecashfilter-1)
+
+***
+
+### ScreenerPriceFCFFilter
+
+Re-exports [ScreenerPriceFCFFilter](types/screener/fundamental-filters.md#screenerpricefcffilter-1)
+
+***
+
+### ScreenerPriceFilter
+
+Re-exports [ScreenerPriceFilter](types/screener/descriptive-filters.md#screenerpricefilter-1)
+
+***
+
+### ScreenerPSFilter
+
+Re-exports [ScreenerPSFilter](types/screener/fundamental-filters.md#screenerpsfilter-1)
+
+***
+
+### ScreenerQuickRatioFilter
+
+Re-exports [ScreenerQuickRatioFilter](types/screener/fundamental-filters.md#screenerquickratiofilter-1)
+
+***
+
+### ScreenerRelativeVolumeFilter
+
+Re-exports [ScreenerRelativeVolumeFilter](types/screener/descriptive-filters.md#screenerrelativevolumefilter-1)
+
+***
+
+### ScreenerROAFilter
+
+Re-exports [ScreenerROAFilter](types/screener/fundamental-filters.md#screenerroafilter-1)
+
+***
+
+### ScreenerROEFilter
+
+Re-exports [ScreenerROEFilter](types/screener/fundamental-filters.md#screenerroefilter-1)
+
+***
+
+### ScreenerROIFilter
+
+Re-exports [ScreenerROIFilter](types/screener/fundamental-filters.md#screenerroifilter-1)
+
+***
+
+### ScreenerRSIFilter
+
+Re-exports [ScreenerRSIFilter](types/screener/technical-filters.md#screenerrsifilter-1)
+
+***
+
+### ScreenerSalesGrowthPast3YFilter
+
+Re-exports [ScreenerSalesGrowthPast3YFilter](types/screener/fundamental-filters.md#screenersalesgrowthpast3yfilter-1)
+
+***
+
+### ScreenerSalesGrowthPast5YFilter
+
+Re-exports [ScreenerSalesGrowthPast5YFilter](types/screener/fundamental-filters.md#screenersalesgrowthpast5yfilter-1)
+
+***
+
+### ScreenerSalesGrowthQoQFilter
+
+Re-exports [ScreenerSalesGrowthQoQFilter](types/screener/fundamental-filters.md#screenersalesgrowthqoqfilter-1)
+
+***
+
+### ScreenerSalesGrowthTTMFilter
+
+Re-exports [ScreenerSalesGrowthTTMFilter](types/screener/fundamental-filters.md#screenersalesgrowthttmfilter-1)
+
+***
+
+### ScreenerSectorFilter
+
+Re-exports [ScreenerSectorFilter](types/screener/descriptive-filters.md#screenersectorfilter-1)
+
+***
+
+### ScreenerSharesOutstandingFilter
+
+Re-exports [ScreenerSharesOutstandingFilter](types/screener/descriptive-filters.md#screenersharesoutstandingfilter-1)
+
+***
+
+### ScreenerShortFloatFilter
+
+Re-exports [ScreenerShortFloatFilter](types/screener/descriptive-filters.md#screenershortfloatfilter-1)
+
+***
+
+### ScreenerSignal
+
+Re-exports [ScreenerSignal](types/screener/signal.md#screenersignal-1)
+
+***
+
+### ScreenerSMA200Filter
+
+Re-exports [ScreenerSMA200Filter](types/screener/technical-filters.md#screenersma200filter-1)
+
+***
+
+### ScreenerSMA20Filter
+
+Re-exports [ScreenerSMA20Filter](types/screener/technical-filters.md#screenersma20filter-1)
+
+***
+
+### ScreenerSMA50Filter
+
+Re-exports [ScreenerSMA50Filter](types/screener/technical-filters.md#screenersma50filter-1)
+
+***
+
+### ScreenerSubThemeFilter
+
+Re-exports [ScreenerSubThemeFilter](types/screener/descriptive-filters.md#screenersubthemefilter-1)
+
+***
+
+### ScreenerTargetPriceFilter
+
+Re-exports [ScreenerTargetPriceFilter](types/screener/descriptive-filters.md#screenertargetpricefilter-1)
+
+***
+
+### ScreenerTradesFilter
+
+Re-exports [ScreenerTradesFilter](types/screener/descriptive-filters.md#screenertradesfilter-1)
+
+***
+
 ### ScreenerView
 
 Re-exports [ScreenerView](types/screener.md#screenerview-1)
+
+***
+
+### ScreenerVolatilityFilter
+
+Re-exports [ScreenerVolatilityFilter](types/screener/technical-filters.md#screenervolatilityfilter-1)
 
 ***
 

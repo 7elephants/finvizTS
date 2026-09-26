@@ -73,7 +73,7 @@ describe('getManagers', () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Name: 'Berkshire Hathaway Inc',
-        Manager: 'Warren Buffett',
+        'Portfolio Manager': 'Warren Buffett',
         'Investor ID': '1067983',
         'Report Date': '3/31/2026',
         'Portfolio Value': '350000000000',
@@ -145,7 +145,7 @@ describe('getManagers', () => {
     mockGetRecords.mockResolvedValueOnce([
       {
         Name: 'Some Fund',
-        Manager: 'Some Manager',
+        'Portfolio Manager': 'Some Manager',
         'Investor ID': '123',
         'Report Date': '',
         'Portfolio Value': '',

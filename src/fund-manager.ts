@@ -17,8 +17,14 @@ import type { FinvizResponse, ManagerFundItem, ManagerFundOptions } from './type
 import { date, integer, number, parseRows, text, type RowSchema } from './parse';
 import { buildSortParam } from './utils';
 
+/**
+ * CSV column holding the fund series name (`/export/funds`) or portfolio manager name
+ * (`/export/managers`); mapped to `ManagerFundItem.manager`.
+ */
+type FundManagerNameColumn = 'Series Name' | 'Portfolio Manager';
+
 /** Build the ManagerFundItem property → CSV column mapping; `manager` reads `nameColumn`. */
-function fundManagerSchema(nameColumn: 'Fund' | 'Manager'): RowSchema<ManagerFundItem> {
+function fundManagerSchema(nameColumn: FundManagerNameColumn): RowSchema<ManagerFundItem> {
   return {
     name: text('Name'),
     manager: text(nameColumn),
@@ -43,13 +49,13 @@ function fundManagerSchema(nameColumn: 'Fund' | 'Manager'): RowSchema<ManagerFun
  *
  * @param client     - Authenticated FinvizClient instance
  * @param path       - `/export/funds` or `/export/managers`
- * @param nameColumn - CSV column holding the fund/manager name
+ * @param nameColumn - `Series Name` (funds) or `Portfolio Manager` (managers)
  * @param options    - Search term and sort options
  */
 export async function getFundManagerItems(
   client: FinvizClient,
   path: string,
-  nameColumn: 'Fund' | 'Manager',
+  nameColumn: FundManagerNameColumn,
   options: ManagerFundOptions,
 ): Promise<FinvizResponse<ManagerFundItem>> {
   const rows = await client.getRecords(path, {

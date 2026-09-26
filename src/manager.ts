@@ -26,5 +26,5 @@ export async function getManagers(
   client: FinvizClient,
   options: ManagerOptions = {},
 ): Promise<FinvizResponse<ManagerItem>> {
-  return getFundManagerItems(client, '/export/managers', 'Manager', options);
+  return getFundManagerItems(client, '/export/managers', 'Portfolio Manager', options);
 }
