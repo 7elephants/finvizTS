@@ -1,8 +1,8 @@
 /*
  * ---
  * Workflow Summary
- * Invocation: Imported by calendar.ts, filings.ts, fund-manager.ts, insider.ts, portfolio.ts,
- * and screener.ts to build request params, and re-exported from index.ts.
+ * Invocation: Imported by calendar.ts, filings.ts, fund-manager.ts, insider.ts, performance.ts,
+ * portfolio.ts, and screener.ts to build request params, and re-exported from index.ts.
  *
  * | Step | Method                  | Input                | Output                    |
  * |------|-------------------------|-----------------------|----------------------------|

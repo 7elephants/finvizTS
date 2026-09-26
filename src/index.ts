@@ -26,6 +26,9 @@ export { getInsiders } from './insider';
 export { getManagers } from './manager';
 export { getFunds } from './fund';
 export { getEconomicCalendar, getEarningsCalendar, getDividendsCalendar } from './calendar';
+export { getFutures } from './futures';
+export { getForex } from './forex';
+export { getCrypto } from './crypto';
 export { FinvizError } from './errors';
 export * from './utils';
 export {
@@ -44,6 +47,10 @@ export {
   InsiderOrderType,
   ManagerFundOrderType,
   EarningsOrderType,
+  PerformanceOrderType,
+  ForexUnit,
+  ForexPipsOrderType,
+  CryptoCurrency,
   SortDirection,
   ErrorLevel,
 } from './types';
@@ -75,4 +82,15 @@ export type {
   EarningsCalendarItem,
   DividendsCalendarOptions,
   DividendsCalendarItem,
+  PerformanceOptions,
+  PerformanceItem,
+  FuturesOptions,
+  FuturesItem,
+  ForexOptions,
+  ForexPercentOptions,
+  ForexPipsOptions,
+  ForexSharedOrderType,
+  ForexItem,
+  CryptoOptions,
+  CryptoItem,
 } from './types';

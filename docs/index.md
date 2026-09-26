@@ -32,6 +32,24 @@ Re-exports [CalendarOptions](types/calendar.md#calendaroptions)
 
 ***
 
+### CryptoCurrency
+
+Re-exports [CryptoCurrency](types/crypto.md#cryptocurrency-1)
+
+***
+
+### CryptoItem
+
+Re-exports [CryptoItem](types/crypto.md#cryptoitem)
+
+***
+
+### CryptoOptions
+
+Re-exports [CryptoOptions](types/crypto.md#cryptooptions)
+
+***
+
 ### DividendsCalendarItem
 
 Re-exports [DividendsCalendarItem](types/calendar.md#dividendscalendaritem)
@@ -104,6 +122,48 @@ Re-exports [FinvizError](errors.md#finvizerror)
 
 ***
 
+### ForexItem
+
+Re-exports [ForexItem](types/forex.md#forexitem)
+
+***
+
+### ForexOptions
+
+Re-exports [ForexOptions](types/forex.md#forexoptions)
+
+***
+
+### ForexPercentOptions
+
+Re-exports [ForexPercentOptions](types/forex.md#forexpercentoptions)
+
+***
+
+### ForexPipsOptions
+
+Re-exports [ForexPipsOptions](types/forex.md#forexpipsoptions)
+
+***
+
+### ForexPipsOrderType
+
+Re-exports [ForexPipsOrderType](types/forex.md#forexpipsordertype-1)
+
+***
+
+### ForexSharedOrderType
+
+Re-exports [ForexSharedOrderType](types/forex.md#forexsharedordertype)
+
+***
+
+### ForexUnit
+
+Re-exports [ForexUnit](types/forex.md#forexunit-1)
+
+***
+
 ### formatDateToYYYYMMDD
 
 Re-exports [formatDateToYYYYMMDD](utils.md#formatdatetoyyyymmdd)
@@ -119,6 +179,24 @@ Re-exports [FundItem](types/fund.md#funditem)
 ### FundOptions
 
 Re-exports [FundOptions](types/fund.md#fundoptions)
+
+***
+
+### FuturesItem
+
+Re-exports [FuturesItem](types/futures.md#futuresitem)
+
+***
+
+### FuturesOptions
+
+Re-exports [FuturesOptions](types/futures.md#futuresoptions)
+
+***
+
+### getCrypto
+
+Re-exports [getCrypto](crypto.md#getcrypto)
 
 ***
 
@@ -140,9 +218,21 @@ Re-exports [getEconomicCalendar](calendar.md#geteconomiccalendar)
 
 ***
 
+### getForex
+
+Re-exports [getForex](forex.md#getforex)
+
+***
+
 ### getFunds
 
 Re-exports [getFunds](fund.md#getfunds)
+
+***
+
+### getFutures
+
+Re-exports [getFutures](futures.md#getfutures)
 
 ***
 
@@ -311,6 +401,24 @@ Re-exports [OptionsChainOptions](types/options.md#optionschainoptions)
 ### OptionsViewType
 
 Re-exports [OptionsViewType](types/options.md#optionsviewtype-1)
+
+***
+
+### PerformanceItem
+
+Re-exports [PerformanceItem](types/performance.md#performanceitem)
+
+***
+
+### PerformanceOptions
+
+Re-exports [PerformanceOptions](types/performance.md#performanceoptions)
+
+***
+
+### PerformanceOrderType
+
+Re-exports [PerformanceOrderType](types/performance.md#performanceordertype-1)
 
 ***
 

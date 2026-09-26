@@ -10,7 +10,7 @@
 
 ### FinvizClientOptions
 
-Defined in: [types/client.ts:13](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L13)
+Defined in: [types/client.ts:13](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L13)
 
 Options passed when constructing a FinvizClient instance.
 
@@ -20,7 +20,7 @@ Options passed when constructing a FinvizClient instance.
 
 > **apiToken**: `string`
 
-Defined in: [types/client.ts:15](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L15)
+Defined in: [types/client.ts:15](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L15)
 
 Finviz Elite API token
 
@@ -28,7 +28,7 @@ Finviz Elite API token
 
 > `optional` **baseUrl?**: `string`
 
-Defined in: [types/client.ts:17](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L17)
+Defined in: [types/client.ts:17](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L17)
 
 Base URL override (defaults to https://elite.finviz.com)
 
@@ -36,7 +36,7 @@ Base URL override (defaults to https://elite.finviz.com)
 
 > `optional` **maxRetries?**: `number`
 
-Defined in: [types/client.ts:30](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L30)
+Defined in: [types/client.ts:30](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L30)
 
 Maximum number of times to retry a request after a 429 response.
 Default: 3.
@@ -45,7 +45,7 @@ Default: 3.
 
 > `optional` **rateLimitMs?**: `number`
 
-Defined in: [types/client.ts:25](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L25)
+Defined in: [types/client.ts:25](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L25)
 
 Minimum interval between outgoing requests in milliseconds.
 Proactively delays requests that arrive before this interval has elapsed.
@@ -55,7 +55,7 @@ Default: 5000 (matches Finviz's 1 request per 5 second limit).
 
 > `optional` **retryDelayMs?**: `number`
 
-Defined in: [types/client.ts:35](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L35)
+Defined in: [types/client.ts:35](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L35)
 
 Milliseconds to wait before each retry when no Retry-After header is present.
 Default: 5000.
@@ -64,6 +64,6 @@ Default: 5000.
 
 > `optional` **timeout?**: `number`
 
-Defined in: [types/client.ts:19](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/client.ts#L19)
+Defined in: [types/client.ts:19](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/client.ts#L19)
 
 Request timeout in milliseconds (default: 10000)

@@ -19,8 +19,10 @@
  * | 11   | Re-export manager/fund types          | types/manager.ts,  | ManagerOptions,      |
  * |      |                                        | types/fund.ts      | FundOptions, etc.    |
  * | 12   | Re-export shared fund/manager shape   | types/fund-manager.ts | ManagerFundOrderType, etc. |
- * | 13   | Export SortDirection const + type     | —                  | Typed sort direction |
- * | 14   | Export ErrorLevel const + type        | —                  | Typed error level    |
+ * | 13   | Re-export performance types           | types/performance.ts, | PerformanceOrderType, |
+ * |      |                                        | futures/forex/crypto.ts | FuturesItem, etc.   |
+ * | 14   | Export SortDirection const + type     | —                  | Typed sort direction |
+ * | 15   | Export ErrorLevel const + type        | —                  | Typed error level    |
  * ---
  */
 
@@ -37,6 +39,10 @@ export * from './insider';
 export * from './manager';
 export * from './fund';
 export * from './fund-manager';
+export * from './performance';
+export * from './futures';
+export * from './forex';
+export * from './crypto';
 
 /** Sort direction values shared by the `o` query parameter across endpoints. */
 export const SortDirection = {

@@ -58,6 +58,10 @@ src/
   fund.ts         # getFunds(client, options) → FundItem[]
   fund-manager.ts # getFundManagerItems() — internal helper shared by fund.ts/manager.ts (not exported)
   calendar.ts     # getEconomicCalendar(), getEarningsCalendar(), getDividendsCalendar()
+  futures.ts      # getFutures(client, options) → FuturesItem[]
+  forex.ts        # getForex(client, options) → ForexItem[]
+  crypto.ts       # getCrypto(client, options) → CryptoItem[]
+  performance.ts  # getPerformanceItems() — internal helper shared by futures.ts/forex.ts/crypto.ts (not exported)
 
 tests/
   client.test.ts
@@ -71,6 +75,9 @@ tests/
   manager.test.ts
   fund.test.ts
   calendar.test.ts
+  futures.test.ts
+  forex.test.ts
+  crypto.test.ts
 ```
 
 ### Key design decisions
@@ -80,6 +87,7 @@ tests/
 - **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around. It also proactively rate-limits requests and retries `429` responses (see `.claude/rules/rate_limiting.md`).
 - **Auth is injected by the client.** `auth` is appended to every request params automatically — individual modules never handle auth (see `.claude/rules/authenication.md`).
 - **`fund.ts` and `manager.ts` share one implementation.** Funds and fund managers are the same underlying Finviz resource (`/export/funds` vs `/export/managers`), so both call the internal `getFundManagerItems()` in `fund-manager.ts`, which is not part of the public API surface.
+- **`futures.ts`, `forex.ts` and `crypto.ts` share one implementation.** The three performance endpoints have identical request/response shapes, so each calls the internal `getPerformanceItems()` in `performance.ts`, which is not part of the public API surface.
 - **Jest `.js` import mapping.** `moduleNameMapper` in `jest.config.js` strips `.js` extensions at test time since ts-jest runs CommonJS but source imports use ESM-style `.js` suffixes for tsup compatibility.
 
 ## Environment

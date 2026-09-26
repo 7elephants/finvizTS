@@ -12,7 +12,7 @@
 
 > **ScreenerAnalystRecommendationFilter** = *typeof* [`ScreenerAnalystRecommendationFilter`](#screeneranalystrecommendationfilter-1)\[keyof *typeof* [`ScreenerAnalystRecommendationFilter`](#screeneranalystrecommendationfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:712](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L712)
+Defined in: [types/screener/descriptive-filters.ts:712](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L712)
 
 Union of all known screener analyst recommendation filter ID values.
 
@@ -22,7 +22,7 @@ Union of all known screener analyst recommendation filter ID values.
 
 > **ScreenerAverageVolumeFilter** = *typeof* [`ScreenerAverageVolumeFilter`](#screeneraveragevolumefilter-1)\[keyof *typeof* [`ScreenerAverageVolumeFilter`](#screeneraveragevolumefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:148](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L148)
+Defined in: [types/screener/descriptive-filters.ts:148](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L148)
 
 Union of all known screener average volume filter ID values.
 
@@ -32,7 +32,7 @@ Union of all known screener average volume filter ID values.
 
 > **ScreenerCountryFilter** = *typeof* [`ScreenerCountryFilter`](#screenercountryfilter-1)\[keyof *typeof* [`ScreenerCountryFilter`](#screenercountryfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:786](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L786)
+Defined in: [types/screener/descriptive-filters.ts:786](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L786)
 
 Union of all known screener country filter ID values.
 
@@ -42,7 +42,7 @@ Union of all known screener country filter ID values.
 
 > **ScreenerCurrentVolumeFilter** = *typeof* [`ScreenerCurrentVolumeFilter`](#screenercurrentvolumefilter-1)\[keyof *typeof* [`ScreenerCurrentVolumeFilter`](#screenercurrentvolumefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:728](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L728)
+Defined in: [types/screener/descriptive-filters.ts:728](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L728)
 
 Union of all known screener current volume filter ID values.
 
@@ -52,7 +52,7 @@ Union of all known screener current volume filter ID values.
 
 > **ScreenerDividendYieldFilter** = *typeof* [`ScreenerDividendYieldFilter`](#screenerdividendyieldfilter-1)\[keyof *typeof* [`ScreenerDividendYieldFilter`](#screenerdividendyieldfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:127](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L127)
+Defined in: [types/screener/descriptive-filters.ts:127](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L127)
 
 Union of all known screener dividend yield filter ID values.
 
@@ -62,7 +62,7 @@ Union of all known screener dividend yield filter ID values.
 
 > **ScreenerEarningsDateFilter** = *typeof* [`ScreenerEarningsDateFilter`](#screenerearningsdatefilter-1)\[keyof *typeof* [`ScreenerEarningsDateFilter`](#screenerearningsdatefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:49](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L49)
+Defined in: [types/screener/descriptive-filters.ts:49](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L49)
 
 Union of all known screener market cap filter ID values.
 
@@ -72,7 +72,7 @@ Union of all known screener market cap filter ID values.
 
 > **ScreenerExchangeFilter** = *typeof* [`ScreenerExchangeFilter`](#screenerexchangefilter-1)\[keyof *typeof* [`ScreenerExchangeFilter`](#screenerexchangefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:17](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L17)
+Defined in: [types/screener/descriptive-filters.ts:17](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L17)
 
 Union of all known screener exchange filter ID values.
 
@@ -82,7 +82,7 @@ Union of all known screener exchange filter ID values.
 
 > **ScreenerFloatFilter** = *typeof* [`ScreenerFloatFilter`](#screenerfloatfilter-1)\[keyof *typeof* [`ScreenerFloatFilter`](#screenerfloatfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:892](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L892)
+Defined in: [types/screener/descriptive-filters.ts:892](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L892)
 
 Union of all known screener float filter ID values.
 
@@ -92,7 +92,7 @@ Union of all known screener float filter ID values.
 
 > **ScreenerIndexFilter** = *typeof* [`ScreenerIndexFilter`](#screenerindexfilter-1)\[keyof *typeof* [`ScreenerIndexFilter`](#screenerindexfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:116](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L116)
+Defined in: [types/screener/descriptive-filters.ts:116](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L116)
 
 Union of all known screener index filter ID values.
 
@@ -102,7 +102,7 @@ Union of all known screener index filter ID values.
 
 > **ScreenerIndustryFilter** = *typeof* [`ScreenerIndustryFilter`](#screenerindustryfilter-1)\[keyof *typeof* [`ScreenerIndustryFilter`](#screenerindustryfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:553](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L553)
+Defined in: [types/screener/descriptive-filters.ts:553](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L553)
 
 Union of all known screener industry filter ID values.
 
@@ -112,7 +112,7 @@ Union of all known screener industry filter ID values.
 
 > **ScreenerIPODateFilter** = *typeof* [`ScreenerIPODateFilter`](#screeneripodatefilter-1)\[keyof *typeof* [`ScreenerIPODateFilter`](#screeneripodatefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:531](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L531)
+Defined in: [types/screener/descriptive-filters.ts:531](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L531)
 
 Union of all known screener IPO date filter ID values.
 
@@ -122,7 +122,7 @@ Union of all known screener IPO date filter ID values.
 
 > **ScreenerMarketCapFilter** = *typeof* [`ScreenerMarketCapFilter`](#screenermarketcapfilter-1)\[keyof *typeof* [`ScreenerMarketCapFilter`](#screenermarketcapfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:28](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L28)
+Defined in: [types/screener/descriptive-filters.ts:28](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L28)
 
 Union of all known screener market cap filter ID values.
 
@@ -132,7 +132,7 @@ Union of all known screener market cap filter ID values.
 
 > **ScreenerOptionShortFilter** = *typeof* [`ScreenerOptionShortFilter`](#screeneroptionshortfilter-1)\[keyof *typeof* [`ScreenerOptionShortFilter`](#screeneroptionshortfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:845](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L845)
+Defined in: [types/screener/descriptive-filters.ts:845](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L845)
 
 Union of all known screener option/short filter ID values.
 
@@ -142,7 +142,7 @@ Union of all known screener option/short filter ID values.
 
 > **ScreenerPriceFilter** = *typeof* [`ScreenerPriceFilter`](#screenerpricefilter-1)\[keyof *typeof* [`ScreenerPriceFilter`](#screenerpricefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:71](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L71)
+Defined in: [types/screener/descriptive-filters.ts:71](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L71)
 
 Union of all known screener price filter ID values.
 
@@ -152,7 +152,7 @@ Union of all known screener price filter ID values.
 
 > **ScreenerRelativeVolumeFilter** = *typeof* [`ScreenerRelativeVolumeFilter`](#screenerrelativevolumefilter-1)\[keyof *typeof* [`ScreenerRelativeVolumeFilter`](#screenerrelativevolumefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:508](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L508)
+Defined in: [types/screener/descriptive-filters.ts:508](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L508)
 
 Union of all known screener relative volume filter ID values.
 
@@ -162,7 +162,7 @@ Union of all known screener relative volume filter ID values.
 
 > **ScreenerSectorFilter** = *typeof* [`ScreenerSectorFilter`](#screenersectorfilter-1)\[keyof *typeof* [`ScreenerSectorFilter`](#screenersectorfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:469](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L469)
+Defined in: [types/screener/descriptive-filters.ts:469](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L469)
 
 Union of all known screener sector filter ID values.
 
@@ -172,7 +172,7 @@ Union of all known screener sector filter ID values.
 
 > **ScreenerSharesOutstandingFilter** = *typeof* [`ScreenerSharesOutstandingFilter`](#screenersharesoutstandingfilter-1)\[keyof *typeof* [`ScreenerSharesOutstandingFilter`](#screenersharesoutstandingfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:763](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L763)
+Defined in: [types/screener/descriptive-filters.ts:763](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L763)
 
 Union of all known screener shares outstanding filter ID values.
 
@@ -182,7 +182,7 @@ Union of all known screener shares outstanding filter ID values.
 
 > **ScreenerShortFloatFilter** = *typeof* [`ScreenerShortFloatFilter`](#screenershortfloatfilter-1)\[keyof *typeof* [`ScreenerShortFloatFilter`](#screenershortfloatfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:487](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L487)
+Defined in: [types/screener/descriptive-filters.ts:487](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L487)
 
 Union of all known screener short float filter ID values.
 
@@ -192,7 +192,7 @@ Union of all known screener short float filter ID values.
 
 > **ScreenerSubThemeFilter** = *typeof* [`ScreenerSubThemeFilter`](#screenersubthemefilter-1)\[keyof *typeof* [`ScreenerSubThemeFilter`](#screenersubthemefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:194](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L194)
+Defined in: [types/screener/descriptive-filters.ts:194](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L194)
 
 Union of all known screener sub theme filter ID values.
 
@@ -202,7 +202,7 @@ Union of all known screener sub theme filter ID values.
 
 > **ScreenerTargetPriceFilter** = *typeof* [`ScreenerTargetPriceFilter`](#screenertargetpricefilter-1)\[keyof *typeof* [`ScreenerTargetPriceFilter`](#screenertargetpricefilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:173](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L173)
+Defined in: [types/screener/descriptive-filters.ts:173](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L173)
 
 Union of all known screener target price filter ID values.
 
@@ -212,7 +212,7 @@ Union of all known screener target price filter ID values.
 
 > **ScreenerTradesFilter** = *typeof* [`ScreenerTradesFilter`](#screenertradesfilter-1)\[keyof *typeof* [`ScreenerTradesFilter`](#screenertradesfilter-1)\]
 
-Defined in: [types/screener/descriptive-filters.ts:870](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L870)
+Defined in: [types/screener/descriptive-filters.ts:870](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L870)
 
 Union of all known screener trades filter ID values.
 
@@ -222,7 +222,7 @@ Union of all known screener trades filter ID values.
 
 > `const` **ScreenerAnalystRecommendationFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:712](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L712)
+Defined in: [types/screener/descriptive-filters.ts:712](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L712)
 
 Screener analyst recommendation filter values for the `f` query parameter.
 
@@ -270,7 +270,7 @@ Screener analyst recommendation filter values for the `f` query parameter.
 
 > `const` **ScreenerAverageVolumeFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:148](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L148)
+Defined in: [types/screener/descriptive-filters.ts:148](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L148)
 
 Screener average volume filter values for the `f` query parameter.
 
@@ -354,7 +354,7 @@ Screener average volume filter values for the `f` query parameter.
 
 > `const` **ScreenerCountryFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:786](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L786)
+Defined in: [types/screener/descriptive-filters.ts:786](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L786)
 
 Screener country filter values for the `f` query parameter.
 
@@ -574,7 +574,7 @@ Screener country filter values for the `f` query parameter.
 
 > `const` **ScreenerCurrentVolumeFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:728](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L728)
+Defined in: [types/screener/descriptive-filters.ts:728](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L728)
 
 Screener current volume filter values for the `f` query parameter.
 
@@ -698,7 +698,7 @@ Screener current volume filter values for the `f` query parameter.
 
 > `const` **ScreenerDividendYieldFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:127](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L127)
+Defined in: [types/screener/descriptive-filters.ts:127](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L127)
 
 Screener dividend yield filter values for the `f` query parameter.
 
@@ -766,7 +766,7 @@ Screener dividend yield filter values for the `f` query parameter.
 
 > `const` **ScreenerEarningsDateFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:49](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L49)
+Defined in: [types/screener/descriptive-filters.ts:49](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L49)
 
 Screener earnings date filter values for the `f` query parameter.
 
@@ -838,7 +838,7 @@ Screener earnings date filter values for the `f` query parameter.
 
 > `const` **ScreenerExchangeFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:17](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L17)
+Defined in: [types/screener/descriptive-filters.ts:17](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L17)
 
 Screener exchange filter values for the `f` query parameter.
 
@@ -866,7 +866,7 @@ Screener exchange filter values for the `f` query parameter.
 
 > `const` **ScreenerFloatFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:892](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L892)
+Defined in: [types/screener/descriptive-filters.ts:892](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L892)
 
 Screener float filter values for the `f` query parameter.
 
@@ -1014,7 +1014,7 @@ Screener float filter values for the `f` query parameter.
 
 > `const` **ScreenerIndexFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:116](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L116)
+Defined in: [types/screener/descriptive-filters.ts:116](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L116)
 
 Screener index filter values for the `f` query parameter.
 
@@ -1042,7 +1042,7 @@ Screener index filter values for the `f` query parameter.
 
 > `const` **ScreenerIndustryFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:553](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L553)
+Defined in: [types/screener/descriptive-filters.ts:553](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L553)
 
 Screener Industry filter values for the `f` query parameter.
 
@@ -1662,7 +1662,7 @@ Screener Industry filter values for the `f` query parameter.
 
 > `const` **ScreenerIPODateFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:531](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L531)
+Defined in: [types/screener/descriptive-filters.ts:531](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L531)
 
 Screener IPO date filter values for the `f` query parameter.
 
@@ -1734,7 +1734,7 @@ Screener IPO date filter values for the `f` query parameter.
 
 > `const` **ScreenerMarketCapFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:28](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L28)
+Defined in: [types/screener/descriptive-filters.ts:28](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L28)
 
 Screener market cap filter values for the `f` query parameter.
 
@@ -1802,7 +1802,7 @@ Screener market cap filter values for the `f` query parameter.
 
 > `const` **ScreenerOptionShortFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:845](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L845)
+Defined in: [types/screener/descriptive-filters.ts:845](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L845)
 
 Screener option/short filter values for the `f` query parameter.
 
@@ -1886,7 +1886,7 @@ Screener option/short filter values for the `f` query parameter.
 
 > `const` **ScreenerPriceFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:71](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L71)
+Defined in: [types/screener/descriptive-filters.ts:71](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L71)
 
 Screener price filter values for the `f` query parameter.
 
@@ -2050,7 +2050,7 @@ Screener price filter values for the `f` query parameter.
 
 > `const` **ScreenerRelativeVolumeFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:508](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L508)
+Defined in: [types/screener/descriptive-filters.ts:508](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L508)
 
 Screener relative volume filter values for the `f` query parameter.
 
@@ -2126,7 +2126,7 @@ Screener relative volume filter values for the `f` query parameter.
 
 > `const` **ScreenerSectorFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:469](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L469)
+Defined in: [types/screener/descriptive-filters.ts:469](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L469)
 
 Screener sector filter values for the `f` query parameter.
 
@@ -2182,7 +2182,7 @@ Screener sector filter values for the `f` query parameter.
 
 > `const` **ScreenerSharesOutstandingFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:763](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L763)
+Defined in: [types/screener/descriptive-filters.ts:763](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L763)
 
 Screener shares outstanding filter values for the `f` query parameter.
 
@@ -2258,7 +2258,7 @@ Screener shares outstanding filter values for the `f` query parameter.
 
 > `const` **ScreenerShortFloatFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:487](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L487)
+Defined in: [types/screener/descriptive-filters.ts:487](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L487)
 
 Screener short float filter values for the `f` query parameter.
 
@@ -2326,7 +2326,7 @@ Screener short float filter values for the `f` query parameter.
 
 > `const` **ScreenerSubThemeFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:194](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L194)
+Defined in: [types/screener/descriptive-filters.ts:194](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L194)
 
 Screener sub theme filter values for the `f` query parameter.
 
@@ -3410,7 +3410,7 @@ Screener sub theme filter values for the `f` query parameter.
 
 > `const` **ScreenerTargetPriceFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:173](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L173)
+Defined in: [types/screener/descriptive-filters.ts:173](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L173)
 
 Screener target price filter values for the `f` query parameter.
 
@@ -3478,7 +3478,7 @@ Screener target price filter values for the `f` query parameter.
 
 > `const` **ScreenerTradesFilter**: `object`
 
-Defined in: [types/screener/descriptive-filters.ts:870](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/screener/descriptive-filters.ts#L870)
+Defined in: [types/screener/descriptive-filters.ts:870](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/screener/descriptive-filters.ts#L870)
 
 Screener trades filter values for the `f` query parameter.
 

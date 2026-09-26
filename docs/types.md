@@ -12,7 +12,7 @@
 
 > **ErrorLevel** = *typeof* [`ErrorLevel`](#errorlevel-1)\[keyof *typeof* [`ErrorLevel`](#errorlevel-1)\]
 
-Defined in: [types/index.ts:51](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L51)
+Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L57)
 
 Union of all known error level values.
 
@@ -22,7 +22,7 @@ Union of all known error level values.
 
 > **SortDirection** = *typeof* [`SortDirection`](#sortdirection-1)\[keyof *typeof* [`SortDirection`](#sortdirection-1)\]
 
-Defined in: [types/index.ts:42](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L42)
+Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L48)
 
 Union of all known sort direction values.
 
@@ -32,7 +32,7 @@ Union of all known sort direction values.
 
 > `const` **ErrorLevel**: `object`
 
-Defined in: [types/index.ts:51](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L51)
+Defined in: [types/index.ts:57](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L57)
 
 Severity level attached to a thrown FinvizError.
 
@@ -56,7 +56,7 @@ Severity level attached to a thrown FinvizError.
 
 > `const` **SortDirection**: `object`
 
-Defined in: [types/index.ts:42](https://github.com/7elephants/finvizTS/blob/32fcd93ddd781eae14ef7eb4cd2365c4fc65b963/src/types/index.ts#L42)
+Defined in: [types/index.ts:48](https://github.com/7elephants/finvizTS/blob/5e4c7e375813a9349118ed5f6293931806e2095b/src/types/index.ts#L48)
 
 Sort direction values shared by the `o` query parameter across endpoints.
 
@@ -81,6 +81,24 @@ Re-exports [Calendar](types/calendar.md#calendar)
 ### CalendarOptions
 
 Re-exports [CalendarOptions](types/calendar.md#calendaroptions)
+
+***
+
+### CryptoCurrency
+
+Re-exports [CryptoCurrency](types/crypto.md#cryptocurrency-1)
+
+***
+
+### CryptoItem
+
+Re-exports [CryptoItem](types/crypto.md#cryptoitem)
+
+***
+
+### CryptoOptions
+
+Re-exports [CryptoOptions](types/crypto.md#cryptooptions)
 
 ***
 
@@ -144,6 +162,48 @@ Re-exports [FinvizClientOptions](types/client.md#finvizclientoptions)
 
 ***
 
+### ForexItem
+
+Re-exports [ForexItem](types/forex.md#forexitem)
+
+***
+
+### ForexOptions
+
+Re-exports [ForexOptions](types/forex.md#forexoptions)
+
+***
+
+### ForexPercentOptions
+
+Re-exports [ForexPercentOptions](types/forex.md#forexpercentoptions)
+
+***
+
+### ForexPipsOptions
+
+Re-exports [ForexPipsOptions](types/forex.md#forexpipsoptions)
+
+***
+
+### ForexPipsOrderType
+
+Re-exports [ForexPipsOrderType](types/forex.md#forexpipsordertype-1)
+
+***
+
+### ForexSharedOrderType
+
+Re-exports [ForexSharedOrderType](types/forex.md#forexsharedordertype)
+
+***
+
+### ForexUnit
+
+Re-exports [ForexUnit](types/forex.md#forexunit-1)
+
+***
+
 ### FundItem
 
 Re-exports [FundItem](types/fund.md#funditem)
@@ -153,6 +213,18 @@ Re-exports [FundItem](types/fund.md#funditem)
 ### FundOptions
 
 Re-exports [FundOptions](types/fund.md#fundoptions)
+
+***
+
+### FuturesItem
+
+Re-exports [FuturesItem](types/futures.md#futuresitem)
+
+***
+
+### FuturesOptions
+
+Re-exports [FuturesOptions](types/futures.md#futuresoptions)
 
 ***
 
@@ -279,6 +351,24 @@ Re-exports [OptionsChainOptions](types/options.md#optionschainoptions)
 ### OptionsViewType
 
 Re-exports [OptionsViewType](types/options.md#optionsviewtype-1)
+
+***
+
+### PerformanceItem
+
+Re-exports [PerformanceItem](types/performance.md#performanceitem)
+
+***
+
+### PerformanceOptions
+
+Re-exports [PerformanceOptions](types/performance.md#performanceoptions)
+
+***
+
+### PerformanceOrderType
+
+Re-exports [PerformanceOrderType](types/performance.md#performanceordertype-1)
 
 ***
 
