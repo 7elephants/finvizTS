@@ -12,7 +12,7 @@
 
 > **getForex**(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
 
-Defined in: [forex.ts:27](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/forex.ts#L27)
+Defined in: [forex.ts:27](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/forex.ts#L27)
 
 Fetch forex performance, in percent or pips, optionally sorted by order/direction. With
 `unit: 'pips'` the CSV performance headers read `Performance in Pips (…)`.

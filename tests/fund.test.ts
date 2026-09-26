@@ -96,7 +96,7 @@ describe('getFunds', () => {
         name: 'Vanguard Total Stock Market Index Fund',
         manager: 'Vanguard Group',
         id: '2011124',
-        reportDate: new Date('3/31/2026'),
+        reportDate: new Date(2026, 2, 31),
         portfolioValue: 1500000000000,
         numInvestments: 3800,
         newPurchases: 50,

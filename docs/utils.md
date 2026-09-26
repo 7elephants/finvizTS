@@ -12,7 +12,7 @@
 
 > **buildSortParam**(`order?`, `orderDirection?`): `string`
 
-Defined in: [utils.ts:35](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/utils.ts#L35)
+Defined in: [utils.ts:35](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/utils.ts#L35)
 
 Combines a sort column and direction into the single string most Finviz endpoints expect
 (direction prefix, e.g. `-` for descending, followed by the column name).
@@ -41,7 +41,7 @@ Sort direction (either `''` or `'-'`).
 
 > **formatDateToYYYYMMDD**(`date`): `string`
 
-Defined in: [utils.ts:20](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/utils.ts#L20)
+Defined in: [utils.ts:20](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/utils.ts#L20)
 
 Formats a Date object as a `YYYY-MM-DD` string.
 

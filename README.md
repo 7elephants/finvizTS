@@ -62,6 +62,19 @@ for (const e of errors) {
 }
 ```
 
+**Numbers** are parsed strictly (`12abc` is an error), but thousands separators are accepted (`1,234.5` → `1234.5`).
+
+**Dates.** Which date fields are `Date` objects and which are strings:
+
+| Field | Type | Endpoint |
+| --- | --- | --- |
+| `EarningsCalendarItem.date`, `DividendsCalendarItem.exDate` | `Date` | Calendar |
+| `InsiderItem.date`, `InsiderItem.SECForm` | `Date` | Insiders |
+| `ManagerItem.reportDate` / `FundItem.reportDate` | `Date` | Managers / Funds |
+| `Quote.Date`, `NewsItem.date`, `Filing.filingDate`, `Filing.reportDate` | `string` (raw from Finviz) | Quote, News, Filings |
+
+`Date` fields are built in the runtime's **local timezone** from Finviz's `YYYY-MM-DD` or `M/D/YYYY` format (each with an optional time). A date-only value such as ex-date `2026-07-20` becomes local midnight on July 20 in every timezone; it is never shifted by a UTC conversion. Any other date format, or an impossible date like `2/31/2026`, is reported as a `ParseError`.
+
 `ParseError.expected` is one of `ParseErrorExpected.NUMBER`, `INTEGER` or `DATE`. Untyped record endpoints (`getScreener`, `getPortfolio`, `getGroups`, `getOptionsChain`, `getEconomicCalendar`) return raw CSV strings unchanged (blank cells stay `''`), so their `errors` array is always empty.
 
 ## API Reference

@@ -151,7 +151,7 @@ describe('getEarningsCalendar', () => {
 
     expect(result.items).toEqual([
       {
-        date: new Date('2026-07-20 08:30'),
+        date: new Date(2026, 6, 20, 8, 30),
         ticker: 'AMC',
         company: 'AMC Entertainment Holdings Inc',
         marketCap: 2410.03,
@@ -259,7 +259,7 @@ describe('getDividendsCalendar', () => {
       {
         ticker: 'CAT',
         company: 'Caterpillar Inc',
-        exDate: new Date('2026-07-20'),
+        exDate: new Date(2026, 6, 20),
         amount: 1.63,
         special: undefined,
         dividendEstYield: 0.77,

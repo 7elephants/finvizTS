@@ -96,7 +96,7 @@ describe('getManagers', () => {
         name: 'Berkshire Hathaway Inc',
         manager: 'Warren Buffett',
         id: '1067983',
-        reportDate: new Date('3/31/2026'),
+        reportDate: new Date(2026, 2, 31),
         portfolioValue: 350000000000,
         numInvestments: 45,
         newPurchases: 2,

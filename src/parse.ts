@@ -9,6 +9,7 @@
  * | Step | Method                       | Input                          | Output                          |
  * |------|-------------------------------|--------------------------------|----------------------------------|
  * | 1    | text()/number()/integer()/date() | CSV column header           | ColumnParser for one property   |
+ * |      | (date() → toNumbers() → localDate()) | `YYYY-MM-DD` / `M/D/YYYY` cell | Local-time Date or undefined |
  * | 2    | parseRows()                  | Record<string,string>[], RowSchema<T> | FinvizResponse<T>        |
  * | 3    | rawResponse()                | Record<string,string>[]        | FinvizResponse (no parsing, no errors) |
  * ---
@@ -35,38 +36,84 @@ export function text(column: string): ColumnParser<string> {
   return { column, parse: (raw) => raw };
 }
 
-/** Read a column as a finite number (strict — `'12abc'` is an error, unlike `parseFloat`). */
+/** Thousands separators (`1,234,567`) — stripped before numeric parsing. */
+const THOUSANDS_SEPARATOR = /,(?=\d{3}(?:\D|$))/g;
+
+/**
+ * Read a column as a finite number. Strict — `'12abc'` is an error, unlike `parseFloat` — but
+ * thousands separators are accepted (`'1,234.5'` → `1234.5`).
+ */
 export function number(column: string): ColumnParser<number> {
   return {
     column,
     expected: ParseErrorExpected.NUMBER,
     parse: (raw): number | undefined => {
-      const value = Number(raw);
+      const value = Number(raw.replace(THOUSANDS_SEPARATOR, ''));
       return Number.isFinite(value) ? value : undefined;
     },
   };
 }
 
-/** Read a column as an integer. */
+/** Read a column as an integer. Thousands separators are accepted (`'3,800'` → `3800`). */
 export function integer(column: string): ColumnParser<number> {
   return {
     column,
     expected: ParseErrorExpected.INTEGER,
     parse: (raw): number | undefined => {
-      const value = Number(raw);
+      const value = Number(raw.replace(THOUSANDS_SEPARATOR, ''));
       return Number.isInteger(value) ? value : undefined;
     },
   };
 }
 
-/** Read a column as a Date. */
+/** `YYYY-MM-DD`, optionally followed by ` HH:mm[:ss]` (calendar endpoints). */
+const ISO_DATE = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/;
+/** `M/D/YYYY`, optionally followed by ` H:mm[:ss]` (insider, fund/manager endpoints). */
+const US_DATE = /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?: (\d{1,2}):(\d{2})(?::(\d{2}))?)?$/;
+
+/**
+ * Build a local-time Date from `[year, month, day, hours, minutes, seconds]`, or `undefined` if
+ * any component is out of range (e.g. `2/31/2026`, which `new Date()` would silently roll over
+ * to March).
+ */
+function localDate(parts: number[]): Date | undefined {
+  const [y, m, d, h, min, s] = parts as [number, number, number, number, number, number];
+  const value = new Date(y, m - 1, d, h, min, s);
+  const actual = [
+    value.getFullYear(),
+    value.getMonth() + 1,
+    value.getDate(),
+    value.getHours(),
+    value.getMinutes(),
+    value.getSeconds(),
+  ];
+  return actual.every((part, i) => part === parts[i]) ? value : undefined;
+}
+
+/** Convert regex capture groups to numbers, treating absent optional groups (time) as `0`. */
+function toNumbers(match: RegExpExecArray): number[] {
+  return match.slice(1).map((part) => Number(part ?? 0));
+}
+
+/**
+ * Read a column as a Date in the runtime's local timezone. Finviz's two formats — `YYYY-MM-DD`
+ * and `M/D/YYYY`, each with an optional time — are parsed explicitly rather than via
+ * `new Date(string)`, which treats date-only ISO strings as UTC (shifting them a day earlier
+ * west of Greenwich) and whose handling of non-ISO strings is implementation-defined. Any other
+ * format is an error.
+ */
 export function date(column: string): ColumnParser<Date> {
   return {
     column,
     expected: ParseErrorExpected.DATE,
     parse: (raw): Date | undefined => {
-      const value = new Date(raw);
-      return Number.isNaN(value.getTime()) ? undefined : value;
+      const iso = ISO_DATE.exec(raw);
+      if (iso) return localDate(toNumbers(iso));
+
+      const us = US_DATE.exec(raw);
+      if (!us) return undefined;
+      const [m, d, y, ...time] = toNumbers(us);
+      return localDate([y!, m!, d!, ...time]);
     },
   };
 }

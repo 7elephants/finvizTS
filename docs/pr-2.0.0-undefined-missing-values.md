@@ -43,9 +43,13 @@ This covers every field of `EarningsCalendarItem`, `DividendsCalendarItem`, `Ins
 | --- | --- | --- |
 | Blank, whitespace-only or column missing | `''`, `0`, `NaN` or Invalid Date (varied by endpoint) | `undefined`, no error |
 | Valid value | Parsed value | Parsed value (text is trimmed) |
-| Unparseable (e.g. `N/A`, `12abc`, `3,800` in an integer column) | `NaN`, or partially parsed (`parseFloat('12abc')` → 12) | `undefined` **and** a `ParseError` |
+| Unparseable (e.g. `N/A`, `12abc`, `2/31/2026`) | `NaN`, or partially parsed (`parseFloat('12abc')` → 12) | `undefined` **and** a `ParseError` |
 
-Numbers are now parsed strictly with `Number()` instead of `parseFloat`/`parseInt`.
+Numbers are now parsed strictly with `Number()` instead of `parseFloat`/`parseInt`, but thousands separators are accepted (`1,234.5` → `1234.5`).
+
+### 4. Date parsing fix: `DividendsCalendarItem.exDate`
+
+In 1.x, `exDate` (`YYYY-MM-DD`) was read with `new Date(string)`, which treats a date-only ISO string as UTC. West of Greenwich that put the date one day early (`2026-07-20` → July 19 in New York). All `Date` fields are now built in local time from explicit parts of Finviz's `YYYY-MM-DD` and `M/D/YYYY` formats (each with an optional time), so no field depends on the JavaScript engine's handling of date strings. Any other format, or an impossible date, is reported as a `ParseError`.
 
 ### 3. Record endpoints are wrapped but otherwise unchanged
 
@@ -66,13 +70,13 @@ if (errors.length) console.warn('Unparseable cells', errors);
 
 ## Implementation
 
-- **`src/parse.ts`** (new, internal): `RowSchema<T>` maps each item property to a column parser (`text`, `number`, `integer` or `date`). `parseRows(rows, schema)` builds the items and collects errors; `rawResponse(rows)` wraps untyped records. Because the schema is keyed by `keyof T`, TypeScript flags any item field that is left out.
+- **`src/parse.ts`** (new, internal): `RowSchema<T>` maps each item property to a column parser (`text`, `number`, `integer` or `date`). `parseRows(rows, schema)` builds the items and collects errors; `rawResponse(rows)` wraps untyped records. Because the schema is keyed by `keyof T`, TypeScript flags any item field that is left out. `date()` matches the two Finviz date formats with regexes and builds a local `Date`, checking that no component rolled over (so `2/31/2026` is rejected).
 - **`src/types/response.ts`** (new, public): `FinvizResponse`, `ParseError` and `ParseErrorExpected`.
 - The endpoint modules replace their hand-written `row.map(...)` with a schema constant and pass it to `parseRows()`. Performance and fund/manager use small schema factories because their column names vary by endpoint.
 
 ## Testing
 
-- 121 tests pass; typecheck, lint and build are clean.
+- 125 tests pass under `TZ=America/Los_Angeles`, `UTC` and `Asia/Tokyo`; typecheck, lint and build are clean.
 - New `tests/parse.test.ts` covers the parsers, blank/whitespace handling, error reporting and `rawResponse`.
 - New `tests/groups.test.ts` and `tests/options.test.ts`; these modules had no tests before.
 - Endpoint tests were updated from asserting `NaN`/`0`/`''` to asserting `undefined`. The calendar, crypto, fund, manager and insider suites also check `errors`, and the earnings calendar suite covers an unparseable cell end to end.

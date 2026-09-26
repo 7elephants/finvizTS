@@ -10,7 +10,7 @@
 
 ### ManagerFundItem
 
-Defined in: [types/fund-manager.ts:52](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L52)
+Defined in: [types/fund-manager.ts:52](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L52)
 
 A single fund or fund-manager portfolio row (the same underlying Finviz resource, queried by
 fund name vs. manager name). `FundItem`/`ManagerItem` alias this. Fields are `undefined` when
@@ -22,91 +22,91 @@ the API returns no value.
 
 > **added**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:61](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L61)
+Defined in: [types/fund-manager.ts:61](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L61)
 
 ##### id
 
 > **id**: `string` \| `undefined`
 
-Defined in: [types/fund-manager.ts:55](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L55)
+Defined in: [types/fund-manager.ts:55](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L55)
 
 ##### manager
 
 > **manager**: `string` \| `undefined`
 
-Defined in: [types/fund-manager.ts:54](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L54)
+Defined in: [types/fund-manager.ts:54](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L54)
 
 ##### name
 
 > **name**: `string` \| `undefined`
 
-Defined in: [types/fund-manager.ts:53](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L53)
+Defined in: [types/fund-manager.ts:53](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L53)
 
 ##### newPurchases
 
 > **newPurchases**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:59](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L59)
+Defined in: [types/fund-manager.ts:59](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L59)
 
 ##### numInvestments
 
 > **numInvestments**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:58](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L58)
+Defined in: [types/fund-manager.ts:58](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L58)
 
 ##### portfolioValue
 
 > **portfolioValue**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:57](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L57)
+Defined in: [types/fund-manager.ts:57](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L57)
 
 ##### reduced
 
 > **reduced**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:62](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L62)
+Defined in: [types/fund-manager.ts:62](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L62)
 
 ##### reportDate
 
 > **reportDate**: `Date` \| `undefined`
 
-Defined in: [types/fund-manager.ts:56](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L56)
+Defined in: [types/fund-manager.ts:56](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L56)
 
 ##### soldOut
 
 > **soldOut**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:60](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L60)
+Defined in: [types/fund-manager.ts:60](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L60)
 
 ##### timeHeldAll
 
 > **timeHeldAll**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:66](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L66)
+Defined in: [types/fund-manager.ts:66](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L66)
 
 ##### timeHeldTopTen
 
 > **timeHeldTopTen**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:65](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L65)
+Defined in: [types/fund-manager.ts:65](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L65)
 
 ##### top10ConcentrationPct
 
 > **top10ConcentrationPct**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:63](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L63)
+Defined in: [types/fund-manager.ts:63](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L63)
 
 ##### turnOverPct
 
 > **turnOverPct**: `number` \| `undefined`
 
-Defined in: [types/fund-manager.ts:64](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L64)
+Defined in: [types/fund-manager.ts:64](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L64)
 
 ***
 
 ### ManagerFundOptions
 
-Defined in: [types/fund-manager.ts:38](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L38)
+Defined in: [types/fund-manager.ts:38](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L38)
 
 Options shared by the funds and fund-managers endpoints (the same underlying Finviz
 resource, queried by fund name vs. manager name). `FundOptions`/`ManagerOptions` alias this.
@@ -117,7 +117,7 @@ resource, queried by fund name vs. manager name). `FundOptions`/`ManagerOptions`
 
 > `optional` **order?**: [`ManagerFundOrderType`](#managerfundordertype)
 
-Defined in: [types/fund-manager.ts:42](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L42)
+Defined in: [types/fund-manager.ts:42](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L42)
 
 Column to sort by.
 
@@ -125,7 +125,7 @@ Column to sort by.
 
 > `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/fund-manager.ts:44](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L44)
+Defined in: [types/fund-manager.ts:44](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L44)
 
 Sort direction (either '' or '-').
 
@@ -133,7 +133,7 @@ Sort direction (either '' or '-').
 
 > `optional` **search?**: `string`
 
-Defined in: [types/fund-manager.ts:40](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L40)
+Defined in: [types/fund-manager.ts:40](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L40)
 
 Search term to filter by fund or manager name.
 
@@ -143,7 +143,7 @@ Search term to filter by fund or manager name.
 
 > **ManagerFundOrderType** = *typeof* [`ManagerFundOrderType`](#managerfundordertype-1)\[keyof *typeof* [`ManagerFundOrderType`](#managerfundordertype-1)\]
 
-Defined in: [types/fund-manager.ts:19](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L19)
+Defined in: [types/fund-manager.ts:19](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L19)
 
 Valid sort columns for the funds and fund-managers endpoints.
 
@@ -153,7 +153,7 @@ Valid sort columns for the funds and fund-managers endpoints.
 
 > `const` **ManagerFundOrderType**: `object`
 
-Defined in: [types/fund-manager.ts:19](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/fund-manager.ts#L19)
+Defined in: [types/fund-manager.ts:19](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/fund-manager.ts#L19)
 
 Valid sort columns for the funds and fund-managers endpoints.
 

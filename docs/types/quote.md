@@ -10,7 +10,7 @@
 
 ### Quote
 
-Defined in: [types/quote.ts:57](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L57)
+Defined in: [types/quote.ts:57](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L57)
 
 A single OHLCV row returned by the quote endpoint. Fields are `undefined` when the API returns no value.
 
@@ -20,49 +20,49 @@ A single OHLCV row returned by the quote endpoint. Fields are `undefined` when t
 
 > **ChangeFromOpen**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:64](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L64)
+Defined in: [types/quote.ts:64](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L64)
 
 ##### Close
 
 > **Close**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:62](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L62)
+Defined in: [types/quote.ts:62](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L62)
 
 ##### Date
 
 > **Date**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:58](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L58)
+Defined in: [types/quote.ts:58](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L58)
 
 ##### High
 
 > **High**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:60](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L60)
+Defined in: [types/quote.ts:60](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L60)
 
 ##### Low
 
 > **Low**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:61](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L61)
+Defined in: [types/quote.ts:61](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L61)
 
 ##### Open
 
 > **Open**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:59](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L59)
+Defined in: [types/quote.ts:59](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L59)
 
 ##### Volume
 
 > **Volume**: `string` \| `undefined`
 
-Defined in: [types/quote.ts:63](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L63)
+Defined in: [types/quote.ts:63](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L63)
 
 ***
 
 ### QuoteOptions
 
-Defined in: [types/quote.ts:49](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L49)
+Defined in: [types/quote.ts:49](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L49)
 
 Options for a quote request.
 
@@ -72,7 +72,7 @@ Options for a quote request.
 
 > **period**: [`QuotePeriod`](#quoteperiod)
 
-Defined in: [types/quote.ts:51](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L51)
+Defined in: [types/quote.ts:51](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L51)
 
 Period/interval of quote data (required).
 
@@ -80,7 +80,7 @@ Period/interval of quote data (required).
 
 > `optional` **range?**: `string`
 
-Defined in: [types/quote.ts:53](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L53)
+Defined in: [types/quote.ts:53](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L53)
 
 Range of time to return data for (optional).
 
@@ -90,7 +90,7 @@ Range of time to return data for (optional).
 
 > **QuotePeriod** = *typeof* [`QuotePeriod`](#quoteperiod-1)\[keyof *typeof* [`QuotePeriod`](#quoteperiod-1)\]
 
-Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L16)
+Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L16)
 
 Union of all known quote period/interval values.
 
@@ -100,7 +100,7 @@ Union of all known quote period/interval values.
 
 > **QuoteRange** = *typeof* [`QuoteRange`](#quoterange-1)\[keyof *typeof* [`QuoteRange`](#quoterange-1)\] \| `` `range_${string}` `` \| `` `prev_${string}` ``
 
-Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L32)
+Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L32)
 
 Union of all known quote range values, plus custom `range_*` and `prev_*` patterns.
 
@@ -110,7 +110,7 @@ Union of all known quote range values, plus custom `range_*` and `prev_*` patter
 
 > `const` **QuotePeriod**: `object`
 
-Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L16)
+Defined in: [types/quote.ts:16](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L16)
 
 Valid period/interval values for the quote endpoint.
 
@@ -158,7 +158,7 @@ Valid period/interval values for the quote endpoint.
 
 > `const` **QuoteRange**: `object`
 
-Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/quote.ts#L32)
+Defined in: [types/quote.ts:32](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/quote.ts#L32)
 
 Valid range values for the quote endpoint.
 

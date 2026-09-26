@@ -26,6 +26,12 @@ describe('column parsers', () => {
     expect(parser.parse('6.04E-06')).toBe(6.04e-6);
   });
 
+  it('number accepts thousands separators', () => {
+    const parser = number('A');
+    expect(parser.parse('1,234.5')).toBe(1234.5);
+    expect(parser.parse('-1,500,000')).toBe(-1500000);
+  });
+
   it('number rejects partial and non-finite values', () => {
     const parser = number('A');
     expect(parser.parse('12abc')).toBeUndefined();
@@ -39,13 +45,35 @@ describe('column parsers', () => {
     expect(parser.parse('50000')).toBe(50000);
     expect(parser.parse('-10')).toBe(-10);
     expect(parser.parse('1.5')).toBeUndefined();
-    expect(parser.parse('3,800')).toBeUndefined();
+    expect(parser.parse('3,800')).toBe(3800);
+    expect(parser.parse('1,23')).toBeUndefined();
   });
 
-  it('date parses valid dates and rejects invalid ones', () => {
+  it('date parses YYYY-MM-DD as local midnight, not UTC', () => {
+    const value = date('A').parse('2026-07-20');
+    expect(value).toEqual(new Date(2026, 6, 20));
+    expect(value?.getDate()).toBe(20);
+  });
+
+  it('date parses YYYY-MM-DD with a time', () => {
     const parser = date('A');
-    expect(parser.parse('4/11/2026')).toEqual(new Date('4/11/2026'));
+    expect(parser.parse('2026-07-20 08:30')).toEqual(new Date(2026, 6, 20, 8, 30));
+    expect(parser.parse('2026-03-27 08:30:15')).toEqual(new Date(2026, 2, 27, 8, 30, 15));
+  });
+
+  it('date parses M/D/YYYY with an optional time', () => {
+    const parser = date('A');
+    expect(parser.parse('4/11/2026')).toEqual(new Date(2026, 3, 11));
+    expect(parser.parse('4/11/2026 8:20')).toEqual(new Date(2026, 3, 11, 8, 20));
+  });
+
+  it('date rejects out-of-range components and unknown formats', () => {
+    const parser = date('A');
+    expect(parser.parse('2/31/2026')).toBeUndefined();
+    expect(parser.parse('2026-13-01')).toBeUndefined();
+    expect(parser.parse('4/11/2026 25:00')).toBeUndefined();
     expect(parser.parse('not a date')).toBeUndefined();
+    expect(parser.parse('April 11, 2026')).toBeUndefined();
   });
 });
 
@@ -71,7 +99,7 @@ describe('parseRows', () => {
     );
 
     expect(result).toEqual({
-      items: [{ label: 'x', amount: 1.25, count: 3, when: new Date('2026-07-20') }],
+      items: [{ label: 'x', amount: 1.25, count: 3, when: new Date(2026, 6, 20) }],
       errors: [],
     });
   });

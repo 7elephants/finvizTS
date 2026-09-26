@@ -10,7 +10,7 @@
 
 ### NewsItem
 
-Defined in: [types/news.ts:37](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L37)
+Defined in: [types/news.ts:37](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L37)
 
 A single news item returned by the news endpoint. Fields are `undefined` when the API returns no value.
 
@@ -20,43 +20,43 @@ A single news item returned by the news endpoint. Fields are `undefined` when th
 
 > **category**: `string` \| `undefined`
 
-Defined in: [types/news.ts:42](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L42)
+Defined in: [types/news.ts:42](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L42)
 
 ##### date
 
 > **date**: `string` \| `undefined`
 
-Defined in: [types/news.ts:40](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L40)
+Defined in: [types/news.ts:40](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L40)
 
 ##### source
 
 > **source**: `string` \| `undefined`
 
-Defined in: [types/news.ts:39](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L39)
+Defined in: [types/news.ts:39](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L39)
 
 ##### ticker
 
 > **ticker**: `string` \| `undefined`
 
-Defined in: [types/news.ts:43](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L43)
+Defined in: [types/news.ts:43](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L43)
 
 ##### title
 
 > **title**: `string` \| `undefined`
 
-Defined in: [types/news.ts:38](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L38)
+Defined in: [types/news.ts:38](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L38)
 
 ##### url
 
 > **url**: `string` \| `undefined`
 
-Defined in: [types/news.ts:41](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L41)
+Defined in: [types/news.ts:41](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L41)
 
 ***
 
 ### NewsOptions
 
-Defined in: [types/news.ts:27](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L27)
+Defined in: [types/news.ts:27](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L27)
 
 Options for a news request.
 
@@ -66,7 +66,7 @@ Options for a news request.
 
 > `optional` **portfolioId?**: `string`
 
-Defined in: [types/news.ts:31](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L31)
+Defined in: [types/news.ts:31](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L31)
 
 Portfolio ID to filter news by (only for STOCK or ETF type).
 
@@ -74,7 +74,7 @@ Portfolio ID to filter news by (only for STOCK or ETF type).
 
 > `optional` **tickers?**: `string`
 
-Defined in: [types/news.ts:33](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L33)
+Defined in: [types/news.ts:33](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L33)
 
 Comma-separated ticker symbols to filter news by (only for STOCK, ETF, or CRYPTO type).
 
@@ -82,7 +82,7 @@ Comma-separated ticker symbols to filter news by (only for STOCK, ETF, or CRYPTO
 
 > `optional` **type?**: [`NewsType`](#newstype)
 
-Defined in: [types/news.ts:29](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L29)
+Defined in: [types/news.ts:29](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L29)
 
 Type of news to retrieve (defaults to MARKET_BY_TIME).
 
@@ -92,7 +92,7 @@ Type of news to retrieve (defaults to MARKET_BY_TIME).
 
 > **NewsType** = *typeof* [`NewsType`](#newstype-1)\[keyof *typeof* [`NewsType`](#newstype-1)\]
 
-Defined in: [types/news.ts:15](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L15)
+Defined in: [types/news.ts:15](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L15)
 
 Union of all known news type values.
 
@@ -102,7 +102,7 @@ Union of all known news type values.
 
 > `const` **NewsType**: `object`
 
-Defined in: [types/news.ts:15](https://github.com/7elephants/finvizTS/blob/35b052f8358756be41e8745d2c1b57d3010c1398/src/types/news.ts#L15)
+Defined in: [types/news.ts:15](https://github.com/7elephants/finvizTS/blob/4598e28fe579e13cc299b61a0dd62e18c7c17595/src/types/news.ts#L15)
 
 Valid news type values for the news endpoint.
 
