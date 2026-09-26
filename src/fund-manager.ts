@@ -7,14 +7,14 @@
  *
  * | Step | Method                  | Input                                               | Output                       |
  * |------|--------------------------|-------------------------------------------------------|-------------------------------|
- * | 1    | getFundManagerItems()   | FinvizClient, path, nameColumn, ManagerFundOptions   | Promise<FinvizResponse<ManagerFundItem>>   |
+ * | 1    | getFundManagerItems()   | FinvizClient, path, nameColumn, ManagerFundOptions   | Promise<FinvizResponse<ManagerFundItem, F>>   |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, ManagerFundItem, ManagerFundOptions } from './types';
+import type { FinvizResponse, ManagerFundItem, ManagerFundOptions, FormatOption, ResponseFormat } from './types';
 
-import { date, integer, number, parseRows, text, type RowSchema } from './parse';
+import { date, formatOf, integer, number, parseRows, text, type RowSchema } from './parse';
 import { buildSortParam } from './utils';
 
 /**
@@ -50,17 +50,18 @@ function fundManagerSchema(nameColumn: FundManagerNameColumn): RowSchema<Manager
  * @param client     - Authenticated FinvizClient instance
  * @param path       - `/export/funds` or `/export/managers`
  * @param nameColumn - `Series Name` (funds) or `Portfolio Manager` (managers)
- * @param options    - Search term and sort options
+ * @param options    - Search term and sort options, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getFundManagerItems(
-  client: FinvizClient,
+export async function getFundManagerItems<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
   path: string,
   nameColumn: FundManagerNameColumn,
-  options: ManagerFundOptions,
-): Promise<FinvizResponse<ManagerFundItem>> {
+  options: ManagerFundOptions & FormatOption<F>,
+): Promise<FinvizResponse<ManagerFundItem, F>> {
   const rows = await client.getRecords(path, {
     search: options.search,
     sort: buildSortParam(options.order, options.orderDirection),
   });
-  return parseRows(rows, fundManagerSchema(nameColumn));
+  return parseRows(rows, fundManagerSchema(nameColumn), formatOf(client, options));
 }

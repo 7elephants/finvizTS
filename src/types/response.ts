@@ -7,7 +7,10 @@
  * |------|----------------------------------------|-------|--------------------------------------|
  * | 1    | Export ParseErrorExpected const + type | —     | Typed expected-value kinds          |
  * | 2    | Export ParseError interface            | —     | Typed per-cell parse failure        |
- * | 3    | Export FinvizResponse interface        | —     | Typed `{ items, errors }` wrapper   |
+ * | 3    | Export ResponseFormat const + type     | —     | `parsed` / `raw` / `both`           |
+ * | 4    | Export RawRecord, FormatOption         | —     | CSV row type, per-call `format`     |
+ * | 5    | Export Parsed/Raw/ParsedAndRawResponse | —     | One interface per format            |
+ * | 6    | Export FinvizResponse<T, F>            | —     | Format-conditional response wrapper |
  * ---
  */
 
@@ -36,10 +39,55 @@ export interface ParseError {
   expected: ParseErrorExpected;
 }
 
-/** Wrapper returned by every `get*` function: the parsed items plus any cell parse errors. */
-export interface FinvizResponse<T> {
+/**
+ * What a `get*` function returns: typed items (`parsed`, the default), the unmapped CSV records
+ * (`raw`), or both. Set a default on the FinvizClient and override it per call via `format`.
+ */
+export const ResponseFormat = {
+  PARSED: 'parsed',
+  RAW: 'raw',
+  BOTH: 'both',
+} as const;
+export type ResponseFormat = (typeof ResponseFormat)[keyof typeof ResponseFormat];
+
+/** One CSV data row as returned by Finviz: column header → cell text. */
+export type RawRecord = Record<string, string>;
+
+/** Per-call override of the client's default ResponseFormat; accepted by every `get*` function. */
+export interface FormatOption<F extends ResponseFormat> {
+  /** Response format for this call. Defaults to the FinvizClient's `format`. */
+  format?: F;
+}
+
+/** `parsed` response: typed items plus any cell parse errors. */
+export interface ParsedResponse<T> {
   /** One item per CSV data row, in response order. */
   items: T[];
   /** Cells that were present but could not be parsed. Empty when every cell parsed cleanly. */
   errors: ParseError[];
 }
+
+/** `raw` response: the CSV records exactly as parsed from the response body. */
+export interface RawResponse {
+  /** One record per CSV data row, in response order. */
+  raw: RawRecord[];
+  /** Always empty — no cells are parsed in raw mode. */
+  errors: ParseError[];
+}
+
+/** `both` response: typed items and the CSV records they were parsed from. */
+export interface ParsedAndRawResponse<T> extends ParsedResponse<T>, RawResponse {
+  /** Cells that were present but could not be parsed. `row` indexes both `items` and `raw`. */
+  errors: ParseError[];
+}
+
+/**
+ * Wrapper returned by every `get*` function, shaped by the ResponseFormat `F` (default
+ * `parsed`). When `F` is the whole union (e.g. a client typed as `FinvizClient<ResponseFormat>`)
+ * this is a union of the three shapes; narrow it with `'items' in response` / `'raw' in response`.
+ */
+export type FinvizResponse<T, F extends ResponseFormat = 'parsed'> = F extends 'parsed'
+  ? ParsedResponse<T>
+  : F extends 'raw'
+    ? RawResponse
+    : ParsedAndRawResponse<T>;

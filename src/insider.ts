@@ -7,15 +7,15 @@
  *
  * | Step | Method        | Input                          | Output                  |
  * |------|---------------|---------------------------------|-------------------------|
- * | 1    | getInsiders() | FinvizClient, InsiderOptions   | Promise<FinvizResponse<InsiderItem>>  |
+ * | 1    | getInsiders() | FinvizClient, InsiderOptions   | Promise<FinvizResponse<InsiderItem, F>>  |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, InsiderItem, InsiderOptions } from './types';
+import type { FinvizResponse, InsiderItem, InsiderOptions, FormatOption, ResponseFormat } from './types';
 
 import { buildSortParam } from './utils';
-import { date, integer, number, parseRows, text, type RowSchema } from './parse';
+import { date, formatOf, integer, number, parseRows, text, type RowSchema } from './parse';
 
 /** InsiderItem property → CSV column mapping. */
 const INSIDER_SCHEMA: RowSchema<InsiderItem> = {
@@ -39,12 +39,13 @@ const INSIDER_SCHEMA: RowSchema<InsiderItem> = {
  * The API returns a multi-row CSV; each row is mapped to an InsiderItem.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Ticker, transaction type, owner relationship, and sort options
+ * @param options - Ticker, transaction type, owner relationship, and sort options, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getInsiders(
-  client: FinvizClient,
-  options: InsiderOptions = {},
-): Promise<FinvizResponse<InsiderItem>> {
+export async function getInsiders<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: InsiderOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<InsiderItem, F>> {
   const rows = await client.getRecords('/export/insiders', {
     t: options.ticker,
     tc: options.type,
@@ -53,5 +54,5 @@ export async function getInsiders(
     oc: options.ownerCIK,
     o: buildSortParam(options.order, options.orderDirection),
   });
-  return parseRows(rows, INSIDER_SCHEMA);
+  return parseRows(rows, INSIDER_SCHEMA, formatOf(client, options));
 }

@@ -10,13 +10,24 @@
  * |------|-------------------------------|--------------------------------|----------------------------------|
  * | 1    | text()/number()/integer()/date() | CSV column header           | ColumnParser for one property   |
  * |      | (date() → toNumbers() → localDate()) | `YYYY-MM-DD` / `M/D/YYYY` cell | Local-time Date or undefined |
- * | 2    | parseRows()                  | Record<string,string>[], RowSchema<T> | FinvizResponse<T>        |
- * | 3    | rawResponse()                | Record<string,string>[]        | FinvizResponse (no parsing, no errors) |
+ * | 2    | formatOf()                   | FinvizClient, options.format   | Effective ResponseFormat (per-call override, else client default) |
+ * | 3    | parseRows()                  | RawRecord[], RowSchema<T>, format | FinvizResponse<T, F> — items, raw, or both |
+ * | 4    | rawResponse()                | RawRecord[], format            | FinvizResponse<RawRecord, F> (no parsing, no errors) |
+ *      (both delegate to formatResponse(), which skips parsing entirely in `raw` mode)
  * ---
  */
 
-import type { FinvizResponse, ParseError } from './types';
-import { ParseErrorExpected } from './types';
+import type { FinvizClient } from './client';
+import type {
+  FinvizResponse,
+  FormatOption,
+  ParsedAndRawResponse,
+  ParsedResponse,
+  ParseError,
+  RawRecord,
+  RawResponse,
+} from './types';
+import { ParseErrorExpected, ResponseFormat } from './types';
 
 /** Describes how to read one item property from a CSV record. */
 export interface ColumnParser<V> {
@@ -119,16 +130,56 @@ export function date(column: string): ColumnParser<Date> {
 }
 
 /**
+ * Effective response format for a call: the per-call `format` option, else the client default.
+ * Typed as `F` because an endpoint's `F` type parameter defaults to the client's `C` when the
+ * call omits `format`, so both branches agree with the declared return type.
+ */
+export function formatOf<C extends ResponseFormat, F extends ResponseFormat>(
+  client: FinvizClient<C>,
+  options: FormatOption<F>,
+): F {
+  return (options.format ?? client.format) as F;
+}
+
+/**
+ * Shape a response for `format`: `{ raw, errors: [] }` without calling `parse`, `parse()`'s
+ * `{ items, errors }`, or both merged. Any other value (e.g. `undefined` from a mocked client)
+ * falls back to `parsed`.
+ */
+function formatResponse<T, F extends ResponseFormat>(
+  rows: RawRecord[],
+  format: F,
+  parse: () => ParsedResponse<T>,
+): FinvizResponse<T, F> {
+  let response: ParsedResponse<T> | RawResponse | ParsedAndRawResponse<T>;
+  if (format === ResponseFormat.RAW) {
+    response = { raw: rows, errors: [] };
+  } else {
+    const parsed = parse();
+    response = format === ResponseFormat.BOTH ? { ...parsed, raw: rows } : parsed;
+  }
+  return response as FinvizResponse<T, F>;
+}
+
+/**
  * Map CSV records to typed items. Blank or missing cells become `undefined`; non-blank cells
  * that fail to parse also become `undefined` and are reported in `errors`.
  *
  * @param rows   - Records from `client.getRecords()`
  * @param schema - Item property → column parser
+ * @param format - `parsed` (default) returns items, `raw` returns `rows` unparsed, `both` returns
+ *                 items and `rows`
  */
-export function parseRows<T>(
-  rows: Record<string, string>[],
+export function parseRows<T, F extends ResponseFormat = 'parsed'>(
+  rows: RawRecord[],
   schema: RowSchema<T>,
-): FinvizResponse<T> {
+  format: F = ResponseFormat.PARSED as F,
+): FinvizResponse<T, F> {
+  return formatResponse(rows, format, () => mapRows(rows, schema));
+}
+
+/** Map every record through `schema`, collecting a ParseError per unparseable non-blank cell. */
+function mapRows<T>(rows: RawRecord[], schema: RowSchema<T>): ParsedResponse<T> {
   const errors: ParseError[] = [];
   const entries = Object.entries<ColumnParser<unknown>>(schema);
 
@@ -152,7 +203,13 @@ export function parseRows<T>(
   return { items, errors };
 }
 
-/** Wrap untyped records (screener, portfolio, groups, options, economic calendar) unparsed. */
-export function rawResponse(rows: Record<string, string>[]): FinvizResponse<Record<string, string>> {
-  return { items: rows, errors: [] };
+/**
+ * Wrap untyped records (screener, portfolio, groups, options, economic calendar) unparsed. In
+ * `both` mode `items` and `raw` are the same array.
+ */
+export function rawResponse<F extends ResponseFormat = 'parsed'>(
+  rows: RawRecord[],
+  format: F = ResponseFormat.PARSED as F,
+): FinvizResponse<RawRecord, F> {
+  return formatResponse(rows, format, () => ({ items: rows, errors: [] }));
 }

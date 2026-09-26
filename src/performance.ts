@@ -9,14 +9,14 @@
  * |------|--------------------------|----------------------------------------------|------------------------------|
  * | 1    | buildSortParam()        | order?, orderDirection?                     | `sort` query param          |
  * | 2    | client.getRecords()     | path, sort + extraParams                    | CSV row records             |
- * | 3    | parseRows()             | rows, performanceSchema(perfColumn)         | Promise<FinvizResponse<PerformanceItem>> |
+ * | 3    | parseRows()             | rows, performanceSchema(perfColumn)         | Promise<FinvizResponse<PerformanceItem, F>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, PerformanceItem, PerformanceOptions, ForexOptions } from './types';
+import type { FinvizResponse, PerformanceItem, PerformanceOptions, ForexOptions, FormatOption, ResponseFormat } from './types';
 
-import { number, parseRows, text, type RowSchema } from './parse';
+import { formatOf, number, parseRows, text, type RowSchema } from './parse';
 import { buildSortParam } from './utils';
 
 /** Endpoint paths served by getPerformanceItems(). */
@@ -55,23 +55,24 @@ function performanceSchema(perfColumn: string): RowSchema<PerformanceItem> {
  * @param client  - Authenticated FinvizClient instance
  * @param path    - `/export/futures/performance`, `/export/forex/performance` or
  *                  `/export/crypto/performance`
- * @param options - Sort options
+ * @param options - Sort options, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  * @param extraParams - Endpoint-specific query params (e.g. forex `unit`, crypto `c`)
  * @param perfColumn  - CSV header prefix of the performance columns (forex pips uses
  *                      `Performance in Pips`)
  *
  * Blank cells (e.g. newly listed crypto with no long-range history) are `undefined`.
  */
-export async function getPerformanceItems(
-  client: FinvizClient,
+export async function getPerformanceItems<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
   path: PerformancePath,
-  options: PerformanceOptions | ForexOptions,
+  options: (PerformanceOptions | ForexOptions) & FormatOption<F>,
   extraParams: Record<string, string | undefined> = {},
   perfColumn = 'Performance',
-): Promise<FinvizResponse<PerformanceItem>> {
+): Promise<FinvizResponse<PerformanceItem, F>> {
   const rows = await client.getRecords(path, {
     ...extraParams,
     sort: buildSortParam(options.order, options.orderDirection),
   });
-  return parseRows(rows, performanceSchema(perfColumn));
+  return parseRows(rows, performanceSchema(perfColumn), formatOf(client, options));
 }

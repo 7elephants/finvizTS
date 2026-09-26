@@ -9,9 +9,9 @@
  *
  * | Step | Method                  | Input                                  | Output                                          |
  * |------|--------------------------|------------------------------------------|--------------------------------------------------|
- * | 1    | getEconomicCalendar()   | FinvizClient, CalendarOptions           | Promise<FinvizResponse<Calendar>>               |
- * | 2    | getEarningsCalendar()   | FinvizClient, EarningsCalendarOptions   | Promise<FinvizResponse<EarningsCalendarItem>>   |
- * | 3    | getDividendsCalendar()  | FinvizClient, DividendsCalendarOptions  | Promise<FinvizResponse<DividendsCalendarItem>>  |
+ * | 1    | getEconomicCalendar()   | FinvizClient, CalendarOptions           | Promise<FinvizResponse<Calendar, F>>               |
+ * | 2    | getEarningsCalendar()   | FinvizClient, EarningsCalendarOptions   | Promise<FinvizResponse<EarningsCalendarItem, F>>   |
+ * | 3    | getDividendsCalendar()  | FinvizClient, DividendsCalendarOptions  | Promise<FinvizResponse<DividendsCalendarItem, F>>  |
  * ---
  */
 
@@ -24,10 +24,12 @@ import type {
   EarningsCalendarItem,
   EarningsCalendarOptions,
   FinvizResponse,
+  FormatOption,
+  ResponseFormat,
 } from './types';
 
 import { formatDateToYYYYMMDD, buildSortParam } from '.';
-import { date, number, parseRows, rawResponse, text, type RowSchema } from './parse';
+import { date, formatOf, number, parseRows, rawResponse, text, type RowSchema } from './parse';
 
 /** EarningsCalendarItem property → CSV column mapping. */
 const EARNINGS_SCHEMA: RowSchema<EarningsCalendarItem> = {
@@ -62,17 +64,18 @@ const DIVIDENDS_SCHEMA: RowSchema<DividendsCalendarItem> = {
  * The API returns a multi-row CSV; each row represents one economic event.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Start date (required) and optional end date
+ * @param options - Start date (required) and optional end date, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getEconomicCalendar(
-  client: FinvizClient,
-  options: CalendarOptions,
-): Promise<FinvizResponse<Calendar>> {
+export async function getEconomicCalendar<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: CalendarOptions & FormatOption<F>,
+): Promise<FinvizResponse<Calendar, F>> {
   const rows = await client.getRecords('/export/calendar/economic', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
   });
-  return rawResponse(rows);
+  return rawResponse(rows, formatOf(client, options));
 }
 
 /**
@@ -80,18 +83,19 @@ export async function getEconomicCalendar(
  * The API returns a multi-row CSV; each row represents one company's earnings report.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Start date (required), optional end date, and optional sort order
+ * @param options - Start date (required), optional end date, and optional sort order, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getEarningsCalendar(
-  client: FinvizClient,
-  options: EarningsCalendarOptions,
-): Promise<FinvizResponse<EarningsCalendarItem>> {
+export async function getEarningsCalendar<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: EarningsCalendarOptions & FormatOption<F>,
+): Promise<FinvizResponse<EarningsCalendarItem, F>> {
   const rows = await client.getRecords('/export/calendar/earnings', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
     sort: buildSortParam(options.order, options.orderDirection),
   });
-  return parseRows(rows, EARNINGS_SCHEMA);
+  return parseRows(rows, EARNINGS_SCHEMA, formatOf(client, options));
 }
 
 /**
@@ -99,15 +103,16 @@ export async function getEarningsCalendar(
  * The API returns a multi-row CSV; each row represents one company's upcoming ex-dividend date.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Start date (required) and optional end date
+ * @param options - Start date (required) and optional end date, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getDividendsCalendar(
-  client: FinvizClient,
-  options: DividendsCalendarOptions,
-): Promise<FinvizResponse<DividendsCalendarItem>> {
+export async function getDividendsCalendar<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: DividendsCalendarOptions & FormatOption<F>,
+): Promise<FinvizResponse<DividendsCalendarItem, F>> {
   const rows = await client.getRecords('/export/calendar/dividends', {
     dateFrom: formatDateToYYYYMMDD(options.from),
     dateTo: (options.to) ? formatDateToYYYYMMDD(options.to) : undefined,
   });
-  return parseRows(rows, DIVIDENDS_SCHEMA);
+  return parseRows(rows, DIVIDENDS_SCHEMA, formatOf(client, options));
 }

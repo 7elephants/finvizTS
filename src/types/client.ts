@@ -5,12 +5,19 @@
  *
  * | Step | Description                        | Input | Output                   |
  * |------|------------------------------------|-------|--------------------------|
- * | 1    | Export FinvizClientOptions         | —     | Typed constructor options|
+ * | 1    | Export FinvizClientOptions         | —     | Typed constructor options (incl. default `format`) |
  * ---
  */
 
+import type { ResponseFormat } from './response';
+
 /** Options passed when constructing a FinvizClient instance. */
-export interface FinvizClientOptions {
+export interface FinvizClientOptions<F extends ResponseFormat = 'parsed'> {
+  /**
+   * Default response format for every `get*` call made with this client: `parsed` (typed
+   * items, the default), `raw` (CSV records) or `both`. Override per call with `format`.
+   */
+  format?: F;
   /** Finviz Elite API token */
   apiToken: string;
   /** Base URL override (defaults to https://elite.finviz.com) */

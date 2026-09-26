@@ -6,15 +6,15 @@
  *
  * | Step | Method          | Input                                    | Output                  |
  * |------|-----------------|------------------------------------------|-------------------------|
- * | 1    | getPortfolio()  | FinvizClient, portfolioId, PortfolioOptions | Promise<FinvizResponse<Portfolio>> |
+ * | 1    | getPortfolio()  | FinvizClient, portfolioId, PortfolioOptions | Promise<FinvizResponse<Portfolio, F>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, PortfolioOptions, Portfolio } from './types';
+import type { FinvizResponse, PortfolioOptions, Portfolio, FormatOption, ResponseFormat } from './types';
 
 import { buildSortParam } from './utils';
-import { rawResponse } from './parse';
+import { formatOf, rawResponse } from './parse';
 
 /**
  * Fetch holdings for a saved Finviz portfolio by its ID.
@@ -22,17 +22,18 @@ import { rawResponse } from './parse';
  *
  * @param client      - Authenticated FinvizClient instance
  * @param portfolioId - The numeric portfolio ID from the Finviz URL
- * @param options     - Optional sort order and column selection
+ * @param options     - Optional sort order and column selection, plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getPortfolio(
-  client: FinvizClient,
+export async function getPortfolio<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
   portfolioId: string | number,
-  options: PortfolioOptions = {},
-): Promise<FinvizResponse<Portfolio>> {
+  options: PortfolioOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<Portfolio, F>> {
   const rows = await client.getRecords('/export/portfolio', {
     pid: String(portfolioId),
     o: buildSortParam(options.order, options.orderDirection),
     c: Array.isArray(options.fields) ? options.fields.join(',') : options.fields,
   });
-  return rawResponse(rows);
+  return rawResponse(rows, formatOf(client, options));
 }

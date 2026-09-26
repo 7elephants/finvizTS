@@ -6,28 +6,29 @@
  *
  * | Step | Method        | Input                         | Output                 |
  * |------|---------------|-------------------------------|------------------------|
- * | 1    | getScreener() | FinvizClient, ScreenerOptions | Promise<FinvizResponse<Screener>> |
+ * | 1    | getScreener() | FinvizClient, ScreenerOptions | Promise<FinvizResponse<Screener, F>> |
  * ---
  */
 
 import type { FinvizClient } from './client';
-import type { FinvizResponse, ScreenerOptions, Screener } from './types';
+import type { FinvizResponse, ScreenerOptions, Screener, FormatOption, ResponseFormat } from './types';
 
 import { buildFilters } from './filters';
 import { buildSortParam } from './utils';
-import { rawResponse } from './parse';
+import { formatOf, rawResponse } from './parse';
 
 /**
  * Query the Finviz screener with optional view, fields, filters, ordering, and pagination.
  * The API returns a multi-row CSV; each data row becomes a key/value record.
  *
  * @param client  - Authenticated FinvizClient instance
- * @param options - Screener options (view, fields, filters, order, rows, signal)
+ * @param options - Screener options (view, fields, filters, order, rows, signal), plus optional `format`
+ *                  (`parsed` | `raw` | `both`) overriding the client default
  */
-export async function getScreener(
-  client: FinvizClient,
-  options: ScreenerOptions = {},
-): Promise<FinvizResponse<Screener>> {
+export async function getScreener<C extends ResponseFormat = 'parsed', F extends ResponseFormat = C>(
+  client: FinvizClient<C>,
+  options: ScreenerOptions & FormatOption<F> = {},
+): Promise<FinvizResponse<Screener, F>> {
   const rows = await client.getRecords('/export/screener', {
     v: options.view,
     c: options.fields?.join(','),
@@ -37,5 +38,5 @@ export async function getScreener(
     s: options.signal,
     t: Array.isArray(options.tickers) ? options.tickers.join(',') : options.tickers,
   });
-  return rawResponse(rows);
+  return rawResponse(rows, formatOf(client, options));
 }
