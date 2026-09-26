@@ -12,7 +12,7 @@
 
 > **ScreenerCurrentRatioFilter** = *typeof* [`ScreenerCurrentRatioFilter`](#screenercurrentratiofilter-1)\[keyof *typeof* [`ScreenerCurrentRatioFilter`](#screenercurrentratiofilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:721](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L721)
+Defined in: [types/screener/fundamental-filters.ts:721](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L721)
 
 Union of all known screener Current Ratio filter values.
 
@@ -22,7 +22,7 @@ Union of all known screener Current Ratio filter values.
 
 > **ScreenerDebtEquityFilter** = *typeof* [`ScreenerDebtEquityFilter`](#screenerdebtequityfilter-1)\[keyof *typeof* [`ScreenerDebtEquityFilter`](#screenerdebtequityfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:788](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L788)
+Defined in: [types/screener/fundamental-filters.ts:788](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L788)
 
 Union of all known screener Debt/Equity filter values.
 
@@ -32,7 +32,7 @@ Union of all known screener Debt/Equity filter values.
 
 > **ScreenerDividendGrowthFilter** = *typeof* [`ScreenerDividendGrowthFilter`](#screenerdividendgrowthfilter-1)\[keyof *typeof* [`ScreenerDividendGrowthFilter`](#screenerdividendgrowthfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:284](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L284)
+Defined in: [types/screener/fundamental-filters.ts:284](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L284)
 
 Union of all known screener Dividend Growth filter values.
 
@@ -42,7 +42,7 @@ Union of all known screener Dividend Growth filter values.
 
 > **ScreenerEarningsRevenueSurpriseFilter** = *typeof* [`ScreenerEarningsRevenueSurpriseFilter`](#screenerearningsrevenuesurprisefilter-1)\[keyof *typeof* [`ScreenerEarningsRevenueSurpriseFilter`](#screenerearningsrevenuesurprisefilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:574](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L574)
+Defined in: [types/screener/fundamental-filters.ts:574](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L574)
 
 Union of all known screener Earnings & Revenue Surprise filter values.
 
@@ -52,7 +52,7 @@ Union of all known screener Earnings & Revenue Surprise filter values.
 
 > **ScreenerEPSGrowthNext5YFilter** = *typeof* [`ScreenerEPSGrowthNext5YFilter`](#screenerepsgrowthnext5yfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthNext5YFilter`](#screenerepsgrowthnext5yfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:459](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L459)
+Defined in: [types/screener/fundamental-filters.ts:459](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L459)
 
 Union of all known screener EPS Growth Next 5 Years filter values.
 
@@ -62,7 +62,7 @@ Union of all known screener EPS Growth Next 5 Years filter values.
 
 > **ScreenerEPSGrowthNextYearFilter** = *typeof* [`ScreenerEPSGrowthNextYearFilter`](#screenerepsgrowthnextyearfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthNextYearFilter`](#screenerepsgrowthnextyearfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:344](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L344)
+Defined in: [types/screener/fundamental-filters.ts:344](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L344)
 
 Union of all known screener EPS Growth Next Year filter values.
 
@@ -72,7 +72,7 @@ Union of all known screener EPS Growth Next Year filter values.
 
 > **ScreenerEPSGrowthPast3YFilter** = *typeof* [`ScreenerEPSGrowthPast3YFilter`](#screenerepsgrowthpast3yfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthPast3YFilter`](#screenerepsgrowthpast3yfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:413](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L413)
+Defined in: [types/screener/fundamental-filters.ts:413](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L413)
 
 Union of all known screener EPS Growth Past 3 Years filter values.
 
@@ -82,7 +82,7 @@ Union of all known screener EPS Growth Past 3 Years filter values.
 
 > **ScreenerEPSGrowthPast5YFilter** = *typeof* [`ScreenerEPSGrowthPast5YFilter`](#screenerepsgrowthpast5yfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthPast5YFilter`](#screenerepsgrowthpast5yfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:436](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L436)
+Defined in: [types/screener/fundamental-filters.ts:436](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L436)
 
 Union of all known screener EPS Growth Past 5 Years filter values.
 
@@ -92,7 +92,7 @@ Union of all known screener EPS Growth Past 5 Years filter values.
 
 > **ScreenerEPSGrowthQoQFilter** = *typeof* [`ScreenerEPSGrowthQoQFilter`](#screenerepsgrowthqoqfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthQoQFilter`](#screenerepsgrowthqoqfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:367](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L367)
+Defined in: [types/screener/fundamental-filters.ts:367](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L367)
 
 Union of all known screener EPS Growth QoQ filter values.
 
@@ -102,7 +102,7 @@ Union of all known screener EPS Growth QoQ filter values.
 
 > **ScreenerEPSGrowthThisYearFilter** = *typeof* [`ScreenerEPSGrowthThisYearFilter`](#screenerepsgrowththisyearfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthThisYearFilter`](#screenerepsgrowththisyearfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:321](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L321)
+Defined in: [types/screener/fundamental-filters.ts:321](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L321)
 
 Union of all known screener EPS Growth This Year filter values.
 
@@ -112,7 +112,7 @@ Union of all known screener EPS Growth This Year filter values.
 
 > **ScreenerEPSGrowthTTMFilter** = *typeof* [`ScreenerEPSGrowthTTMFilter`](#screenerepsgrowthttmfilter-1)\[keyof *typeof* [`ScreenerEPSGrowthTTMFilter`](#screenerepsgrowthttmfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:390](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L390)
+Defined in: [types/screener/fundamental-filters.ts:390](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L390)
 
 Union of all known screener EPS Growth TTM filter values.
 
@@ -122,7 +122,7 @@ Union of all known screener EPS Growth TTM filter values.
 
 > **ScreenerEVEBITDAFilter** = *typeof* [`ScreenerEVEBITDAFilter`](#screenerevebitdafilter-1)\[keyof *typeof* [`ScreenerEVEBITDAFilter`](#screenerevebitdafilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:222](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L222)
+Defined in: [types/screener/fundamental-filters.ts:222](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L222)
 
 Union of all known screener EV/EBITDA filter values.
 
@@ -132,7 +132,7 @@ Union of all known screener EV/EBITDA filter values.
 
 > **ScreenerEVSalesFilter** = *typeof* [`ScreenerEVSalesFilter`](#screenerevsalesfilter-1)\[keyof *typeof* [`ScreenerEVSalesFilter`](#screenerevsalesfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:253](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L253)
+Defined in: [types/screener/fundamental-filters.ts:253](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L253)
 
 Union of all known screener EV/Sales filter values.
 
@@ -142,7 +142,7 @@ Union of all known screener EV/Sales filter values.
 
 > **ScreenerForwardPEFilter** = *typeof* [`ScreenerForwardPEFilter`](#screenerforwardpefilter-1)\[keyof *typeof* [`ScreenerForwardPEFilter`](#screenerforwardpefilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:47](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L47)
+Defined in: [types/screener/fundamental-filters.ts:47](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L47)
 
 Union of all known screener Forward P/E filter values.
 
@@ -152,7 +152,7 @@ Union of all known screener Forward P/E filter values.
 
 > **ScreenerGrossMarginFilter** = *typeof* [`ScreenerGrossMarginFilter`](#screenergrossmarginfilter-1)\[keyof *typeof* [`ScreenerGrossMarginFilter`](#screenergrossmarginfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:817](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L817)
+Defined in: [types/screener/fundamental-filters.ts:817](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L817)
 
 Union of all known screener Gross Margin filter values.
 
@@ -162,7 +162,7 @@ Union of all known screener Gross Margin filter values.
 
 > **ScreenerLTDebtEquityFilter** = *typeof* [`ScreenerLTDebtEquityFilter`](#screenerltdebtequityfilter-1)\[keyof *typeof* [`ScreenerLTDebtEquityFilter`](#screenerltdebtequityfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:759](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L759)
+Defined in: [types/screener/fundamental-filters.ts:759](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L759)
 
 Union of all known screener LT Debt/Equity filter values.
 
@@ -172,7 +172,7 @@ Union of all known screener LT Debt/Equity filter values.
 
 > **ScreenerNetProfitMarginFilter** = *typeof* [`ScreenerNetProfitMarginFilter`](#screenernetprofitmarginfilter-1)\[keyof *typeof* [`ScreenerNetProfitMarginFilter`](#screenernetprofitmarginfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:888](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L888)
+Defined in: [types/screener/fundamental-filters.ts:888](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L888)
 
 Union of all known screener Net Profit Margin filter values.
 
@@ -182,7 +182,7 @@ Union of all known screener Net Profit Margin filter values.
 
 > **ScreenerOperatingMarginFilter** = *typeof* [`ScreenerOperatingMarginFilter`](#screeneroperatingmarginfilter-1)\[keyof *typeof* [`ScreenerOperatingMarginFilter`](#screeneroperatingmarginfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:855](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L855)
+Defined in: [types/screener/fundamental-filters.ts:855](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L855)
 
 Union of all known screener Operating Margin filter values.
 
@@ -192,7 +192,7 @@ Union of all known screener Operating Margin filter values.
 
 > **ScreenerPayoutRatioFilter** = *typeof* [`ScreenerPayoutRatioFilter`](#screenerpayoutratiofilter-1)\[keyof *typeof* [`ScreenerPayoutRatioFilter`](#screenerpayoutratiofilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:921](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L921)
+Defined in: [types/screener/fundamental-filters.ts:921](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L921)
 
 Union of all known screener Payout Ratio filter values.
 
@@ -202,7 +202,7 @@ Union of all known screener Payout Ratio filter values.
 
 > **ScreenerPBFilter** = *typeof* [`ScreenerPBFilter`](#screenerpbfilter-1)\[keyof *typeof* [`ScreenerPBFilter`](#screenerpbfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:121](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L121)
+Defined in: [types/screener/fundamental-filters.ts:121](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L121)
 
 Union of all known screener P/B filter values.
 
@@ -212,7 +212,7 @@ Union of all known screener P/B filter values.
 
 > **ScreenerPEFilter** = *typeof* [`ScreenerPEFilter`](#screenerpefilter-1)\[keyof *typeof* [`ScreenerPEFilter`](#screenerpefilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:17](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L17)
+Defined in: [types/screener/fundamental-filters.ts:17](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L17)
 
 Union of all known screener P/E filter values.
 
@@ -222,7 +222,7 @@ Union of all known screener P/E filter values.
 
 > **ScreenerPEGFilter** = *typeof* [`ScreenerPEGFilter`](#screenerpegfilter-1)\[keyof *typeof* [`ScreenerPEGFilter`](#screenerpegfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:77](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L77)
+Defined in: [types/screener/fundamental-filters.ts:77](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L77)
 
 Union of all known screener PEG filter values.
 
@@ -232,7 +232,7 @@ Union of all known screener PEG filter values.
 
 > **ScreenerPriceCashFilter** = *typeof* [`ScreenerPriceCashFilter`](#screenerpricecashfilter-1)\[keyof *typeof* [`ScreenerPriceCashFilter`](#screenerpricecashfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:150](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L150)
+Defined in: [types/screener/fundamental-filters.ts:150](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L150)
 
 Union of all known screener Price/Cash filter values.
 
@@ -242,7 +242,7 @@ Union of all known screener Price/Cash filter values.
 
 > **ScreenerPriceFCFFilter** = *typeof* [`ScreenerPriceFCFFilter`](#screenerpricefcffilter-1)\[keyof *typeof* [`ScreenerPriceFCFFilter`](#screenerpricefcffilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:183](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L183)
+Defined in: [types/screener/fundamental-filters.ts:183](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L183)
 
 Union of all known screener Price/FCF filter values.
 
@@ -252,7 +252,7 @@ Union of all known screener Price/FCF filter values.
 
 > **ScreenerPSFilter** = *typeof* [`ScreenerPSFilter`](#screenerpsfilter-1)\[keyof *typeof* [`ScreenerPSFilter`](#screenerpsfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:92](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L92)
+Defined in: [types/screener/fundamental-filters.ts:92](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L92)
 
 Union of all known screener P/S filter values.
 
@@ -262,7 +262,7 @@ Union of all known screener P/S filter values.
 
 > **ScreenerQuickRatioFilter** = *typeof* [`ScreenerQuickRatioFilter`](#screenerquickratiofilter-1)\[keyof *typeof* [`ScreenerQuickRatioFilter`](#screenerquickratiofilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:740](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L740)
+Defined in: [types/screener/fundamental-filters.ts:740](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L740)
 
 Union of all known screener Quick Ratio filter values.
 
@@ -272,7 +272,7 @@ Union of all known screener Quick Ratio filter values.
 
 > **ScreenerROAFilter** = *typeof* [`ScreenerROAFilter`](#screenerroafilter-1)\[keyof *typeof* [`ScreenerROAFilter`](#screenerroafilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:628](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L628)
+Defined in: [types/screener/fundamental-filters.ts:628](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L628)
 
 Union of all known screener Return on Assets filter values.
 
@@ -282,7 +282,7 @@ Union of all known screener Return on Assets filter values.
 
 > **ScreenerROEFilter** = *typeof* [`ScreenerROEFilter`](#screenerroefilter-1)\[keyof *typeof* [`ScreenerROEFilter`](#screenerroefilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:659](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L659)
+Defined in: [types/screener/fundamental-filters.ts:659](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L659)
 
 Union of all known screener Return on Equity filter values.
 
@@ -292,7 +292,7 @@ Union of all known screener Return on Equity filter values.
 
 > **ScreenerROIFilter** = *typeof* [`ScreenerROIFilter`](#screenerroifilter-1)\[keyof *typeof* [`ScreenerROIFilter`](#screenerroifilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:690](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L690)
+Defined in: [types/screener/fundamental-filters.ts:690](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L690)
 
 Union of all known screener Return on Invested Capital filter values.
 
@@ -302,7 +302,7 @@ Union of all known screener Return on Invested Capital filter values.
 
 > **ScreenerSalesGrowthPast3YFilter** = *typeof* [`ScreenerSalesGrowthPast3YFilter`](#screenersalesgrowthpast3yfilter-1)\[keyof *typeof* [`ScreenerSalesGrowthPast3YFilter`](#screenersalesgrowthpast3yfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:528](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L528)
+Defined in: [types/screener/fundamental-filters.ts:528](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L528)
 
 Union of all known screener Sales Growth Past 3 Years filter values.
 
@@ -312,7 +312,7 @@ Union of all known screener Sales Growth Past 3 Years filter values.
 
 > **ScreenerSalesGrowthPast5YFilter** = *typeof* [`ScreenerSalesGrowthPast5YFilter`](#screenersalesgrowthpast5yfilter-1)\[keyof *typeof* [`ScreenerSalesGrowthPast5YFilter`](#screenersalesgrowthpast5yfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:551](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L551)
+Defined in: [types/screener/fundamental-filters.ts:551](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L551)
 
 Union of all known screener Sales Growth Past 5 Years filter values.
 
@@ -322,7 +322,7 @@ Union of all known screener Sales Growth Past 5 Years filter values.
 
 > **ScreenerSalesGrowthQoQFilter** = *typeof* [`ScreenerSalesGrowthQoQFilter`](#screenersalesgrowthqoqfilter-1)\[keyof *typeof* [`ScreenerSalesGrowthQoQFilter`](#screenersalesgrowthqoqfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:482](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L482)
+Defined in: [types/screener/fundamental-filters.ts:482](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L482)
 
 Union of all known screener Sales Growth QoQ filter values.
 
@@ -332,7 +332,7 @@ Union of all known screener Sales Growth QoQ filter values.
 
 > **ScreenerSalesGrowthTTMFilter** = *typeof* [`ScreenerSalesGrowthTTMFilter`](#screenersalesgrowthttmfilter-1)\[keyof *typeof* [`ScreenerSalesGrowthTTMFilter`](#screenersalesgrowthttmfilter-1)\]
 
-Defined in: [types/screener/fundamental-filters.ts:505](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L505)
+Defined in: [types/screener/fundamental-filters.ts:505](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L505)
 
 Union of all known screener Sales Growth TTM filter values.
 
@@ -342,7 +342,7 @@ Union of all known screener Sales Growth TTM filter values.
 
 > `const` **ScreenerCurrentRatioFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:721](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L721)
+Defined in: [types/screener/fundamental-filters.ts:721](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L721)
 
 Screener Current Ratio filter values for the `f` query parameter.
 
@@ -402,7 +402,7 @@ Screener Current Ratio filter values for the `f` query parameter.
 
 > `const` **ScreenerDebtEquityFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:788](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L788)
+Defined in: [types/screener/fundamental-filters.ts:788](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L788)
 
 Screener Debt/Equity filter values for the `f` query parameter.
 
@@ -502,7 +502,7 @@ Screener Debt/Equity filter values for the `f` query parameter.
 
 > `const` **ScreenerDividendGrowthFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:284](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L284)
+Defined in: [types/screener/fundamental-filters.ts:284](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L284)
 
 Screener Dividend Growth filter values for the `f` query parameter.
 
@@ -634,7 +634,7 @@ Screener Dividend Growth filter values for the `f` query parameter.
 
 > `const` **ScreenerEarningsRevenueSurpriseFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:574](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L574)
+Defined in: [types/screener/fundamental-filters.ts:574](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L574)
 
 Screener Earnings & Revenue Surprise filter values for the `f` query parameter.
 
@@ -834,7 +834,7 @@ Screener Earnings & Revenue Surprise filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthNext5YFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:459](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L459)
+Defined in: [types/screener/fundamental-filters.ts:459](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L459)
 
 Screener EPS Growth Next 5 Years filter values for the `f` query parameter.
 
@@ -910,7 +910,7 @@ Screener EPS Growth Next 5 Years filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthNextYearFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:344](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L344)
+Defined in: [types/screener/fundamental-filters.ts:344](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L344)
 
 Screener EPS Growth Next Year filter values for the `f` query parameter.
 
@@ -986,7 +986,7 @@ Screener EPS Growth Next Year filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthPast3YFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:413](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L413)
+Defined in: [types/screener/fundamental-filters.ts:413](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L413)
 
 Screener EPS Growth Past 3 Years filter values for the `f` query parameter.
 
@@ -1062,7 +1062,7 @@ Screener EPS Growth Past 3 Years filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthPast5YFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:436](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L436)
+Defined in: [types/screener/fundamental-filters.ts:436](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L436)
 
 Screener EPS Growth Past 5 Years filter values for the `f` query parameter.
 
@@ -1138,7 +1138,7 @@ Screener EPS Growth Past 5 Years filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthQoQFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:367](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L367)
+Defined in: [types/screener/fundamental-filters.ts:367](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L367)
 
 Screener EPS Growth Qtr Over Qtr filter values for the `f` query parameter.
 
@@ -1214,7 +1214,7 @@ Screener EPS Growth Qtr Over Qtr filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthThisYearFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:321](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L321)
+Defined in: [types/screener/fundamental-filters.ts:321](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L321)
 
 Screener EPS Growth This Year filter values for the `f` query parameter.
 
@@ -1290,7 +1290,7 @@ Screener EPS Growth This Year filter values for the `f` query parameter.
 
 > `const` **ScreenerEPSGrowthTTMFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:390](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L390)
+Defined in: [types/screener/fundamental-filters.ts:390](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L390)
 
 Screener EPS Growth TTM filter values for the `f` query parameter.
 
@@ -1366,7 +1366,7 @@ Screener EPS Growth TTM filter values for the `f` query parameter.
 
 > `const` **ScreenerEVEBITDAFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:222](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L222)
+Defined in: [types/screener/fundamental-filters.ts:222](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L222)
 
 Screener EV/EBITDA filter values for the `f` query parameter.
 
@@ -1474,7 +1474,7 @@ Screener EV/EBITDA filter values for the `f` query parameter.
 
 > `const` **ScreenerEVSalesFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:253](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L253)
+Defined in: [types/screener/fundamental-filters.ts:253](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L253)
 
 Screener EV/Sales filter values for the `f` query parameter.
 
@@ -1582,7 +1582,7 @@ Screener EV/Sales filter values for the `f` query parameter.
 
 > `const` **ScreenerForwardPEFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:47](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L47)
+Defined in: [types/screener/fundamental-filters.ts:47](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L47)
 
 Screener Forward P/E filter values for the `f` query parameter.
 
@@ -1686,7 +1686,7 @@ Screener Forward P/E filter values for the `f` query parameter.
 
 > `const` **ScreenerGrossMarginFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:817](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L817)
+Defined in: [types/screener/fundamental-filters.ts:817](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L817)
 
 Screener Gross Margin filter values for the `f` query parameter.
 
@@ -1822,7 +1822,7 @@ Screener Gross Margin filter values for the `f` query parameter.
 
 > `const` **ScreenerLTDebtEquityFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:759](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L759)
+Defined in: [types/screener/fundamental-filters.ts:759](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L759)
 
 Screener LT Debt/Equity filter values for the `f` query parameter.
 
@@ -1922,7 +1922,7 @@ Screener LT Debt/Equity filter values for the `f` query parameter.
 
 > `const` **ScreenerNetProfitMarginFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:888](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L888)
+Defined in: [types/screener/fundamental-filters.ts:888](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L888)
 
 Screener Net Profit Margin filter values for the `f` query parameter.
 
@@ -2038,7 +2038,7 @@ Screener Net Profit Margin filter values for the `f` query parameter.
 
 > `const` **ScreenerOperatingMarginFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:855](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L855)
+Defined in: [types/screener/fundamental-filters.ts:855](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L855)
 
 Screener Operating Margin filter values for the `f` query parameter.
 
@@ -2154,7 +2154,7 @@ Screener Operating Margin filter values for the `f` query parameter.
 
 > `const` **ScreenerPayoutRatioFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:921](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L921)
+Defined in: [types/screener/fundamental-filters.ts:921](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L921)
 
 Screener Payout Ratio filter values for the `f` query parameter.
 
@@ -2262,7 +2262,7 @@ Screener Payout Ratio filter values for the `f` query parameter.
 
 > `const` **ScreenerPBFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:121](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L121)
+Defined in: [types/screener/fundamental-filters.ts:121](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L121)
 
 Screener P/B filter values for the `f` query parameter.
 
@@ -2362,7 +2362,7 @@ Screener P/B filter values for the `f` query parameter.
 
 > `const` **ScreenerPEFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:17](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L17)
+Defined in: [types/screener/fundamental-filters.ts:17](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L17)
 
 Screener P/E filter values for the `f` query parameter.
 
@@ -2466,7 +2466,7 @@ Screener P/E filter values for the `f` query parameter.
 
 > `const` **ScreenerPEGFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:77](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L77)
+Defined in: [types/screener/fundamental-filters.ts:77](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L77)
 
 Screener PEG filter values for the `f` query parameter.
 
@@ -2510,7 +2510,7 @@ Screener PEG filter values for the `f` query parameter.
 
 > `const` **ScreenerPriceCashFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:150](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L150)
+Defined in: [types/screener/fundamental-filters.ts:150](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L150)
 
 Screener Price/Cash filter values for the `f` query parameter.
 
@@ -2626,7 +2626,7 @@ Screener Price/Cash filter values for the `f` query parameter.
 
 > `const` **ScreenerPriceFCFFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:183](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L183)
+Defined in: [types/screener/fundamental-filters.ts:183](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L183)
 
 Screener Price/Free Cash Flow filter values for the `f` query parameter.
 
@@ -2766,7 +2766,7 @@ Screener Price/Free Cash Flow filter values for the `f` query parameter.
 
 > `const` **ScreenerPSFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:92](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L92)
+Defined in: [types/screener/fundamental-filters.ts:92](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L92)
 
 Screener P/S filter values for the `f` query parameter.
 
@@ -2866,7 +2866,7 @@ Screener P/S filter values for the `f` query parameter.
 
 > `const` **ScreenerQuickRatioFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:740](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L740)
+Defined in: [types/screener/fundamental-filters.ts:740](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L740)
 
 Screener Quick Ratio filter values for the `f` query parameter.
 
@@ -2926,7 +2926,7 @@ Screener Quick Ratio filter values for the `f` query parameter.
 
 > `const` **ScreenerROAFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:628](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L628)
+Defined in: [types/screener/fundamental-filters.ts:628](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L628)
 
 Screener Return on Assets filter values for the `f` query parameter.
 
@@ -3034,7 +3034,7 @@ Screener Return on Assets filter values for the `f` query parameter.
 
 > `const` **ScreenerROEFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:659](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L659)
+Defined in: [types/screener/fundamental-filters.ts:659](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L659)
 
 Screener Return on Equity filter values for the `f` query parameter.
 
@@ -3142,7 +3142,7 @@ Screener Return on Equity filter values for the `f` query parameter.
 
 > `const` **ScreenerROIFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:690](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L690)
+Defined in: [types/screener/fundamental-filters.ts:690](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L690)
 
 Screener Return on Invested Capital filter values for the `f` query parameter.
 
@@ -3250,7 +3250,7 @@ Screener Return on Invested Capital filter values for the `f` query parameter.
 
 > `const` **ScreenerSalesGrowthPast3YFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:528](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L528)
+Defined in: [types/screener/fundamental-filters.ts:528](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L528)
 
 Screener Sales Growth Past 3 Years filter values for the `f` query parameter.
 
@@ -3326,7 +3326,7 @@ Screener Sales Growth Past 3 Years filter values for the `f` query parameter.
 
 > `const` **ScreenerSalesGrowthPast5YFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:551](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L551)
+Defined in: [types/screener/fundamental-filters.ts:551](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L551)
 
 Screener Sales Growth Past 5 Years filter values for the `f` query parameter.
 
@@ -3402,7 +3402,7 @@ Screener Sales Growth Past 5 Years filter values for the `f` query parameter.
 
 > `const` **ScreenerSalesGrowthQoQFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:482](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L482)
+Defined in: [types/screener/fundamental-filters.ts:482](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L482)
 
 Screener Sales Growth Qtr Over Qtr filter values for the `f` query parameter.
 
@@ -3478,7 +3478,7 @@ Screener Sales Growth Qtr Over Qtr filter values for the `f` query parameter.
 
 > `const` **ScreenerSalesGrowthTTMFilter**: `object`
 
-Defined in: [types/screener/fundamental-filters.ts:505](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/screener/fundamental-filters.ts#L505)
+Defined in: [types/screener/fundamental-filters.ts:505](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/screener/fundamental-filters.ts#L505)
 
 Screener Sales Growth TTM filter values for the `f` query parameter.
 

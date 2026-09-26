@@ -25,6 +25,10 @@ npm run typecheck
 npm run lint
 npm run lint:fix
 
+# Regenerate API reference markdown in docs/ (TypeDoc). cleanOutputDir is off so hand-written
+# docs (e.g. PR notes) survive; delete stale pages manually when a module is removed or renamed.
+npm run docs
+
 # Run all tests
 npm test
 

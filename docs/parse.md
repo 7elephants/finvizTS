@@ -10,7 +10,7 @@
 
 ### ColumnParser
 
-Defined in: [parse.ts:22](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L22)
+Defined in: [parse.ts:22](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L22)
 
 Describes how to read one item property from a CSV record.
 
@@ -26,7 +26,7 @@ Describes how to read one item property from a CSV record.
 
 > **column**: `string`
 
-Defined in: [parse.ts:24](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L24)
+Defined in: [parse.ts:24](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L24)
 
 CSV header of the source column.
 
@@ -34,7 +34,7 @@ CSV header of the source column.
 
 > `optional` **expected?**: [`ParseErrorExpected`](types/response.md#parseerrorexpected-1)
 
-Defined in: [parse.ts:26](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L26)
+Defined in: [parse.ts:26](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L26)
 
 Kind reported in a ParseError; absent for text, which can never fail.
 
@@ -42,7 +42,7 @@ Kind reported in a ParseError; absent for text, which can never fail.
 
 > **parse**: (`raw`) => `V` \| `undefined`
 
-Defined in: [parse.ts:28](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L28)
+Defined in: [parse.ts:28](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L28)
 
 Parse a non-blank cell; return `undefined` when the value is invalid.
 
@@ -62,7 +62,7 @@ Parse a non-blank cell; return `undefined` when the value is invalid.
 
 > **RowSchema**\<`T`\> = `{ [K in keyof T]-?: ColumnParser<NonNullable<T[K]>> }`
 
-Defined in: [parse.ts:32](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L32)
+Defined in: [parse.ts:32](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L32)
 
 Maps every property of item type `T` to the column parser that produces it.
 
@@ -78,7 +78,7 @@ Maps every property of item type `T` to the column parser that produces it.
 
 > **date**(`column`): [`ColumnParser`](#columnparser)\<`Date`\>
 
-Defined in: [parse.ts:105](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L105)
+Defined in: [parse.ts:105](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L105)
 
 Read a column as a Date in the runtime's local timezone. Finviz's two formats — `YYYY-MM-DD`
 and `M/D/YYYY`, each with an optional time — are parsed explicitly rather than via
@@ -102,7 +102,7 @@ format is an error.
 
 > **integer**(`column`): [`ColumnParser`](#columnparser)\<`number`\>
 
-Defined in: [parse.ts:58](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L58)
+Defined in: [parse.ts:58](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L58)
 
 Read a column as an integer. Thousands separators are accepted (`'3,800'` → `3800`).
 
@@ -122,7 +122,7 @@ Read a column as an integer. Thousands separators are accepted (`'3,800'` → `3
 
 > **number**(`column`): [`ColumnParser`](#columnparser)\<`number`\>
 
-Defined in: [parse.ts:46](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L46)
+Defined in: [parse.ts:46](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L46)
 
 Read a column as a finite number. Strict — `'12abc'` is an error, unlike `parseFloat` — but
 thousands separators are accepted (`'1,234.5'` → `1234.5`).
@@ -143,7 +143,7 @@ thousands separators are accepted (`'1,234.5'` → `1234.5`).
 
 > **parseRows**\<`T`\>(`rows`, `schema`): [`FinvizResponse`](types/response.md#finvizresponse)\<`T`\>
 
-Defined in: [parse.ts:128](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L128)
+Defined in: [parse.ts:128](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L128)
 
 Map CSV records to typed items. Blank or missing cells become `undefined`; non-blank cells
 that fail to parse also become `undefined` and are reported in `errors`.
@@ -178,7 +178,7 @@ Item property → column parser
 
 > **rawResponse**(`rows`): [`FinvizResponse`](types/response.md#finvizresponse)\<`Record`\<`string`, `string`\>\>
 
-Defined in: [parse.ts:156](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L156)
+Defined in: [parse.ts:156](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L156)
 
 Wrap untyped records (screener, portfolio, groups, options, economic calendar) unparsed.
 
@@ -198,7 +198,7 @@ Wrap untyped records (screener, portfolio, groups, options, economic calendar) u
 
 > **text**(`column`): [`ColumnParser`](#columnparser)\<`string`\>
 
-Defined in: [parse.ts:35](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/parse.ts#L35)
+Defined in: [parse.ts:35](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/parse.ts#L35)
 
 Read a column as a string.
 

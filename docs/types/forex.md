@@ -10,7 +10,7 @@
 
 ### ForexPercentOptions
 
-Defined in: [types/forex.ts:49](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L49)
+Defined in: [types/forex.ts:49](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L49)
 
 Forex request options in percent (the default unit).
 
@@ -20,7 +20,7 @@ Forex request options in percent (the default unit).
 
 > `optional` **order?**: [`PerformanceOrderType`](performance.md#performanceordertype)
 
-Defined in: [types/forex.ts:53](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L53)
+Defined in: [types/forex.ts:53](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L53)
 
 Column to sort by.
 
@@ -28,7 +28,7 @@ Column to sort by.
 
 > `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/forex.ts:55](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L55)
+Defined in: [types/forex.ts:55](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L55)
 
 Sort direction (either '' or '-').
 
@@ -36,7 +36,7 @@ Sort direction (either '' or '-').
 
 > `optional` **unit?**: `"pct"`
 
-Defined in: [types/forex.ts:51](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L51)
+Defined in: [types/forex.ts:51](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L51)
 
 Performance unit; percent by default.
 
@@ -44,7 +44,7 @@ Performance unit; percent by default.
 
 ### ForexPipsOptions
 
-Defined in: [types/forex.ts:59](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L59)
+Defined in: [types/forex.ts:59](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L59)
 
 Forex request options in pips. Finviz requires the sort column to match the unit.
 
@@ -54,7 +54,7 @@ Forex request options in pips. Finviz requires the sort column to match the unit
 
 > `optional` **order?**: [`ForexPipsOrderType`](#forexpipsordertype) \| [`ForexSharedOrderType`](#forexsharedordertype)
 
-Defined in: [types/forex.ts:63](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L63)
+Defined in: [types/forex.ts:63](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L63)
 
 Column to sort by; performance columns must be the `Pips` variants.
 
@@ -62,7 +62,7 @@ Column to sort by; performance columns must be the `Pips` variants.
 
 > `optional` **orderDirection?**: [`SortDirection`](../types.md#sortdirection)
 
-Defined in: [types/forex.ts:65](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L65)
+Defined in: [types/forex.ts:65](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L65)
 
 Sort direction (either '' or '-').
 
@@ -70,7 +70,7 @@ Sort direction (either '' or '-').
 
 > **unit**: `"pips"`
 
-Defined in: [types/forex.ts:61](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L61)
+Defined in: [types/forex.ts:61](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L61)
 
 Performance unit.
 
@@ -80,7 +80,7 @@ Performance unit.
 
 > **ForexItem** = [`PerformanceItem`](performance.md#performanceitem)
 
-Defined in: [types/forex.ts:78](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L78)
+Defined in: [types/forex.ts:78](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L78)
 
 A single forex performance row returned by the forex endpoint. Performance values are in
 pips when the request used `unit: 'pips'`, otherwise percent.
@@ -91,7 +91,7 @@ pips when the request used `unit: 'pips'`, otherwise percent.
 
 > **ForexOptions** = [`ForexPercentOptions`](#forexpercentoptions) \| [`ForexPipsOptions`](#forexpipsoptions)
 
-Defined in: [types/forex.ts:72](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L72)
+Defined in: [types/forex.ts:72](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L72)
 
 Options for a forex performance request. A discriminated union on `unit`, so a sort column
 that doesn't match the unit (e.g. `perfWeekPips` with percent) is a compile-time error.
@@ -102,7 +102,7 @@ that doesn't match the unit (e.g. `perfWeekPips` with percent) is a compile-time
 
 > **ForexPipsOrderType** = *typeof* [`ForexPipsOrderType`](#forexpipsordertype-1)\[keyof *typeof* [`ForexPipsOrderType`](#forexpipsordertype-1)\]
 
-Defined in: [types/forex.ts:31](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L31)
+Defined in: [types/forex.ts:31](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L31)
 
 Performance sort columns valid when `unit` is `pips`. Finviz requires the sort column to
 match the unit, so these replace the `Pct` performance columns (ticker, name and price
@@ -114,7 +114,7 @@ sort keys are shared with `PerformanceOrderType`).
 
 > **ForexSharedOrderType** = `Extract`\<[`PerformanceOrderType`](performance.md#performanceordertype), `"ticker"` \| `"name"` \| `"last"`\>
 
-Defined in: [types/forex.ts:46](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L46)
+Defined in: [types/forex.ts:46](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L46)
 
 Non-performance sort columns, valid with either unit.
 
@@ -124,7 +124,7 @@ Non-performance sort columns, valid with either unit.
 
 > **ForexUnit** = *typeof* [`ForexUnit`](#forexunit-1)\[keyof *typeof* [`ForexUnit`](#forexunit-1)\]
 
-Defined in: [types/forex.ts:20](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L20)
+Defined in: [types/forex.ts:20](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L20)
 
 Valid `unit` values for the forex endpoint.
 
@@ -134,7 +134,7 @@ Valid `unit` values for the forex endpoint.
 
 > `const` **ForexPipsOrderType**: `object`
 
-Defined in: [types/forex.ts:31](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L31)
+Defined in: [types/forex.ts:31](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L31)
 
 Performance sort columns valid when `unit` is `pips`. Finviz requires the sort column to
 match the unit, so these replace the `Pct` performance columns (ticker, name and price
@@ -188,7 +188,7 @@ sort keys are shared with `PerformanceOrderType`).
 
 > `const` **ForexUnit**: `object`
 
-Defined in: [types/forex.ts:20](https://github.com/7elephants/finvizTS/blob/7e7978f9488c74f86a2da83536b1c7137358ef1d/src/types/forex.ts#L20)
+Defined in: [types/forex.ts:20](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/types/forex.ts#L20)
 
 Valid `unit` values for the forex endpoint.
 
