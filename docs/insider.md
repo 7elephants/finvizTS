@@ -10,28 +10,39 @@
 
 ### getInsiders()
 
-> **getInsiders**(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`InsiderItem`](types/insider.md#insideritem)\>\>
+> **getInsiders**\<`C`, `F`\>(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`InsiderItem`](types/insider.md#insideritem), `F`\>\>
 
-Defined in: [insider.ts:44](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/insider.ts#L44)
+Defined in: [insider.ts:45](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/insider.ts#L45)
 
 Fetch insider trading transactions, optionally filtered by ticker, transaction type,
 owner relationship, minimum transaction value, or owner CIK.
 The API returns a multi-row CSV; each row is mapped to an InsiderItem.
 
+#### Type Parameters
+
+##### C
+
+`C` *extends* [`ResponseFormat`](types/response.md#responseformat) = `"parsed"`
+
+##### F
+
+`F` *extends* [`ResponseFormat`](types/response.md#responseformat) = `C`
+
 #### Parameters
 
 ##### client
 
-[`FinvizClient`](client.md#finvizclient)
+[`FinvizClient`](client.md#finvizclient)\<`C`\>
 
 Authenticated FinvizClient instance
 
 ##### options?
 
-[`InsiderOptions`](types/insider.md#insideroptions) = `{}`
+[`InsiderOptions`](types/insider.md#insideroptions) & [`FormatOption`](types/response.md#formatoption)\<`F`\> = `{}`
 
-Ticker, transaction type, owner relationship, and sort options
+Ticker, transaction type, owner relationship, and sort options, plus optional `format`
+                 (`parsed` | `raw` | `both`) overriding the client default
 
 #### Returns
 
-`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`InsiderItem`](types/insider.md#insideritem)\>\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`InsiderItem`](types/insider.md#insideritem), `F`\>\>

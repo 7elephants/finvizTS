@@ -49,11 +49,11 @@ src/
   index.ts        # Public API surface — re-exports everything
   client.ts       # FinvizClient — axios transport, CSV parsing, auth injection, rate limiting/retries
   csv.ts          # parseRecord() and parseRecords() — csv-parse wrappers
-  parse.ts        # parseRows(), rawResponse() + text/number/integer/date column parsers — record → typed item mapping (not exported)
+  parse.ts        # parseRows(), rawResponse(), formatOf() + text/number/integer/date column parsers — record → typed item mapping and parsed/raw/both shaping (not exported)
   errors.ts       # FinvizError — thrown on HTTP/network failures
   filters.ts      # buildFilters() — composes the screener `f` query string
   utils.ts        # formatDateToYYYYMMDD(), buildSortParam() — shared request-building helpers
-  types/          # All shared TypeScript interfaces, types, and const objects (one file per domain; response.ts holds FinvizResponse/ParseError)
+  types/          # All shared TypeScript interfaces, types, and const objects (one file per domain; response.ts holds FinvizResponse/ParseError/ResponseFormat)
   quote.ts        # getQuote(client, ticker, options) → FinvizResponse<Quote>
   screener.ts     # getScreener(client, options) → FinvizResponse<Screener>
   news.ts         # getNews(client, options) → FinvizResponse<NewsItem>
@@ -75,6 +75,7 @@ tests/
   client.test.ts
   csv.test.ts
   index.test.ts       # every const in src/types is re-exported from the package root
+  format.test.ts      # parsed/raw/both across every get* + compile-time return-type narrowing
   parse.test.ts
   quote.test.ts
   screener.test.ts
@@ -98,6 +99,7 @@ tests/
 - **All responses are CSV.** The Finviz API returns `text/csv`. Requests use `responseType: 'text'` and axios sends `Accept: text/csv`.
 - **Two response shapes.** `client.getRecord()` handles two-row CSV (header + single value row) for quote; `client.getRecords()` handles N-row CSV for screener, news, and the rest of the multi-row endpoints. The `csv-parse` library does the actual parsing.
 - **Every `get*` returns `FinvizResponse<T>` (`{ items, errors }`).** Typed endpoints declare a `RowSchema<T>` (item property → `text`/`number`/`integer`/`date` column parser) and call `parseRows()` in `parse.ts`. Every item field is `T | undefined`: blank/missing cells become `undefined`; non-blank cells that fail to parse also become `undefined` and are reported as a `ParseError { row, column, field, value, expected }`. Record endpoints (screener, portfolio, groups, options, economic calendar) return raw rows via `rawResponse()` with an empty `errors` array.
+- **Response format: `parsed` | `raw` | `both`.** `FinvizResponse<T, F>` is a conditional type (`ParsedResponse<T>` / `RawResponse` / `ParsedAndRawResponse<T>`; `F` defaults to `parsed`). `FinvizClient<F>` holds the default `format`; every `get*` is generic `<C, F = C>` over `client: FinvizClient<C>` and `options: XOptions & FormatOption<F>`, and passes `formatOf(client, options)` to `parseRows()`/`rawResponse()`. `raw` skips parsing entirely. New endpoints must follow the same signature pattern (`tests/format.test.ts` covers every `get*`).
 - **The package root re-exports all of `src/types` via `export *`.** Don't hand-list type exports in `src/index.ts`; `tests/index.test.ts` fails if a const object in `src/types` isn't reachable from the package root.
 - **Fund/manager name column.** Finviz's CSV header is `Series Name` for `/export/funds` and `Portfolio Manager` for `/export/managers`; both map to `ManagerFundItem.manager`.
 - **`FinvizClient` is the single transport layer.** Every module function accepts a `FinvizClient` instance. Consumers construct one client and pass it around. It also proactively rate-limits requests and retries `429` responses (see `.claude/rules/rate_limiting.md`).

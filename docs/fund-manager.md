@@ -10,18 +10,28 @@
 
 ### getFundManagerItems()
 
-> **getFundManagerItems**(`client`, `path`, `nameColumn`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`ManagerFundItem`](types/fund-manager.md#managerfunditem)\>\>
+> **getFundManagerItems**\<`C`, `F`\>(`client`, `path`, `nameColumn`, `options`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`ManagerFundItem`](types/fund-manager.md#managerfunditem), `F`\>\>
 
-Defined in: [fund-manager.ts:55](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/fund-manager.ts#L55)
+Defined in: [fund-manager.ts:56](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/fund-manager.ts#L56)
 
 Fetch fund or fund-manager portfolios, optionally filtered by a search term and sorted by
 order/direction. The API returns a multi-row CSV; each row is mapped to a ManagerFundItem.
+
+#### Type Parameters
+
+##### C
+
+`C` *extends* [`ResponseFormat`](types/response.md#responseformat) = `"parsed"`
+
+##### F
+
+`F` *extends* [`ResponseFormat`](types/response.md#responseformat) = `C`
 
 #### Parameters
 
 ##### client
 
-[`FinvizClient`](client.md#finvizclient)
+[`FinvizClient`](client.md#finvizclient)\<`C`\>
 
 Authenticated FinvizClient instance
 
@@ -39,10 +49,11 @@ Authenticated FinvizClient instance
 
 ##### options
 
-[`ManagerFundOptions`](types/fund-manager.md#managerfundoptions)
+[`ManagerFundOptions`](types/fund-manager.md#managerfundoptions) & [`FormatOption`](types/response.md#formatoption)\<`F`\>
 
-Search term and sort options
+Search term and sort options, plus optional `format`
+                 (`parsed` | `raw` | `both`) overriding the client default
 
 #### Returns
 
-`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`ManagerFundItem`](types/fund-manager.md#managerfunditem)\>\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`ManagerFundItem`](types/fund-manager.md#managerfunditem), `F`\>\>

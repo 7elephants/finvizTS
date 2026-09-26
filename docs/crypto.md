@@ -10,27 +10,38 @@
 
 ### getCrypto()
 
-> **getCrypto**(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
+> **getCrypto**\<`C`, `F`\>(`client`, `options?`): `Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem), `F`\>\>
 
-Defined in: [crypto.ts:25](https://github.com/7elephants/finvizTS/blob/6242356247f7ebbf9c10bd8055a6c731e06416ac/src/crypto.ts#L25)
+Defined in: [crypto.ts:26](https://github.com/7elephants/finvizTS/blob/80a71835161ee929f23b53123ed4d2d457750e80/src/crypto.ts#L26)
 
 Fetch crypto performance, optionally sorted by order/direction.
 The API returns a multi-row CSV; each row is mapped to a CryptoItem.
+
+#### Type Parameters
+
+##### C
+
+`C` *extends* [`ResponseFormat`](types/response.md#responseformat) = `"parsed"`
+
+##### F
+
+`F` *extends* [`ResponseFormat`](types/response.md#responseformat) = `C`
 
 #### Parameters
 
 ##### client
 
-[`FinvizClient`](client.md#finvizclient)
+[`FinvizClient`](client.md#finvizclient)\<`C`\>
 
 Authenticated FinvizClient instance
 
 ##### options?
 
-[`CryptoOptions`](types/crypto.md#cryptooptions) = `{}`
+[`CryptoOptions`](types/crypto.md#cryptooptions) & [`FormatOption`](types/response.md#formatoption)\<`F`\> = `{}`
 
-Quote currency and sort options
+Quote currency and sort options, plus optional `format`
+                 (`parsed` | `raw` | `both`) overriding the client default
 
 #### Returns
 
-`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem)\>\>
+`Promise`\<[`FinvizResponse`](types/response.md#finvizresponse)\<[`PerformanceItem`](types/performance.md#performanceitem), `F`\>\>
